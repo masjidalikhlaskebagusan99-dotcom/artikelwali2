@@ -4,6 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karomah Syeikh Abdul Qadir Jilani - KALAM</title>
+/* ============================================
+   PATCH UNIVERSAL: Teks Rata Kanan-Kiri
+   Untuk Teks Latin & Arab
+   ============================================ */
+
+/* 1. TEKS LATIN - Rata Kanan-Kiri */
+p, li, td, th, blockquote {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+/* 2. TEKS ARAB - Rata Kanan-Kiri + RTL */
+.arabic, 
+[class*="arabic"],
+[dir="rtl"],
+[lang="ar"] {
+    text-align: justify;
+    text-justify: inter-word;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+}
+
+/* 3. TERJEMAHAN/ARTINYA - Rata Tengah */
+.translation,
+.terjemahan,
+.artinya {
+    text-align: center;
+    font-style: italic;
+}
+
+/* 4. SUMBER/REFERENCE - Rata Kanan */
+.source,
+.sumber,
+.reference {
+    text-align: right;
+}
 <style>
     body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; line-height: 1.7; }
     .header { background: #1a5f4f; color: white; padding: 15px 30px; display: flex; align-items: center; gap: 20px; }
