@@ -28,6 +28,46 @@
     .page-btn:hover, .page-btn.active { background: #1a5f4f; color: white; }
     .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; border-top: 1px solid #ddd; margin-top: 30px; }
     .footer a { color: #1a5f4f; text-decoration: none; }
+    /* ============================================
+   PATCH UNIVERSAL: Teks Rata Kanan-Kiri
+   Untuk Teks Latin & Arab
+   ============================================ */
+
+/* 1. TEKS LATIN - Rata Kanan-Kiri */
+p, li, td, th, blockquote {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+/* 2. TEKS ARAB - Rata Kanan-Kiri + RTL */
+.arabic, 
+[class*="arabic"],
+[dir="rtl"],
+[lang="ar"] {
+    text-align: justify;
+    text-justify: inter-word;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+}
+
+/* 3. TERJEMAHAN/ARTINYA - Rata Tengah */
+.translation,
+.terjemahan,
+.artinya {
+    text-align: center;
+    font-style: italic;
+}
+
+/* 4. SUMBER/REFERENCE - Rata Kanan */
+.source,
+.sumber,
+.reference {
+    text-align: right;
+}
 </style>
 </head>
 <body>
