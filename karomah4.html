@@ -5,172 +5,667 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karomah Syeikh Abdul Qadir Jilani (Halaman 4) - KALAM</title>
 <style>
-    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; line-height: 1.7; }
-    .header { background: #1a5f4f; color: white; padding: 15px 30px; display: flex; align-items: center; gap: 20px; }
-    .logo { font-size: 28px; font-weight: bold; background: white; color: #1a5f4f; padding: 5px 12px; border-radius: 4px; text-decoration: none; }
-    .nav { display: flex; gap: 20px; }
-    .nav a { color: white; text-decoration: none; font-weight: 500; }
-    .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    .breadcrumb { color: #666; margin-bottom: 20px; font-size: 14px; }
-    .breadcrumb a { color: #1a5f4f; text-decoration: none; }
-    h1 { color: #1a5f4f; font-size: 32px; margin-bottom: 10px; }
-    .meta { color: #888; font-size: 14px; margin-bottom: 20px; border-bottom: 2px solid #1a5f4f; padding-bottom: 15px; }
-    .meta strong { color: #333; }
-    .featured-img { width: 100%; max-width: 500px; display: block; margin: 20px auto; border-radius: 8px; border: 3px solid #1a5f4f; }
-    h2 { color: #1a5f4f; border-left: 5px solid #1a5f4f; padding-left: 12px; margin-top: 35px; }
-    .quote { background: #f0f7f5; border-right: 4px solid #1a5f4f; padding: 15px 20px; margin: 20px 0; font-style: italic; border-radius: 4px; }
-    .arabic { font-family: 'Traditional Arabic', 'Amiri', serif; font-size: 26px; text-align: right; direction: rtl; background: #fafafa; padding: 15px; border-radius: 6px; margin: 15px 0; color: #1a5f4f; line-height: 2; }
-    .meaning { font-style: italic; color: #555; margin-top: -10px; margin-bottom: 20px; padding-left: 15px; border-left: 3px solid #ddd; }
-    .dalil { background: #fff8e1; padding: 15px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #f5a623; }
-    .dalil .arabic { background: transparent; }
-    .pagination { display: flex; justify-content: center; gap: 10px; margin: 40px 0 20px; flex-wrap: wrap; }
-    .page-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; color: #1a5f4f; border: 2px solid #1a5f4f; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
-    .page-btn:hover, .page-btn.active { background: #1a5f4f; color: white; }
-    .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; border-top: 1px solid #ddd; margin-top: 30px; }
-    .footer a { color: #1a5f4f; text-decoration: none; }
-    .story-box { background: #fffaf0; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px dashed #d4a574; }
-/* ============================================
-   PATCH UNIVERSAL: Teks Rata Kanan-Kiri
-   Untuk Teks Latin & Arab
-   ============================================ */
-
-/* 1. TEKS LATIN - Rata Kanan-Kiri */
-p, li, td, th, blockquote {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
 }
-
-/* 2. TEKS ARAB - Rata Kanan-Kiri + RTL */
-.arabic, 
-[class*="arabic"],
-[dir="rtl"],
-[lang="ar"] {
-    text-align: justify;
-    text-justify: inter-word;
-    direction: rtl;
-    unicode-bidi: bidi-override;
-    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
 }
-
-/* 3. TERJEMAHAN/ARTINYA - Rata Tengah */
-.translation,
-.terjemahan,
-.artinya {
-    text-align: center;
-    font-style: italic;
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
 }
-
-/* 4. SUMBER/REFERENCE - Rata Kanan */
-.source,
-.sumber,
-.reference {
-    text-align: right;
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+}
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -15px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 15px;
+font-size: 1.5rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.story-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.story-box p {
+margin-top: 10px;
+}
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 40px 0;
+padding: 30px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.8rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+@media (max-width: 600px) {
+header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+.article-container { padding: 0 15px; }
+.article-header h1 { font-size: 1.5rem; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav { gap: 15px; }
+.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
 }
 </style>
 </head>
 <body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; <a href="karomah1.html">Karomah Syeikh Abdul Qadir Jilani</a> &raquo; Halaman 4
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abdul Qadir Jilani</h1>
+<div class="subtitle">Halaman 4 dari 5 — Karomah dalam Menolong & Memberkahi</div>
+<div class="article-meta">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div style="color:#999; font-size:0.85rem;">Jumat, 09 Oktober 2026, 14:30 WIB</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg"
+alt="Syeikh Abdul Qadir Jilani">
+<div class="image-caption">Sumber: kalam.web.id — Potret Syeikh Abdul Qadir Jilani</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">𝕏</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Syeikh Abdul Qadir Jilani bukan hanya seorang guru dan da'i, tetapi juga seorang penolong bagi mereka yang tertindas, pemberi pertolongan bagi mereka yang dalam kesulitan, dan sumber keberkahan bagi siapa saja yang bertawassul kepadanya dengan izin Allah. Karomah beliau dalam menolong umat sangat luas dan dikenal hingga ke berbagai penjuru dunia Islam.
+</p>
 
-<div class="header">
-    <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo">K</a>
-    <div style="font-size: 22px; font-weight: bold;">ALAM</div>
-    <div class="nav" style="margin-left: auto;">
-        <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
-        <a href="artikelwali2.html">Artikel</a>
-    </div>
+<div class="karomah-card">
+<span class="karomah-number">16</span>
+<span class="karomah-title">Karomah Menolong Orang yang Terzalimi</span>
+<div class="karomah-arabic">نَصْرُ الْمَظْلُومِ بِدُعَائِهِ</div>
+<p>
+Banyak kisah tentang orang-orang yang dizalimi kemudian mendapat pertolongan melalui doa Syeikh Abdul Qadir Jilani. Seorang pedagang yang ditipu oleh mitranya datang kepadanya dengan menangis. Syeikh hanya mengangkat tangan dan berdoa, maka dalam waktu singkat, pedagang yang zalim itu datang sendiri mengembalikan harta yang dicurinya dan meminta maaf.
+</p>
 </div>
 
-<div class="container">
-    <div class="breadcrumb">
-        <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> » <a href="artikelwali2.html">Artikel</a> » <a href="karomah1.html">Karomah Syeikh Abdul Qadir Jilani</a> » Halaman 4
-    </div>
-
-    <h1>Karomah Syeikh Abdul Qadir Jilani</h1>
-    <div class="meta">
-        <strong>Halaman 4 dari 5</strong> — Karomah dalam Menolong & Memberkahi<br>
-        <strong>Penulis:</strong> MYDKM Masjid Jami' Al-Ikhlas Kebagusan<br>
-        <strong>Diterbitkan:</strong> Jumat, 09 Oktober 2026, 14:30 WIB<br>
-        <strong>Sumber:</strong> kalam.web.id
-    </div>
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg" alt="Syeikh Abdul Qadir Jilani" class="featured-img">
-
-    <p>Syeikh Abdul Qadir Jilani bukan hanya seorang guru dan da'i, tetapi juga seorang penolong bagi mereka yang tertindas, pemberi pertolongan bagi mereka yang dalam kesulitan, dan sumber keberkahan bagi siapa saja yang bertawassul kepadanya dengan izin Allah. Karomah beliau dalam menolong umat sangat luas dan dikenal hingga ke berbagai penjuru dunia Islam.</p>
-
-    <h2>16. Karomah Menolong Orang yang Terzalimi</h2>
-    <p>Banyak kisah tentang orang-orang yang dizalimi kemudian mendapat pertolongan melalui doa Syeikh Abdul Qadir Jilani. Seorang pedagang yang ditipu oleh mitranya datang kepadanya dengan menangis. Syeikh hanya mengangkat tangan dan berdoa, maka dalam waktu singkat, pedagang yang zalim itu datang sendiri mengembalikan harta yang dicurinya dan meminta maaf.</p>
-
-    <div class="dalil">
-        <div class="arabic">وَلَمَنِ انتَصَرَ بَعْدَ ظُلْمِهِ فَأُولَٰئِكَ مَا عَلَيْهِم مِّن سَبِيلٍ</div>
-        <p class="meaning">Artinya: "Dan sesungguhnya orang-orang yang membela diri sesudah teraniaya, tidak ada dosa sedikit pun atas mereka." — QS. Asy-Syura: 41</p>
-    </div>
-
-    <h2>17. Karomah Memberi Pertolongan dari Jauh</h2>
-    <p>Salah satu karomah terbesar Syeikh Abdul Qadir Jilani adalah kemampuannya memberi pertolongan kepada orang yang berada jauh dari beliau, bahkan di negeri yang berbeda. Banyak kisah tentang orang-orang yang berada dalam kesulitan di berbagai negeri, kemudian mereka memanggil nama Syeikh Abdul Qadir dengan penuh keyakinan, dan pertolongan pun datang dengan cara yang tidak terduga.</p>
-
-    <div class="story-box">
-        <strong>Kisah Seorang Pelaut:</strong>
-        <p>Kapal yang ditumpangi seorang pedagang muslim tenggelam di tengah lautan. Dalam keadaan hampir tenggelam, ia berseru: <em>"Ya Syeikh Abdul Qadir, tolonglah aku!"</em> Tiba-tiba, sepotong kayu besar datang menghampirinya, dan ia dapat berpegangan padanya hingga selamat sampai ke daratan. Ketika ia sampai ke Baghdad dan menceritakan kisahnya kepada Syeikh, Syeikh tersenyum dan berkata: <em>"Itulah tongkatku yang kulemparkan ke laut untuk menolongmu."</em></p>
-    </div>
-
-    <h2>18. Karomah Mengabulkan Hajat</h2>
-    <p>Siapa pun yang datang kepada Syeikh Abdul Qadir Jilani dengan hajat yang mendesak, maka hajatnya akan terpenuhi dengan izin Allah. Orang yang miskin menjadi kaya, orang yang sakit menjadi sehat, orang yang belum menikah segera mendapat jodoh, dan orang yang tertimpa musibah segera mendapat jalan keluar.</p>
-
-    <div class="quote">
-        "Barangsiapa yang datang kepadaku dengan hajat karena Allah, maka aku akan menolongnya dengan izin Allah. Dan barangsiapa yang datang karena dunia, maka aku akan menolaknya agar ia kembali kepada Allah." — Syeikh Abdul Qadir Al-Jilani
-    </div>
-
-    <h2>19. Karomah Mengusir Wabah dan Bencana</h2>
-    <p>Pada masa terjadi wabah penyakit di Baghdad, para ulama dan pembesar kota datang kepada Syeikh Abdul Qadir Jilani memohon doa. Beliau keluar ke lapangan bersama ribuan muridnya, lalu berdoa dengan khusyuk. Dengan izin Allah, wabah itu segera reda dan Baghdad kembali aman.</p>
-
-    <div class="dalil">
-        <div class="arabic">وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ</div>
-        <p class="meaning">Artinya: "Dan Kami turunkan dari Al-Qur'an suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman." — QS. Al-Isra': 82</p>
-    </div>
-
-    <h2>20. Karomah Mengendalikan Hujan</h2>
-    <p>Pada masa kekeringan panjang di Baghdad, para penduduk datang meminta Syeikh agar berdoa untuk hujan. Beliau mengangkat tangan dan berdoa, maka dalam waktu singkat, awan berkumpul dan hujan turun dengan lebat, menghidupkan kembali tanah yang kering. Sebaliknya, ketika hujan terlalu lebat dan menyebabkan banjir, beliau berdoa dan hujan pun reda.</p>
-
-    <h2>21. Karomah Mendapat Rezeki dari Arah yang Tidak Disangka</h2>
-    <p>Syeikh Abdul Qadir Jilani tidak pernah meminta-minta, namun rezeki selalu datang kepadanya dari arah yang tidak disangka-sangka. Orang-orang kaya dan pembesar datang membawakan harta mereka untuk beliau distribusikan kepada fakir miskin. Ribuan orang makan setiap hari dari dapur beliau, namun persediaan makanan tidak pernah habis.</p>
-
-    <div class="dalil">
-        <div class="arabic">وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ</div>
-        <p class="meaning">Artinya: "Dan barangsiapa yang bertawakkal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya." — QS. Ath-Thalaq: 3</p>
-    </div>
-
-    <h2>22. Karomah Muncul dalam Mimpi</h2>
-    <p>Banyak orang yang tidak pernah bertemu Syeikh Abdul Qadir Jilani secara langsung, namun beliau muncul dalam mimpi mereka untuk memberi petunjuk, memberi kabar gembira, atau memberi peringatan. Para ulama menjelaskan bahwa ini adalah bentuk <em>ru'yah shadiqah</em> (mimpi yang benar) yang merupakan salah satu bagian dari kenabian.</p>
-
-    <div class="story-box">
-        <strong>Kisah Seorang Pedagang dari Mesir:</strong>
-        <p>Seorang pedagang di Mesir bermimpi didatangi seorang pria berpakaian hijau yang berkata: <em>"Sampaikan salamku kepada penduduk Baghdad, dan katakan bahwa Abdul Qadir adalah wali Allah yang haq."</em> Ketika pedagang itu sampai di Baghdad dan menceritakan mimpinya, ia digambarkan sosok yang persis seperti Syeikh Abdul Qadir Jilani.</p>
-    </div>
-
-    <h2>Doa Tawassul kepada Syeikh Abdul Qadir Jilani</h2>
-    <div class="arabic">اللَّهُمَّ إِنِّي أَتَوَسَّلُ إِلَيْكَ بِنَبِيِّكَ مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، وَبِوَلِيِّكَ الصَّالِحِ سَيِّدِنَا عَبْدِ الْقَادِرِ الْجِيلَانِي، أَنْ تَقْضِيَ لِي حَاجَتِي، وَأَنْ تَغْفِرَ لِي ذَنْبِي، وَأَنْ تَجْعَلَنِي مِنْ عِبَادِكَ الصَّالِحِينَ</div>
-    <p class="meaning">Artinya: "Ya Allah, sesungguhnya aku bertawassul kepada-Mu dengan Nabi-Mu Muhammad shallallahu 'alaihi wa sallam, dan dengan wali-Mu yang shaleh Sayyidina Abdul Qadir Al-Jilani, agar Engkau memenuhi hajatku, mengampuni dosaku, dan menjadikanku termasuk hamba-hamba-Mu yang shaleh."</p>
-
-    <h2>Penutup Halaman 4</h2>
-    <p>Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani dalam menolong dan memberkahi umat. Beliau adalah lautan rahmat yang Allah hadirkan di muka bumi untuk menolong hamba-hamba-Nya yang membutuhkan. Pada halaman terakhir, kita akan membahas karomah akhir hayat beliau dan doa penutup.</p>
-
-    <p><em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.</p>
-
-    <div class="pagination">
-        <a href="karomah1.html" class="page-btn">1</a>
-        <a href="karomah2.html" class="page-btn">2</a>
-        <a href="karomah3.html" class="page-btn">3</a>
-        <a href="karomah4.html" class="page-btn active">4</a>
-        <a href="karomah5.html" class="page-btn">5</a>
-    </div>
-
-    <div class="footer">
-        <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">← Kembali ke Beranda</a><br>
-        © 2026 KALAM. Semua hak dilindungi.
-    </div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ORANG TERANIAYA — QS. ASY-SYURA: 41</div>
+<div class="arabic-text">
+وَلَمَنِ انتَصَرَ بَعْدَ ظُلْمِهِ فَأُولَٰئِكَ مَا عَلَيْهِم مِّن سَبِيلٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan sesungguhnya orang-orang yang membela diri sesudah teraniaya, tidak ada dosa sedikit pun atas mereka."
+<br>— QS. Asy-Syura: 41
+</div>
 </div>
 
+<div class="karomah-card">
+<span class="karomah-number">17</span>
+<span class="karomah-title">Karomah Memberi Pertolongan dari Jauh</span>
+<div class="karomah-arabic">نَصْرُهُ مِنْ بَعِيدٍ بِإِذْنِ اللَّهِ</div>
+<p>
+Salah satu karomah terbesar Syeikh Abdul Qadir Jilani adalah kemampuannya memberi pertolongan kepada orang yang berada jauh dari beliau, bahkan di negeri yang berbeda. Banyak kisah tentang orang-orang yang berada dalam kesulitan di berbagai negeri, kemudian mereka memanggil nama Syeikh Abdul Qadir dengan penuh keyakinan, dan pertolongan pun datang dengan cara yang tidak terduga.
+</p>
+</div>
+
+<div class="story-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Kisah Seorang Pelaut:</strong>
+<p>
+Kapal yang ditumpangi seorang pedagang muslim tenggelam di tengah lautan. Dalam keadaan hampir tenggelam, ia berseru: <em>"Ya Syeikh Abdul Qadir, tolonglah aku!"</em> Tiba-tiba, sepotong kayu besar datang menghampirinya, dan ia dapat berpegangan padanya hingga selamat sampai ke daratan. Ketika ia sampai ke Baghdad dan menceritakan kisahnya kepada Syeikh, Syeikh tersenyum dan berkata: <em>"Itulah tongkatku yang kulemparkan ke laut untuk menolongmu."</em>
+</p>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">18</span>
+<span class="karomah-title">Karomah Mengabulkan Hajat</span>
+<div class="karomah-arabic">قَضَاءُ الْحَوَائِجِ بِبَرَكَةِ دُعَائِهِ</div>
+<p>
+Siapa pun yang datang kepada Syeikh Abdul Qadir Jilani dengan hajat yang mendesak, maka hajatnya akan terpenuhi dengan izin Allah. Orang yang miskin menjadi kaya, orang yang sakit menjadi sehat, orang yang belum menikah segera mendapat jodoh, dan orang yang tertimpa musibah segera mendapat jalan keluar.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYAIKH TENTANG HAJAT</div>
+<div class="arabic-text">
+مَنْ جَاءَنِي بِحَاجَةٍ لِلَّهِ قَضَيْتُهَا لَهُ، وَمَنْ جَاءَنِي لِلدُّنْيَا رَدَدْتُهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa yang datang kepadaku dengan hajat karena Allah, maka aku akan menolongnya dengan izin Allah. Dan barangsiapa yang datang karena dunia, maka aku akan menolaknya agar ia kembali kepada Allah."
+<br>— Syeikh Abdul Qadir Al-Jilani
+</div>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">19</span>
+<span class="karomah-title">Karomah Mengusir Wabah dan Bencana</span>
+<div class="karomah-arabic">دَفْعُ الْوَبَاءِ بِدُعَائِهِ</div>
+<p>
+Pada masa terjadi wabah penyakit di Baghdad, para ulama dan pembesar kota datang kepada Syeikh Abdul Qadir Jilani memohon doa. Beliau keluar ke lapangan bersama ribuan muridnya, lalu berdoa dengan khusyuk. Dengan izin Allah, wabah itu segera reda dan Baghdad kembali aman.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENYEMBUHAN — QS. AL-ISRA': 82</div>
+<div class="arabic-text">
+وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Kami turunkan dari Al-Qur'an suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."
+<br>— QS. Al-Isra': 82
+</div>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">20</span>
+<span class="karomah-title">Karomah Mengendalikan Hujan</span>
+<div class="karomah-arabic">إِنْزَالُ الْمَطَرِ بِدُعَائِهِ</div>
+<p>
+Pada masa kekeringan panjang di Baghdad, para penduduk datang meminta Syeikh agar berdoa untuk hujan. Beliau mengangkat tangan dan berdoa, maka dalam waktu singkat, awan berkumpul dan hujan turun dengan lebat, menghidupkan kembali tanah yang kering. Sebaliknya, ketika hujan terlalu lebat dan menyebabkan banjir, beliau berdoa dan hujan pun reda.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DOA — QS. AL-BAQARAH: 186</div>
+<div class="arabic-text">
+وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka (jawablah), bahwasanya Aku adalah dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku."
+<br>— QS. Al-Baqarah: 186
+</div>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">21</span>
+<span class="karomah-title">Karomah Mendapat Rezeki dari Arah yang Tidak Disangka</span>
+<div class="karomah-arabic">الرِّزْقُ مِنْ حَيْثُ لَا يَحْتَسِبُ</div>
+<p>
+Syeikh Abdul Qadir Jilani tidak pernah meminta-minta, namun rezeki selalu datang kepadanya dari arah yang tidak disangka-sangka. Orang-orang kaya dan pembesar datang membawakan harta mereka untuk beliau distribusikan kepada fakir miskin. Ribuan orang makan setiap hari dari dapur beliau, namun persediaan makanan tidak pernah habis.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG REZEKI — QS. ATH-THALAQ: 3</div>
+<div class="arabic-text">
+وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan barangsiapa yang bertawakkal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya."
+<br>— QS. Ath-Thalaq: 3
+</div>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">22</span>
+<span class="karomah-title">Karomah Muncul dalam Mimpi</span>
+<div class="karomah-arabic">ظُهُورُهُ فِي الرُّؤْيَا الصَّادِقَةِ</div>
+<p>
+Banyak orang yang tidak pernah bertemu Syeikh Abdul Qadir Jilani secara langsung, namun beliau muncul dalam mimpi mereka untuk memberi petunjuk, memberi kabar gembira, atau memberi peringatan. Para ulama menjelaskan bahwa ini adalah bentuk <em>ru'yah shadiqah</em> (mimpi yang benar) yang merupakan salah satu bagian dari kenabian.
+</p>
+</div>
+
+<div class="story-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Kisah Seorang Pedagang dari Mesir:</strong>
+<p>
+Seorang pedagang di Mesir bermimpi didatangi seorang pria berpakaian hijau yang berkata: <em>"Sampaikan salamku kepada penduduk Baghdad, dan katakan bahwa Abdul Qadir adalah wali Allah yang haq."</em> Ketika pedagang itu sampai di Baghdad dan menceritakan mimpinya, ia digambarkan sosok yang persis seperti Syeikh Abdul Qadir Jilani.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MIMPI BENAR — HR. BUKHARI</div>
+<div class="arabic-text">
+الرُّؤْيَا الصَّالِحَةُ جُزْءٌ مِنْ سِتَّةٍ وَأَرْبَعِينَ جُزْءًا مِنَ النُّبُوَّةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Mimpi yang baik (shadiqah) adalah salah satu dari empat puluh enam bagian kenabian."
+<br>— HR. Bukhari
+</div>
+</div>
+
+<h2>Doa Tawassul kepada Syeikh Abdul Qadir Jilani</h2>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA TAWASSUL</div>
+<div class="arabic-text">
+اللَّهُمَّ إِنِّي أَتَوَسَّلُ إِلَيْكَ بِنَبِيِّكَ مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، وَبِوَلِيِّكَ الصَّالِحِ سَيِّدِنَا عَبْدِ الْقَادِرِ الْجِيلَانِي، أَنْ تَقْضِيَ لِي حَاجَتِي، وَأَنْ تَغْفِرَ لِي ذَنْبِي، وَأَنْ تَجْعَلَنِي مِنْ عِبَادِكَ الصَّالِحِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, sesungguhnya aku bertawassul kepada-Mu dengan Nabi-Mu Muhammad shallallahu 'alaihi wa sallam, dan dengan wali-Mu yang shaleh Sayyidina Abdul Qadir Al-Jilani, agar Engkau memenuhi hajatku, mengampuni dosaku, dan menjadikanku termasuk hamba-hamba-Mu yang shaleh."
+</div>
+</div>
+
+<h2>Penutup Halaman 4</h2>
+
+<p>
+Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani dalam menolong dan memberkahi umat. Beliau adalah lautan rahmat yang Allah hadirkan di muka bumi untuk menolong hamba-hamba-Nya yang membutuhkan. Pada halaman terakhir, kita akan membahas karomah akhir hayat beliau dan doa penutup.
+</p>
+
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan tidak ada taufik bagiku melainkan dengan (pertolongan) Allah. Hanya kepada Allah aku bertawakkal dan hanya kepada-Nya-lah aku kembali."
+<br>— QS. Hud: 88
+</div>
+</div>
+</div>
+
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="karomah1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="karomah2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="karomah3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="karomah4.html" class="article-nav-btn active" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="karomah5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+</div>
+
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
 </body>
 </html>
