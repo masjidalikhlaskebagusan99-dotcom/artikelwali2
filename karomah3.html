@@ -251,16 +251,19 @@ box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 position: relative;
 }
 .arabic-box::before {
-content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-position: absolute;
-top: -15px;
-left: 50%;
-transform: translateX(-50%);
-background: #f8f6f0;
-padding: 0 15px;
-font-size: 1.5rem;
-color: #d4af37;
-font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f8f6f0;
+    padding: 0 12px;
+    font-size: 1.2rem;
+    color: #d4af37;
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    white-space: nowrap;
+    line-height: 1.4;
+    z-index: 2;
 }
 .arabic-text {
 font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
