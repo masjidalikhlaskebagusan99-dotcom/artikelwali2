@@ -5,182 +5,668 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karomah Syeikh Abdul Qadir Jilani (Halaman 3) - KALAM</title>
 <style>
-    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; line-height: 1.7; }
-    .header { background: #1a5f4f; color: white; padding: 15px 30px; display: flex; align-items: center; gap: 20px; }
-    .logo { font-size: 28px; font-weight: bold; background: white; color: #1a5f4f; padding: 5px 12px; border-radius: 4px; text-decoration: none; }
-    .nav { display: flex; gap: 20px; }
-    .nav a { color: white; text-decoration: none; font-weight: 500; }
-    .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    .breadcrumb { color: #666; margin-bottom: 20px; font-size: 14px; }
-    .breadcrumb a { color: #1a5f4f; text-decoration: none; }
-    h1 { color: #1a5f4f; font-size: 32px; margin-bottom: 10px; }
-    .meta { color: #888; font-size: 14px; margin-bottom: 20px; border-bottom: 2px solid #1a5f4f; padding-bottom: 15px; }
-    .meta strong { color: #333; }
-    .featured-img { width: 100%; max-width: 500px; display: block; margin: 20px auto; border-radius: 8px; border: 3px solid #1a5f4f; }
-    h2 { color: #1a5f4f; border-left: 5px solid #1a5f4f; padding-left: 12px; margin-top: 35px; }
-    .quote { background: #f0f7f5; border-right: 4px solid #1a5f4f; padding: 15px 20px; margin: 20px 0; font-style: italic; border-radius: 4px; }
-    .arabic { font-family: 'Traditional Arabic', 'Amiri', serif; font-size: 26px; text-align: right; direction: rtl; background: #fafafa; padding: 15px; border-radius: 6px; margin: 15px 0; color: #1a5f4f; line-height: 2; }
-    .meaning { font-style: italic; color: #555; margin-top: -10px; margin-bottom: 20px; padding-left: 15px; border-left: 3px solid #ddd; }
-    .dalil { background: #fff8e1; padding: 15px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #f5a623; }
-    .dalil .arabic { background: transparent; }
-    .pagination { display: flex; justify-content: center; gap: 10px; margin: 40px 0 20px; flex-wrap: wrap; }
-    .page-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: white; color: #1a5f4f; border: 2px solid #1a5f4f; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
-    .page-btn:hover, .page-btn.active { background: #1a5f4f; color: white; }
-    .footer { text-align: center; padding: 20px; color: #666; font-size: 14px; border-top: 1px solid #ddd; margin-top: 30px; }
-    .footer a { color: #1a5f4f; text-decoration: none; }
-    .highlight-box { background: linear-gradient(135deg, #f0f7f5, #e8f3ef); padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #c8e0d8; }
-/* ============================================
-   PATCH UNIVERSAL: Teks Rata Kanan-Kiri
-   Untuk Teks Latin & Arab
-   ============================================ */
-
-/* 1. TEKS LATIN - Rata Kanan-Kiri */
-p, li, td, th, blockquote {
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
 }
-
-/* 2. TEKS ARAB - Rata Kanan-Kiri + RTL */
-.arabic, 
-[class*="arabic"],
-[dir="rtl"],
-[lang="ar"] {
-    text-align: justify;
-    text-justify: inter-word;
-    direction: rtl;
-    unicode-bidi: bidi-override;
-    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
 }
-
-/* 3. TERJEMAHAN/ARTINYA - Rata Tengah */
-.translation,
-.terjemahan,
-.artinya {
-    text-align: center;
-    font-style: italic;
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
 }
-
-/* 4. SUMBER/REFERENCE - Rata Kanan */
-.source,
-.sumber,
-.reference {
-    text-align: right;
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+}
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -15px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 15px;
+font-size: 1.5rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 40px 0;
+padding: 30px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.8rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+@media (max-width: 600px) {
+header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+.article-container { padding: 0 15px; }
+.article-header h1 { font-size: 1.5rem; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav { gap: 15px; }
+.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
 }
 </style>
 </head>
 <body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; <a href="karomah1.html">Karomah Syeikh Abdul Qadir Jilani</a> &raquo; Halaman 3
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abdul Qadir Jilani</h1>
+<div class="subtitle">Halaman 3 dari 5 — Karomah dalam Mengajar & Dakwah</div>
+<div class="article-meta">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div style="color:#999; font-size:0.85rem;">Jumat, 09 Oktober 2026, 14:30 WIB</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg"
+alt="Syeikh Abdul Qadir Jilani">
+<div class="image-caption">Sumber: kalam.web.id — Potret Syeikh Abdul Qadir Jilani</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">𝕏</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah 25 tahun bermujahadah dan beruzlah, pada usia sekitar 50 tahun, Syeikh Abdul Qadir Jilani mulai mengajar dan berdakwah secara terbuka di Baghdad. Majelis beliau di Masjid Ar-Rusafah menjadi pusat ilmu dan spiritualitas yang menarik ribuan murid dari berbagai penjuru dunia Islam. Di sinilah karomah-karomah beliau dalam mengajar dan berdakwah semakin tampak.
+</p>
 
-<div class="header">
-    <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo">K</a>
-    <div style="font-size: 22px; font-weight: bold;">ALAM</div>
-    <div class="nav" style="margin-left: auto;">
-        <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
-        <a href="artikelwali2.html">Artikel</a>
-    </div>
+<div class="karomah-card">
+<span class="karomah-number">10</span>
+<span class="karomah-title">Karomah Pidato yang Menggetarkan Hati</span>
+<div class="karomah-arabic">خُطَبُهُ تُهَزُّ الْقُلُوبَ</div>
+<p>
+Setiap kali Syeikh Abdul Qadir Jilani berpidato di atas mimbar, hadirin — baik yang muslim, ahli kitab, maupun orang fasik — tidak kuasa menahan air mata. Beliau berbicara dengan suara yang lembut namun penuh kekuatan, dan setiap kata yang keluar dari lisannya seolah-olah menusuk langsung ke hati pendengarnya.
+</p>
+<p>
+Dikisahkan bahwa dalam satu majelis, lebih dari 100.000 orang hadir, dan tidak kurang dari 10.000 orang di antaranya bertaubat dalam satu majelis saja. Orang-orang yahudi, nasrani, dan bahkan para pencuri pun datang kepadanya untuk bertaubat.
+</p>
 </div>
 
-<div class="container">
-    <div class="breadcrumb">
-        <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> » <a href="artikelwali2.html">Artikel</a> » <a href="karomah1.html">Karomah Syeikh Abdul Qadir Jilani</a> » Halaman 3
-    </div>
-
-    <h1>Karomah Syeikh Abdul Qadir Jilani</h1>
-    <div class="meta">
-        <strong>Halaman 3 dari 5</strong> — Karomah dalam Mengajar & Dakwah<br>
-        <strong>Penulis:</strong> MYDKM Masjid Jami' Al-Ikhlas Kebagusan<br>
-        <strong>Diterbitkan:</strong> Jumat, 09 Oktober 2026, 14:30 WIB<br>
-        <strong>Sumber:</strong> kalam.web.id
-    </div>
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg" alt="Syeikh Abdul Qadir Jilani" class="featured-img">
-
-    <p>Setelah 25 tahun bermujahadah dan beruzlah, pada usia sekitar 50 tahun, Syeikh Abdul Qadir Jilani mulai mengajar dan berdakwah secara terbuka di Baghdad. Majelis beliau di Masjid Ar-Rusafah menjadi pusat ilmu dan spiritualitas yang menarik ribuan murid dari berbagai penjuru dunia Islam. Di sinilah karomah-karomah beliau dalam mengajar dan berdakwah semakin tampak.</p>
-
-    <h2>10. Karomah Pidato yang Menggetarkan Hati</h2>
-    <p>Setiap kali Syeikh Abdul Qadir Jilani berpidato di atas mimbar, hadirin — baik yang muslim, ahli kitab, maupun orang fasik — tidak kuasa menahan air mata. Beliau berbicara dengan suara yang lembut namun penuh kekuatan, dan setiap kata yang keluar dari lisannya seolah-olah menusuk langsung ke hati pendengarnya.</p>
-
-    <p>Dikisahkan bahwa dalam satu majelis, lebih dari 100.000 orang hadir, dan tidak kurang dari 10.000 orang di antaranya bertaubat dalam satu majelis saja. Orang-orang yahudi, nasrani, dan bahkan para pencuri pun datang kepadanya untuk bertaubat.</p>
-
-    <div class="dalil">
-        <div class="arabic">وَلَوْ كُنتَ فَظًّا غَلِيظَ الْقَلْبِ لَانفَضُّوا مِنْ حَوْلِكَ</div>
-        <p class="meaning">Artinya: "Maka disebabkan rahmat dari Allah-lah kamu berlaku lemah lembut terhadap mereka. Sekiranya kamu bersikap keras lagi berhati kasar, tentulah mereka menjauhkan diri dari sekelilingmu." — QS. Ali 'Imran: 159</p>
-    </div>
-
-    <h2>11. Karomah Berbicara dalam Berbagai Bahasa</h2>
-    <p>Salah satu karomah yang paling menakjubkan adalah kemampuan Syeikh Abdul Qadir Jilani berbicara dalam berbagai bahasa tanpa pernah mempelajarinya. Ketika datang orang-orang dari berbagai negeri — Persia, Turki, India, Afrika, dan Eropa — beliau mampu menjawab mereka masing-masing dalam bahasa mereka sendiri.</p>
-
-    <div class="quote">
-        "Seorang murid dari India menceritakan: 'Aku datang kepadanya dengan niat bertanya dalam bahasa Hindiku. Namun beliau menjawab dalam bahasa Hindiku yang fasih, padahal beliau tidak pernah belajar bahasa itu.'"
-    </div>
-
-    <h2>12. Karomah Menaklukkan Jin dan Setan</h2>
-    <p>Syeikh Abdul Qadir Jilani dikenal sebagai penakluk jin dan setan. Beliau pernah berkata: <em>"Aku telah menginjak leher setiap jin dan setan dengan kakiku."</em> Pernyataan ini bukan dalam arti fisik, melainkan dalam arti spiritual — beliau telah menguasai dan menundukkan semua gangguan makhluk ghaib dengan kekuatan dzikir dan tawakkal kepada Allah.</p>
-
-    <p>Dikisahkan bahwa ada seorang raja jin yang datang kepadanya dalam wujud manusia dan menyatakan keislamannya. Raja jin itu berkata: <em>"Wahai Syeikh, aku dan seluruh bala tentaraku bersaksi bahwa engkau adalah wali Allah yang haq."</em></p>
-
-    <div class="dalil">
-        <div class="arabic">إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلَّا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ</div>
-        <p class="meaning">Artinya: "Sesungguhnya hamba-hamba-Ku tidak ada kekuasaan bagimu terhadap mereka, kecuali orang-orang yang mengikut kamu, yaitu orang-orang yang sesat." — QS. Al-Hijr: 42</p>
-    </div>
-
-    <h2>13. Karomah Menghidupkan Orang Mati</h2>
-    <p>Dengan izin Allah, Syeikh Abdul Qadir Jilani pernah menghidupkan orang yang telah mati. Dikisahkan bahwa seorang muridnya yang shaleh meninggal dunia, dan keluarganya datang menangis kepada Syeikh. Beliau datang ke rumah duka, meletakkan tangannya di dada mayit, dan berdoa:</p>
-
-    <div class="arabic">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَعِدْ إِلَيْنَا رُوحَ هَذَا الْمَيِّتِ بِإِذْنِكَ يَا رَبَّ الْعَالَمِينَ</div>
-    <p class="meaning">Artinya: "Wahai Dzat Yang Maha Hidup, Wahai Dzat Yang Maha Berdiri Sendiri, dengan rahmat-Mu aku memohon pertolongan. Kembalikanlah ruh mayit ini kepada kami dengan izin-Mu, wahai Tuhan semesta alam."</p>
-
-    <p>Maka dengan izin Allah, mayit itu bangkit dan mengucapkan syahadat, lalu hidup kembali beberapa hari sebelum akhirnya wafat dengan tenang.</p>
-
-    <h2>14. Karomah Memberkahi Makanan yang Sedikit</h2>
-    <p>Banyak kisah tentang keberkahan makanan di tangan Syeikh Abdul Qadir Jilani. Sebuah roti yang kecil mampu memberi makan ratusan orang. Air minum yang beliau doakan mampu menyembuhkan berbagai penyakit. Para murid yang makan di majelisnya tidak pernah merasa kenyang yang berlebihan, namun tubuh mereka menjadi kuat dan sehat.</p>
-
-    <div class="highlight-box">
-        <strong>Keberkahan Makanan di Majelis Syeikh:</strong>
-        <ul>
-            <li>Roti sedikit mampu memberi makan ratusan orang</li>
-            <li>Air yang didoakan menyembuhkan penyakit</li>
-            <li>Makanan yang dimakan dengan bismillah menjadi berlipat ganda</li>
-            <li>Para murid tidak pernah merasakan lapar berlebihan</li>
-        </ul>
-    </div>
-
-    <div class="dalil">
-        <div class="arabic">وَأَلْقِ بَارِكًا عَلَيْهَا وَاقْدُرْ عَلَيْهَا مِنْ ثَمَرَاتِهَا لَعَلَّكُمْ تَشْكُرُونَ</div>
-        <p class="meaning">Artinya: "Dan limpahkanlah keberkahan di atasnya, dan tentukanlah ukuran-ukurannya dan ciptakan padanya berbagai buah-buahan, agar kamu bersyukur." — QS. Qaf: 9 (tentang keberkahan)</p>
-    </div>
-
-    <h2>15. Karomah Mendoakan Orang yang Hadir</h2>
-    <p>Doa Syeikh Abdul Qadir Jilani mustajab. Siapa pun yang beliau doakan, maka doa itu akan terkabul. Orang yang mandul kemudian diberi keturunan, orang yang sakit disembuhkan, orang yang bangkrut diberi rezeki, dan orang yang tersesat diberi petunjuk — semua dengan izin Allah melalui doa beliau.</p>
-
-    <div class="quote">
-        "Doa seorang wali kepada Allah seperti panah yang tidak pernah meleset dari sasaran." — Syeikh Abdul Qadir Al-Jilani
-    </div>
-
-    <h2>Doa Memohon Keberkahan Ilmu</h2>
-    <div class="arabic">اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا، وَاجْعَلْ سَيِّدَنَا عَبْدَ الْقَادِرِ الْجِيلَانِيَّ دَلِيلِي إِلَى مَرْضَاتِكَ</div>
-    <p class="meaning">Artinya: "Ya Allah, berilah manfaat kepadaku atas apa yang telah Engkau ajarkan kepadaku, ajarkanlah kepadaku apa yang bermanfaat bagiku, tambahkanlah ilmu kepadaku, dan jadikanlah Sayyidina Abdul Qadir Al-Jilani sebagai penuntunku menuju keridhaan-Mu."</p>
-
-    <h2>Penutup Halaman 3</h2>
-    <p>Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani dalam mengajar dan berdakwah. Majelis beliau adalah lautan ilmu dan hikmah yang tidak pernah kering. Pada halaman berikutnya, kita akan membahas karomah beliau dalam menolong dan memberkahi umat.</p>
-
-    <p><em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.</p>
-
-    <div class="pagination">
-        <a href="karomah1.html" class="page-btn">1</a>
-        <a href="karomah2.html" class="page-btn">2</a>
-        <a href="karomah3.html" class="page-btn active">3</a>
-        <a href="karomah4.html" class="page-btn">4</a>
-        <a href="karomah5.html" class="page-btn">5</a>
-    </div>
-
-    <div class="footer">
-        <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">← Kembali ke Beranda</a><br>
-        © 2026 KALAM. Semua hak dilindungi.
-    </div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AKHLAK MULIA — QS. ALI 'IMRAN: 159</div>
+<div class="arabic-text">
+وَلَوْ كُنْتَ فَظًّا غَلِيظَ الْقَلْبِ لَانْفَضُّوا مِنْ حَوْلِكَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maka disebabkan rahmat dari Allah-lah kamu berlaku lemah lembut terhadap mereka. Sekiranya kamu bersikap keras lagi berhati kasar, tentulah mereka menjauhkan diri dari sekelilingmu."
+<br>— QS. Ali 'Imran: 159
+</div>
 </div>
 
+<div class="karomah-card">
+<span class="karomah-number">11</span>
+<span class="karomah-title">Karomah Berbicara dalam Berbagai Bahasa</span>
+<div class="karomah-arabic">يَتَكَلَّمُ بِكُلِّ لِسَانٍ بِإِذْنِ اللَّهِ</div>
+<p>
+Salah satu karomah yang paling menakjubkan adalah kemampuan Syeikh Abdul Qadir Jilani berbicara dalam berbagai bahasa tanpa pernah mempelajarinya. Ketika datang orang-orang dari berbagai negeri — Persia, Turki, India, Afrika, dan Eropa — beliau mampu menjawab mereka masing-masing dalam bahasa mereka sendiri.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">KESAKSIAN MURID DARI INDIA</div>
+<div class="arabic-text">
+أَتَيْتُهُ بِقَلْبٍ أَسْأَلُهُ بِلُغَتِي، فَأَجَابَنِي بِلُغَتِي بِفَصَاحَةٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Seorang murid dari India menceritakan: 'Aku datang kepadanya dengan niat bertanya dalam bahasa Hindiku. Namun beliau menjawab dalam bahasa Hindiku yang fasih, padahal beliau tidak pernah belajar bahasa itu.'"
+</div>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">12</span>
+<span class="karomah-title">Karomah Menaklukkan Jin dan Setan</span>
+<div class="karomah-arabic">دَاسَ رِقَابَ الْجِنِّ وَالشَّيَاطِينِ</div>
+<p>
+Syeikh Abdul Qadir Jilani dikenal sebagai penakluk jin dan setan. Beliau pernah berkata: <em>"Aku telah menginjak leher setiap jin dan setan dengan kakiku."</em> Pernyataan ini bukan dalam arti fisik, melainkan dalam arti spiritual — beliau telah menguasai dan menundukkan semua gangguan makhluk ghaib dengan kekuatan dzikir dan tawakkal kepada Allah.
+</p>
+<p>
+Dikisahkan bahwa ada seorang raja jin yang datang kepadanya dalam wujud manusia dan menyatakan keislamannya. Raja jin itu berkata: <em>"Wahai Syeikh, aku dan seluruh bala tentaraku bersaksi bahwa engkau adalah wali Allah yang haq."</em>
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG JIN — QS. AL-HIJR: 42</div>
+<div class="arabic-text">
+إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلَّا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya hamba-hamba-Ku tidak ada kekuasaan bagimu terhadap mereka, kecuali orang-orang yang mengikut kamu, yaitu orang-orang yang sesat."
+<br>— QS. Al-Hijr: 42
+</div>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">13</span>
+<span class="karomah-title">Karomah Menghidupkan Orang Mati</span>
+<div class="karabic-arabic" style="font-family: 'Traditional Arabic', serif; font-size: 1.6rem; color: #d4af37; direction: rtl; text-align: right; margin: 10px 0;">
+إِحْيَاءُ الْمَيِّتِ بِإِذْنِ اللَّهِ
+</div>
+<p>
+Dengan izin Allah, Syeikh Abdul Qadir Jilani pernah menghidupkan orang yang telah mati. Dikisahkan bahwa seorang muridnya yang shaleh meninggal dunia, dan keluarganya datang menangis kepada Syeikh. Beliau datang ke rumah duka, meletakkan tangannya di dada mayit, dan berdoa:
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA MENGHIDUPKAN MAYIT</div>
+<div class="arabic-text">
+يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَعِدْ إِلَيْنَا رُوحَ هَذَا الْمَيِّتِ بِإِذْنِكَ يَا رَبَّ الْعَالَمِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai Dzat Yang Maha Hidup, Wahai Dzat Yang Maha Berdiri Sendiri, dengan rahmat-Mu aku memohon pertolongan. Kembalikanlah ruh mayit ini kepada kami dengan izin-Mu, wahai Tuhan semesta alam."
+</div>
+</div>
+
+<p>
+Maka dengan izin Allah, mayit itu bangkit dan mengucapkan syahadat, lalu hidup kembali beberapa hari sebelum akhirnya wafat dengan tenang.
+</p>
+
+<div class="karomah-card">
+<span class="karomah-number">14</span>
+<span class="karomah-title">Karomah Memberkahi Makanan yang Sedikit</span>
+<div class="karomah-arabic">تَبَارُكُ الطَّعَامِ عَلَى يَدَيْهِ</div>
+<p>
+Banyak kisah tentang keberkahan makanan di tangan Syeikh Abdul Qadir Jilani. Sebuah roti yang kecil mampu memberi makan ratusan orang. Air minum yang beliau doakan mampu menyembuhkan berbagai penyakit. Para murid yang makan di majelisnya tidak pernah merasa kenyang yang berlebihan, namun tubuh mereka menjadi kuat dan sehat.
+</p>
+</div>
+
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Keberkahan Makanan di Majelis Syeikh:</strong>
+<ul>
+<li><strong>Roti sedikit mampu memberi makan ratusan orang</strong></li>
+<li><strong>Air yang didoakan menyembuhkan penyakit</strong></li>
+<li><strong>Makanan yang dimakan dengan bismillah menjadi berlipat ganda</strong></li>
+<li><strong>Para murid tidak pernah merasakan lapar berlebihan</strong></li>
+</ul>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEBERKAHAN — QS. QAF: 9</div>
+<div class="arabic-text">
+وَأَلْقِ بَارِكًا عَلَيْهَا وَاقْدُرْ عَلَيْهَا مِنْ ثَمَرَاتِهَا لَعَلَّكُمْ تَشْكُرُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan limpahkanlah keberkahan di atasnya, dan tentukanlah ukuran-ukurannya dan ciptakan padanya berbagai buah-buahan, agar kamu bersyukur."
+<br>— QS. Qaf: 9
+</div>
+</div>
+
+<div class="karomah-card">
+<span class="karomah-number">15</span>
+<span class="karomah-title">Karomah Mendoakan Orang yang Hadir</span>
+<div class="karomah-arabic">دَعَاؤُهُ مُسْتَجَابٌ عِنْدَ اللَّهِ</div>
+<p>
+Doa Syeikh Abdul Qadir Jilani mustajab. Siapa pun yang beliau doakan, maka doa itu akan terkabul. Orang yang mandul kemudian diberi keturunan, orang yang sakit disembuhkan, orang yang bangkrut diberi rezeki, dan orang yang tersesat diberi petunjuk — semua dengan izin Allah melalui doa beliau.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYAIKH TENTANG DOA</div>
+<div class="arabic-text">
+دُعَاءُ الْوَلِيِّ لِلَّهِ كَسَهْمٍ لَا يُخْطِئُ الْهَدَفَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Doa seorang wali kepada Allah seperti panah yang tidak pernah meleset dari sasaran."
+<br>— Syeikh Abdul Qadir Al-Jilani
+</div>
+</div>
+
+<h2>Doa Memohon Keberkahan Ilmu</h2>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KEBERKAHAN ILMU</div>
+<div class="arabic-text">
+اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا، وَاجْعَلْ سَيِّدَنَا عَبْدَ الْقَادِرِ الْجِيلَانِيَّ دَلِيلِي إِلَى مَرْضَاتِكَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, berilah manfaat kepadaku atas apa yang telah Engkau ajarkan kepadaku, ajarkanlah kepadaku apa yang bermanfaat bagiku, tambahkanlah ilmu kepadaku, dan jadikanlah Sayyidina Abdul Qadir Al-Jilani sebagai penuntunku menuju keridhaan-Mu."
+</div>
+</div>
+
+<h2>Penutup Halaman 3</h2>
+
+<p>
+Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani dalam mengajar dan berdakwah. Majelis beliau adalah lautan ilmu dan hikmah yang tidak pernah kering. Pada halaman berikutnya, kita akan membahas karomah beliau dalam menolong dan memberkahi umat.
+</p>
+
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan tidak ada taufik bagiku melainkan dengan (pertolongan) Allah. Hanya kepada Allah aku bertawakkal dan hanya kepada-Nya-lah aku kembali."
+<br>— QS. Hud: 88
+</div>
+</div>
+</div>
+
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="karomah1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="karomah2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="karomah3.html" class="article-nav-btn active" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="karomah4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="karomah5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+</div>
+
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
 </body>
 </html>
