@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ali Bahauddin An-Naqsyabandi - KALAM</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+/* Untuk Tablet */
+@media (max-width: 768px) {
+.container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* Untuk HP */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 22px; }
+h2 { font-size: 18px; }
+.arabic { font-size: 20px; line-height: 1.8; }
+.header {
+flex-direction: column;
+gap: 10px;
+padding: 15px;
+}
+.nav {
+flex-direction: column;
+gap: 10px; }
+.page-btn {
+width: 35px;
+height: 35px;
+font-size: 14px;
+}
+}
+}
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 40px 0;
+padding: 30px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.8rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+@media (max-width: 600px) {
+header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+.article-container { padding: 0 15px; }
+.article-header h1 { font-size: 1.5rem; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav { gap: 15px; }
+.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ali Bahauddin An-Naqsyabandi — Halaman 3
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ali Bahauddin An-Naqsyabandi</h1>
+<div class="subtitle">Halaman 3 dari 5 — Karomah-karomah Luar Biasa</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Minggu, 11 Oktober 2026, 10:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bahauddin_Naqshband.jpg/440px-Bahauddin_Naqshband.jpg"
+alt="Syeikh Bahauddin An-Naqsyabandi"
+onerror="this.src='https://via.placeholder.com/800x500/1a1a2e/d4af37?text=Karomah+Syeikh+Baha+ud+Din+An-Naqsyabandi'">
+<div class="image-caption">Sumber: kalam.web.id — Karomah-karomah Syeikh Bahauddin An-Naqsyabandi</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah mencapai maqam kewalian yang tinggi di bawah bimbingan para guru spiritualnya, Syeikh Bahauddin An-Naqsyabandi dikaruniai oleh Allah SWT berbagai karomah luar biasa yang menjadi tanda pemuliaan atas jalan spiritual beliau. Karomah-karomah ini bukan untuk dipamerkan, melainkan menjadi sarana untuk menolong umat, membimbing para murid, dan meneguhkan kebenaran jalan thariqah yang beliau ajarkan.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KAROMAH WALI — QS. FUSSILAT: 30</div>
+<div class="arabic-text">
+إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang-orang yang berkata: 'Tuhan kami adalah Allah' kemudian mereka istiqamah, maka malaikat-malaikat akan turun kepada mereka (dengan berkata): 'Janganlah kamu takut dan janganlah kamu bersedih hati'."
+<br>— QS. Fussilat: 30
+</div>
+</div>
+<h2>Karomah-karomah Luar Biasa</h2>
+<p>
+Berikut adalah beberapa karomah luar biasa yang Allah anugerahkan kepada Syeikh Bahauddin An-Naqsyabandi setelah beliau mencapai maqam kewalian yang tinggi. Karomah-karomah ini menjadi bukti nyata atas kebenaran jalan spiritual yang beliau tempuh.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">9</span>
+<span class="karomah-title">Karomah Membaca Hati (Firasat)</span>
+<div class="karomah-arabic">قِرَاءَةُ الْقُلُوبِ وَالْفِرَاسَةُ</div>
+<p>
+Salah satu karomah Syeikh Bahauddin yang paling masyhur adalah kemampuannya membaca isi hati para murid tanpa mereka berbicara. Beliau dapat mengetahui apa yang sedang dipikirkan, dirasakan, bahkan apa yang baru saja terlintas di hati seseorang yang baru pertama kali beliau temui.
+</p>
+<p>
+Dikisahkan bahwa seorang pedagang dari Samarkand datang menemuinya dengan niat untuk menguji kewalian beliau. Sebelum pedagang itu sempat berbicara, Syeikh Bahauddin sudah berkata: <em>"Wahai fulan, engkau datang dengan niat mengujiku, namun di hatimu juga ada keresahan karena hutangmu yang belum terlunasi. Kembalilah ke negerimu, engkau akan mendapati hutangmu telah dilunasi oleh seseorang yang Allah utus untukmu."</em>
+</p>
+<p>
+Ketika pedagang itu kembali ke Samarkand, ia benar-benar mendapati hutangnya telah dilunasi oleh seorang dermawan yang tidak ia kenal. Sejak saat itu, ia menjadi murid setia Syeikh Bahauddin dan menceritakan karomah tersebut kepada siapa saja.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG Firasat — HR. AT-TIRMIDZI</div>
+<div class="arabic-text">
+اتَّقُوا فِرَاسَةَ الْمُؤْمِنِ فَإِنَّهُ يَنْظُرُ بِنُورِ اللَّهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Takutlah kamu akan firasat (ketajaman hati) orang mukmin, karena sesungguhnya ia melihat dengan cahaya Allah."
+<br>— HR. At-Tirmidzi
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">10</span>
+<span class="karomah-title">Karomah Thoyyul Ardh (Melipat Bumi)</span>
+<div class="karomah-arabic">طَيُّ الْأَرْضِ</div>
+<p>
+Syeikh Bahauddin An-Naqsyabandi juga dikaruniai karomah <em>thoyyul ardh</em> — kemampuan untuk melipat jarak bumi sehingga beliau dapat berpindah dari satu tempat ke tempat lain dalam waktu yang sangat singkat. Karomah ini bukanlah sihir, melainkan anugerah Allah kepada hamba-Nya yang shaleh.
+</p>
+<p>
+Dikisahkan bahwa suatu hari seorang murid beliau di Bukhara sedang sakit keras dan membutuhkan pertolongan. Syeikh Bahauddin yang saat itu berada di desa Arifan (jarak puluhan kilometer) langsung mengetahui keadaan muridnya. Beliau pun seketika hadir di sisi muridnya di Bukhara untuk memberikan doa dan pertolongan, lalu kembali ke Arifan dalam waktu yang sama.
+</p>
+<p>
+Para murid yang menyaksikan peristiwa ini terheran-heran, namun Syeikh Bahauddin bersabda: <em>"Ini bukanlah kehebatanku, melainkan anugerah Allah yang melipat jarak bagi hamba-Nya yang Dia cintai."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KUASA ALLAT — QS. AL-ISRA: 1</div>
+<div class="arabic-text">
+سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maha Suci Allah yang telah memperjalankan hamba-Nya pada suatu malam dari Al-Masjidil Haram ke Al-Masjidil Aqsha."
+<br>— QS. Al-Isra: 1
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">11</span>
+<span class="karomah-title">Karomah Memberi Makan Ribuan Orang dari Sedikit Makanan</span>
+<div class="karomah-arabic">إِطْعَامُ الْأُلُوفِ مِنَ الطَّعَامِ الْقَلِيلِ</div>
+<p>
+Salah satu karomah Syeikh Bahauddin yang paling menakjubkan adalah kemampuannya memberi makan ribuan orang dari makanan yang sangat sedikit. Beliau dikenal sangat dermawan dan senantiasa membuka pintu rumahnya untuk siapa saja yang datang, baik muslim maupun non-muslim.
+</p>
+<p>
+Dikisahkan bahwa pada suatu hari raya, ribuan orang datang ke desa Arifan untuk mengunjungi beliau. Sementara itu, di dapur beliau hanya tersedia beberapa gantang gandum dan sedikit daging. Para pembantu beliau khawatir, namun Syeikh Bahauddin berkata dengan tenang: <em>"Masaklah apa yang ada, Allah akan mencukupkan."</em>
+</p>
+<p>
+Maka Allah SWT memberkahi makanan tersebut sehingga cukup untuk memberi makan ribuan orang yang hadir. Bahkan masih tersisa makanan yang kemudian dibagikan kepada fakir miskin di desa-desa sekitar. Peristiwa ini berulang kali terjadi, dan menjadi tanda nyata atas keberkahan tangan beliau.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG BERKAT — QS. AL-A'RAF: 96</div>
+<div class="arabic-text">
+وَلَوْ أَنَّ أَهْلَ الْقُرَىٰ آمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِم بَرَكَاتٍ مِّنَ السَّمَاءِ وَالْأَرْضِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Jikalau sekiranya penduduk negeri-negeri beriman dan bertakwa, pastilah Kami akan melimpahkan kepada mereka berkah dari langit dan bumi."
+<br>— QS. Al-A'raf: 96
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">12</span>
+<span class="karomah-title">Karomah Melihat dari Jauh dan Mengetahui Peristiwa Jauh</span>
+<div class="karomah-arabic">الرُّؤْيَةُ مِنَ الْبُعْدِ وَالِاطِّلَاعُ عَلَى الْغُيُوبِ بِإِذْنِ اللَّهِ</div>
+<p>
+Syeikh Bahauddin juga dikaruniai kemampuan untuk melihat peristiwa yang terjadi di tempat yang jauh dari beliau, dengan izin Allah SWT. Beliau dapat mengetahui keadaan para muridnya yang tersebar di berbagai negeri, meskipun mereka berada ratusan kilometer jauhnya.
+</p>
+<p>
+Dikisahkan bahwa suatu hari beliau sedang duduk bersama para murid di desa Arifan, tiba-tiba beliau berkata: <em>"Saudara kita fulan di negeri Syam sedang ditimpa musibah hari ini. Doakanlah agar Allah memberikan kesabaran kepadanya."</em> Beberapa minggu kemudian, datanglah surat dari Syam yang mengabarkan bahwa saudara mereka memang tertimpa musibah pada hari dan jam yang disebutkan oleh Syeikh Bahauddin.
+</p>
+<p>
+Beliau juga sering mengetahui kedatangan tamu-tamu yang masih jauh sebelum mereka tiba. Beliau akan berkata kepada para murid: <em>"Siapkanlah makanan, hari ini kita akan kedatangan tamu dari negeri fulan."</em> Dan benar, beberapa jam kemudian tamu yang dimaksud pun tiba.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU ALLAT — QS. AL-JINN: 26-27</div>
+<div class="arabic-text">
+عَالِمُ الْغَيْبِ فَلَا يُظْهِرُ عَلَىٰ غَيْبِهِ أَحَدًا ۝ إِلَّا مَنِ ارْتَضَىٰ مِن رَّسُولٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Dia adalah) Yang Maha Mengetahui yang ghaib, maka Dia tidak memperlihatkan kepada seorang pun tentang yang ghaib itu, kecuali kepada rasul yang diridhai-Nya."
+<br>— QS. Al-Jinn: 26-27
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Luar Biasa Syeikh Bahauddin An-Naqsyabandi:</strong>
+<ul>
+<li><strong>Membaca hati tanpa bicara (firasat)</strong> — Mengetahui isi hati orang lain dengan cahaya Allah</li>
+<li><strong>Thoyyul ardh (melipat bumi)</strong> — Berpindah tempat dalam sekejap dengan izin Allah</li>
+<li><strong>Memberi makan ribuan orang dari sedikit makanan</strong> — Keberkahan yang melimpah</li>
+<li><strong>Melihat peristiwa dari jauh</strong> — Mengetahui keadaan yang terjadi di negeri lain</li>
+<li><strong>Mengetahui kedatangan tamu sebelum tiba</strong> — Bashirah yang tajam</li>
+<li><strong>Selalu rendah hati dan tidak sombong</strong> — Mengakui semua karomah sebagai anugerah Allah</li>
+</ul>
+</div>
+<h2>Sikap Syeikh Bahauddin Terhadap Karomah</h2>
+<p>
+Meskipun dikaruniai banyak karomah luar biasa, Syeikh Bahauddin An-Naqsyabandi tidak pernah memamerkannya. Beliau senantiasa rendah hati dan menegaskan bahwa semua karomah tersebut adalah anugerah Allah semata, bukan karena kehebatan beliau. Beliau sering menasehati para muridnya:
+</p>
+<blockquote>
+"Janganlah kalian tertipu oleh karomah-karomah. Karomah yang paling agung adalah istiqamah di atas syariat, jujur dalam setiap keadaan, dan ikhlas dalam setiap amal. Itulah karomah yang sejati."
+</blockquote>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYAIKH TENTANG ISTIQAMAH</div>
+<div class="arabic-text">
+أَعْظَمُ الْكَرَامَةِ الِاسْتِقَامَةُ عَلَى الشَّرِيعَةِ وَالصِّدْقُ فِي كُلِّ حَالٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Karomah yang paling agung adalah istiqamah di atas syariat dan jujur dalam setiap keadaan."
+<br>— Syeikh Bahauddin An-Naqsyabandi
+</div>
+</div>
+<h2>Doa Memohon Keberkahan dan Karomah</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KAROMAH DAN KEBERKAHAN</div>
+<div class="arabic-text">
+اللَّهُمَّ ارْزُقْنَا الْكَرَامَاتِ الْخَفِيَّةَ، وَاجْعَلْنَا مِنَ الْمُسْتَقِيمِينَ عَلَى شَرِيعَةِ نَبِيِّكَ، وَارْزُقْنَا الْإِخْلَاصَ فِي الْأَعْمَالِ، وَاجْعَلْ سَيِّدَنَا بَهَاءَ الدِّينِ النَّقْشَبَنْدِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, anugerahkanlah kepada kami karomah-karomah yang tersembunyi, jadikanlah kami termasuk orang-orang yang istiqamah di atas syariat Nabi-Mu, anugerahkanlah kepada kami keikhlasan dalam setiap amal, dan jadikanlah Sayyidina Bahauddin An-Naqsyabandi sebagai pemberi syafaat bagi kami pada hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 3</h2>
+<p>
+Demikianlah sebagian karomah luar biasa yang Allah anugerahkan kepada Syeikh Bahauddin An-Naqsyabandi. Karomah-karomah ini bukanlah tujuan utama, melainkan buah dari keikhlasan, kejujuran, dan ketaatan beliau kepada Allah SWT. Pada halaman berikutnya, kita akan membahas pengajaran beliau tentang dzikir khafiy dan khalwat dar al-jalwat yang menjadi ciri khas Thariqah Naqsyabandiyah.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+قُلْ بِفَضْلِ اللَّهِ وَبِرَحْمَتِهِ فَبِذَٰلِكَ فَلْيَفْرَحُوا هُوَ خَيْرٌ مِّمَّا يَجْمَعُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Katakanlah: 'Dengan kurnia Allah dan rahmat-Nya, hendaklah dengan itu mereka bergembira. Kurnia Allah dan rahmat-Nya itu adalah lebih baik dari apa yang mereka kumpulkan'."
+<br>— QS. Yunus: 58
+</div>
+</div>
+</div>
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="bahauddin1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin3.html" class="article-nav-btn active" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

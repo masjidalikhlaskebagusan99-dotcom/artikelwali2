@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ali Bahauddin An-Naqsyabandi - KALAM</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+/* Untuk Tablet */
+@media (max-width: 768px) {
+.container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* Untuk HP */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 22px; }
+h2 { font-size: 18px; }
+.arabic { font-size: 20px; line-height: 1.8; }
+.header {
+flex-direction: column;
+gap: 10px;
+padding: 15px;
+}
+.nav {
+flex-direction: column;
+gap: 10px; }
+.page-btn {
+width: 35px;
+height: 35px;
+font-size: 14px;
+}
+}
+}
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 40px 0;
+padding: 30px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.8rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+@media (max-width: 600px) {
+header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+.article-container { padding: 0 15px; }
+.article-header h1 { font-size: 1.5rem; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav { gap: 15px; }
+.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ali Bahauddin An-Naqsyabandi — Halaman 2
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ali Bahauddin An-Naqsyabandi</h1>
+<div class="subtitle">Halaman 2 dari 5 — Perjalanan Spiritual & Para Guru Beliau</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Minggu, 11 Oktober 2026, 10:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bahauddin_Naqshband.jpg/440px-Bahauddin_Naqshband.jpg"
+alt="Syeikh Bahauddin An-Naqsyabandi"
+onerror="this.src='https://via.placeholder.com/800x500/1a1a2e/d4af37?text=Silsilah+Thariqah+Naqsyabandiyah'">
+<div class="image-caption">Sumber: kalam.web.id — Silsilah Thariqah Naqsyabandiyah</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah masa kecil yang penuh dengan tanda-tanda kewalian, Syeikh Bahauddin An-Naqsyabandi memasuki fase perjalanan spiritual yang panjang. Beliau berguru kepada beberapa ulama besar di zamannya, di antaranya Syeikh Muhammad Baba As-Samasi, Syeikh Amir Kulal, dan Syeikh Hamza. Di bawah bimbingan mereka, beliau menempa diri dengan riyadhah (latihan spiritual) yang keras, sehingga Allah anugerahkan kepadanya karomah-karomah yang menakjubkan.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MENUNTUT ILMU — QS. AL-MUJADILAH: 11</div>
+<div class="arabic-text">
+يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah akan mengangkat orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu beberapa derajat."
+<br>— QS. Al-Mujadilah: 11
+</div>
+</div>
+<h2>Perjalanan Menuntut Ilmu</h2>
+<p>
+Syeikh Bahauddin An-Naqsyabandi lahir di desa Arifan, dekat Bukhara (kini di Uzbekistan). Sejak usia muda, beliau telah menunjukkan kehausan terhadap ilmu dan hakikat spiritual. Beliau tidak puas hanya dengan ilmu lahiriah, melainkan juga mendambakan ilmu batiniah yang diajarkan oleh para wali Allah. Maka beliau pun berkelana dari satu guru ke guru lainnya, menyerap ilmu syariat dan hakikat secara bersamaan.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYAIKH TENTANG ILMU</div>
+<div class="arabic-text">
+الْعِلْمُ نُورٌ يَقْذِفُهُ اللَّهُ فِي قَلْبِ مَنْ يَشَاءُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ilmu adalah cahaya yang Allah lemparkan ke dalam hati siapa saja yang Dia kehendaki."
+<br>— Syeikh Bahauddin An-Naqsyabandi
+</div>
+</div>
+<h2>Karomah-Karomah Selama Perjalanan Spiritual</h2>
+<p>
+Berikut adalah beberapa karomah luar biasa yang Allah anugerahkan kepada Syeikh Bahauddin An-Naqsyabandi selama beliau menuntut ilmu dan berguru kepada para ulama besar di zamannya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">5</span>
+<span class="karomah-title">Karomah Pertemuan dengan Syeikh Muhammad Baba As-Samasi</span>
+<div class="karabic">لِقَاؤُهُ بِالشَّيْخِ مُحَمَّدٍ بَابَا السَّمَّاسِيْ</div>
+<p>
+Salah satu titik penting dalam perjalanan spiritual Syeikh Bahauddin adalah ketika beliau bertemu dengan Syeikh Muhammad Baba As-Samasi, seorang wali besar yang dikenal dengan kedalaman ilmu dan ketinggian maqam spiritualnya. Ketika Syeikh Bahauddin pertama kali datang menemuinya, Syeikh Baba As-Samasi sudah mengetahui kedatangan beliau sebelum beliau tiba — sebuah tanda bashirah (mata hati) yang tajam.
+</p>
+<p>
+Syeikh Baba As-Samasi menyambut beliau dengan hangat dan berkata: <em>"Wahai Bahauddin, engkau adalah orang yang telah lama kami nantikan. Allah telah menyiapkanmu untuk menjadi pewaris rahasia-rahasia para wali."</em> Sejak saat itu, Syeikh Bahauddin menjadi murid setia beliau dan mulai menempa diri di bawah bimbingannya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYAIKH BABA AS-SAMASI</div>
+<div class="arabic-text">
+مَنْ عَرَفَ نَفْسَهُ فَقَدْ عَرَفَ رَبَّهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa mengenal dirinya sendiri, maka sungguh ia telah mengenal Tuhannya."
+<br>— Syeikh Muhammad Baba As-Samasi
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">6</span>
+<span class="karomah-title">Karomah Bimbingan dari Syeikh Amir Kulal</span>
+<div class="karabic">تَلَقِّينُهُ عَنِ الشَّيْخِ أَمِيرٍ كُلَالْ</div>
+<p>
+Setelah Syeikh Baba As-Samasi wafat, Syeikh Bahauddin melanjutkan perjalanan spiritualnya di bawah bimbingan Syeikh Amir Kulal, yang merupakan khalifah dan penerus Syeikh Baba As-Samasi. Syeikh Amir Kulal adalah seorang wali yang terkenal dengan prinsip <em>khalwat dar al-jalwat</em> — menyepi di tengah keramaian.
+</p>
+<p>
+Di bawah bimbingan Syeikh Amir Kulal, Syeikh Bahauddin mempelajari rahasia-rahasia dzikir khafiy (dzikir dalam hati tanpa menggerakkan lisan) dan cara menghadirkan hati di setiap saat. Beliau juga diajarkan bagaimana menjaga kehadiran hati bersama Allah meskipun jasadnya berada di tengah masyarakat. Inilah yang kelak menjadi ciri khas Thariqah Naqsyabandiyah.
+</p>
+<p>
+Salah satu karomah Syeikh Amir Kulal yang beliau saksikan adalah kemampuan gurunya untuk mengetahui isi hati para murid tanpa mereka berbicara. Ketika Syeikh Bahauddin datang dengan hati yang gelisah karena suatu masalah, Syeikh Amir Kulal langsung menjawab pertanyaan yang belum sempat beliau ucapkan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DZIKIR — QS. AL-AHZAB: 41</div>
+<div class="arabic-text">
+يَا أَيُّهَا الَّذِينَ آمَنُوا اذْكُرُوا اللَّهَ ذِكْرًا كَثِيرًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai orang-orang yang beriman, berdzikirlah (dengan menyebut nama) Allah, zikir yang sebanyak-banyaknya."
+<br>— QS. Al-Ahzab: 41
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">7</span>
+<span class="karomah-title">Karomah Bimbingan Ghaib dari Nabi Khidir</span>
+<div class="karabic">التَّعْلِيمُ مِنَ الْخَضِرِ عَلَيْهِ السَّلَامُ</div>
+<p>
+Selama masa belajar, Syeikh Bahauddin juga mendapat bimbingan ghaib dari Nabi Khidir 'alaihissalam. Dalam beberapa riwayat disebutkan bahwa Nabi Khidir datang kepadanya dalam wujud seorang syaikh tua yang mengajarkan rahasia-rahasia dzikir dan ma'rifatullah.
+</p>
+<p>
+Nabi Khidir mengajarkan kepada beliau tentang pentingnya <em>rabithah</em> (hubungan hati dengan guru) dan <em>muraqabah</em> (merasa diawasi oleh Allah setiap saat). Beliau juga diajarkan tentang rahasia angka-angka dalam dzikir dan cara-cara untuk membersihkan hati dari penyakit-penyakit spiritual.
+</p>
+<p>
+Dalam suatu kesempatan, Nabi Khidir berkata kepada beliau: <em>"Wahai Bahauddin, Allah telah memilihmu untuk menjadi pewaris rahasia Syeikh Abdul Khaliq Al-Fajdawani dan para quthub sebelummu. Jagalah amanah ini dengan penuh kejujuran dan keikhlasan."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYAIKH TENTANG RABITHAH</div>
+<div class="arabic-text">
+الرَّابِطَةُ مِفْتَاحُ الْفَيْضِ الرُّوْحَانِيِّ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Rabithah (hubungan hati dengan guru) adalah kunci curahan spiritual."
+<br>— Syeikh Bahauddin An-Naqsyabandi
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">8</span>
+<span class="karomah-title">Karomah Menguasai Ilmu Lahir dan Batin</span>
+<div class="karabic">إِتْقَانُهُ لِلْعِلْمِ الظَّاهِرِ وَالْبَاطِنِ</div>
+<p>
+Selama masa belajar, Syeikh Bahauddin dikaruniai kemampuan untuk menguasai ilmu lahir (syariat) dan ilmu batin (hakikat) secara bersamaan. Beliau menghafal Al-Qur'an, mempelajari fiqih, tafsir, hadis, dan ilmu-ilmu agama lainnya, di samping juga mendalami ilmu tasawuf dan hakikat.
+</p>
+<p>
+Para guru beliau mengakui kecerdasan dan kedalaman pemahaman beliau. Beliau mampu menjawab pertanyaan-pertanyaan rumit dengan jawaban yang ringkas namun mendalam. Beliau juga dikenal karena kemampuannya untuk menyatukan syariat dan hakikat dalam setiap perkataan dan perbuatannya.
+</p>
+<p>
+Beliau pernah berkata: <em>"Ilmu syariat adalah tubuh, sedangkan ilmu hakikat adalah ruh. Barangsiapa memiliki tubuh tanpa ruh, maka ia seperti mayat yang berjalan. Dan barangsiapa memiliki ruh tanpa tubuh, maka ia seperti hantu yang tidak berwujud."</em>
+</p>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Selama Perjalanan Spiritual Syeikh Bahauddin An-Naqsyabandi:</strong>
+<ul>
+<li><strong>Dikenali oleh para guru sebelum bertemu</strong> — Tanda kewalian yang sudah tercium</li>
+<li><strong>Mendapat bimbingan dari Nabi Khidir</strong> — Pengajaran ghaib dari wali Allah yang hidup abadi</li>
+<li><strong>Menguasai dzikir khafiy</strong> — Dzikir dalam hati tanpa menggerakkan lisan</li>
+<li><strong>Memahami rahasia rabithah dan muraqabah</strong> — Hubungan hati dengan guru dan merasa diawasi Allah</li>
+<li><strong>Menguasai ilmu lahir dan batin</strong> — Syariat dan hakikat berjalan beriringan</li>
+<li><strong>Mampu menjawab pertanyaan sebelum diucapkan</strong> — Bashirah yang tajam</li>
+</ul>
+</div>
+<h2>Silsilah Guru-Guru Syeikh Bahauddin An-Naqsyabandi</h2>
+<div class="arabic-box">
+<div class="arabic-label">SILSILAH THARIQAH NAQSYABANDIYAH</div>
+<div class="arabic-text">
+سَيِّدُنَا مُحَمَّدٌ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ ← أَبُو بَكْرٍ الصِّدِّيقُ ← سَلْمَانُ الْفَارِسِيُّ ← قَاسِمُ بْنُ مُحَمَّدٍ ← جَعْفَرٌ الصَّادِقُ ← طَيْفُورُ أَبُو يَزِيدَ الْبِسْطَامِيُّ ← أَبُو الْحَسَنِ الْخِرَقِيُّ ← أَبُو مُحَمَّدٍ الْجُرَيْرِيُّ ← أَبُو بَكْرٍ الشِّبْلِيُّ ← أَبُو عَلِيٍّ الدَّقَّاقُ ← أَبُو عُثْمَانَ الْمَغْرِبِيُّ ← أَبُو عَلِيٍّ الْفَارْمَدِيِّ ← أَبُو يُوسُفَ الْهَمَذَانِيُّ ← أَبُو الْحُسَيْنِ الْخُرَقَانِيُّ ← أَبُو عَلِيٍّ الْفَارْمَدِيِّ ← أَبُو يَعْقُوبَ يُوسُفُ الْحَمَذَانِيُّ ← عَبْدُ الْخَالِقِ الْغُجْدُوَانِيُّ ← عَارِفٌ الرِّيوَكَرِيُّ ← مَحْمُودٌ الْفَنْجَكْثِيُّ ← عَلِيٌّ الْرَّامِيتَنِيُّ ← مُحَمَّدٌ بَابَا السَّمَّاسِيُّ ← أَمِيرٌ كُلَالٌ ← بَهَاءُ الدِّينِ النَّقْشَبَنْدِيُّ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Silsilah Thariqah Naqsyabandiyah dari Rasulullah SAW hingga Syeikh Bahauddin An-Naqsyabandi."
+</div>
+</div>
+<h2>Doa Memohon Bimbingan Guru</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON BIMBINGAN GURU</div>
+<div class="arabic-text">
+اللَّهُمَّ ارْزُقْنِي صُحْبَةَ الصَّالِحِينَ، وَاجْعَلْ مَشَايِخَنَا مِنَ الْمُقَرَّبِينَ، وَارْزُقْنَا الْبَصِيرَةَ فِي الدِّينِ، وَاجْعَلْ سَيِّدَنَا بَهَاءَ الدِّينِ النَّقْشَبَنْدِيَّ إِمَامَنَا وَقُدْوَتَنَا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, anugerahkanlah kepadaku companionship orang-orang shaleh, jadikanlah guru-guru kami termasuk orang-orang yang dekat (kepada-Mu), anugerahkanlah kepadaku bashirah dalam agama, dan jadikanlah Sayyidina Bahauddin An-Naqsyabandi sebagai imam dan teladan bagiku."
+</div>
+</div>
+<h2>Penutup Halaman 2</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Bahauddin An-Naqsyabandi selama perjalanan spiritual beliau bersama para guru. Karomah-karomah ini merupakan buah dari keikhlasan, kejujuran, dan kesungguhan beliau dalam menempa diri di bawah bimbingan para wali Allah. Pada halaman berikutnya, kita akan membahas karomah-karomah luar biasa yang beliau tampakkan setelah mencapai maqam kewalian.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَاتَّقُوا اللَّهَ وَيُعَلِّمُكُمُ اللَّهُ ۗ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan bertakwalah kepada Allah, niscaya Allah akan mengajarmu; dan Allah Maha Mengetahui segala sesuatu."
+<br>— QS. Al-Baqarah: 282
+</div>
+</div>
+</div>
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="bahauddin1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin2.html" class="article-nav-btn active" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="bahauddin5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
