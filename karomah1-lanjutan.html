@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amalan dan Jalan Spiritual Menuju Maqam Kewalian ala Imam Al-Ghazali - KALAM</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+/* Untuk Tablet */
+  @media (max-width: 768px) {
+    .container { 
+      max-width: 100%; 
+      padding: 20px; 
+    }
+    h1 { font-size: 26px; }
+    .featured-img { max-width: 100%; }
+  }
+  
+  /* Untuk HP */
+  @media (max-width: 600px) {
+    body { font-size: 14px; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    .arabic { font-size: 20px; line-height: 1.8; }
+    .header { 
+      flex-direction: column; 
+      gap: 10px; 
+      padding: 15px; 
+    }
+    .nav { 
+      flex-direction: column; 
+      gap: 10px; 
+    }
+    .page-btn { 
+      width: 35px; 
+      height: 35px; 
+      font-size: 14px; 
+    }
+  }
+}
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f8f6f0;
+    padding: 0 12px;
+    font-size: 1.2rem;
+    color: #d4af37;
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    white-space: nowrap;
+    line-height: 1.4;
+    z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.tips-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.tips-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.tips-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.tips-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 40px 0;
+padding: 30px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.8rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+@media (max-width: 600px) {
+header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+.article-container { padding: 0 15px; }
+.article-header h1 { font-size: 1.5rem; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.tips-arabic { font-size: 1.3rem; }
+.article-nav { gap: 15px; }
+.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikel.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikel.html">Artikel</a> &raquo; Jalan Spiritual Al-Ghazali
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Amalan dan Jalan Spiritual Menuju Maqam Kewalian ala Imam Al-Ghazali</h1>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Senin, 12 Oktober 2026, 14:15 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Al-Ghazali.jpg/440px-Al-Ghazali.jpg"
+alt="Ilustrasi Perjalanan Spiritual Imam Al-Ghazali">
+<div class="image-caption">Sumber: kalam.web.id — Perjalanan spiritual Imam Al-Ghazali menuju maqam kewalian</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+
+<div class="arabic-box">
+<div class="arabic-label">BASMALAH</div>
+<div class="arabic-text">
+بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang."
+</div>
+</div>
+
+<p class="lead">
+Setelah kita memahami karomah-karomah Imam Al-Ghazali dan kisah-kisah spesifik tentang beliau, kini saatnya kita menelusuri jalan spiritual yang beliau tempuh untuk mencapai maqam kewalian tersebut. Dalam kitab monumentalnya <em>"Ihya' Ulumuddin"</em>, khususnya pada bagian <em>"Riyadhatun Nafs"</em> (Latihan Jiwa) dan <em>"Kitab Al-Mahabbah wasy Syauq"</em> (Kitab Cinta dan Rindu), Imam Al-Ghazali menguraikan secara rinci maqamat (tingkatan-tingkatan spiritual) dan amalan-amalan yang harus ditempuh seorang salik (penempuh jalan spiritual) untuk mencapai maqam kewalian.
+</p>
+
+<h2>Pendahuluan: Mengapa Kita Perlu Meneladani Jalan Beliau?</h2>
+<p>
+Imam Al-Ghazali bukan lahir sebagai wali. Beliau adalah seorang ulama besar yang melalui proses spiritual yang panjang dan penuh pergulatan. Dari seorang profesor di Nizamiyah Baghdad yang hidup dalam kemewahan dan popularitas, beliau berubah menjadi seorang sufi zuhud yang mengasingkan diri selama sepuluh tahun untuk mencari kebenaran. Perjalanan inilah yang menjadi teladan bagi kita semua — bahwa kewalian bukanlah anugerah yang datang begitu saja, melainkan hasil dari perjuangan, kesungguhan, dan pertolongan Allah SWT.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL PERJALANGAN SPIRITUAL — QS. AL-'ANKABUT: 69</div>
+<div class="arabic-text">
+وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan orang-orang yang berjihad untuk (mencari keridhaan) Kami, pastilah akan Kami tunjukkan kepada mereka jalan-jalan Kami. Dan sesungguhnya Allah benar-benar beserta orang-orang yang berbuat baik."
+<br>— QS. Al-'Ankabut: 69
+</div>
+</div>
+
+<h2>Maqamat (Tingkatan Spiritual) Menurut Imam Al-Ghazali</h2>
+<p>
+Imam Al-Ghazali dalam kitab <em>Ihya' Ulumuddin</em> menjelaskan bahwa perjalanan spiritual seorang salik melewati beberapa maqam (tingkatan) yang harus dilalui secara berurutan. Setiap maqam memiliki syarat dan amalan tersendiri. Berikut adalah maqamat-maqamat tersebut:
+</p>
+
+<div class="tips-card">
+<span class="tips-number">1</span>
+<span class="tips-title">Taubat (التَّوْبَةُ) — Pintu Gerbang Pertama</span>
+<div class="tips-arabic">التَّوْبَةُ أَوَّلُ الْمَنَازِلِ</div>
+<p>
+Taubat adalah maqam pertama dan pintu gerbang menuju jalan spiritual. Menurut Imam Al-Ghazali, taubat yang sejati memiliki tiga rukun: (1) Ilmu — menyadari bahwa dosa adalah racun yang merusak hati; (2) Hal — merasa menyesali dosa yang telah dilakukan; (3) 'Amal — meninggalkan dosa segera, menyesali masa lalu, dan berazam tidak mengulanginya di masa depan. Taubat bukan hanya sekali, melainkan proses berkelanjutan (taubat nasuha).
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TAUBAT — QS. AT-TAHRIM: 8</div>
+<div class="arabic-text">
+يَا أَيُّهَا الَّذِينَ آمَنُوا تُوبُوا إِلَى اللَّهِ تَوْبَةً نَصُوحًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai orang-orang yang beriman! Bertobatlah kepada Allah dengan tobat yang semurni-murninya."
+<br>— QS. At-Tahrim: 8
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">2</span>
+<span class="tips-title">Wara' (الْوَرَعُ) — Kehati-hatian Spiritual</span>
+<div class="tips-arabic">الْوَرَعُ حِصْنُ الْقَلْبِ</div>
+<p>
+Wara' adalah meninggalkan segala perkara yang syubhat (meragukan) karena takut jatuh kepada yang haram. Imam Al-Ghazali membagi wara' menjadi tiga tingkatan: (1) Wara'ul 'awam — meninggalkan yang haram; (2) Wara'ul khawash — meninggalkan yang syubhat; (3) Wara'ul khawashil khawash — meninggalkan segala perkara yang melalaikan dari Allah. Wara' adalah benteng hati yang menjaganya dari kotoran dunia.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">HADITS TENTANG WAR'A</div>
+<div class="arabic-text">
+مَنِ اتَّقَى الشُّبُهَاتِ فَقَدِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa yang menjauhi perkara-perkara syubhat, maka ia telah memelihara agama dan kehormatannya."
+<br>— HR. Bukhari dan Muslim
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">3</span>
+<span class="tips-title">Zuhud (الزُّهْدُ) — Tidak Tergantung pada Dunia</span>
+<div class="tips-arabic">الزُّهْدُ تَرْكُ التَّعَلُّقِ بِالدُّنْيَا</div>
+<p>
+Zuhud menurut Imam Al-Ghazali bukanlah meninggalkan dunia secara total, melainkan tidak menggantungkan hati pada dunia. Seorang zahid boleh memiliki harta, tetapi harta itu tidak boleh menguasai hatinya. Imam Al-Ghazali sendiri meninggalkan harta dan jabatannya di Baghdad bukan karena membenci harta, tetapi karena hatinya telah dipenuhi oleh cinta kepada Allah, sehingga dunia menjadi tidak berarti lagi di hadapannya.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL ZUHUD — QS. AL-HADID: 23</div>
+<div class="arabic-text">
+لِكَيْلَا تَأْسَوْا عَلَىٰ مَا فَاتَكُمْ وَلَا تَفْرَحُوا بِمَا آتَاكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Kami jelaskan yang demikian itu) agar kamu tidak bersedih hati terhadap apa yang luput dari kamu, dan tidak pula terlalu gembira terhadap apa yang diberikan-Nya kepadamu."
+<br>— QS. Al-Hadid: 23
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">4</span>
+<span class="tips-title">Faqir dan Sabar (الْفَقْرُ وَالصَّبْرُ)</span>
+<div class="tips-arabic">الصَّبْرُ مِفْتَاحُ الْفَرَجِ</div>
+<p>
+Faqir (kemiskinan spiritual) menurut Imam Al-Ghazali adalah kesadaran bahwa manusia tidak memiliki apa-apa selain Allah. Kesadaran ini melahirkan sifat sabar — bukan sabar yang pasif, melainkan sabar yang aktif dalam menghadapi ujian, sabar dalam ketaatan, dan sabar dalam menjauhi larangan. Sabar adalah cahaya yang menerangi jalan salik di tengah kegelapan ujian.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL SABAR — QS. AL-BAQARAH: 155-156</div>
+<div class="arabic-text">
+وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِنَ الْأَمْوَالِ وَالْأَنْفُسِ وَالثَّمَرَاتِ ۗ وَبَشِّرِ الصَّابِرِينَ ۝ الَّذِينَ إِذَا أَصَابَتْهُمْ مُصِيبَةٌ قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan pasti akan Kami ujikan kamu dengan sedikit ketakutan, kelaparan, kekurangan harta, jiwa, dan buah-buahan. Dan sampaikanlah kabar gembira kepada orang-orang yang sabar, (yaitu) orang-orang yang apabila ditimpa musibah, mereka berkata 'Inna lillahi wa inna ilaihi raji'un'."
+<br>— QS. Al-Baqarah: 155-156
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">5</span>
+<span class="tips-title">Khauf dan Raja' (الْخَوْفُ وَالرَّجَاءُ)</span>
+<div class="tips-arabic">الْخَوْفُ وَالرَّجَاءُ جَنَاحَا السَّالِكِ</div>
+<p>
+Khauf (takut) dan raja' (harapan) adalah dua sayap yang membawa salik terbang menuju Allah. Menurut Imam Al-Ghazali, seorang salik harus seimbang antara takut akan azab Allah dan berharap akan rahmat-Nya. Terlalu takut tanpa harapan akan membawa kepada keputusasaan, terlalu berharap tanpa takut akan membawa kepada rasa aman dari tipu daya Allah. Keseimbangan inilah yang diajarkan Imam Al-Ghazali.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL KHAUF DAN RAJA' — QS. AL-A'RAF: 56</div>
+<div class="arabic-text">
+ادْعُوهُ خَوْفًا وَطَمَعًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Berdoalah kepada-Nya dengan rasa takut dan penuh harap."
+<br>— QS. Al-A'raf: 56
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">6</span>
+<span class="tips-title">Tawakkal (التَّوَكُّلُ) — Berserah Diri kepada Allah</span>
+<div class="tips-arabic">تَوَكَّلْ عَلَى اللَّهِ وَحَسْبُكَ</div>
+<p>
+Tawakkal adalah puncak ketergantungan hati hanya kepada Allah. Imam Al-Ghazali menjelaskan bahwa tawakkal yang sejati adalah ketika hati tidak lagi bergantung kepada sebab-akibat, melainkan langsung kepada Musabbibul Asbab (Pencipta Sebab). Namun, tawakkal bukan berarti meninggalkan usaha; justru tawakkal yang benar adalah berusaha dengan maksimal, kemudian menyerahkan hasilnya kepada Allah.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TAWAKKAL — QS. ATH-THALAQ: 3</div>
+<div class="arabic-text">
+وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan barangsiapa bertawakkal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya."
+<br>— QS. Ath-Thalaq: 3
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">7</span>
+<span class="tips-title">Ridha (الرِّضَا) — Menerima Ketetapan Allah</span>
+<div class="tips-arabic">ارْضَ بِقَضَاءِ اللَّهِ تَكُنْ مُؤْمِنًا</div>
+<p>
+Ridha adalah maqam di mana seorang hamba menerima dengan lapang dada segala ketetapan Allah, baik yang menyenangkan maupun yang tidak. Imam Al-Ghazali menjelaskan bahwa ridha adalah ujian yang lebih berat daripada sabar, karena sabar mungkin disertai rasa tidak suka di dalam hati, sedangkan ridha adalah penerimaan yang tulus tanpa ada rasa tidak suka sedikitpun.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL RIDHA — QS. AL-MUJADILAH: 22</div>
+<div class="arabic-text">
+رَضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah ridha terhadap mereka dan merekapun ridha kepada-Nya."
+<br>— QS. Al-Mujadilah: 22
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">8</span>
+<span class="tips-title">Mahabbah (الْمَحَبَّةُ) — Cinta kepada Allah</span>
+<div class="tips-arabic">الْمَحَبَّةُ غَايَةُ السَّالِكِينَ</div>
+<p>
+Mahabbah (cinta kepada Allah) adalah puncak dari semua maqam dan tujuan akhir dari perjalanan spiritual. Imam Al-Ghazali dalam kitab <em>Al-Mahabbah wasy Syauq</em> menjelaskan bahwa cinta kepada Allah adalah buah dari mengenal Allah (ma'rifatullah). Semakin seseorang mengenal Allah, semakin besar cintanya kepada-Nya. Cinta inilah yang menjadi sumber dari segala ibadah, ketaatan, dan karomah para wali.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL MAHABBAH — QS. AL-MAIDAH: 54</div>
+<div class="arabic-text">
+يُحِبُّهُمْ وَيُحِبُّونَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah mencintai mereka dan merekapun mencintai-Nya."
+<br>— QS. Al-Ma'idah: 54
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">9</span>
+<span class="tips-title">Dzikir dan Fikir (الذِّكْرُ وَالفِكْرُ)</span>
+<div class="tips-arabic">الذِّكْرُ صِقَالُ الْقُلُوبِ</div>
+<p>
+Dzikir (mengingat Allah) dan fikir (berfikir tentang ciptaan Allah) adalah dua amalan yang menjadi kendaraan salik dalam perjalanannya. Imam Al-Ghazali menjelaskan bahwa dzikir adalah pemoles hati (shiqalul qulub) yang membersihkannya dari karat dosa, sedangkan fikir adalah kunci pembuka pintu ma'rifat. Keduanya harus berjalan beriringan.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL DZIKIR DAN FIKIR — QS. ALI IMRAN: 190-191</div>
+<div class="arabic-text">
+إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِأُولِي الْأَلْبَابِ ۝ الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya dalam penciptaan langit dan bumi, dan silih bergantinya malam dan siang terdapat tanda-tanda bagi orang-orang yang berakal, (yaitu) orang-orang yang mengingat Allah sambil berdiri atau duduk atau dalam keadaan berbaring."
+<br>— QS. Ali 'Imran: 190-191
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">10</span>
+<span class="tips-title">Kasyf dan Mukasyafah (الْكَشْفُ وَالْمُكَاشَفَةُ)</span>
+<div class="tips-arabic">الْكَشْفُ نُورٌ يَقْذِفُهُ اللَّهُ فِي الْقَلْبِ</div>
+<p>
+Kasyf (penyingkapan tabir gaib) adalah maqam terakhir yang Allah anugerahkan kepada para wali-Nya. Menurut Imam Al-Ghazali, kasyf bukanlah hasil dari usaha manusia, melainkan cahaya yang Allah lemparkan ke dalam hati hamba-Nya yang telah suci. Kasyf inilah yang melahirkan karomah-karomah yang telah kita bahas dalam artikel sebelumnya. Namun, Imam Al-Ghazali mengingatkan agar salik tidak mencari kasyf, karena mencari kasyf berarti mencari selain Allah.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN IMAM AL-GHAZALI TENTANG KASYF</div>
+<div class="arabic-text">
+الْكَشْفُ نُورٌ يَقْذِفُهُ اللَّهُ فِي قَلْبِ مَنْ يَشَاءُ مِنْ عِبَادِهِ، فَلَا يُطْلَبُ بَلْ يُرْجَى
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Kasyf adalah cahaya yang Allah lemparkan ke dalam hati siapa yang Dia kehendaki di antara hamba-hamba-Nya. Maka ia tidak diminta, tetapi diharapkan."
+<br>— Imam Al-Ghazali, Ihya' Ulumuddin
+</div>
+</div>
+
+<h2>Amalan Praktis Harian ala Imam Al-Ghazali</h2>
+<p>
+Selain maqamat-maqamat di atas, Imam Al-Ghazali juga memberikan amalan praktis harian yang harus dilakukan seorang salik. Berikut adalah program harian yang beliau ajarkan:
+</p>
+
+<div class="tips-card">
+<span class="tips-number">1</span>
+<span class="tips-title">Qiyamul Lail (Shalat Malam)</span>
+<div class="tips-arabic">قِيَامُ اللَّيْلِ دَأْبُ الصَّالِحِينَ</div>
+<p>
+Imam Al-Ghazali menekankan pentingnya qiyamul lail sebagai amalan utama. Beliau menganjurkan untuk bangun di sepertiga malam terakhir, minimal dua pertiga malam, untuk melaksanakan shalat tahajud, membaca Al-Qur'an, dan berdzikir. Waktu sahur adalah waktu mustajab untuk berdoa dan waktu di mana Allah turun ke langit dunia.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL QIYAMUL LAIL — QS. AL-ISRA: 79</div>
+<div class="arabic-text">
+وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَكَ عَسَىٰ أَنْ يَبْعَثَكَ رَبُّكَ مَقَامًا مَحْمُودًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan pada sebagian malam, lakukanlah shalat tahajud (sebagai) ibadah tambahan bagimu, mudah-mudahan Tuhanmu mengangkatmu ke tempat yang terpuji."
+<br>— QS. Al-Isra: 79
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">2</span>
+<span class="tips-title">Wirdul Yaumi (Amalan Harian)</span>
+<div class="tips-arabic">الْوِرْدُ دَوَاءُ الْقَلْبِ</div>
+<p>
+Imam Al-Ghazali menganjurkan setiap muslim untuk memiliki wirdul yaumi (amalan harian) yang konsisten, meskipun sedikit. Amalan ini bisa berupa wirid dzikir, bacaan Al-Qur'an, shalawat, atau istighfar yang dibaca pada waktu-waktu tertentu. Konsistensi dalam amalan lebih dicintai Allah daripada amalan yang banyak tetapi tidak istiqamah.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">HADITS TENTANG ISTIQAMAH DALAM AMALAN</div>
+<div class="arabic-text">
+أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Amalan yang paling dicintai Allah adalah yang paling istiqamah (konsisten), meskipun sedikit."
+<br>— HR. Bukhari dan Muslim
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">3</span>
+<span class="tips-title">Khalwah (Menyepi untuk Berdzikir)</span>
+<div class="tips-arabic">الْخَلْوَةُ لِقَاءُ اللَّهِ فِي الْعُزْلَةِ</div>
+<p>
+Imam Al-Ghazali sendiri melakukan khalwah (uzlah) selama sepuluh tahun di Damaskus, Baghdad, dan kampung halamannya di Thus. Khalwah bukan berarti meninggalkan masyarakat, melainkan menyisihkan waktu tertentu setiap hari untuk menyepi bersama Allah. Beliau menganjurkan minimal satu jam setiap hari untuk khalwah, di mana seorang hamba berduaan dengan Tuhannya dalam dzikir dan tafakur.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">HADITS TENTANG KEUTAMAAN KHALWAH</div>
+<div class="arabic-text">
+رَجُلٌ ذَكَرَ اللَّهَ خَالِيًا فَفَاضَتْ عَيْنَاهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Salah satu dari tujuh golongan yang dinaungi Allah pada Hari Kiamat adalah) seseorang yang mengingat Allah dalam keadaan sendirian, lalu berlinanglah kedua matanya."
+<br>— HR. Bukhari dan Muslim
+</div>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">4</span>
+<span class="tips-title">Muhasabah Lailiyyah (Introspeksi Malam)</span>
+<div class="tips-arabic">حَاسِبْ نَفْسَكَ قَبْلَ أَنْ تُحَاسَبَ</div>
+<p>
+Sebelum tidur, Imam Al-Ghazali menganjurkan untuk melakukan muhasabah lailiyyah, yaitu menghitung-hitung amal yang telah dilakukan sepanjang hari. Seorang salik harus bertanya kepada dirinya sendiri: "Apa yang telah aku lakukan hari ini? Apakah untuk Allah atau untuk selain-Nya? Apakah membawa manfaat atau mudharat?" Muhasabah ini adalah cermin yang memperlihatkan kepada seseorang hakikat dirinya.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN UMAR BIN KHATTAB RA.</div>
+<div class="arabic-text">
+حَاسِبُوا أَنْفُسَكُمْ قَبْلَ أَنْ تُحَاسَبُوا، وَزِنُوا أَعْمَالَكُمْ قَبْلَ أَنْ تُوزَنُوا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Hisablah (evaluasi) diri kalian sebelum kalian dihisab, dan timbanglah amal kalian sebelum ditimbang."
+<br>— Sayyidina Umar bin Khattab r.a.
+</div>
+</div>
+
+<h2>Relevansi Jalan Spiritual Imam Al-Ghazali di Zaman Modern</h2>
+<p>
+Jalan spiritual yang diajarkan Imam Al-Ghazali sangat relevan dengan tantangan zaman modern saat ini. Berikut adalah beberapa relevansinya:
+</p>
+
+<div class="tips-card">
+<span class="tips-number">1</span>
+<span class="tips-title">Mengatasi Krisis Spiritual Modern</span>
+<div class="tips-arabic">عِلَاجُ الْأَزْمَةِ الرُّوحِيَّةِ</div>
+<p>
+Zaman modern ditandai dengan krisis spiritual — banyak orang memiliki harta melimpah, teknologi canggih, dan kenyamanan hidup, tetapi hatinya tetap gelisah dan hampa. Jalan spiritual Imam Al-Ghazali menawarkan obat bagi penyakit ini, yaitu dengan kembali kepada Allah melalui tazkiyatun nafs (penyucian jiwa).
+</p>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">2</span>
+<span class="tips-title">Menyeimbangkan Dunia dan Akhirat</span>
+<div class="tips-arabic">التَّوَازُنُ بَيْنَ الدُّنْيَا وَالْآخِرَةِ</div>
+<p>
+Imam Al-Ghazali mengajarkan keseimbangan antara dunia dan akhirat. Beliau bukan menolak dunia, tetapi mengajarkan bagaimana menggunakan dunia sebagai sarana untuk mencapai akhirat. Di zaman modern di mana banyak orang terjebak dalam materialisme, ajaran ini sangat penting untuk mengembalikan umat Islam pada keseimbangan yang benar.
+</p>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">3</span>
+<span class="tips-title">Membangun Akhlak Mulia di Era Digital</span>
+<div class="tips-arabic">بِنَاءُ الْأَخْلَاقِ فِي الْعَصْرِ الرَّقْمِيِّ</div>
+<p>
+Era digital membawa banyak tantangan akhlak — hoaks, ghibah online, pamer di media sosial, dan berbagai penyakit hati lainnya. Ajaran Imam Al-Ghazali tentang wara', ikhlas, dan tazkiyatun nafs menjadi panduan penting bagi umat Islam untuk menjaga akhlak di era digital ini.
+</p>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">4</span>
+<span class="tips-title">Menemukan Makna Hidup yang Sejati</span>
+<div class="tips-arabic">إِيجَادُ مَعْنَى الْحَيَاةِ الْحَقِيقِيِّ</div>
+<p>
+Banyak orang modern yang mengalami krisis makna hidup — merasa hidup tidak memiliki tujuan yang jelas. Jalan spiritual Imam Al-Ghazali mengajarkan bahwa makna hidup yang sejati hanya bisa ditemukan dalam mengenal dan mencintai Allah. Inilah hakikat penciptaan manusia: "Aku tidak menciptakan jin dan manusia melainkan agar mereka beribadah kepada-Ku" (QS. Adz-Dzariyat: 56).
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL MAKNA HIDUP — QS. ADZ-DZARIYAT: 56</div>
+<div class="arabic-text">
+وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Aku tidak menciptakan jin dan manusia melainkan supaya mereka beribadah kepada-Ku."
+<br>— QS. Adz-Dzariyat: 56
+</div>
+</div>
+
+<h2>Kisah Inspiratif Pengikut Jejak Imam Al-Ghazali</h2>
+<p>
+Banyak ulama besar setelah Imam Al-Ghazali yang mengikuti jejak beliau dan mencapai maqam kewalian. Berikut beberapa di antaranya:
+</p>
+
+<div class="tips-card">
+<span class="tips-number">1</span>
+<span class="tips-title">Imam Abu Bakar ibn Al-Arabi (w. 543 H)</span>
+<div class="tips-arabic">الْإِمَامُ أَبُو بَكْرِ بْنُ الْعَرَبِيِّ</div>
+<p>
+Murid langsung Imam Al-Ghazali yang menemani beliau dalam perjalanan ke Baitul Maqdis. Beliau menjadi ulama besar dalam bidang fikih dan tasawuf, dan menulis banyak kitab yang menjadi rujukan umat Islam hingga hari ini. Beliau adalah bukti bahwa ajaran Imam Al-Ghazali dapat melahirkan generasi ulama rabbani.
+</p>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">2</span>
+<span class="tips-title">Imam Fakhrur Razi (w. 606 H)</span>
+<div class="tips-arabic">الْإِمَامُ فَخْرُ الدِّينِ الرَّازِيُّ</div>
+<p>
+Meskipun dikenal sebagai ulama kalam dan filsafat, Imam Fakhrur Razi di akhir hayatnya mengikuti jejak Imam Al-Ghazali dalam tasawuf. Beliau menulis dalam wasiatnya: "Aku telah memeriksa jalan-jalan kalam dan filsafat, tetapi aku tidak menemukan jalan yang lebih lurus daripada jalan Al-Qur'an — membaca, memahami, dan mengamalkannya."
+</p>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">3</span>
+<span class="tips-title">Imam An-Nawawi (w. 676 H)</span>
+<div class="tips-arabic">الْإِمَامُ النَّوَوِيُّ</div>
+<p>
+Imam An-Nawawi adalah ulama besar yang mengikuti jejak Imam Al-Ghazali dalam zuhud dan kesungguhan beribadah. Beliau menulis banyak kitab yang menjadi rujukan umat Islam, seperti <em>Riyadhus Shalihin</em>, <em>Al-Adzkar</em>, dan <em>Syarah Shahih Muslim</em>. Hidup beliau singkat (45 tahun) tetapi penuh dengan karya yang abadi.
+</p>
+</div>
+
+<div class="tips-card">
+<span class="tips-number">4</span>
+<span class="tips-title">Imam As-Suyuthi (w. 911 H)</span>
+<div class="tips-arabic">الْإِمَامُ السُّيُوطِيُّ</div>
+<p>
+Imam As-Suyuthi adalah ulama besar yang menulis lebih dari 500 kitab, mengikuti jejak Imam Al-Ghazali dalam keluasan ilmu dan kedalaman spiritual. Beliau dikenal sebagai mujaddid (pembaharu) pada masanya dan dikaruniai banyak karomah oleh Allah SWT.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL MENGIKUTI JEJAK ORANG SHALIH — QS. AT-TAUBAH: 100</div>
+<div class="arabic-text">
+وَالسَّابِقُونَ الْأَوَّلُونَ مِنَ الْمُهَاجِرِينَ وَالْأَنْصَارِ وَالَّذِينَ اتَّبَعُوهُمْ بِإِحْسَانٍ رَضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Orang-orang yang terdahulu lagi yang pertama-tama (masuk Islam) dari golongan muhajirin dan anshar dan orang-orang yang mengikuti mereka dengan baik, Allah ridha kepada mereka dan merekapun ridha kepada Allah."
+<br>— QS. At-Taubah: 100
+</div>
+</div>
+
+<h2>Doa-Doa untuk Memulai Perjalanan Spiritual</h2>
+<p>
+Berikut adalah beberapa doa yang diajarkan Imam Al-Ghazali untuk memulai perjalanan spiritual:
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMBUKA PINTU MA'RIFAT</div>
+<div class="arabic-text">
+اللَّهُمَّ افْتَحْ عَلَيْنَا أَبْوَابَ مَعْرِفَتِكَ، وَأَنِرْ قُلُوبَنَا بِنُورِ هِدَايَتِكَ، وَاجْعَلْنَا مِنْ عِبَادِكَ الصَّالِحِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, bukakanlah kepada kami pintu-pintu ma'rifat-Mu, terangkanlah hati kami dengan cahaya petunjuk-Mu, dan jadikanlah kami termasuk hamba-hamba-Mu yang shalih."
+</div>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON HATI YANG BERSIH</div>
+<div class="arabic-text">
+اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ، وَمِنْ قَلْبٍ لَا يَخْشَعُ، وَمِنْ نَفْسٍ لَا تَشْبَعُ، وَمِنْ دَعْوَةٍ لَا يُسْتَجَابُ لَهَا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, aku berlindung kepada-Mu dari ilmu yang tidak bermanfaat, dari hati yang tidak khusyuk, dari jiwa yang tidak pernah puas, dan dari doa yang tidak dikabulkan."
+<br>— HR. Muslim
+</div>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON ISTIQAMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَىٰ دِينِكَ، وَاجْعَلْنِي مِمَّنْ اسْتَقَامَ فَاسْتَقَامَتْ لَهُ الْأُمُورُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, Wahai Yang Membolak-balikkan hati, teguhkanlah hatiku di atas agama-Mu, dan jadikanlah aku termasuk orang-orang yang istiqamah sehingga segala urusannya menjadi lurus."
+</div>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA PENUTUP MAJELIS ILMU</div>
+<div class="arabic-text">
+سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا أَنْتَ، أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maha Suci Engkau ya Allah, dengan memuji-Mu. Aku bersaksi bahwa tiada Tuhan selain Engkau. Aku memohon ampun dan bertobat kepada-Mu."
+<br>— HR. Tirmidzi
+</div>
+</div>
+
+<h2>Penutup: Mengikuti Jejak Sang Hujjatul Islam</h2>
+<p>
+Perjalanan spiritual Imam Al-Ghazali dari seorang profesor di Baghdad hingga menjadi seorang wali Allah yang dikaruniai berbagai karomah adalah bukti nyata bahwa jalan menuju Allah terbuka lebar bagi siapa saja yang bersungguh-sungguh. Beliau mengajarkan kepada kita bahwa karomah bukanlah tujuan, melainkan buah dari istiqamah di atas jalan Allah.
+</p>
+<p>
+Mari kita mulai perjalanan spiritual kita dengan taubat yang nasuha, wara' dalam setiap langkah, zuhud terhadap dunia, sabar dalam menghadapi ujian, tawakkal kepada Allah, ridha atas ketetapan-Nya, dan mahabbah yang mendalam kepada-Nya. Dengan mengikuti jejak Imam Al-Ghazali, semoga kita semua dikaruniai husnul khotimah dan menjadi hamba-hamba Allah yang dicintai-Nya.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-text">
+إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنْتُمْ تُوعَدُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang-orang yang mengatakan: 'Tuhan kami ialah Allah' kemudian mereka meneguhkan pendirian mereka, maka malaikat akan turun kepada mereka (dengan berkata): 'Janganlah kamu takut dan janganlah merasa sedih; dan gembirakanlah mereka dengan jannah yang telah dijanjikan Allah kepadamu.'"
+<br>— QS. Fussilat: 30
+</div>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">NASIHAT PENUTUP IMAM AL-GHAZALI</div>
+<div class="arabic-text">
+لَا تَنْظُرْ إِلَىٰ قِلَّةِ الطَّرِيقِ، بَلْ انْظُرْ إِلَىٰ عَظَمَةِ الْمَقْصُودِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Janganlah kamu melihat kepada sedikitnya jalan (yang harus ditempuh), tetapi lihatlah kepada keagungan tujuan (yaitu Allah)."
+<br>— Imam Al-Ghazali
+</div>
+</div>
+
+<p>
+Wallahu a'lam bish-shawab. Dan segala puji bagi Allah, Tuhan semesta alam. Shalawat dan salam semoga tercurah kepada Nabi Muhammad SAW, beserta keluarga, sahabat, dan orang-orang yang mengikuti jejaknya hingga hari kiamat.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-text">
+وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ وَصَلَّى اللَّهُ عَلَىٰ سَيِّدِنَا مُحَمَّدٍ وَعَلَىٰ آلِهِ وَصَحْبِهِ أَجْمَعِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Segala puji bagi Allah, Tuhan semesta alam. Dan shalawat serta salam semoga tercurah kepada junjungan kita Nabi Muhammad SAW, beserta keluarga dan seluruh sahabatnya."
+</div>
+</div>
+
+</div>
+
+<!-- NAVIGASI 3 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="karomah1.html" class="article-nav-btn" title="Artikel Utama">1</a>
+<div class="nav-btn-label">Artikel Utama</div>
+</div>
+<div class="nav-group">
+<a href="karomah1-cabang.html" class="article-nav-btn" title="Artikel Cabang">2</a>
+<div class="nav-btn-label">Artikel Cabang</div>
+</div>
+<div class="nav-group">
+<a href="karomah1-lanjutan.html" class="article-nav-btn active" title="Artikel Lanjutan">3</a>
+<div class="nav-btn-label">Artikel Lanjutan</div>
+</div>
+</div>
+
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
