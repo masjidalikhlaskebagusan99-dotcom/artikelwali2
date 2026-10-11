@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Muhammad Ibn Hanafi - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f5f5f0;
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.8;
+}
+
+/* 2. MEDIA QUERY TABLET (Dipindahkan ke root level agar valid) */
+@media (max-width: 768px) {
+    .article-container { /* Diperbaiki: sebelumnya .container (tidak ada di HTML) */
+        max-width: 100%;
+        padding: 20px;
+    }
+    h1 { font-size: 26px; }
+    .featured-img { max-width: 100%; }
+}
+
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo-kalam {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e94560;
+    letter-spacing: 5px;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+.logo-kalam:hover {
+    background: rgba(233, 69, 96, 0.15);
+    transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+    padding: 15px 40px;
+    background: #eee;
+    font-size: 0.85rem;
+    color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+    font-size: 2.2rem;
+    color: #1a1a2e;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+.article-header .subtitle {
+    font-size: 1.1rem;
+    color: #e94560;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #888;
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+    margin: 25px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    position: relative;
+}
+.article-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+    background: rgba(0,0,0,0.7);
+    color: #ccc;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+}
+.share-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+.font-btn:hover {
+    background: #e94560;
+    color: #fff;
+    border-color: #e94560;
+}
+
+/* 7. KONTEN ARTIKEL */
+.article-content {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #444;
+}
+.article-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.article-content .lead {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #1a1a2e;
+    border-left: 4px solid #e94560;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+.article-content blockquote {
+    background: #f0f0eb;
+    border-left: 4px solid #e94560;
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #555;
+}
+.article-content h2 {
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    margin: 35px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 25px 0 10px;
+}
+.article-content ul {
+    margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+    background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 30px 25px;
+    margin: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    position: relative;
+}
+.arabic-box::before {
+    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f8f6f0;
+    padding: 0 12px;
+    font-size: 1.2rem;
+    color: #d4af37;
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    white-space: nowrap;
+    line-height: 1.4;
+    z-index: 2;
+}
+.arabic-text {
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    font-size: 1.8rem;
+    line-height: 2.8;
+    color: #1a1a2e;
+    direction: rtl;
+    margin: 15px 0;
+}
+.arabic-translation {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+    display: inline-block;
+    background: #d4af37;
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+.karomah-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+    border: 1px solid #e0ddd5;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #e94560;
+}
+.karomah-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+.karomah-title {
+    font-size: 1.3rem;
+    color: #1a1a2e;
+    font-weight: bold;
+    display: inline;
+}
+.karomah-arabic {
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    font-size: 1.6rem;
+    color: #d4af37;
+    direction: rtl;
+    margin: 10px 0;
+    text-align: right;
+}
+.highlight-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+    border: 1px solid #e0ddd5;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+    margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Diperkecil dari 20px agar lebih rapat */
+    margin: 40px 0;
+    padding: 20px; /* Diperkecil dari 30px */
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 15px;
+}
+.article-nav-btn {
+    width: 50px; /* DIPERKECIL dari 70px */
+    height: 50px; /* DIPERKECIL dari 70px */
+    border-radius: 50%;
+    border: 2px solid #e94560;
+    background: rgba(233, 69, 96, 0.1);
+    color: #fff;
+    font-size: 1.3rem; /* DIPERKECIL dari 1.8rem */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.article-nav-btn:hover {
+    background: #e94560;
+    transform: scale(1.15);
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+    background: #e94560;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+    display: block;
+    text-align: center;
+    margin: 40px auto;
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+    max-width: 350px;
+}
+.kalam-back-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+    background: linear-gradient(135deg, #ff6b81, #e94560);
+    letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    opacity: 0.8;
+    font-weight: normal;
+}
+footer {
+    background: #1a1a2e;
+    color: #888;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+footer span { color: #e94560; }
+
+/* 11. PERBAIKAN FINAL: MEDIA QUERY MOBILE (HP) YANG KONSOLIDASI & VALID */
+@media (max-width: 600px) {
+    body { font-size: 14px; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    
+    header { 
+        flex-direction: column; 
+        gap: 10px; 
+        padding: 15px 20px; 
+    }
+    nav { /* Diperbaiki: sebelumnya .nav (tidak valid untuk tag <nav>) */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+    .article-container { padding: 0 15px; }
+    .article-content { font-size: 0.95rem; }
+    .arabic-text { font-size: 1.4rem; line-height: 2.4; }
+    .karomah-arabic { font-size: 1.3rem; }
+    
+    /* PERBAIKAN KRUSIAL: Class disesuaikan dengan HTML (.article-nav-btn, bukan .page-btn) */
+    .article-nav { 
+        gap: 10px; 
+        padding: 15px; 
+    }
+    .article-nav-btn { 
+        width: 40px;   /* Ukuran optimal untuk HP */
+        height: 40px;  /* Ukuran optimal untuk HP */
+        font-size: 1.1rem; 
+    }
+}
+</style>
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Muhammad Ibn Hanafi
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Muhammad Ibn Hanafi</h1>
+<div class="subtitle">Halaman 2 dari 5 — Perjalanan Ilmu & Karomah di Madinah dan Mekkah</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Minggu, 11 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Al-Masjid_an-Nabawi%2C_Medina%2C_Saudi_Arabia.jpg/800px-Al-Masjid_an-Nabawi%2C_Medina%2C_Saudi_Arabia.jpg"
+       alt="Ilustrasi Madinah, tempat Syeikh Muhammad Ibn Hanafi tumbuh dan menuntut ilmu"
+       loading="eager"
+       decoding="async"
+       onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+  <div class="image-caption">Sumber: kalam.web.id — Ilustrasi Madinah, tempat Syeikh Muhammad Ibn Hanafi tumbuh dan menuntut ilmu</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah tumbuh di bawah bimbingan ayah beliau, Sayyidina Ali bin Abi Thalib, Syeikh Muhammad Ibn al-Hanafiyyah (wafat 81 H / 700 M) kemudian menjadi rujukan utama para ulama dalam bidang fiqih, hadits, dan tafsir di Madinah dan Mekkah. Beliau dikenal sebagai <em>Imam Ahlul Bait</em> dan <em>Alim al-Ummah</em> (Ulamanya Umat). Pada halaman ini, kita akan menyelami karomah-karomah beliau selama perjalanan ilmu dan dakwah di dua tanah suci.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU — QS. AL-MUJADALAH: 11</div>
+<div class="arabic-text">
+يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah akan meninggikan orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu pengetahuan beberapa derajat."
+<br>— QS. Al-Mujadalah: 11
+</div>
+</div>
+<h2>Syeikh Muhammad Ibn Hanafi sebagai Rujukan Ulama</h2>
+<p>
+Setelah wafatnya ayah beliau, Sayyidina Ali bin Abi Thalib, pada tahun 40 H, Syeikh Muhammad Ibn al-Hanafiyyah menjadi rujukan utama bagi para ulama dan sahabat dalam berbagai permasalahan agama. Banyak sahabat besar dan tabi'in yang datang kepadanya untuk meminta fatwa dan penjelasan tentang hadits-hadits yang mereka dengar langsung dari Rasulullah SAW dan dari ayah beliau.
+</p>
+<p>
+Beliau dikenal sangat teliti dalam berfatwa, tidak pernah berbicara kecuali dengan ilmu yang pasti. Beliau pernah berkata: <em>"Jika aku tidak mengetahui jawaban atas suatu pertanyaan, aku akan berkata: 'Aku tidak tahu.' Karena aku takut kepada Allah yang akan mempertanyakan setiap kata yang keluar dari lisanku."</em> Kehati-hatian dan kedalaman ilmu beliau membuat para ulama besar seperti Sa'id bin al-Musayyib dan Ibnu Abbas sendiri mengakui keutamaan beliau.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN IBN HANAFI TENTANG ILMU</div>
+<div class="arabic-text">
+مَنْ لَا يَعْلَمُ فَلْيَقُلْ لَا أَدْرِي
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa yang tidak mengetahui, maka hendaklah ia berkata: 'Aku tidak tahu.'"
+<br>— Syeikh Muhammad Ibn al-Hanafiyyah
+</div>
+</div>
+<h2>Karomah-Karomah Syeikh Muhammad Ibn Hanafi di Madinah dan Mekkah</h2>
+<p>
+Berikut adalah karomah-karomah luar biasa yang Allah anugerahkan kepada Syeikh Muhammad Ibn al-Hanafiyyah selama beliau menuntut ilmu, berfatwa, dan berdakwah di Madinah dan Mekkah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">5</span>
+<span class="karomah-title">Karomah Menjadi Rujukan Para Sahabat dan Tabi'in</span>
+<div class="karomah-arabic">رُجُوعُ الصَّحَابَةِ وَالتَّابِعِينَ إِلَيْهِ</div>
+<p>
+Salah satu karomah Syeikh Muhammad Ibn al-Hanafiyyah yang paling agung adalah bahwa para sahabat besar dan tabi'in datang kepadanya untuk meminta fatwa dan penjelasan tentang berbagai permasalahan agama. Ibnu Abbas, yang dikenal sebagai <em>Tarjuman al-Qur'an</em> (Juru Tafsir Al-Qur'an), sering datang kepadanya untuk mendiskusikan berbagai masalah fiqih dan tafsir.
+</p>
+<p>
+Suatu hari, Ibnu Abbas bertanya kepada beliau tentang makna suatu ayat yang rumit. Syeikh Muhammad menjawab dengan penjelasan yang begitu mendalam dan luas, sehingga Ibnu Abbas menangis dan berkata: <em>"Wahai Muhammad, engkau truly pewaris ilmu ayahmu. Allah telah menganugerahkan kepadamu hikmah yang tidak diberikan kepada orang lain. Seandainya tidak karena engkau, aku akan tersesat dari makna ayat ini."</em> Para ulama besar seperti Sa'id bin al-Musayyib, Atha' bin Abi Rabah, dan Mujahid bin Jabr, semuanya belajar dari beliau dan mengakui keutamaan ilmunya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AHLUL BAIT — QS. AL-AHZAB: 33</div>
+<div class="arabic-text">
+إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah bermaksud hendak menghilangkan dosa dari kamu, hai ahlul bait dan membersihkan kamu sebersih-bersihnya."
+<br>— QS. Al-Ahzab: 33
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">6</span>
+<span class="karomah-title">Karomah Menghidupkan Orang Mati dengan Izin Allah</span>
+<div class="karomah-arabic">إِحْيَاءُ الْمَوْتَىٰ بِإِذْنِ اللَّهِ</div>
+<p>
+Para ulama menceritakan bahwa Syeikh Muhammad Ibn al-Hanafiyyah pernah menghidupkan orang yang telah mati dengan izin Allah SWT. Dikisahkan bahwa seorang wanita tua dari suku Anshar datang kepadanya dengan menangis, mengabarkan bahwa putranya yang masih muda telah meninggal dunia secara tiba-tiba. Wanita itu memohon agar beliau berdoa kepada Allah untuk menghidupkan kembali putranya, karena ia adalah satu-satunya anak yang dimilikinya.
+</p>
+<p>
+Syeikh Muhammad kemudian datang ke rumah duka, duduk di sisi jenazah, dan berdoa dengan khusyuk: <em>"Ya Allah, Engkau yang menghidupkan dan mematikan, Engkau yang berkuasa atas segala sesuatu. Dengan hak ayahku Ali bin Abi Thalib yang telah syahid di jalan-Mu, dan dengan hak kakekku Rasulullah SAW, kembalikanlah anak ini kepada ibunya untuk sementara waktu."</em> Dengan izin Allah, jenazah itu membuka matanya dan berbicara kepada ibunya, mengucapkan salam dan memberitahu tentang wasiat yang belum sempat ia sampaikan. Setelah wasiatnya selesai, ia kembali wafat dengan tenang, dan ibunya memeluknya dengan penuh syukur.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KUASA ALLAH — QS. AL-BAQARAH: 259</div>
+<div class="arabic-text">
+أَنَّىٰ يُحْيِي هَٰذِهِ اللَّهُ بَعْدَ مَوْتِهَا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Bagaimana Allah menghidupkan kembali yang ini setelah matinya?"
+<br>— QS. Al-Baqarah: 259
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">7</span>
+<span class="karomah-title">Karomah Melindungi Ka'bah dari Penistaan</span>
+<div class="karomah-arabic">حِمَايَتُهُ الْكَعْبَةَ مِنَ التَّنْجِيسِ</div>
+<p>
+Salah satu karomah Syeikh Muhammad Ibn al-Hanafiyyah yang paling masyhur adalah peristiwa ketika Hajjaj bin Yusuf ath-Thaqafi, gubernur Irak yang zalim, memerintahkan pasukannya untuk menembakkan batu-batu besar ke Ka'bah pada tahun 73 H, ketika Abdullah bin Zubair menguasai Mekkah. Pasukan Hajjaj mengepung Mekkah dan menghancurkan sebagian Ka'bah.
+</p>
+<p>
+Syeikh Muhammad Ibn al-Hanafiyyah yang saat itu berada di Mekkah sangat bersedih melihat Ka'bah dirusak. Beliau pergi ke Hajar Aswad, mengusapnya dengan tangan beliau, dan berdoa dengan penuh keikhlasan: <em>"Ya Allah, Engkau adalah Pemilik Bait ini, maka lindungilah ia dari penistaan orang-orang zalim."</em> Para penduduk Mekkah menceritakan bahwa setelah doa beliau, pasukan Hajjaj tiba-tiba dilanda ketakutan yang luar biasa, dan banyak dari mereka yang melarikan diri tanpa alasan yang jelas. Hajjaj sendiri kemudian memerintahkan pasukannya untuk berhenti menyerang Ka'bah, dan membangunnya kembali dengan bantuan Syeikh Muhammad.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KA'BAH — QS. AL-BAQARAH: 125</div>
+<div class="arabic-text">
+وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan (ingatlah), ketika Kami menjadikan rumah itu (Baitullah) tempat berkumpul bagi manusia dan tempat yang aman."
+<br>— QS. Al-Baqarah: 125
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">8</span>
+<span class="karomah-title">Karomah Air Zam-Zam yang Tidak Pernah Habis</span>
+<div class="karomah-arabic">بَرَكَةُ مَاءِ زَمْزَمَ عَلَى يَدَيْهِ</div>
+<p>
+Dikisahkan bahwa pada suatu musim kemarau yang sangat panjang di Mekkah, air Zam-Zam hampir habis karena banyaknya jamaah haji yang datang. Para pengurus Baitullah datang kepada Syeikh Muhammad Ibn al-Hanafiyyah dengan memohon doa beliau agar Allah menambah air Zam-Zam.
+</p>
+<p>
+Syeikh Muhammad kemudian datang ke sumur Zam-Zam, mengambil air dengan tangannya sendiri, dan berdoa: <em>"Ya Allah, Zam-Zam adalah air yang Engkau anugerahkan untuk hamba-hamba-Mu dan tamu-tamu di Bait-Mu. Maka penuhilah ia dengan barakah-Mu agar tidak pernah habis."</em> Setelah doa beliau, air Zam-Zam tiba-tiba meluap dengan deras, melebihi kapasitas biasanya. Jamaah haji yang saat itu berjumlah puluhan ribu dapat minum dengan puas, dan air Zam-Zam tidak pernah habis hingga musim haji berikutnya. Para pengurus Baitullah sangat takjub dan berkata: <em>"Ini adalah barakah dari keturunan Rasulullah SAW yang Allah anugerahkan kepada kita."</em>
+</p>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Syeikh Muhammad Ibn Hanafi di Madinah dan Mekkah:</strong>
+<ul>
+<li><strong>Menjadi rujukan para sahabat dan tabi'in</strong> — Ibnu Abbas dan ulama besar belajar dari beliau</li>
+<li><strong>Menghidupkan orang mati dengan izin Allah</strong> — Dengan wasilah ayah dan kakek beliau</li>
+<li><strong>Melindungi Ka'bah dari penistaan</strong> — Doa beliau menghentikan serangan Hajjaj</li>
+<li><strong>Memperbanyak air Zam-Zam</strong> — Barakah keturunan Rasulullah SAW</li>
+<li><strong>Sangat teliti dalam berfatwa</strong> — Berani berkata "aku tidak tahu" jika tidak yakin</li>
+<li><strong>Diakui sebagai Imam Ahlul Bait</strong> — Pemimpin spiritual umat setelah ayahnya</li>
+</ul>
+</div>
+<h2>Doa Memohon Karomah dari Allah</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KAROMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْنِي مِنْ أَوْلِيَائِكَ الصَّالِحِينَ، وَارْزُقْنِي الْكَرَامَةَ وَالِاسْتِقَامَةَ، وَاجْعَلْ سَيِّدَنَا مُحَمَّدَ بْنَ الْحَنَفِيَّةِ شَفِيعِي يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah aku termasuk wali-wali-Mu yang shaleh, anugerahkanlah kepadaku karomah dan istiqamah, dan jadikanlah Sayyidina Muhammad Ibn al-Hanafiyyah sebagai pemberi syafaat bagiku pada hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 2</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Muhammad Ibn al-Hanafiyyah selama beliau menuntut ilmu, berfatwa, dan berdakwah di Madinah dan Mekkah. Karomah-karomah ini menunjukkan bahwa Allah senantiasa menjaga dan memuliakan hamba-hamba-Nya dari Ahlul Bait yang ikhlas dan bertakwa. Pada halaman berikutnya, kita akan membahas karomah beliau dalam menghadapi fitnah dan membimbing umat.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa bertakwa kepada Allah niscaya Dia akan mengadakan baginya jalan keluar. Dan memberinya rezeki dari arah yang tiada disangka-sangkanya."
+<br>— QS. At-Talaq: 2-3
+</div>
+</div>
+</div>
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="hanafi1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="hanafi2.html" class="article-nav-btn active" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="hanafi3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="hanafi4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="hanafi5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
