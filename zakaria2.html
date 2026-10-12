@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f5f5f0;
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.8;
+}
+
+/* 2. MEDIA QUERY TABLET (Dipindahkan ke root level agar valid) */
+@media (max-width: 768px) {
+    .article-container { /* Diperbaiki: sebelumnya .container (tidak ada di HTML) */
+        max-width: 100%;
+        padding: 20px;
+    }
+    h1 { font-size: 26px; }
+    .featured-img { max-width: 100%; }
+}
+
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo-kalam {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e94560;
+    letter-spacing: 5px;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+.logo-kalam:hover {
+    background: rgba(233, 69, 96, 0.15);
+    transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+    padding: 15px 40px;
+    background: #eee;
+    font-size: 0.85rem;
+    color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+    font-size: 2.2rem;
+    color: #1a1a2e;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+.article-header .subtitle {
+    font-size: 1.1rem;
+    color: #e94560;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #888;
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+    margin: 25px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    position: relative;
+}
+.article-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+    background: rgba(0,0,0,0.7);
+    color: #ccc;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+}
+.share-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+.font-btn:hover {
+    background: #e94560;
+    color: #fff;
+    border-color: #e94560;
+}
+
+/* 7. KONTEN ARTIKEL */
+.article-content {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #444;
+}
+.article-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.article-content .lead {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #1a1a2e;
+    border-left: 4px solid #e94560;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+.article-content blockquote {
+    background: #f0f0eb;
+    border-left: 4px solid #e94560;
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #555;
+}
+.article-content h2 {
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    margin: 35px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 25px 0 10px;
+}
+.article-content ul {
+    margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+    background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 30px 25px;
+    margin: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    position: relative;
+}
+.arabic-box::before {
+    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f8f6f0;
+    padding: 0 12px;
+    font-size: 1.2rem;
+    color: #d4af37;
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    white-space: nowrap;
+    line-height: 1.4;
+    z-index: 2;
+}
+.arabic-text {
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    font-size: 1.8rem;
+    line-height: 2.8;
+    color: #1a1a2e;
+    direction: rtl;
+    margin: 15px 0;
+}
+.arabic-translation {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+    display: inline-block;
+    background: #d4af37;
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+.karomah-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+    border: 1px solid #e0ddd5;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #e94560;
+}
+.karomah-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+.karomah-title {
+    font-size: 1.3rem;
+    color: #1a1a2e;
+    font-weight: bold;
+    display: inline;
+}
+.karomah-arabic {
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    font-size: 1.6rem;
+    color: #d4af37;
+    direction: rtl;
+    margin: 10px 0;
+    text-align: right;
+}
+.highlight-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+    border: 1px solid #e0ddd5;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+    margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Diperkecil dari 20px agar lebih rapat */
+    margin: 40px 0;
+    padding: 20px; /* Diperkecil dari 30px */
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 15px;
+}
+.article-nav-btn {
+    width: 50px; /* DIPERKECIL dari 70px */
+    height: 50px; /* DIPERKECIL dari 70px */
+    border-radius: 50%;
+    border: 2px solid #e94560;
+    background: rgba(233, 69, 96, 0.1);
+    color: #fff;
+    font-size: 1.3rem; /* DIPERKECIL dari 1.8rem */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.article-nav-btn:hover {
+    background: #e94560;
+    transform: scale(1.15);
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+    background: #e94560;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+    display: block;
+    text-align: center;
+    margin: 40px auto;
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+    max-width: 350px;
+}
+.kalam-back-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+    background: linear-gradient(135deg, #ff6b81, #e94560);
+    letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    opacity: 0.8;
+    font-weight: normal;
+}
+footer {
+    background: #1a1a2e;
+    color: #888;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+footer span { color: #e94560; }
+
+/* 11. PERBAIKAN FINAL: MEDIA QUERY MOBILE (HP) YANG KONSOLIDASI & VALID */
+@media (max-width: 600px) {
+    body { font-size: 14px; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    
+    header { 
+        flex-direction: column; 
+        gap: 10px; 
+        padding: 15px 20px; 
+    }
+    nav { /* Diperbaiki: sebelumnya .nav (tidak valid untuk tag <nav>) */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+    .article-container { padding: 0 15px; }
+    .article-content { font-size: 0.95rem; }
+    .arabic-text { font-size: 1.4rem; line-height: 2.4; }
+    .karomah-arabic { font-size: 1.3rem; }
+    
+    /* PERBAIKAN KRUSIAL: Class disesuaikan dengan HTML (.article-nav-btn, bukan .page-btn) */
+    .article-nav { 
+        gap: 10px; 
+        padding: 15px; 
+    }
+    .article-nav-btn { 
+        width: 40px;   /* Ukuran optimal untuk HP */
+        height: 40px;  /* Ukuran optimal untuk HP */
+        font-size: 1.1rem; 
+    }
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi</h1>
+<div class="subtitle">Halaman 2 dari 5 — Perjalanan Spiritual & Pengabdian Ilmu</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Minggu, 11 Oktober 2026, 10:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Seiring berjalannya waktu, Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi semakin mendalam dalam perjalanan spiritualnya. Beliau tidak hanya dikenal karena kesederhanaannya, tetapi juga karena kedekatan yang luar biasa dengan Allah SWT. Dalam fase ini, Allah mulai menampakkan karomah-karomah berupa bimbingan ghaib, ketajaman firasat, dan kekuatan doa yang mustajab sebagai bentuk pertolongan bagi umat yang sedang kesulitan.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG BIMBINGAN ALLAH — QS. AL-ANFAL: 29</div>
+<div class="arabic-text">
+يَا أَيُّهَا الَّذِينَ آمَنُوا إِن تَتَّقُوا اللَّهَ يَجْعَل لَّكُمْ فُرْقَانًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai orang-orang yang beriman! Jika kamu bertakwa kepada Allah, niscaya Dia akan memberikan kepadamu furqan (pembeda antara yang hak dan yang batil)."
+<br>— QS. Al-Anfal: 29
+</div>
+</div>
+<h2>Perjalanan Spiritual & Karomah Pengabdian Ilmu</h2>
+<p>
+Berikut adalah beberapa karomah luar biasa yang Allah anugerahkan kepada Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi selama perjalanan spiritual beliau, yang menunjukkan betapa tingginya maqam yang beliau capai di sisi Allah SWT.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">5</span>
+<span class="karomah-title">Karomah Firasat dan Membaca Hati</span>
+<div class="karomah-arabic">فِرَاسَةُ الْمُؤْمِنِ وَمَعْرِفَةُ مَا فِي الْقُلُوبِ</div>
+<p>
+Syeikh Zakaria dikaruniai firasat yang sangat tajam. Beliau mampu mengetahui apa yang sedang terbersit di dalam hati seseorang yang datang menemuinya, meskipun orang tersebut tidak mengucapkannya sepatah kata pun. 
+</p>
+<p>
+Suatu ketika, seorang pemuda datang dengan niat tersembunyi untuk menguji kebenaran ajaran beliau. Belum sempat pemuda itu berbicara, Syeikh Zakaria sudah tersenyum dan berkata dengan lembut, <em>"Wahai saudaraku, janganlah ragukan rahmat Allah. Niatmu untuk menguji sudah aku ketahui, namun ketahuilah bahwa Allah Maha Mengetahui isi hati hamba-Nya. Mari kita duduk dan belajar bersama."</em> 
+</p>
+<p>
+Mendengar hal itu, pemuda tersebut langsung tersungkur menangis, mengakui niatnya, dan sejak saat itu menjadi murid yang sangat setia dan shaleh.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG FIRASAT — HR. TIRMIDZI</div>
+<div class="arabic-text">
+اتَّقُوا فِرَاسَةَ الْمُؤْمِنِ فَإِنَّهُ يَنْظُرُ بِنُورِ اللَّهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Takutlah kamu akan firasat orang mukmin, karena sesungguhnya ia melihat dengan cahaya Allah."
+<br>— HR. Tirmidzi
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">6</span>
+<span class="karomah-title">Karomah Kemudahan dalam Menghafal dan Mengajarkan Ilmu</span>
+<div class="karomah-arabic">تَيْسِيرُ حِفْظِ الْعِلْمِ وَتَعْلِيمِهِ</div>
+<p>
+Salah satu karomah yang paling dirasakan oleh para murid beliau adalah kemudahan luar biasa dalam menghafal dan memahami ilmu ketika belajar langsung dari Syeikh Zakaria. Dikisahkan bahwa para murid yang sebelumnya kesulitan menghafal, tiba-tiba mendapatkan kemudahan yang luar biasa setelah duduk di majelis beliau.
+</p>
+<p>
+Beliau memiliki cara pengajaran yang unik, di mana setiap penjelasan beliau seolah-olah langsung terpatri di dalam hati para pendengarnya. Beliau tidak hanya mengajarkan ilmu secara lahiriah, tetapi juga membersihkan hati para muridnya dari penyakit-penyakit spiritual seperti riya', ujub, dan hasad, sehingga ilmu tersebut menjadi berkah dan mudah diserap.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU — QS. AL-MUJADILAH: 11</div>
+<div class="arabic-text">
+يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah akan mengangkat orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu beberapa derajat."
+<br>— QS. Al-Mujadilah: 11
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">7</span>
+<span class="karomah-title">Karomah Doa yang Mustajab dan Menolong Umat</span>
+<div class="karomah-arabic">إِجَابَةُ الدُّعَاءِ وَنَصْرُ الْمَظْلُومِينَ</div>
+<p>
+Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi sering menjadi tempat berlindung bagi orang-orang yang tertimpa musibah, sakit yang sulit disembuhkan, atau kesulitan ekonomi. Doa-doa beliau dikenal sangat mustajab di sisi Allah SWT.
+</p>
+<p>
+Dikisahkan pada suatu masa paceklik yang mengancam kelaparan di daerah tempat beliau tinggal, para tetua desa datang memohon bantuan beliau. Dengan penuh tawadhu, Syeikh Zakaria keluar ke lapangan, mengangkat kedua tangannya, dan berdoa kepada Allah. Tidak lama setelah beliau mengaminkan doanya, awan hitam berkumpul dan hujan turun dengan lebat, menyelamatkan tanaman dan sumber air warga. Beliau selalu menekankan bahwa yang mengabulkan doa hanyalah Allah, dan beliau hanyalah hamba yang lemah yang berusaha bersungguh-sungguh dalam memohon.
+</p>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Spiritual Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi:</strong>
+<ul>
+<li><strong>Firasat yang tajam</strong> — Mampu membaca niat dan isi hati tanpa diucapkan</li>
+<li><strong>Kemudahan dalam menuntut ilmu</strong> — Para murid merasa dimudahkan hafalan dan pemahamannya</li>
+<li><strong>Doa yang mustajab</strong> — Doanya cepat dikabulkan Allah untuk menolong umat</li>
+<li><strong>Selalu tawadhu</strong> — Tidak pernah mengklaim karomah sebagai kehebatan diri sendiri</li>
+<li><strong>Menjadi tempat berlindung</strong> — Majelis beliau selalu terbuka bagi yang membutuhkan pertolongan</li>
+</ul>
+</div>
+<h2>Doa Memohon Firasat dan Petunjuk</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON FIRASAT</div>
+<div class="arabic-text">
+اللَّهُمَّ ارْزُقْنِي نُورًا أَهْتَدِي بِهِ إِلَيْكَ، وَفِرَاسَةً صَادِقَةً أَعْرِفُ بِهَا أَوْلِيَاءَكَ وَأَعْدَاءَكَ، وَاجْعَلْنِي مِنَ الَّذِينَ يَسْتَجِيبُونَ لَكَ وَيَدْعُونَكَ بِخُشُوعٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, anugerahkanlah kepadaku cahaya yang dengannya aku dapat petunjuk kepada-Mu, dan firasat yang benar yang dengannya aku dapat mengenal wali-wali-Mu dan musuh-musuh-Mu, dan jadikanlah aku termasuk orang-orang yang menjawab seruan-Mu dan berdoa kepada-Mu dengan khusyuk."
+</div>
+</div>
+<h2>Penutup Halaman 2</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Zakaria Yahya Ibn Syarofi An-Nawawi dalam perjalanan spiritual dan pengabdian ilmu. Ketajaman firasat dan kekuatan doa beliau bukanlah untuk pamer, melainkan sebagai sarana rahmat Allah bagi hamba-hamba-Nya yang membutuhkan. Pada halaman berikutnya, kita akan membahas karomah beliau dalam hal interaksi dengan alam dan kejadian-kejadian luar biasa lainnya.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan apabila hamba-hamba-Ku bertanya kepadamu (Muhammad) tentang Aku, maka sesungguhnya Aku dekat. Aku kabulkan permohonan orang yang berdoa apabila dia berdoa kepada-Ku."
+<br>— QS. Al-Baqarah: 186
+</div>
+</div>
+</div>
+
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="zakaria1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="zakaria2.html" class="article-nav-btn active" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="zakaria3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="zakaria4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="zakaria5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+</div>
+
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
