@@ -990,5 +990,32 @@ document.getElementById('btn' + n).classList.add('active');
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
+<!-- ============================================
+     PATCH UNIVERSAL v5.0
+     Fix: Pagination → instant scroll ke paling atas
+     Tanpa animasi smooth (langsung lompat)
+     ============================================ -->
+<script>
+(function(){
+  window.showPage = function(n) {
+    // 1. Sembunyikan semua halaman
+    document.querySelectorAll('.page').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    // 2. Reset tombol pagination
+    document.querySelectorAll('.pagination button').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    // 3. Aktifkan halaman & tombol yang dipilih
+    var targetPage = document.getElementById('page' + n);
+    var targetBtn  = document.getElementById('btn' + n);
+    if (targetPage) targetPage.classList.add('active');
+    if (targetBtn)  targetBtn.classList.add('active');
+
+    // 4. ⚡ INSTANT JUMP ke paling atas halaman (tanpa animasi)
+    window.scrollTo(0, 0);
+  };
+})();
+</script>
 </body>
 </html>
