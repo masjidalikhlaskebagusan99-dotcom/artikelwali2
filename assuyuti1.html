@@ -696,33 +696,5 @@ if (currentFontSize > 1.5) currentFontSize = 1.5;
 document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
 }
 </script>
-<!-- ============================================
-     PATCH UNIVERSAL v3.0
-     Fix: Pagination tanpa scroll to top
-     Berlaku untuk index.html dan halaman sejenis
-     ============================================ -->
-<script>
-(function(){
-  // Override fungsi showPage bawaan
-  window.showPage = function(n) {
-    // Sembunyikan semua halaman
-    document.querySelectorAll('.page').forEach(function(p) {
-      p.classList.remove('active');
-    });
-    // Nonaktifkan semua tombol pagination
-    document.querySelectorAll('.pagination button').forEach(function(b) {
-      b.classList.remove('active');
-    });
-    // Tampilkan halaman yang dipilih
-    var targetPage = document.getElementById('page' + n);
-    var targetBtn  = document.getElementById('btn' + n);
-    if (targetPage) targetPage.classList.add('active');
-    if (targetBtn)  targetBtn.classList.add('active');
-
-    // ❌ DIHILANGKAN: window.scrollTo({ top: 0, behavior: 'smooth' });
-    // ✅ Halaman tetap stagnan di posisi saat ini
-  };
-})();
-</script>
 </body>
 </html>
