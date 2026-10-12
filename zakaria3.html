@@ -463,6 +463,55 @@ footer span { color: #e94560; }
         font-size: 1.1rem; 
     }
 }
+/* ============================================
+   PATCH UNIVERSAL v2.0
+   Fix: Logo KALAM center + Nav horizontal
+   Berlaku untuk semua halaman (hanafi1-5, artikelwali, dll)
+   ============================================ */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column !important;   /* Logo di atas, nav di bawah */
+    align-items: center !important;      /* ← KUNCI: semua child di-center */
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 15px 16px !important;
+    text-align: center;
+  }
+
+  header .logo-kalam {
+    font-size: 1.5rem !important;
+    letter-spacing: 4px !important;
+    padding: 6px 14px !important;
+    margin: 0 auto !important;           /* ← Logo benar-benar center */
+    display: inline-block;
+  }
+
+  header nav {
+    flex-direction: row !important;      /* ← Nav tetap horizontal */
+    gap: 8px !important;
+    width: auto !important;
+    justify-content: center !important;  /* ← Nav juga di-center */
+    margin: 0 auto !important;
+  }
+
+  header nav a {
+    padding: 8px 14px !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap;
+  }
+}
+
+/* Fallback untuk layar sangat kecil (≤ 360px) */
+@media (max-width: 360px) {
+  header .logo-kalam {
+    font-size: 1.3rem !important;
+    letter-spacing: 3px !important;
+  }
+  header nav a {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+  }
+}
 </style>
 </head>
 <body>
