@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karomah Syeikh Abdul Qadir Jilani - KALAM</title>
+<title>Karomah Syeikh Abdul Qadir Al-Jilani - KALAM</title>
 <style>
+/* 1. RESET & DASAR */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
 font-family: 'Georgia', serif;
@@ -12,38 +13,17 @@ background-color: #f5f5f0;
 color: #333;
 min-height: 100vh;
 line-height: 1.8;
- /* Untuk Tablet */
-  @media (max-width: 768px) {
-    .container { 
-      max-width: 100%; 
-      padding: 20px; 
-    }
-    h1 { font-size: 26px; }
-    .featured-img { max-width: 100%; }
-  }
-  
-  /* Untuk HP */
-  @media (max-width: 600px) {
-    body { font-size: 14px; }
-    h1 { font-size: 22px; }
-    h2 { font-size: 18px; }
-    .arabic { font-size: 20px; line-height: 1.8; }
-    .header { 
-      flex-direction: column; 
-      gap: 10px; 
-      padding: 15px; 
-    }
-    .nav { 
-      flex-direction: column; 
-      gap: 10px; 
-    }
-    .page-btn { 
-      width: 35px; 
-      height: 35px; 
-      font-size: 14px; 
-    }
-  }
 }
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
 header {
 background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 padding: 20px 40px;
@@ -81,6 +61,7 @@ transition: all 0.3s ease;
 font-size: 0.95rem;
 }
 nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
 .breadcrumb {
 padding: 15px 40px;
 background: #eee;
@@ -94,6 +75,7 @@ max-width: 800px;
 margin: 40px auto;
 padding: 0 20px;
 }
+/* 5. ARTICLE HEADER & META */
 .article-header { margin-bottom: 30px; }
 .article-header h1 {
 font-size: 2.2rem;
@@ -132,6 +114,7 @@ font-size: 0.85rem;
 }
 .author-name { font-weight: bold; color: #333; }
 .meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
 .article-image-wrapper {
 margin: 25px 0;
 border-radius: 12px;
@@ -200,6 +183,7 @@ background: #e94560;
 color: #fff;
 border-color: #e94560;
 }
+/* 7. KONTEN ARTIKEL */
 .article-content {
 font-size: 1.05rem;
 line-height: 1.9;
@@ -245,6 +229,7 @@ margin: 15px 0 20px 30px;
 margin-bottom: 10px;
 line-height: 1.7;
 }
+/* 8. KOTAK ARAB & KAROMAH */
 .arabic-box {
 background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
 border: 2px solid #d4af37;
@@ -256,19 +241,19 @@ box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 position: relative;
 }
 .arabic-box::before {
-    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #f8f6f0;
-    padding: 0 12px;
-    font-size: 1.2rem;
-    color: #d4af37;
-    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
-    white-space: nowrap;
-    line-height: 1.4;
-    z-index: 2;
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
 }
 .arabic-text {
 font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
@@ -349,23 +334,25 @@ margin: 15px 0 0 30px;
 margin-bottom: 10px;
 line-height: 1.7;
 }
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
 .article-nav {
 display: flex;
 justify-content: center;
-gap: 20px;
+gap: 10px;
 margin: 40px 0;
-padding: 30px;
+padding: 20px;
 background: linear-gradient(135deg, #1a1a2e, #16213e);
 border-radius: 15px;
+flex-wrap: wrap;
 }
 .article-nav-btn {
-width: 70px;
-height: 70px;
+width: 45px;
+height: 45px;
 border-radius: 50%;
 border: 2px solid #e94560;
 background: rgba(233, 69, 96, 0.1);
 color: #fff;
-font-size: 1.8rem;
+font-size: 1.15rem;
 font-weight: bold;
 cursor: pointer;
 transition: all 0.3s ease;
@@ -386,14 +373,15 @@ box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
 .nav-btn-label {
 text-align: center;
 color: #aaa;
-font-size: 0.8rem;
-margin-top: 8px;
+font-size: 0.75rem;
+margin-top: 6px;
 }
 .nav-group {
 display: flex;
 flex-direction: column;
 align-items: center;
 }
+/* 10. TOMBOL KEMBALI & FOOTER */
 .kalam-back-btn {
 display: block;
 text-align: center;
@@ -433,17 +421,82 @@ font-size: 0.9rem;
 margin-top: 40px;
 }
 footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
 @media (max-width: 600px) {
-header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
 .article-container { padding: 0 15px; }
-.article-header h1 { font-size: 1.5rem; }
 .article-content { font-size: 0.95rem; }
 .arabic-text { font-size: 1.4rem; line-height: 2.4; }
 .karomah-arabic { font-size: 1.3rem; }
-.article-nav { gap: 15px; }
-.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
 }
-
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
 </style>
 </head>
 <body>
@@ -457,31 +510,34 @@ header { flex-direction: column; gap: 10px; padding: 15px 20px; }
 </nav>
 </header>
 <div class="breadcrumb">
-<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abdul Qadir Jilani
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abdul Qadir Al-Jilani
 </div>
 <div class="article-container">
 <div class="article-header">
-<h1>Karomah Syeikh Abdul Qadir Jilani</h1>
-<div class="subtitle">Halaman 1 dari 5 — Pendahuluan & Karomah Masa Kecil</div>
+<h1>Karomah Syeikh Abdul Qadir Al-Jilani</h1>
+<div class="subtitle">Halaman 1 dari 9 — Pendahuluan & Karomah Masa Awal Kehidupan</div>
 <div class="article-meta">
 <div class="author">
 <div class="author-avatar">MY</div>
 <div>
 <div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
-<div class="meta-date">Jumat, 09 Oktober 2026, 14:30 WIB</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
 </div>
 </div>
 </div>
 </div>
 <div class="article-image-wrapper">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg"
-alt="Syeikh Abdul Qadir Jilani">
-<div class="image-caption">Sumber: kalam.web.id — Potret Syeikh Abdul Qadir Jilani</div>
+alt="Syeikh Abdul Qadir Al-Jilani"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg/440px-Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi Syeikh Abdul Qadir Al-Jilani, Sulthanul Awliya' — Sultan para wali yang makamnya diziarahi di Baghdad hingga hari ini</div>
 </div>
 <div class="share-bar">
 <span>Bagikan:</span>
 <a href="#" class="share-btn fb">f</a>
-<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn tw">t</a>
 <a href="#" class="share-btn wa">W</a>
 <a href="#" class="share-btn tg">T</a>
 <div class="font-size-controls">
@@ -491,115 +547,198 @@ alt="Syeikh Abdul Qadir Jilani">
 </div>
 <div class="article-content" id="articleContent">
 <p class="lead">
-Syeikh Abdul Qadir Al-Jilani (470-561 H / 1077-1166 M) adalah seorang wali besar yang dijuluki <em>Sultanul Awliya</em> (Rajanya Para Wali). Beliau dikenal luas karena ilmu yang mendalam, akhlak yang mulia, dan karomah-karomah luar biasa yang Allah anugerahkan kepadanya. Karomah (كَرَامَةٌ) adalah anugerah istimewa yang Allah berikan kepada para wali-Nya sebagai bentuk pemuliaan dan peneguhan atas kebenaran jalan spiritual mereka.
+Syeikh Abdul Qadir bin Abu Shalih Abdullah bin Janki Dust al-Gilani al-Jilani (470-561 H / 1077-1166 M) adalah seorang wali besar, sufi terkemuka, dan ulama fiqih mazhab Hanbali yang dikenal luas sebagai <em>Sulthanul Awliya'</em> (Sultan para wali) dan <em>Muhyiddin</em> (Penghidup agama). Beliau lahir di desa Na'if, wilayah Jilan (kini di Iran), namun menghabiskan sebagian besar hidupnya di Baghdad — pusat peradaban Islam pada masa itu — sebagai pendiri Tarekat Qadiriyah, salah satu tarekat sufi terbesar dan paling tersebar di dunia Islam. Karomah-karomah beliau begitu masyhur sehingga namanya dikenal dari Maroko hingga Indonesia, dan ajarannya terus hidup melalui jutaan pengikut Tarekat Qadiriyah di seluruh penjuru dunia.
 </p>
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG WALI — QS. YUNUS: 62</div>
+<div class="arabic-label">DALIL TENTANG WALI — QS. YUNUS: 62-63</div>
 <div class="arabic-text">
-أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ ۝ الَّذِينَ آمَنُوا وَكَانُوا يَتَّقُونَ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu tidak ada ketakutan bagi mereka dan tidak pula mereka bersedih hati."
-<br>— QS. Yunus: 62
+<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu tidak ada ketakutan bagi mereka dan tidak pula mereka bersedih hati. (Yaitu) orang-orang yang beriman dan mereka senantiasa bertakwa."
+<br>— QS. Yunus: 62-63
 </div>
 </div>
-<h2>Pengertian Karomah</h2>
+<h2>Sang Sulthanul Awliya' — Sultan Para Wali</h2>
 <p>
-Karomah secara bahasa berarti "kemuliaan" atau "anugerah". Dalam istilah tasawuf, karomah adalah peristiwa luar biasa yang Allah tampakkan melalui tangan seorang wali sebagai bentuk pemuliaan, berbeda dengan mukjizat yang diberikan kepada para nabi. Para ulama sepakat bahwa karomah adalah hak dan anugerah Allah yang diberikan kepada orang-orang yang beriman serta bertakwa.
+Syeikh Abdul Qadir Al-Jilani mendapatkan gelar <em>Sulthanul Awliya'</em> bukan karena beliau memintanya, melainkan karena Allah anugerahkan kepadanya maqam kewalian yang begitu tinggi sehingga para ulama dan wali sezaman beliau sepakat menyebutnya dengan gelar tersebut. Beliau juga dikenal dengan gelar <em>Muhyiddin</em> (Penghidup Agama) karena melalui dakwah dan ajaran beliau, banyak orang yang kembali kepada jalan Allah setelah lama tenggelam dalam kelalaian dan kemaksiatan.
+</p>
+<p>
+Karomah (كَرَامَةٌ) secara bahasa berarti "kemuliaan" atau "anugerah istimewa". Dalam istilah tasawuf, karomah adalah peristiwa luar biasa yang Allah tampakkan melalui tangan seorang wali sebagai bentuk pemuliaan, berbeda dengan mukjizat yang diberikan kepada para nabi. Para ulama Ahlussunnah wal Jama'ah sepakat bahwa karomah adalah hak dan anugerah Allah yang diberikan kepada orang-orang yang beriman serta bertakwa. Syeikh Abdul Qadir Al-Jilani sendiri pernah berkata bahwa karomah yang paling agung bukanlah berjalan di atas air atau terbang di udara, melainkan istiqamah di atas syariat dan mengikuti sunnah Rasulullah SAW dalam setiap keadaan.
 </p>
 <div class="arabic-box">
-<div class="arabic-label">PERKATAAN SYAIKH</div>
+<div class="arabic-label">PERKATAAN SYEIKH ABDUL QADIR AL-JILANI</div>
 <div class="arabic-text">
-أَعْظَمُ الْكَرَامَةِ الِاسْتِقَامَةُ عَلَى الطَّاعَةِ
+أَعْظَمُ الْكَرَامَةِ الِاسْتِقَامَةُ عَلَى الشَّرِيعَةِ وَاتِّبَاعُ السُّنَّةِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Karomah yang paling agung adalah istiqamah di atas ketaatan kepada Allah, dan konsistensi di atas syariat Nabi-Nya."
-<br>— Syeikh Abdul Qadir Al-Jilani
+<strong>Artinya:</strong> "Karomah yang paling agung adalah istiqamah di atas syariat dan mengikuti sunnah Nabi SAW dalam setiap keadaan. Barangsiapa yang istiqamah, maka ia telah mencapai karomah yang tertinggi."
+<br>— Syeikh Abdul Qadir Al-Jilani, dalam kitab <em>Al-Fath ar-Rabbani</em>
 </div>
 </div>
-<h2>Karomah-Karomah Syeikh Abdul Qadir Jilani</h2>
+<h2>Karomah-Karomah Syeikh Abdul Qadir Al-Jilani</h2>
 <p>
-Berikut adalah beberapa karomah luar biasa yang Allah anugerahkan kepada Syeikh Abdul Qadir Jilani, mulai dari masa kecil hingga perjalanan spiritual beliau di Baghdad.
+Berikut adalah beberapa karomah luar biasa yang Allah anugerahkan kepada Syeikh Abdul Qadir Al-Jilani, mulai dari masa awal kehidupan beliau di Jilan hingga perjalanan spiritual di Baghdad.
 </p>
 <div class="karomah-card">
 <span class="karomah-number">1</span>
-<span class="karomah-title">Karomah Sejak dalam Kandungan Ibu</span>
-<div class="karomah-arabic">كَرَامَاتُهُ وَهُوَ فِي بَطْنِ أُمِّهِ</div>
+<span class="karomah-title">Karomah Nasab Mulia dari Rasulullah SAW</span>
+<div class="karomah-arabic">شَرَفُ نَسَبِهِ مِنَ الرَّسُولِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
 <p>
-Para ulama menceritakan bahwa sejak masih dalam kandungan ibunya, Syeikh Abdul Qadir Jilani telah menunjukkan tanda-tanda kewalian. Dikisahkan bahwa ibunya tidak pernah merasakan berat dalam mengandungnya, dan janin di dalam perutnya seolah-olah bertasbih dan berdzikir. Ketika lahir, bayi Abdul Qadir konon langsung mengucapkan <em>La ilaha illallah</em> dengan suara yang jelas.
+Karomah pertama yang Allah anugerahkan kepada Syeikh Abdul Qadir Al-Jilani adalah kemuliaan nasab yang bersambung kepada Rasulullah SAW melalui cucu beliau, Sayyidina Hasan bin Ali bin Abi Thalib radhiyallahu 'anhuma. Nasab beliau adalah: <em>Abdul Qadir bin Abu Shalih Abdullah bin Janki Dust bin Abdullah bin Musa bin Abdullah bin Musa الثاني bin إبراهيم المرتضى بن الإمام موسى الكاظم بن الإمام جعفر الصادق بن الإمام محمد الباقر بن الإمام علي زين العابدين بن سيدنا الحسين بن سيدتنا فاطمة الزهراء وسيدنا علي بن أبي طالب</em>.
+</p>
+<p>
+Kemuliaan nasab ini bukanlah sesuatu yang kebetulan, melainkan pilihan Allah yang telah menetapkan beliau sebagai salah satu keturunan kekasih-Nya. Para ulama berkata bahwa kemuliaan nasab adalah salah satu karomah yang Allah berikan kepada hamba-hamba-Nya yang terpilih, sebagai tanda bahwa darah Rasulullah SAW mengalir di dalam tubuh beliau. Syeikh Abdul Qadir senantiasa menjaga kehormatan nasabnya dengan akhlak yang mulia, ibadah yang tekun, dan zuhud yang mendalam. Beliau pernah berkata: <em>"Nasab yang mulia bukanlah kebanggaan, melainkan amanah yang harus dijaga dengan amal shaleh dan akhlak yang mulia."</em>
 </p>
 </div>
 <div class="arabic-box">
-<div class="arabic-label">KALIMAT SYAHADAT</div>
+<div class="arabic-label">DALIL TENTANG AHLUL BAIT — QS. AL-AHZAB: 33</div>
 <div class="arabic-text">
-لَا إِلٰهَ إِلَّا اللهُ مُحَمَّدٌ رَسُولُ اللهِ
+إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Tiada Tuhan selain Allah, Muhammad adalah utusan Allah."
+<strong>Artinya:</strong> "Sesungguhnya Allah bermaksud hendak menghilangkan dosa dari kamu, hai ahlul bait, dan membersihkan kamu sebersih-bersihnya."
+<br>— QS. Al-Ahzab: 33
 </div>
 </div>
 <div class="karomah-card">
 <span class="karomah-number">2</span>
-<span class="karomah-title">Karomah Kehilangan Kuda dan Emas</span>
-<div class="karomah-arabic">صِدْقُهُ مَعَ اللُّصُوصِ</div>
+<span class="karomah-title">Karomah Lahir di Jilan — Tanah yang Penuh Berkah</span>
+<div class="karomah-arabic">وِلَادَتُهُ بِأَرْضِ جِيلَانَ الْمُبَارَكَةِ</div>
 <p>
-Salah satu karomah Syeikh Abdul Qadir Jilani yang paling masyhur terjadi ketika beliau berusia 18 tahun. Saat itu beliau hendak berangkat dari tanah kelahirannya, Gilan (Iran), menuju Baghdad untuk menuntut ilmu. Ibunya menjahitkan 40 dinar emas di balik baju beliau dan berpesan agar selalu berkata jujur.
+Syeikh Abdul Qadir lahir pada tahun 470 H (1077 M) di desa Na'if, wilayah Jilan (kini di Iran), di tepi Laut Kaspia. Jilan pada masa itu dikenal sebagai negeri yang penuh berkah, tempat berkumpulnya para ulama, ahli ibadah, dan orang-orang shaleh. Ayahnya, Abu Shalih Abdullah, adalah seorang ulama yang wara' dan keturunan langsung dari Imam Musa al-Kazhim bin Imam Ja'far ash-Shadiq. Ibunya juga merupakan wanita shalehah yang berasal dari keluarga ulama.
 </p>
 <p>
-Di tengah perjalanan, kafilah beliau dihadang oleh sekelompok perampok. Ketika ditanya apakah ia membawa sesuatu berharga, dengan jujur beliau menjawab: <strong>"Ya, ada 40 dinar emas yang dijahitkan ibuku di bajuku."</strong>
+Para ulama menceritakan bahwa ketika Syeikh Abdul Qadir lahir, cahaya yang sangat terang menyinari rumah keluarganya, seolah-olah matahari terbit di tengah malam. Ibunya merasakan ketenangan yang luar biasa ketika mengandungnya, dan beliau lahir dalam keadaan yang sehat dan sempurna. Orang-orang yang melihat cahaya itu takjub dan berkata: <em>"Sesungguhnya anak ini akan menjadi orang yang besar di zamannya."</em>
 </p>
 <p>
-Pemimpin perampok itu terkejut dan bertanya mengapa ia berkata jujur. Syeikh Abdul Qadir menjawab: <em>"Aku telah berjanji kepada ibuku untuk selalu jujur, dan aku tidak akan mengkhianati janji itu demi Allah."</em>
-</p>
-<p>
-Mendengar jawaban itu, pemimpin perampok menangis tersedu-sedu dan berkata: <em>"Engkau tidak takut mengkhianati janjimu kepada ibumu, sementara aku begitu berani mengkhianati janji kepada Allah Yang Maha Melihat."</em> Sejak saat itu, ia bertaubat dan menjadi murid Syeikh Abdul Qadir Jilani.
+Kelahiran beliau di negeri Jilan inilah yang kemudian menjadi nisbah beliau — <em>Al-Jilani</em> — yang dinisbatkan kepada tanah kelahiran beliau. Gelar ini kemudian menjadi terkenal di seluruh dunia Islam, dan nama beliau selalu disebut dengan penuh penghormatan: <em>Syeikh Abdul Qadir Al-Jilani</em>.
 </p>
 </div>
 <div class="arabic-box">
-<div class="arabic-label">PERKATAAN SYAIKH TENTANG KEJUJURAN</div>
+<div class="arabic-label">DALIL TENTANG CAHAYA IMAN — QS. AN-NUR: 35</div>
 <div class="arabic-text">
-مَنْ صَدَقَ مَعَ اللَّهِ صَدَقَ اللَّهُ لَهُ
+اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Barangsiapa yang jujur kepada Allah, maka Allah akan menjadikannya jujur kepada sesama."
-<br>— Syeikh Abdul Qadir Al-Jilani
+<strong>Artinya:</strong> "Allah (Pemberi) cahaya (kepada) langit dan bumi."
+<br>— QS. An-Nur: 35
 </div>
 </div>
 <div class="karomah-card">
 <span class="karomah-number">3</span>
-<span class="karomah-title">Karomah Berbicara dengan Hewan</span>
-<div class="karomah-arabic">كَلَامُهُ مَعَ الْحَيَوَانَاتِ</div>
+<span class="karomah-title">Karomah Yatim Sejak Kecil dan Didikan Ibu yang Shalehah</span>
+<div class="karomah-arabic">يُتْمُهُ وَتَرْبِيَةُ أُمِّهِ الصَّالِحَةِ</div>
 <p>
-Sejak kecil, Syeikh Abdul Qadir Jilani dikaruniai kemampuan untuk berkomunikasi dengan hewan. Dikisahkan bahwa ketika beliau masih menggembalakan domba di tanah kelahirannya, beliau dapat berbicara dengan hewan-hewan tersebut dan mereka tunduk kepadanya. Seekor serigala pernah datang dan berbicara kepadanya, lalu serigala itu menjadi jinak dan tidak mengganggu domba-domba gembalaan beliau.
+Salah satu karomah yang tampak dalam kehidupan Syeikh Abdul Qadir adalah bahwa beliau telah menjadi yatim sejak usia muda — ketika beliau baru berusia sekitar sepuluh tahun. Ayahnya, Abu Shalih Abdullah, wafat ketika beliau masih kecil, sehingga beliau dibesarkan oleh ibunya yang shalehah dengan penuh kasih sayang dan didikan agama yang kuat.
+</p>
+<p>
+Ibunya — yang dalam riwayat disebutkan bernama Khairah Fatimah — adalah seorang wanita yang sangat wara' dan tawakkal. Beliau mendidik putranya dengan pendidikan yang sangat ketat dalam bidang agama, akhlak, dan adab. Dari didikan ibu inilah Syeikh Abdul Qadir mendapatkan pondasi spiritual yang kuat yang kemudian membentuk kepribadian beliau sebagai salah satu wali terbesar di zamannya.
+</p>
+<p>
+Salah satu kisah masyhur tentang didikan ibunya adalah ketika ibunya memberikan kepada beliau empat puluh dinar untuk bekal perjalanan ke Baghdad, dan beliau berpesan: <em>"Wahai anakku, jagalah kejujuran dalam setiap keadaan, dan janganlah engkau berdusta sekalipun dalam bercanda."</em> Pesan inilah yang kemudian menjadi salah satu sebab terjadinya karomah besar di perjalanan beliau menuju Baghdad — ketika beliau menghadapi perampok yang bertanya kepadanya tentang harta yang ia miliki.
 </p>
 </div>
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG HEWAN — QS. AL-AN'AM: 38</div>
+<div class="arabic-label">DALIL TENTANG DIDIKAN IBU — QS. LUQMAN: 14</div>
 <div class="arabic-text">
-وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم
+وَوَصَّيْنَا الْإِنسَانَ بِوَالِدَيْهِ حَمَلَتْهُ أُمُّهُ وَهْنًا عَلَىٰ وَهْنٍ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan tiadalah binatang-binatang yang ada di bumi dan burung-burung yang terbang dengan kedua sayapnya melainkan umat (juga) seperti kamu."
-<br>— QS. Al-An'am: 38
+<strong>Artinya:</strong> "Dan Kami perintahkan kepada manusia (berbuat baik) kepada dua orang ibu-bapaknya; ibunya telah mengandungnya dalam keadaan lemah yang bertambah-tambah."
+<br>— QS. Luqman: 14
 </div>
 </div>
 <div class="karomah-card">
 <span class="karomah-number">4</span>
-<span class="karomah-title">Karomah Menguasai Hawa Nafsu Sejak Dini</span>
-<div class="karomah-arabic">سَيْطَرَتُهُ عَلَى نَفْسِهِ مُنْذُ صِغَرِهِ</div>
+<span class="karomah-title">Karomah Menghafal Al-Qur'an Sejak Kecil</span>
+<div class="karomah-arabic">حِفْظُهُ لِلْقُرْآنِ مُنْذُ صِغَرِهِ</div>
 <p>
-Sejak usia 8 tahun, Syeikh Abdul Qadir Jilani telah menghafal Al-Qur'an dan menekuni ilmu-ilmu agama. Beliau dikenal sangat wara' (hati-hati) dalam makan dan minum, serta senantiasa berpuasa sunnah. Beliau tidak pernah bermain seperti anak-anak seusianya, melainkan menghabiskan waktu untuk belajar, beribadah, dan berdzikir.
+Sejak usia yang sangat muda, Syeikh Abdul Qadir telah menunjukkan kecerdasan spiritual yang luar biasa. Beliau menghafal Al-Qur'an sebelum usia baligh, dan beliau senantiasa membacanya dengan tartil dan penuh kekhusyukan. Ketika beliau membaca Al-Qur'an, orang-orang yang mendengarnya merasakan ketenangan yang luar biasa, seolah-olah ayat-ayat Al-Qur'an itu turun dari langit langsung ke dalam hati mereka.
+</p>
+<p>
+Para guru beliau di Jilan takjub dengan kemampuan beliau memahami makna-makna Al-Qur'an yang dalam, meskipun usia beliau masih sangat muda. Beliau tidak hanya menghafal lafazh-lafazh Al-Qur'an, melainkan juga mengamalkannya dalam kehidupan sehari-hari. Beliau pernah berkata: <em>"Al-Qur'an bukanlah kitab yang hanya dibaca di lisan, melainkan kitab yang harus dihidupkan di dalam hati dan diamalkan dalam setiap perbuatan."</em>
+</p>
+<p>
+Setelah menghafal Al-Qur'an, beliau kemudian menuntut ilmu fiqih mazhab Hanbali dari para ulama di Jilan. Kecerdasan beliau begitu luar biasa sehingga dalam waktu yang relatif singkat, beliau telah menguasai berbagai ilmu agama dan menjadi rujukan bagi para ulama sezamannya di Jilan.
 </p>
 </div>
-<div class="highlight-box">
-<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Masa Kecil Syeikh Abdul Qadir Jilani:</strong>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AL-QUR'AN — QS. AL-ISRA': 82</div>
+<div class="arabic-text">
+وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Kami turunkan dari Al-Qur'an suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."
+<br>— QS. Al-Isra': 82
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">5</span>
+<span class="karomah-title">Karomah Perjalanan ke Baghdad — Peristiwa dengan Perampok</span>
+<div class="karomah-arabic">رِحْلَتُهُ إِلَى بَغْدَادَ وَحَادِثَةُ اللُّصُوصِ</div>
+<p>
+Salah satu karomah paling masyhur dalam kehidupan Syeikh Abdul Qadir Al-Jilani adalah peristiwa yang terjadi ketika beliau dalam perjalanan dari Jilan ke Baghdad pada usia delapan belas tahun. Ketika itu, kafilah yang beliau tumpangi dihadang oleh sekumpulan perampok di tengah perjalanan.
+</p>
+<p>
+Ketika salah seorang perampok bertanya kepadanya: <em>"Wahai anak muda, apakah engkau membawa harta?"</em> Syeikh Abdul Qadir menjawab dengan jujur: <em>"Ya, aku membawa empat puluh dinar yang dijahit di dalam baju dalamku."</em> Perampok itu terkejut dan pergi. Ketika perampok lainnya mendengar jawaban itu, mereka datang kepadanya dan bertanya hal yang sama, dan beliau memberikan jawaban yang sama dengan penuh kejujuran.
+</p>
+<p>
+Kepala perampok itu akhirnya datang sendiri dan bertanya: <em>"Wahai anak muda, mengapa engkau memberitahukan kepadaku tentang harta yang engkau miliki?"</em> Syeikh Abdul Qadir menjawab: <em>"Karena aku telah berjanji kepada ibuku untuk senantiasa jujur dalam setiap keadaan, dan aku tidak ingin mengingkari janji itu sekalipun dalam keadaan seperti ini."</em>
+</p>
+<p>
+Mendengar jawaban itu, kepala perampok itu menangis tersedu-sedu dan berkata: <em>"Engkau tidak mengingkari janji kepada ibumu, sedangkan aku setiap hari mengingkari janji kepada Allah Yang Maha Agung!"</em> Ia pun bertaubat saat itu juga, dan seluruh anggota kelompoknya mengikuti jejaknya. Peristiwa ini menjadi salah satu karomah terbesar Syeikh Abdul Qadir — kejujuran beliau yang mampu mengubah hati seorang perampok menjadi seorang yang bertaubat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEJUJURAN — QS. AT-TAUBAH: 119</div>
+<div class="arabic-text">
+يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai orang-orang yang beriman, bertakwalah kepada Allah, dan hendaklah kamu bersama orang-orang yang benar (jujur)."
+<br>— QS. At-Taubah: 119
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">6</span>
+<span class="karomah-title">Karomah Berguru kepada Para Ulama Besar Baghdad</span>
+<div class="karomah-arabic">طَلَبُهُ لِلْعِلْمِ فِي بَغْدَادَ</div>
+<p>
+Setelah tiba di Baghdad, Syeikh Abdul Qadir Al-Jilani langsung menuju pusat-pusat keilmuan untuk menuntut ilmu. Beliau berguru kepada para ulama besar pada masanya, di antaranya:
+</p>
 <ul>
-<li><strong>Menghafal Al-Qur'an sejak usia 8 tahun</strong> — Menunjukkan kecerdasan spiritual yang luar biasa</li>
-<li><strong>Berkata jujur meski dalam situasi berbahaya</strong> — Kejujuran yang menjadi ciri khas beliau</li>
-<li><strong>Mampu berkomunikasi dengan hewan</strong> — Karomah khusus yang diberikan Allah</li>
-<li><strong>Tidak tertarik pada permainan anak-anak</strong> — Lebih memilih ibadah dan ilmu</li>
-<li><strong>Sentiasa berpuasa dan berdzikir</strong> — Wara' sejak usia dini</li>
-<li><strong>Didoakan oleh para ulama shaleh di zamannya</strong> — Diakui keberkahan beliau</li>
+<li><strong>Syeikh Abu Sa'id al-Makhzumi</strong> — ulama fiqih mazhab Hanbali yang menjadi guru utama beliau dalam bidang fiqih</li>
+<li><strong>Syeikh Abu Zakariya at-Tabrizi</strong> — ulama hadits yang mengajarkan beliau ilmu-ilmu hadits</li>
+<li><strong>Syeikh Abu al-Khair Hammad ad-Dabbas</strong> — sufi besar yang membimbing beliau dalam perjalanan spiritual</li>
+<li><strong>Syeikh Abu al-Fath an-Nahrawani</strong> — ulama ushul fiqih yang mengajarkan beliau ilmu-ilmu ushul</li>
+</ul>
+<p>
+Di bawah bimbingan para guru besar inilah Syeikh Abdul Qadir menempuh perjalanan keilmuan dan spiritual yang sangat ketat. Beliau menguasai berbagai ilmu — fiqih, hadits, tafsir, ushul fiqih, nahwu, sharaf, dan berbagai ilmu lainnya. Kecerdasan beliau begitu luar biasa sehingga para guru beliau sendiri takjub dengan kemampuan beliau memahami masalah-masalah yang rumit.
+</p>
+<p>
+Dalam bidang spiritual, beliau berguru kepada Syeikh Abu al-Khair Hammad ad-Dabbas yang membimbing beliau dalam perjalanan suluk. Di bawah bimbingan beliau, Syeikh Abdul Qadir menempuh latihan spiritual yang sangat ketat — mujahadah, riyadhah, dan khalwat — hingga akhirnya mencapai maqam-maqam spiritual yang tinggi.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MENUNTUT ILMU — QS. AL-MUJADALAH: 11</div>
+<div class="arabic-text">
+يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah akan meninggikan orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu pengetahuan beberapa derajat."
+<br>— QS. Al-Mujadalah: 11
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Masa Awal Syeikh Abdul Qadir Al-Jilani:</strong>
+<ul>
+<li><strong>Nasab mulia dari Rasulullah SAW</strong> — Keturunan Imam Hasan bin Ali melalui Imam Musa al-Kazhim</li>
+<li><strong>Lahir di Jilan yang penuh berkah</strong> — Disinari cahaya kewalian saat kelahiran</li>
+<li><strong>Yatim sejak kecil</strong> — Didikan ibu shalehah yang mengajarkan kejujuran</li>
+<li><strong>Menghafal Al-Qur'an sejak kecil</strong> — Kecerdasan spiritual yang luar biasa</li>
+<li><strong>Peristiwa dengan perampok</strong> — Kejujuran yang mengubah hati penjahat</li>
+<li><strong>Berguru kepada para ulama besar Baghdad</strong> — Syeikh Abu Sa'id al-Makhzumi dan lainnya</li>
 </ul>
 </div>
 <h2>Doa Memohon Karomah dari Allah</h2>
@@ -614,7 +753,7 @@ Sejak usia 8 tahun, Syeikh Abdul Qadir Jilani telah menghafal Al-Qur'an dan mene
 </div>
 <h2>Penutup Halaman 1</h2>
 <p>
-Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani sejak masa kecil beliau. Karomah-karomah ini bukanlah tujuan utama, melainkan buah dari keikhlasan, kejujuran, dan ketaatan beliau kepada Allah SWT. Pada halaman berikutnya, kita akan membahas karomah beliau selama perjalanan spiritual di Baghdad.
+Demikianlah sebagian karomah Syeikh Abdul Qadir Al-Jilani sejak masa awal kehidupan beliau — mulai dari nasab mulia, kelahiran di Jilan, masa yatim dan didikan ibu, menghafal Al-Qur'an, peristiwa kejujuran dengan perampok, hingga menuntut ilmu di Baghdad. Karomah-karomah ini bukanlah tujuan utama, melainkan buah dari keikhlasan, zuhud, dan ketaatan beliau kepada Allah SWT. Pada halaman berikutnya, kita akan membahas perjalanan spiritual beliau di Baghdad, latihan spiritual yang ketat, dan masa-masa khalwat yang membentuk maqam kewalian beliau.
 </p>
 <p>
 <em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
@@ -629,27 +768,43 @@ Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani sejak masa kecil beliau. 
 </div>
 </div>
 </div>
-<!-- NAVIGASI 5 TOMBOL -->
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
 <div class="article-nav">
 <div class="nav-group">
-<a href="karomah1.html" class="article-nav-btn active" title="Halaman 1">1</a>
+<a href="jilani1.html" class="article-nav-btn active" title="Halaman 1">1</a>
 <div class="nav-btn-label">Halaman 1</div>
 </div>
 <div class="nav-group">
-<a href="karomah2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<a href="jilani2.html" class="article-nav-btn" title="Halaman 2">2</a>
 <div class="nav-btn-label">Halaman 2</div>
 </div>
 <div class="nav-group">
-<a href="karomah3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<a href="jilani3.html" class="article-nav-btn" title="Halaman 3">3</a>
 <div class="nav-btn-label">Halaman 3</div>
 </div>
 <div class="nav-group">
-<a href="karomah4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<a href="jilani4.html" class="article-nav-btn" title="Halaman 4">4</a>
 <div class="nav-btn-label">Halaman 4</div>
 </div>
 <div class="nav-group">
-<a href="karomah5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<a href="jilani5.html" class="article-nav-btn" title="Halaman 5">5</a>
 <div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="jilani6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="jilani7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="jilani8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="jilani9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
 </div>
 </div>
 <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
