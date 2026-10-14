@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karomah Syeikh Abdul Qadir Jilani (Halaman 4) - KALAM</title>
+<title>Karomah Syeikh Abdul Qadir Al-Jilani - KALAM</title>
 <style>
+/* 1. RESET & DASAR */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
 font-family: 'Georgia', serif;
@@ -12,38 +13,17 @@ background-color: #f5f5f0;
 color: #333;
 min-height: 100vh;
 line-height: 1.8;
-/* Untuk Tablet */
-  @media (max-width: 768px) {
-    .container { 
-      max-width: 100%; 
-      padding: 20px; 
-    }
-    h1 { font-size: 26px; }
-    .featured-img { max-width: 100%; }
-  }
-  
-  /* Untuk HP */
-  @media (max-width: 600px) {
-    body { font-size: 14px; }
-    h1 { font-size: 22px; }
-    h2 { font-size: 18px; }
-    .arabic { font-size: 20px; line-height: 1.8; }
-    .header { 
-      flex-direction: column; 
-      gap: 10px; 
-      padding: 15px; 
-    }
-    .nav { 
-      flex-direction: column; 
-      gap: 10px; 
-    }
-    .page-btn { 
-      width: 35px; 
-      height: 35px; 
-      font-size: 14px; 
-    }
-  }
 }
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
 header {
 background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 padding: 20px 40px;
@@ -81,6 +61,7 @@ transition: all 0.3s ease;
 font-size: 0.95rem;
 }
 nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
 .breadcrumb {
 padding: 15px 40px;
 background: #eee;
@@ -94,6 +75,7 @@ max-width: 800px;
 margin: 40px auto;
 padding: 0 20px;
 }
+/* 5. ARTICLE HEADER & META */
 .article-header { margin-bottom: 30px; }
 .article-header h1 {
 font-size: 2.2rem;
@@ -117,6 +99,7 @@ font-size: 0.9rem;
 padding-bottom: 20px;
 border-bottom: 1px solid #ddd;
 }
+.author { display: flex; align-items: center; gap: 8px; }
 .author-avatar {
 width: 35px;
 height: 35px;
@@ -130,17 +113,22 @@ font-weight: bold;
 font-size: 0.85rem;
 }
 .author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
 .article-image-wrapper {
 margin: 25px 0;
 border-radius: 12px;
 overflow: hidden;
 box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
 }
 .article-image-wrapper img {
 width: 100%;
 height: auto;
 display: block;
+transition: transform 0.5s ease;
 }
+.article-image-wrapper:hover img { transform: scale(1.02); }
 .image-caption {
 background: rgba(0,0,0,0.7);
 color: #ccc;
@@ -195,6 +183,7 @@ background: #e94560;
 color: #fff;
 border-color: #e94560;
 }
+/* 7. KONTEN ARTIKEL */
 .article-content {
 font-size: 1.05rem;
 line-height: 1.9;
@@ -240,6 +229,7 @@ margin: 15px 0 20px 30px;
 margin-bottom: 10px;
 line-height: 1.7;
 }
+/* 8. KOTAK ARAB & KAROMAH */
 .arabic-box {
 background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
 border: 2px solid #d4af37;
@@ -251,19 +241,19 @@ box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 position: relative;
 }
 .arabic-box::before {
-    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #f8f6f0;
-    padding: 0 12px;
-    font-size: 1.2rem;
-    color: #d4af37;
-    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
-    white-space: nowrap;
-    line-height: 1.4;
-    z-index: 2;
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
 }
 .arabic-text {
 font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
@@ -328,7 +318,7 @@ direction: rtl;
 margin: 10px 0;
 text-align: right;
 }
-.story-box {
+.highlight-box {
 background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
 border: 1px solid #e0ddd5;
 border-radius: 12px;
@@ -337,26 +327,32 @@ margin: 25px 0;
 box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 border-left: 5px solid #d4af37;
 }
-.story-box p {
-margin-top: 10px;
+.highlight-box ul {
+margin: 15px 0 0 30px;
 }
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
 .article-nav {
 display: flex;
 justify-content: center;
-gap: 20px;
+gap: 10px;
 margin: 40px 0;
-padding: 30px;
+padding: 20px;
 background: linear-gradient(135deg, #1a1a2e, #16213e);
 border-radius: 15px;
+flex-wrap: wrap;
 }
 .article-nav-btn {
-width: 70px;
-height: 70px;
+width: 45px;
+height: 45px;
 border-radius: 50%;
 border: 2px solid #e94560;
 background: rgba(233, 69, 96, 0.1);
 color: #fff;
-font-size: 1.8rem;
+font-size: 1.15rem;
 font-weight: bold;
 cursor: pointer;
 transition: all 0.3s ease;
@@ -377,14 +373,15 @@ box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
 .nav-btn-label {
 text-align: center;
 color: #aaa;
-font-size: 0.8rem;
-margin-top: 8px;
+font-size: 0.75rem;
+margin-top: 6px;
 }
 .nav-group {
 display: flex;
 flex-direction: column;
 align-items: center;
 }
+/* 10. TOMBOL KEMBALI & FOOTER */
 .kalam-back-btn {
 display: block;
 text-align: center;
@@ -424,15 +421,81 @@ font-size: 0.9rem;
 margin-top: 40px;
 }
 footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
 @media (max-width: 600px) {
-header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
 .article-container { padding: 0 15px; }
-.article-header h1 { font-size: 1.5rem; }
 .article-content { font-size: 0.95rem; }
 .arabic-text { font-size: 1.4rem; line-height: 2.4; }
 .karomah-arabic { font-size: 1.3rem; }
-.article-nav { gap: 15px; }
-.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
 }
 </style>
 </head>
@@ -447,29 +510,34 @@ header { flex-direction: column; gap: 10px; padding: 15px 20px; }
 </nav>
 </header>
 <div class="breadcrumb">
-<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; <a href="karomah1.html">Karomah Syeikh Abdul Qadir Jilani</a> &raquo; Halaman 4
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abdul Qadir Al-Jilani — Halaman 5
 </div>
 <div class="article-container">
 <div class="article-header">
-<h1>Karomah Syeikh Abdul Qadir Jilani</h1>
-<div class="subtitle">Halaman 4 dari 5 — Karomah dalam Menolong & Memberkahi</div>
+<h1>Karomah Syeikh Abdul Qadir Al-Jilani</h1>
+<div class="subtitle">Halaman 5 dari 9 — Berdirinya Tarekat Qadiriyah & Ajaran-Ajaran Utama</div>
 <div class="article-meta">
+<div class="author">
 <div class="author-avatar">MY</div>
 <div>
 <div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
-<div style="color:#999; font-size:0.85rem;">Jumat, 09 Oktober 2026, 14:30 WIB</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
 </div>
 </div>
 </div>
 <div class="article-image-wrapper">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg"
-alt="Syeikh Abdul Qadir Jilani">
-<div class="image-caption">Sumber: kalam.web.id — Potret Syeikh Abdul Qadir Jilani</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Manuscript_Quran.jpg/440px-Manuscript_Quran.jpg"
+alt="Manuskrip Kitab Tarekat Qadiriyah"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi manuskrip kuno, simbol warisan ilmu Syeikh Abdul Qadir Al-Jilani yang melahirkan Tarekat Qadiriyah</div>
 </div>
 <div class="share-bar">
 <span>Bagikan:</span>
 <a href="#" class="share-btn fb">f</a>
-<a href="#" class="share-btn tw">𝕏</a>
+<a href="#" class="share-btn tw">t</a>
 <a href="#" class="share-btn wa">W</a>
 <a href="#" class="share-btn tg">T</a>
 <div class="font-size-controls">
@@ -479,219 +547,298 @@ alt="Syeikh Abdul Qadir Jilani">
 </div>
 <div class="article-content" id="articleContent">
 <p class="lead">
-Syeikh Abdul Qadir Jilani bukan hanya seorang guru dan da'i, tetapi juga seorang penolong bagi mereka yang tertindas, pemberi pertolongan bagi mereka yang dalam kesulitan, dan sumber keberkahan bagi siapa saja yang bertawassul kepadanya dengan izin Allah. Karomah beliau dalam menolong umat sangat luas dan dikenal hingga ke berbagai penjuru dunia Islam.
+Karomah terbesar seorang wali bukanlah yang tampak di dunia — melainkan yang terus mengalir manfaatnya dari generasi ke generasi hingga hari kiamat. Inilah yang disebut oleh para ulama sebagai <em>baqa' al-atsar</em> (kekekalan jejak kebaikan). Dan inilah karomah agung yang Allah anugerahkan kepada Syeikh Abdul Qadir Al-Jilani: dari majelis beliau lahirlah <strong>Tarekat Qadiriyah</strong> — salah satu tarekat sufi terbesar dan paling tersebar di dunia Islam, yang hingga hari ini memiliki jutaan pengikut dari Maroko hingga Indonesia, dari Balkan hingga Afrika Sub-Sahara. Dari pena beliau pula lahirlah kitab-kitab monumental yang menjadi rujukan para salik sepanjang zaman.
 </p>
-
-<div class="karomah-card">
-<span class="karomah-number">16</span>
-<span class="karomah-title">Karomah Menolong Orang yang Terzalimi</span>
-<div class="karomah-arabic">نَصْرُ الْمَظْلُومِ بِدُعَائِهِ</div>
-<p>
-Banyak kisah tentang orang-orang yang dizalimi kemudian mendapat pertolongan melalui doa Syeikh Abdul Qadir Jilani. Seorang pedagang yang ditipu oleh mitranya datang kepadanya dengan menangis. Syeikh hanya mengangkat tangan dan berdoa, maka dalam waktu singkat, pedagang yang zalim itu datang sendiri mengembalikan harta yang dicurinya dan meminta maaf.
-</p>
-</div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG ORANG TERANIAYA — QS. ASY-SYURA: 41</div>
+<div class="arabic-label">DALIL TENTANG MENGIKUT JALAN YANG BAIK — QS. AN-NISA': 69</div>
 <div class="arabic-text">
-وَلَمَنِ انتَصَرَ بَعْدَ ظُلْمِهِ فَأُولَٰئِكَ مَا عَلَيْهِم مِّن سَبِيلٍ
+وَمَن يُطِعِ اللَّهَ وَالرَّسُولَ فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan sesungguhnya orang-orang yang membela diri sesudah teraniaya, tidak ada dosa sedikit pun atas mereka."
-<br>— QS. Asy-Syura: 41
+<strong>Artinya:</strong> "Dan barangsiapa yang menaati Allah dan Rasul-Nya, mereka itu akan bersama-sama dengan orang-orang yang dianugerahi nikmat oleh Allah, yaitu para nabi, para shiddiiqiin, orang-orang yang mati syahid, dan orang-orang shaleh."
+<br>— QS. An-Nisa': 69
 </div>
 </div>
-
+<h2>Berdirinya Tarekat Qadiriyah</h2>
+<p>
+Tarekat Qadiriyah (الطريقة القادرية) adalah salah satu tarekat sufi tertua dan paling tersebar di dunia Islam. Tarekat ini dinisbatkan kepada Syeikh Abdul Qadir Al-Jilani sebagai pendirinya, dan mengambil nama dari gelar beliau <em>Al-Qadir</em> (yang Maha Kuasa — sebagai bentuk tafa'ul dengan nama-nama Allah). Tarekat ini tidak hanya merupakan jalan spiritual, melainkan juga merupakan sekolah akhlak, madrasah ilmu, dan pusat dakwah yang telah melahirkan ribuan ulama dan wali di berbagai penjuru dunia.
+</p>
 <div class="karomah-card">
-<span class="karomah-number">17</span>
-<span class="karomah-title">Karomah Memberi Pertolongan dari Jauh</span>
-<div class="karomah-arabic">نَصْرُهُ مِنْ بَعِيدٍ بِإِذْنِ اللَّهِ</div>
+<span class="karomah-number">25</span>
+<span class="karomah-title">Karomah Berdirinya Tarekat Qadiriyah</span>
+<div class="karomah-arabic">تَأْسِيسُ الطَّرِيقَةِ الْقَادِرِيَّةِ</div>
 <p>
-Salah satu karomah terbesar Syeikh Abdul Qadir Jilani adalah kemampuannya memberi pertolongan kepada orang yang berada jauh dari beliau, bahkan di negeri yang berbeda. Banyak kisah tentang orang-orang yang berada dalam kesulitan di berbagai negeri, kemudian mereka memanggil nama Syeikh Abdul Qadir dengan penuh keyakinan, dan pertolongan pun datang dengan cara yang tidak terduga.
+Tarekat Qadiriyah didirikan oleh Syeikh Abdul Qadir Al-Jilani setelah beliau kembali dari masa khalwat selama dua puluh lima tahun. Beliau mulai menerima murid-murid yang datang dari berbagai penjuru dunia Islam untuk belajar ilmu syariat dan hakikat di bawah bimbingan beliau. Majelis beliau di Masjid Jami' ar-Rushafah, Baghdad, menjadi pusat spiritual yang tidak pernah sepi dari para penuntut ilmu.
+</p>
+<p>
+Para ulama berkata bahwa berdirinya sebuah tarekat yang bermanfaat bagi umat hingga hari kiamat adalah karomah terbesar bagi pendirinya. Karena itu, Syeikh Abdul Qadir — meskipun beliau sendiri tidak pernah menyebut dirinya sebagai "pendiri tarekat" — tetap dianggap sebagai <em>mu'assis</em> (pendiri) Tarekat Qadiriyah, karena dari majelis dan ajaran beliau lahirlah jalan spiritual yang terus hidup hingga hari ini.
+</p>
+<p>
+Tarekat Qadiriyah memiliki ciri khas berupa penekanan pada:
+</p>
+<ul>
+<li><strong>Ketaatan kepada syariat</strong> — Tidak ada hakikat tanpa syariat</li>
+<li><strong>Kebersihan hati</strong> — Tazkiyatun nafs sebagai jalan utama</li>
+<li><strong>Kecintaan kepada Rasulullah SAW</strong> — Shalawat sebagai wirid utama</li>
+<li><strong>Kedermawanan dan pelayanan</strong> — Hidup untuk melayani umat</li>
+<li><strong>Keberanian spiritual</strong> — Tidak takut kepada siapa pun selain Allah</li>
+</ul>
+<p>
+Hingga hari ini, Tarekat Qadiriyah memiliki jutaan pengikut di Mesir, Afrika Utara, Turki, Balkan, India, Pakistan, Bangladesh, Indonesia, Malaysia, Filipina selatan, dan berbagai negeri lainnya. Di Indonesia sendiri, Tarekat Qadiriyah memiliki banyak pengikut, terutama di Jawa, Sumatera, dan Sulawesi.
 </p>
 </div>
-
-<div class="story-box">
-<strong style="color: #d4af37; font-size: 1.1rem;">Kisah Seorang Pelaut:</strong>
-<p>
-Kapal yang ditumpangi seorang pedagang muslim tenggelam di tengah lautan. Dalam keadaan hampir tenggelam, ia berseru: <em>"Ya Syeikh Abdul Qadir, tolonglah aku!"</em> Tiba-tiba, sepotong kayu besar datang menghampirinya, dan ia dapat berpegangan padanya hingga selamat sampai ke daratan. Ketika ia sampai ke Baghdad dan menceritakan kisahnya kepada Syeikh, Syeikh tersenyum dan berkata: <em>"Itulah tongkatku yang kulemparkan ke laut untuk menolongmu."</em>
-</p>
-</div>
-
-<div class="karomah-card">
-<span class="karomah-number">18</span>
-<span class="karomah-title">Karomah Mengabulkan Hajat</span>
-<div class="karomah-arabic">قَضَاءُ الْحَوَائِجِ بِبَرَكَةِ دُعَائِهِ</div>
-<p>
-Siapa pun yang datang kepada Syeikh Abdul Qadir Jilani dengan hajat yang mendesak, maka hajatnya akan terpenuhi dengan izin Allah. Orang yang miskin menjadi kaya, orang yang sakit menjadi sehat, orang yang belum menikah segera mendapat jodoh, dan orang yang tertimpa musibah segera mendapat jalan keluar.
-</p>
-</div>
-
 <div class="arabic-box">
-<div class="arabic-label">PERKATAAN SYAIKH TENTANG HAJAT</div>
+<div class="arabic-label">DALIL TENTANG MENGIKUT JALAN — QS. AL-ANKABUT: 69</div>
 <div class="arabic-text">
-مَنْ جَاءَنِي بِحَاجَةٍ لِلَّهِ قَضَيْتُهَا لَهُ، وَمَنْ جَاءَنِي لِلدُّنْيَا رَدَدْتُهُ
+وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Barangsiapa yang datang kepadaku dengan hajat karena Allah, maka aku akan menolongnya dengan izin Allah. Dan barangsiapa yang datang karena dunia, maka aku akan menolaknya agar ia kembali kepada Allah."
-<br>— Syeikh Abdul Qadir Al-Jilani
+<strong>Artinya:</strong> "Dan orang-orang yang berjihad untuk (mencari keridhaan) Kami, pastilah Kami akan tunjukkan kepada mereka jalan-jalan Kami."
+<br>— QS. Al-'Ankabut: 69
 </div>
 </div>
-
+<h2>Kitab-Kitab Monumental Syeikh Abdul Qadir Al-Jilani</h2>
+<p>
+Salah satu karomah terbesar Syeikh Abdul Qadir Al-Jilani adalah bahwa Allah anugerahkan kepadanya kemampuan untuk menghasilkan kitab-kitab monumental yang menjadi rujukan para salik hingga hari ini. Kitab-kitab ini bukan hanya karya intelektual, melainkan juga karya spiritual yang lahir dari pengalaman ma'rifat yang mendalam.
+</p>
 <div class="karomah-card">
-<span class="karomah-number">19</span>
-<span class="karomah-title">Karomah Mengusir Wabah dan Bencana</span>
-<div class="karomah-arabic">دَفْعُ الْوَبَاءِ بِدُعَائِهِ</div>
+<span class="karomah-number">26</span>
+<span class="karomah-title">Karomah Kitab Futuh al-Ghaib (Pembuka Gaib)</span>
+<div class="karomah-arabic">كِتَابُ فَتْحِ الْغَيْبِ</div>
 <p>
-Pada masa terjadi wabah penyakit di Baghdad, para ulama dan pembesar kota datang kepada Syeikh Abdul Qadir Jilani memohon doa. Beliau keluar ke lapangan bersama ribuan muridnya, lalu berdoa dengan khusyuk. Dengan izin Allah, wabah itu segera reda dan Baghdad kembali aman.
+<em>Futuh al-Ghaib</em> (فتوح الغيب) — yang berarti "Pembuka-pembuka Gaib" — adalah salah satu kitab paling masyhur yang ditulis oleh Syeikh Abdul Qadir Al-Jilani. Kitab ini merupakan kumpulan dari tujuh puluh delapan majelis (pengajian) yang beliau sampaikan kepada para murid beliau di Baghdad. Setiap majelis berisi nasihat-nasihat spiritual, peringatan tentang hari kiamat, ajakan untuk bertaubat, dan bimbingan menuju ma'rifatullah.
+</p>
+<p>
+Kitab ini dinamakan <em>Futuh al-Ghaib</em> karena isinya membuka rahasia-rahasia gaib yang tersembunyi di dalam hati manusia — seperti penyakit-penyakit hati, tipu daya setan, dan cara-cara mendekatkan diri kepada Allah. Para ulama berkata bahwa membaca kitab ini dengan penuh perenungan dapat membuka pintu-pintu hikmah di dalam hati.
+</p>
+<p>
+Salah satu nasihat masyhur dalam kitab ini adalah: <em>"Barangsiapa yang mengenal Allah, maka ia akan mencintai-Nya. Dan barangsiapa yang mencintai-Nya, maka ia akan meninggalkan segala sesuatu selain-Nya. Dan barangsiapa yang meninggalkan segala sesuatu selain-Nya, maka ia akan menemukan ketenangan di dalam cinta-Nya."</em>
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG PENYEMBUHAN — QS. AL-ISRA': 82</div>
+<div class="arabic-label">PERKATAAN SYEIKH ABDUL QADIR DALAM FUTUH AL-GHAIB</div>
 <div class="arabic-text">
-وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ
+مَنْ عَرَفَ اللَّهَ أَحَبَّهُ، وَمَنْ أَحَبَّهُ تَرَكَ مَا سِوَاهُ، وَمَنْ تَرَكَ مَا سِوَاهُ اسْتَرَاحَ بِحُبِّهِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan Kami turunkan dari Al-Qur'an suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."
-<br>— QS. Al-Isra': 82
+<strong>Artinya:</strong> "Barangsiapa yang mengenal Allah, maka ia akan mencintai-Nya. Dan barangsiapa yang mencintai-Nya, maka ia akan meninggalkan segala sesuatu selain-Nya. Dan barangsiapa yang meninggalkan segala sesuatu selain-Nya, maka ia akan menemukan ketenangan di dalam cinta-Nya."
+<br>— Syeikh Abdul Qadir Al-Jilani, <em>Futuh al-Ghaib</em>
 </div>
 </div>
-
 <div class="karomah-card">
-<span class="karomah-number">20</span>
-<span class="karomah-title">Karomah Mengendalikan Hujan</span>
-<div class="karomah-arabic">إِنْزَالُ الْمَطَرِ بِدُعَائِهِ</div>
+<span class="karomah-number">27</span>
+<span class="karomah-title">Karomah Kitab Al-Fath ar-Rabbani (Pembukaan Rabbani)</span>
+<div class="karomah-arabic">كِتَابُ الْفَتْحِ الرَّبَّانِيِّ</div>
 <p>
-Pada masa kekeringan panjang di Baghdad, para penduduk datang meminta Syeikh agar berdoa untuk hujan. Beliau mengangkat tangan dan berdoa, maka dalam waktu singkat, awan berkumpul dan hujan turun dengan lebat, menghidupkan kembali tanah yang kering. Sebaliknya, ketika hujan terlalu lebat dan menyebabkan banjir, beliau berdoa dan hujan pun reda.
+<em>Al-Fath ar-Rabbani</em> (الفتح الرباني) — yang berarti "Pembukaan Rabbani" — adalah kitab lain yang sangat masyhur dari Syeikh Abdul Qadir Al-Jilani. Kitab ini merupakan kumpulan dari dua puluh enam majelis yang beliau sampaikan, dan berisi nasihat-nasihat yang lebih mendalam tentang hakikat iman, tauhid, dan ma'rifatullah.
+</p>
+<p>
+Kitab ini dinamakan <em>Al-Fath ar-Rabbani</em> karena isinya merupakan "pembukaan" dari Allah Yang Maha Pemurah kepada hati orang-orang yang membacanya dengan penuh perenungan. Para ulama berkata bahwa kitab ini adalah salah satu kitab terbaik untuk membimbing hati menuju kehadiran bersama Allah (<em>hudhur ma'a Allah</em>).
+</p>
+<p>
+Salah satu nasihat masykur dalam kitab ini adalah: <em>"Janganlah engkau mencari Allah di luar dirimu, karena Dia lebih dekat kepadamu daripada urat nadimu sendiri. Carilah Dia di dalam hatimu, dan engkau akan menemukan-Nya di sana."</em>
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG DOA — QS. AL-BAQARAH: 186</div>
+<div class="arabic-label">PERKATAAN SYEIKH ABDUL QADIR DALAM AL-FATH AR-RABBANI</div>
 <div class="arabic-text">
-وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+لَا تَطْلُبْ اللَّهَ فِي غَيْرِكَ، فَإِنَّهُ أَقْرَبُ إِلَيْكَ مِنْ حَبْلِ الْوَرِيدِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka (jawablah), bahwasanya Aku adalah dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku."
-<br>— QS. Al-Baqarah: 186
+<strong>Artinya:</strong> "Janganlah engkau mencari Allah di luar dirimu, karena Dia lebih dekat kepadamu daripada urat nadimu sendiri."
+<br>— Syeikh Abdul Qadir Al-Jilani, <em>Al-Fath ar-Rabbani</em> (merujuk QS. Qaf: 16)
 </div>
 </div>
-
 <div class="karomah-card">
-<span class="karomah-number">21</span>
-<span class="karomah-title">Karomah Mendapat Rezeki dari Arah yang Tidak Disangka</span>
-<div class="karomah-arabic">الرِّزْقُ مِنْ حَيْثُ لَا يَحْتَسِبُ</div>
+<span class="karomah-number">28</span>
+<span class="karomah-title">Karomah Kitab Ghunyat at-Thalibin (Kecukupan Penuntut)</span>
+<div class="karomah-arabic">كِتَابُ غُنْيَةِ الطَّالِبِينَ</div>
 <p>
-Syeikh Abdul Qadir Jilani tidak pernah meminta-minta, namun rezeki selalu datang kepadanya dari arah yang tidak disangka-sangka. Orang-orang kaya dan pembesar datang membawakan harta mereka untuk beliau distribusikan kepada fakir miskin. Ribuan orang makan setiap hari dari dapur beliau, namun persediaan makanan tidak pernah habis.
+<em>Ghunyat at-Thalibin</em> (غنية الطالبين) — yang berarti "Kecukupan bagi Orang-orang yang Menuntut" — adalah kitab fiqih dan akhlak yang sangat komprehensif dari Syeikh Abdul Qadir Al-Jilani. Kitab ini menggabungkan antara ilmu fiqih mazhab Hanbali, ilmu akhlak, dan ilmu tasawuf dalam satu karya yang utuh.
+</p>
+<p>
+Kitab ini dinamakan <em>Ghunyat at-Thalibin</em> karena ia menjadi "kecukupan" bagi siapa saja yang menuntut ilmu — baik ilmu lahiriah maupun batiniah. Para ulama berkata bahwa kitab ini adalah salah satu rujukan utama dalam menggabungkan antara syariat dan hakikat, antara ilmu dan amal, antara lahir dan batin.
+</p>
+<p>
+Salah satu nasihat masyhur dalam kitab ini adalah: <em>"Ilmu tanpa amal adalah pohon tanpa buah, dan amal tanpa ikhlas adalah tubuh tanpa ruh. Maka gabungkanlah ilmu dengan amal, dan gabungkanlah amal dengan ikhlas, niscaya engkau akan mendapatkan kebahagiaan di dunia dan akhirat."</em>
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG REZEKI — QS. ATH-THALAQ: 3</div>
+<div class="arabic-label">PERKATAAN SYEIKH ABDUL QADIR DALAM GHUNYAT AT-THALIBIN</div>
 <div class="arabic-text">
-وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ
+الْعِلْمُ بِلَا عَمَلٍ شَجَرَةٌ بِلَا ثَمَرٍ، وَالْعَمَلُ بِلَا إِخْلَاسٍ جَسَدٌ بِلَا رُوحٍ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan barangsiapa yang bertawakkal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya."
-<br>— QS. Ath-Thalaq: 3
+<strong>Artinya:</strong> "Ilmu tanpa amal adalah pohon tanpa buah, dan amal tanpa ikhlas adalah tubuh tanpa ruh."
+<br>— Syeikh Abdul Qadir Al-Jilani, <em>Ghunyat at-Thalibin</em>
 </div>
 </div>
-
+<h2>Metode Pengajaran dan Pembinaan Murid</h2>
+<p>
+Salah satu karomah terbesar Syeikh Abdul Qadir Al-Jilani adalah kemampuan beliau dalam mengajar dan membimbing para murid. Beliau tidak hanya mengajarkan ilmu di atas kertas, melainkan juga membimbing hati para murid menuju ma'rifatullah melalui metode yang unik dan mendalam.
+</p>
 <div class="karomah-card">
-<span class="karomah-number">22</span>
-<span class="karomah-title">Karomah Muncul dalam Mimpi</span>
-<div class="karomah-arabic">ظُهُورُهُ فِي الرُّؤْيَا الصَّادِقَةِ</div>
+<span class="karomah-number">29</span>
+<span class="karomah-title">Karomah Metode Pengajaran yang Mengubah Jiwa</span>
+<div class="karomah-arabic">مَنْهَجُهُ فِي تَرْبِيَةِ الْمُرِيدِينَ</div>
 <p>
-Banyak orang yang tidak pernah bertemu Syeikh Abdul Qadir Jilani secara langsung, namun beliau muncul dalam mimpi mereka untuk memberi petunjuk, memberi kabar gembira, atau memberi peringatan. Para ulama menjelaskan bahwa ini adalah bentuk <em>ru'yah shadiqah</em> (mimpi yang benar) yang merupakan salah satu bagian dari kenabian.
+Metode pengajaran Syeikh Abdul Qadir Al-Jilani memiliki beberapa ciri khas yang menjadikannya unik di antara para ulama sezaman beliau:
+</p>
+<ul>
+<li><strong>Pertama, pengajaran dengan hal (keadaan spiritual).</strong> Beliau tidak hanya berbicara dengan lisan, melainkan juga dengan keadaan spiritual beliau. Para murid merasakan perubahan di dalam hati mereka hanya dengan berada di dekat beliau, karena cahaya ma'rifat yang terpancar dari hati beliau.</li>
+<li><strong>Kedua, pengajaran dengan keteladanan.</strong> Beliau tidak hanya memerintahkan para murid untuk zuhud, wara', dan ikhlas, melainkan beliau sendiri adalah contoh hidup dari semua itu. Para murid melihat langsung bagaimana beliau hidup dalam kesederhanaan, meskipun beliau adalah salah satu ulama paling dihormati di Baghdad.</li>
+<li><strong>Ketiga, pengajaran dengan kasih sayang.</strong> Beliau senantiasa memperlakukan para murid dengan penuh kasih sayang, seperti seorang ayah kepada anak-anaknya. Beliau tidak pernah memarahi mereka dengan keras, melainkan menasihati mereka dengan lembut dan penuh hikmah.</li>
+<li><strong>Keempat, pengajaran dengan doa.</strong> Beliau senantiasa mendoakan para murid beliau, dan doa-doa beliau selalu dikabulkan oleh Allah. Banyak murid beliau yang merasakan perubahan luar biasa dalam hidup mereka setelah beliau doakan.</li>
+</ul>
+<p>
+Salah seorang murid beliau berkata: <em>"Ketika aku datang kepada Syeikh Abdul Qadir, aku adalah orang yang penuh dengan dosa dan kelalaian. Namun setelah beberapa bulan berada di majelis beliau, hatiku berubah total. Aku merasakan cahaya iman yang tidak pernah aku rasakan sebelumnya. Ini bukanlah karena kehebatanku, melainkan karena berkah Syeikh Abdul Qadir."</em>
 </p>
 </div>
-
-<div class="story-box">
-<strong style="color: #d4af37; font-size: 1.1rem;">Kisah Seorang Pedagang dari Mesir:</strong>
-<p>
-Seorang pedagang di Mesir bermimpi didatangi seorang pria berpakaian hijau yang berkata: <em>"Sampaikan salamku kepada penduduk Baghdad, dan katakan bahwa Abdul Qadir adalah wali Allah yang haq."</em> Ketika pedagang itu sampai di Baghdad dan menceritakan mimpinya, ia digambarkan sosok yang persis seperti Syeikh Abdul Qadir Jilani.
-</p>
-</div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG MIMPI BENAR — HR. BUKHARI</div>
+<div class="arabic-label">DALIL TENTANG KASIH SAYANG — QS. AL-IMRAN: 159</div>
 <div class="arabic-text">
-الرُّؤْيَا الصَّالِحَةُ جُزْءٌ مِنْ سِتَّةٍ وَأَرْبَعِينَ جُزْءًا مِنَ النُّبُوَّةِ
+فَبِمَا رَحْمَةٍ مِّنَ اللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ الْقَلْبِ لَانفَضُّوا مِنْ حَوْلِكَ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Mimpi yang baik (shadiqah) adalah salah satu dari empat puluh enam bagian kenabian."
-<br>— HR. Bukhari
+<strong>Artinya:</strong> "Maka berkat rahmat Allah engkau berlaku lemah lembut terhadap mereka. Sekiranya engkau bersikap keras dan berhati kasar, tentulah mereka akan menjauhkan diri dari sekelilingmu."
+<br>— QS. Ali 'Imran: 159
 </div>
 </div>
-
-<h2>Doa Tawassul kepada Syeikh Abdul Qadir Jilani</h2>
-
+<h2>Ciri Khas Tarekat Qadiriyah</h2>
+<p>
+Tarekat Qadiriyah memiliki beberapa ciri khas yang menjadikannya unik di antara tarekat-tarekat lainnya. Ciri-ciri ini merupakan warisan langsung dari ajaran Syeikh Abdul Qadir Al-Jilani yang terus dijaga oleh para mursyid tarekat hingga hari ini.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">30</span>
+<span class="karomah-title">Karomah Ciri Khas Tarekat Qadiriyah</span>
+<div class="karomah-arabic">خَصَائِصُ الطَّرِيقَةِ الْقَادِرِيَّةِ</div>
+<p>
+Berikut adalah ciri-ciri khas Tarekat Qadiriyah yang menjadi warisan Syeikh Abdul Qadir Al-Jilani:
+</p>
+<ul>
+<li><strong>Pertama, ketaatan mutlak kepada syariat.</strong> Tarekat Qadiriyah menekankan bahwa tidak ada jalan spiritual tanpa syariat. Seorang murid harus menjalankan seluruh perintah syariat dan menjauhi seluruh larangannya sebelum ia dapat menempuh jalan hakikat.</li>
+<li><strong>Kedua, wirid dan dzikir harian.</strong> Para murid Tarekat Qadiriyah memiliki wirid dan dzikir harian yang harus mereka amalkan, termasuk membaca shalawat kepada Rasulullah SAW, membaca istigfar, dan membaca dzikir-dzikir tertentu yang diajarkan oleh mursyid.</li>
+<li><strong>Ketiga, silsilah yang bersambung.</strong> Tarekat Qadiriyah memiliki silsilah keilmuan dan spiritual yang bersambung hingga Rasulullah SAW melalui Sayyidina Ali bin Abi Thalib. Silsilah ini menjadi jaminan bahwa ajaran tarekat ini adalah ajaran yang otentik dan tidak menyimpang.</li>
+<li><strong>Keempat, adab yang mulia.</strong> Para murid Tarekat Qadiriyah diajarkan untuk senantiasa beradab mulia — baik kepada Allah, kepada Rasulullah SAW, kepada mursyid, kepada sesama murid, maupun kepada seluruh makhluk Allah.</li>
+<li><strong>Kelima, pelayanan kepada umat.</strong> Para murid Tarekat Qadiriyah diajarkan untuk hidup bukan untuk dirinya sendiri, melainkan untuk melayani umat. Mereka dikenal dengan kedermawanan, kerendahan hati, dan kesediaan membantu siapa pun yang membutuhkan.</li>
+</ul>
+<p>
+Para ulama berkata bahwa ciri-ciri inilah yang menjadikan Tarekat Qadiriyah bertahan selama lebih dari sembilan abad dan terus berkembang di berbagai penjuru dunia. Karena tarekat ini tidak hanya mengajarkan spiritualitas, melainkan juga mengajarkan akhlak, ilmu, dan pelayanan kepada umat — kombinasi yang jarang ditemukan di tarekat-tarekat lainnya.
+</p>
+</div>
 <div class="arabic-box">
-<div class="arabic-label">DOA TAWASSUL</div>
+<div class="arabic-label">DALIL TENTANG SILSILAH KEILMUAN — QS. AL-AHZAB: 6</div>
 <div class="arabic-text">
-اللَّهُمَّ إِنِّي أَتَوَسَّلُ إِلَيْكَ بِنَبِيِّكَ مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، وَبِوَلِيِّكَ الصَّالِحِ سَيِّدِنَا عَبْدِ الْقَادِرِ الْجِيلَانِي، أَنْ تَقْضِيَ لِي حَاجَتِي، وَأَنْ تَغْفِرَ لِي ذَنْبِي، وَأَنْ تَجْعَلَنِي مِنْ عِبَادِكَ الصَّالِحِينَ
+النَّبِيُّ أَوْلَىٰ بِالْمُؤْمِنِينَ مِنْ أَنفُسِهِمْ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Ya Allah, sesungguhnya aku bertawassul kepada-Mu dengan Nabi-Mu Muhammad shallallahu 'alaihi wa sallam, dan dengan wali-Mu yang shaleh Sayyidina Abdul Qadir Al-Jilani, agar Engkau memenuhi hajatku, mengampuni dosaku, dan menjadikanku termasuk hamba-hamba-Mu yang shaleh."
+<strong>Artinya:</strong> "Nabi itu (hendaklah) lebih utama bagi orang-orang mukmin dari diri mereka sendiri."
+<br>— QS. Al-Ahzab: 6 (Dasar silsilah spiritual dari Rasulullah SAW)
 </div>
 </div>
-
-<h2>Penutup Halaman 4</h2>
-
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Tarekat Qadiriyah & Ajaran Syeikh Abdul Qadir:</strong>
+<ul>
+<li><strong>Berdirinya Tarekat Qadiriyah</strong> — Tarekat terbesar dan paling tersebar di dunia Islam</li>
+<li><strong>Kitab Futuh al-Ghaib</strong> — 78 majelis pembuka rahasia gaib hati</li>
+<li><strong>Kitab Al-Fath ar-Rabbani</strong> — 26 majelis pembukaan rabbani</li>
+<li><strong>Kitab Ghunyat at-Thalibin</strong> — Ensiklopedia syariat dan hakikat</li>
+<li><strong>Metode pengajaran dengan hal</strong> — Mengubah jiwa melalui keadaan spiritual</li>
+<li><strong>Ciri khas tarekat</strong> — Syariat, wirid, silsilah, adab, pelayanan</li>
+</ul>
+</div>
+<h2>Ajaran Utama Syeikh Abdul Qadir Al-Jilani</h2>
 <p>
-Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani dalam menolong dan memberkahi umat. Beliau adalah lautan rahmat yang Allah hadirkan di muka bumi untuk menolong hamba-hamba-Nya yang membutuhkan. Pada halaman terakhir, kita akan membahas karomah akhir hayat beliau dan doa penutup.
+Dari seluruh warisan spiritual beliau, terdapat beberapa ajaran utama yang menjadi ciri khas Tarekat Qadiriyah dan yang terus diajarkan oleh para mursyid hingga hari ini:
 </p>
-
+<blockquote>
+<em>Pertama</em>, <strong>tauhid yang murni</strong>. Syeikh Abdul Qadir mengajarkan bahwa tauhid bukanlah sekadar pengakuan di lisan, melainkan keyakinan yang mendalam di dalam hati bahwa tidak ada yang berhak disembah selain Allah, dan tidak ada yang memberi manfaat atau bahaya selain Dia. Barangsiapa yang mencapai maqam tauhid yang sejati, maka ia akan bebas dari segala sesuatu selain Allah.
+<br><br>
+<em>Kedua</em>, <strong>kebersihan hati</strong>. Beliau mengajarkan bahwa hati adalah cermin yang memantulkan cahaya Allah. Jika hati bersih dari kotoran dosa dan cinta dunia, maka ia akan memantulkan cahaya ilahi. Namun jika hati kotor, maka ia tidak akan mampu menerima cahaya tersebut. Maka bersihkanlah hati dengan taubat, istigfar, dan dzikir.
+<br><br>
+<em>Ketiga</em>, <strong>kecintaan kepada Rasulullah SAW</strong>. Beliau mengajarkan bahwa kecintaan kepada Rasulullah SAW adalah salah satu tanda keimanan. Barangsiapa yang mencintai Rasulullah SAW dengan cinta yang sejati, niscaya ia akan mengikuti sunnah beliau dalam setiap keadaan. Shalawat kepada Rasulullah SAW menjadi wirid utama dalam Tarekat Qadiriyah.
+<br><br>
+<em>Keempat</em>, <strong>kedermawanan dan pelayanan kepada umat</strong>. Beliau mengajarkan bahwa seorang salik tidak boleh hidup untuk dirinya sendiri, melainkan harus hidup untuk melayani umat. Kedermawanan bukanlah tentang banyaknya harta yang diberikan, melainkan tentang keikhlasan hati dalam memberikan.
+<br><br>
+<em>Kelima</em>, <strong>keberanian spiritual</strong>. Beliau mengajarkan bahwa seorang salik harus memiliki keberanian spiritual — keberanian untuk mengatakan yang benar, keberanian untuk menghadapi godaan setan, keberanian untuk meninggalkan segala sesuatu selain Allah. Keberanian ini bukanlah keberanian fisik, melainkan keberanian hati yang berasal dari keimanan yang kokoh.
+</blockquote>
+<h2>Doa Memohon Keberkahan Warisan Spiritual</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KEBERKAHAN TAREKAT QADIRIYAH</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْنَا مِنْ أَهْلِ الطَّرِيقَةِ الْقَادِرِيَّةِ الصَّالِحِينَ، وَارْزُقْنَا الِاسْتِقَامَةَ عَلَى الشَّرِيعَةِ وَالْحَقِيقَةِ، وَاجْعَلْ سَيِّدَنَا عَبْدَ الْقَادِرِ الْجِيلَانِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ، وَارْزُقْنَا حُبَّهُ وَمَحَبَّةَ مَنْ يُحِبُّهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah kami termasuk ahli Tarekat Qadiriyah yang shaleh, anugerahkanlah kepada kami istiqamah di atas syariat dan hakikat, jadikanlah Sayyidina Abdul Qadir Al-Jilani sebagai pemberi syafaat bagi kami pada hari kiamat, dan anugerahkanlah kepada kami cinta kepadanya dan cinta kepada orang-orang yang mencintainya."
+</div>
+</div>
+<h2>Penutup Halaman 5</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Abdul Qadir Al-Jilani dalam berdirinya Tarekat Qadiriyah dan ajaran-ajaran utama yang beliau wariskan. Karomah-karomah ini bukanlah tujuan utama beliau, melainkan buah dari keikhlasan, zuhud, dan ketaatan beliau kepada Allah SWT. Tarekat Qadiriyah yang beliau dirikan hingga hari ini memiliki jutaan pengikut di seluruh dunia, dan kitab-kitab beliau terus dibaca dan dikaji oleh para salik dari berbagai penjuru dunia Islam.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas pengaruh Tarekat Qadiriyah di seluruh dunia — bagaimana tarekat ini menyebar dari Baghdad ke berbagai negeri, dan bagaimana ajaran-ajaran Syeikh Abdul Qadir mengubah jutaan hati di berbagai penjuru dunia.
+</p>
 <p>
 <em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
 </p>
-
 <div class="arabic-box">
 <div class="arabic-text">
 وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan tidak ada taufik bagiku melainkan dengan (pertolongan) Allah. Hanya kepada Allah aku bertawakkal dan hanya kepada-Nya-lah aku kembali."
+<strong>Artinya:</strong> "Dan tidak ada bagiku taufiq kecuali dengan (pertolongan) Allah. Kepada-Nya aku bertawakkal dan kepada-Nya (pula) aku kembali."
 <br>— QS. Hud: 88
 </div>
 </div>
 </div>
-
-<!-- NAVIGASI 5 TOMBOL -->
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
 <div class="article-nav">
 <div class="nav-group">
-<a href="karomah1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<a href="jilani1.html" class="article-nav-btn" title="Halaman 1">1</a>
 <div class="nav-btn-label">Halaman 1</div>
 </div>
 <div class="nav-group">
-<a href="karomah2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<a href="jilani2.html" class="article-nav-btn" title="Halaman 2">2</a>
 <div class="nav-btn-label">Halaman 2</div>
 </div>
 <div class="nav-group">
-<a href="karomah3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<a href="jilani3.html" class="article-nav-btn" title="Halaman 3">3</a>
 <div class="nav-btn-label">Halaman 3</div>
 </div>
 <div class="nav-group">
-<a href="karomah4.html" class="article-nav-btn active" title="Halaman 4">4</a>
+<a href="jilani4.html" class="article-nav-btn" title="Halaman 4">4</a>
 <div class="nav-btn-label">Halaman 4</div>
 </div>
 <div class="nav-group">
-<a href="karomah5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<a href="jilani5.html" class="article-nav-btn active" title="Halaman 5">5</a>
 <div class="nav-btn-label">Halaman 5</div>
 </div>
+<div class="nav-group">
+<a href="jilani6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
 </div>
-
+<div class="nav-group">
+<a href="jilani7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="jilani8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="jilani9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
 <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
 KALAM
 <span class="btn-sub">← Kembali ke Beranda</span>
 </a>
 </div>
-
 <footer>
 <p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
 </footer>
-
 <script>
 let currentFontSize = 1.05;
 function changeFontSize(delta) {
