@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ibrahim Ibn Adham - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.3rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 10px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 40px;
+height: 40px;
+font-size: 1.1rem;
+}
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ibrahim Ibn Adham — Halaman 6
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ibrahim Ibn Adham</h1>
+<div class="subtitle">Halaman 6 dari 6 — Wafat, Warisan Spiritual & Doa Penutup</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Syrian_countryside.jpg/440px-Syrian_countryside.jpg"
+alt="Makam Syeikh Ibrahim Ibn Adham"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi negeri Syam, tempat Syeikh Ibrahim Ibn Adham wafat dan dimakamkan di Jablah</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah perjalanan spiritual yang panjang dan penuh berkah — dari Balkh ke Syam, dari Syam ke Baghdad, dari Baghdad ke Makkah, Madinah, dan Mesir — Syeikh Ibrahim Ibn Adham akhirnya kembali ke negeri Syam untuk menghabiskan sisa usia beliau dalam ibadah dan ketaatan kepada Allah. Di negeri inilah Allah panggil beliau kembali ke sisi-Nya dengan wafat yang penuh berkah dan kemuliaan. Namun meskipun jasad beliau telah bersemayam di dalam tanah, warisan spiritual beliau tetap hidup hingga hari ini — berupa nasihat-nasihat agung, ajaran-ajaran zuhud, dan teladan hidup yang menjadi cahaya bagi para salik sepanjang zaman.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEMATIAN — QS. AL-MULK: 2</div>
+<div class="arabic-text">
+الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Yang menjadikan mati dan hidup, supaya Dia menguji kamu, siapa di antara kamu yang lebih baik amalnya."
+<br>— QS. Al-Mulk: 2
+</div>
+</div>
+<h2>Tanda-tanda Menjelang Wafat</h2>
+<p>
+Para murid dan sahabat Syeikh Ibrahim Ibn Adham menceritakan bahwa menjelang wafat beliau, Allah tampakkan beberapa tanda-tanda istimewa yang menunjukkan bahwa beliau akan segera dipanggil ke sisi-Nya. Tanda-tanda ini bukanlah mukjizat nabi, melainkan karomah wali yang Allah berikan sebagai persiapan untuk pertemuan agung antara hamba yang dicintai dengan Rabb-nya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">26</span>
+<span class="karomah-title">Karomah Mimpi Bertemu Rasulullah SAW untuk Kedua Kalinya</span>
+<div class="karomah-arabic">الرُّؤْيَا الثَّانِيَةُ لِلرَّسُولِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+<p>
+Beberapa hari menjelang wafat, Syeikh Ibrahim bermimpi bertemu kembali dengan Rasulullah SAW. Dalam mimpi itu, Rasulullah SAW tersenyum kepadanya dan berkata: <em>"Wahai Ibrahim, sesungguhnya waktu telah tiba. Bersiaplah untuk menemui Tuhanmu, karena Dia telah meridhaimu dan menyiapkan untukmu tempat yang mulia di sisi-Nya."</em>
+</p>
+<p>
+Syeikh Ibrahim terbangun dengan wajah yang bercahaya dan penuh kegembiraan. Beliau mengumpulkan para murid beliau dan berkata: <em>"Wahai saudara-saudaraku, aku telah melihat Rasulullah SAW dalam mimpi, dan beliau memberikan aku kabar gembira bahwa ajalku telah dekat. Maka bersiaplah kalian semua, karena kematian adalah pintu menuju pertemuan dengan Allah Yang Maha Mulia."</em>
+</p>
+<p>
+Para murid beliau menangis mendengar kabar itu, namun Syeikh Ibrahim menenangkan mereka: <em>"Janganlah kalian bersedih, karena kematian seorang wali bukanlah akhir, melainkan awal dari kehidupan yang sejati. Doakanlah aku agar Allah menerima amal-amalku yang sedikit ini."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>basyarah</em> (kabar gembira) menjelang wafat — tanda bahwa Allah telah meridhai hamba-Nya dan menyiapkan untuknya tempat yang mulia di sisi-Nya. Para ulama berkata bahwa para wali sering kali mendapatkan kabar gembira menjelang wafat mereka sebagai pemuliaan dari Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KABAR GEMBIRA MENJELANG WAFAT — QS. FUSHSHILAT: 30</div>
+<div class="arabic-text">
+إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنتُمْ تُوعَدُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang-orang yang mengatakan: 'Tuhan kami ialah Allah' kemudian mereka istiqamah, maka malaikat akan turun kepada mereka (dengan berkata): 'Janganlah kamu takut dan janganlah merasa sedih; dan gembirakanlah mereka dengan jannah yang telah dijanjikan Allah kepadamu.'"
+<br>— QS. Fushshilat: 30
+</div>
+</div>
+<h2>Wafat yang Penuh Berkah</h2>
+<p>
+Syeikh Ibrahim Ibn Adham wafat di kota Jablah, sebuah kota di pesisir negeri Syam (kini wilayah Suriah), pada tahun 165 H / 782 M (menurut sebagian riwayat) atau 160 H (menurut riwayat lain). Beliau wafat dalam keadaan yang sangat mulia — sedang beribadah kepada Allah, dengan wajah yang bercahaya dan lisannya senantiasa berdzikir.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">27</span>
+<span class="karomah-title">Karomah Wafat dalam Keadaan Sujud</span>
+<div class="karomah-arabic">وَفَاتُهُ وَهُوَ سَاجِدٌ لِلَّهِ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa Syeikh Ibrahim Ibn Adham wafat dalam keadaan sedang sujud dalam shalat malam beliau. Ketika para murid beliau datang untuk membangunkan beliau, mereka mendapati beliau telah wafat dalam posisi sujud, dengan dahi beliau masih menempel di tanah, dan lisannya masih bergerak membaca dzikir — meskipun beliau telah tiada.
+</p>
+<p>
+Para murid beliau menangis dengan penuh haru, namun mereka juga merasa gembira karena wafat beliau adalah wafat yang paling mulia — wafat seorang hamba yang sedang bermunajat kepada Tuhannya. Mereka memandikan jenazah beliau dengan penuh penghormatan, dan mengafani beliau dengan kain yang sederhana, sesuai dengan keinginan beliau semasa hidup.
+</p>
+<p>
+Ketika jenazah beliau diangkat, orang-orang yang hadir merasakan aroma wangi yang sangat semerbak — aroma yang tidak pernah mereka cium sebelumnya. Aroma itu memenuhi seluruh kota Jablah, dan banyak orang yang datang untuk menyaksikan jenazah beliau. Mereka semua berkata: <em>"Ini adalah aroma para wali Allah yang dicintai-Nya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>husn al-khatimah</em> (akhir hayat yang baik) — karomah yang paling agung bagi seorang wali. Wafat dalam keadaan sujud adalah tanda bahwa Allah telah menerima amal-amal beliau dan meridhainya. Dan aroma wangi yang semerbak adalah tanda bahwa Allah telah memuliakan beliau dengan kemuliaan yang hakiki.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG HUSNUL KHATIMAH — QS. AL-HIJR: 99</div>
+<div class="arabic-text">
+وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan sembahlah Tuhanmu sampai datang kepadamu yang diyakini (ajal)."
+<br>— QS. Al-Hijr: 99
+</div>
+</div>
+<h2>Warisan Spiritual yang Abadi</h2>
+<p>
+Meskipun Syeikh Ibrahim Ibn Adham telah wafat lebih dari 1.200 tahun yang lalu, warisan spiritual beliau tetap hidup hingga hari ini. Beliau tidak meninggalkan harta yang melimpah, tidak meninggalkan istana megah, tidak meninggalkan kerajaan yang luas — namun beliau meninggalkan warisan yang jauh lebih berharga: nasihat-nasihat agung, ajaran-ajaran zuhud, dan teladan hidup yang menjadi cahaya bagi para salik sepanjang zaman.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">28</span>
+<span class="karomah-title">Karomah Nasihat-Nasihat Agung yang Diwariskan</span>
+<div class="karomah-arabic">نَصَائِحُهُ الْخَالِدَةُ</div>
+<p>
+Salah satu warisan terbesar Syeikh Ibrahim Ibn Adham adalah nasihat-nasihat agung yang beliau tinggalkan untuk umat. Nasihat-nasihat ini diriwayatkan oleh para murid beliau dan dicatat dalam kitab-kitab tasawuf seperti <em>Hilyatul Awliya'</em> karya Abu Nu'aim al-Isfahani, <em>Tadzhib al-Kamal</em>, dan kitab-kitab lainnya. Berikut adalah beberapa nasihat agung beliau:
+</p>
+<ul>
+<li><em>"Barangsiapa yang meninggalkan sesuatu karena Allah, niscaya Allah akan memberikan kepadanya yang lebih baik darinya."</em></li>
+<li><em>"Karomah yang paling agung adalah istiqamah di atas ketaatan dan meninggalkan kemaksiatan."</em></li>
+<li><em>"Aku tidak akan makan kecuali dari hasil kerja tanganku sendiri."</em></li>
+<li><em>"Zuhud yang sebenarnya bukanlah meninggalkan dunia, melainkan meninggalkan segala sesuatu selain Allah di dalam hati."</em></li>
+<li><em>"Ma'rifatullah bukanlah dengan ilmu semata, melainkan dengan hati yang hidup dan jiwa yang bersih."</em></li>
+<li><em>"Cinta kepada Allah bukanlah sesuatu yang dapat diungkapkan dengan kata-kata, melainkan rasa yang dirasakan oleh hati."</em></li>
+</ul>
+<p>
+Nasihat-nasihat ini menjadi rujukan bagi para salik sepanjang zaman, dan banyak ulama besar yang meriwayatkannya kepada murid-murid mereka. Inilah karomah berupa <em>baqa' adz-dzikr</em> (kekekalan nama baik) — Allah abadikan nama Syeikh Ibrahim di hati umat hingga hari kiamat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEKEKALAN NAMA BAIK — QS. MARYAM: 50</div>
+<div class="arabic-text">
+وَوَهَبْنَا لَهُم مِّن رَّحْمَتِنَا وَجَعَلْنَا لَهُمْ لِسَانَ صِدْقٍ عَلِيًّا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Kami anugerahkan kepada mereka sebagian rahmat Kami, dan Kami jadikan mereka buah bibir yang baik lagi tinggi kedudukannya."
+<br>— QS. Maryam: 50
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">29</span>
+<span class="karomah-title">Karomah Murid-Murid Besar yang Lahir dari Bimbingan Beliau</span>
+<div class="karomah-arabic">تَلَامِيذُهُ الْكِبَارُ</div>
+<p>
+Salah satu karomah terbesar Syeikh Ibrahim Ibn Adham adalah bahwa beliau menjadi guru spiritual bagi banyak ulama besar dan wali Allah yang datang setelah beliau. Meskipun beliau tidak menulis kitab-kitab besar seperti para ulama lainnya, ajaran-ajaran beliau diriwayatkan oleh para murid beliau dan menjadi dasar bagi perkembangan tasawuf Sunni di kemudian hari.
+</p>
+<p>
+Di antara murid-murid besar yang terpengaruh oleh ajaran beliau adalah:
+</p>
+<ul>
+<li><strong>Syeikh Fudhail bin 'Iyadh</strong> — sahabat spiritual beliau yang menjadi salah satu sufi terbesar di zamannya</li>
+<li><strong>Syeikh Bisyir al-Hafi</strong> — sufi besar dari Baghdad yang dikenal dengan kecintaan beliau kepada Allah</li>
+<li><strong>Syeikh Abu Sulaiman ad-Darani</strong> — sufi besar dari Syam yang menjadi guru bagi banyak ulama</li>
+<li><strong>Syeikh Junaid al-Baghdadi</strong> — "Penghulu Para Sufi" yang banyak meriwayatkan ajaran Syeikh Ibrahim</li>
+<li><strong>Syeikh Ma'ruf al-Karkhi</strong> — sufi besar yang menjadi panutan dalam zuhud dan wara'</li>
+</ul>
+<p>
+Melalui murid-murid inilah ajaran Syeikh Ibrahim tersebar ke seluruh penjuru dunia Islam, dan menjadi salah satu pondasi utama tasawuf Sunni yang dianut oleh mayoritas umat Islam hingga hari ini.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG GURU YANG Bermanfaat ILMUNYA — QS. AL-INSYIRAH: 7-8</div>
+<div class="arabic-text">
+فَإِذَا فَرَغْتَ فَانصَبْ وَإِلَىٰ رَبِّكَ فَارْغَب
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maka apabila kamu telah selesai (dari sesuatu urusan), tetaplah bekerja keras (untuk urusan yang lain). Dan hanya kepada Tuhanmulah engkau berharap."
+<br>— QS. Al-Insyirah: 7-8
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">30</span>
+<span class="karomah-title">Karomah Makam yang Dikunjungi oleh Para Pencari Berkah</span>
+<div class="karomah-arabic">زِيَارَةُ قَبْرِهِ لِلتَّبَرُّكِ</div>
+<p>
+Hingga hari ini, makam Syeikh Ibrahim Ibn Adham di kota Jablah, Suriah, menjadi tempat ziarah bagi banyak umat Islam yang ingin mengambil berkah dari beliau. Para peziarah datang dari berbagai penjuru dunia untuk berdoa di dekat makam beliau, memohon kepada Allah agar memberikan mereka syafa'at beliau di hari kiamat.
+</p>
+<p>
+Banyak orang yang menceritakan bahwa mereka mendapatkan karunia dan keberkahan setelah berziarah ke makam beliau — ada yang sembuh dari penyakit, ada yang mendapatkan rezeki yang tidak disangka-sangka, ada yang mendapatkan ketenangan hati, dan ada yang mendapatkan petunjuk dalam urusan mereka. Semua ini adalah tanda bahwa Allah masih memuliakan hamba-Nya yang shaleh meskipun beliau telah wafat.
+</p>
+<p>
+Para ulama berkata bahwa doa di dekat makam para wali adalah salah satu sebab dikabulkannya doa, karena Allah masih memuliakan para wali-Nya meskipun mereka telah wafat. Rasulullah SAW bersabda: <em>"Barangsiapa yang menziarahi kuburku, niscaya wajib bagiku memberikan syafa'at kepadanya."</em> (HR. Daraquthni). Dan para wali adalah orang-orang yang dekat dengan Rasulullah SAW, sehingga ziarah ke makam mereka juga menjadi sebab mendapatkan berkah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ZIARAH KUBUR — QS. AT-TAUBAH: 101</div>
+<div class="arabic-text">
+وَسَلَامٌ عَلَى الْمُرْسَلِينَ وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan keselamatan semoga tercurah kepada para rasul. Dan segala puji bagi Allah, Tuhan semesta alam."
+<br>— QS. Ash-Shaffat: 181-182 (Salam kepada para kekasih Allah)
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ringkasan Karomah Akhir Hayat & Warisan Syeikh Ibrahim Ibn Adham:</strong>
+<ul>
+<li><strong>Mimpi bertemu Rasulullah SAW untuk kedua kalinya</strong> — Kabar gembira menjelang wafat</li>
+<li><strong>Wafat dalam keadaan sujud</strong> — Husn al-khatimah yang paling mulia</li>
+<li><strong>Aroma wangi semerbak saat wafat</strong> — Tanda pemuliaan Allah</li>
+<li><strong>Nasihat-nasihat agung yang abadi</strong> — Baqa' adz-dzikr hingga hari kiamat</li>
+<li><strong>Murid-murid besar yang menjadi ulama</strong> — Fudhail, Bisyir, Junaid, dan lainnya</li>
+<li><strong>Makam yang diziarahi umat</strong> — Tempat mengambil berkah hingga kini</li>
+</ul>
+</div>
+<h2>Doa Penutup & Tawassul kepada Syeikh Ibrahim Ibn Adham</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA TAWASSUL KEPADA SYEIKH IBRAHIM IBN ADHAM</div>
+<div class="arabic-text">
+اللَّهُمَّ إِنَّا نَتَوَسَّلُ إِلَيْكَ بِحُرْمَةِ سَيِّدِنَا إِبْرَاهِيمَ بْنِ أَدْهَمَ، الْوَلِيِّ الصَّالِحِ، الزَّاهِدِ الْعَابِدِ، الَّذِي تَرَكَ الْمُلْكَ لِأَجْلِكَ، وَجَالَ فِي الْبِلَادِ يَبْتَغِي رِضْوَانَكَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, sesungguhnya kami bertawassul kepada-Mu dengan kehormatan Sayyidina Ibrahim Ibn Adham, wali yang shaleh, yang zuhud dan ahli ibadah, yang meninggalkan kerajaan karena-Mu, dan mengembara di berbagai negeri mencari ridha-Mu."
+</div>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON SYAFA'AT</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْ سَيِّدَنَا إِبْرَاهِيمَ بْنَ أَدْهَمَ شَفِيعًا لَنَا يَوْمَ الْقِيَامَةِ، وَارْزُقْنَا حُبَّهُ وَمَحَبَّةَ مَنْ يُحِبُّهُ، وَاجْمَعْنَا بِهِ فِي جَنَّاتِ النَّعِيمِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah Sayyidina Ibrahim Ibn Adham sebagai pemberi syafa'at bagi kami pada hari kiamat, anugerahkanlah kepada kami cinta kepadanya dan cinta kepada orang-orang yang mencintainya, dan kumpulkanlah kami bersamanya di surga-surga kenikmatan."
+</div>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON HUSNUL KHATIMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ ارْزُقْنَا حُسْنَ الْخَاتِمَةِ، وَتَوَفَّنَا وَنَحْنُ سَاجِدُونَ لَكَ، وَاجْعَلْ آخِرَ كَلَامِنَا مِنْ الدُّنْيَا شَهَادَةَ أَنْ لَا إِلٰهَ إِلَّا اللهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, anugerahkanlah kepada kami husn al-khatimah (akhir hayat yang baik), dan wafatkanlah kami dalam keadaan sujud kepada-Mu, dan jadikanlah akhir perkataan kami di dunia ini adalah syahadat bahwa tiada Tuhan selain Allah dan bahwa Muhammad adalah utusan Allah."
+</div>
+</div>
+<h2>Penutup Akhir — Selesai Seri Karomah Syeikh Ibrahim Ibn Adham</h2>
+<p>
+Demikianlah seri lengkap tentang karomah Syeikh Ibrahim Ibn Adham yang dapat kami sampaikan — mulai dari pendahuluan dan masa awal pertobatan beliau (Halaman 1), perjalanan spiritual di Syam dan Baghdad (Halaman 2), karomah di Makkah, Madinah, dan Mesir (Halaman 3), pertemuan dengan para ulama besar sezaman (Halaman 4), karomah luar biasa terhadap alam semesta (Halaman 5), hingga wafat, warisan spiritual, dan doa penutup (Halaman 6).
+</p>
+<p>
+Semoga seri ini dapat menjadi wasilah bagi kita semua untuk mengambil berkah dari kehidupan Syeikh Ibrahim Ibn Adham, meneladani zuhud, wara', dan kecintaan beliau kepada Allah, serta memohon kepada Allah agar memberikan kita syafa'at beliau di hari kiamat.
+</p>
+<blockquote>
+<em>"Barangsiapa yang meninggalkan sesuatu karena Allah, niscaya Allah akan memberikan kepadanya yang lebih baik darinya."</em>
+<br>— Syeikh Ibrahim Ibn Adham
+</blockquote>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam. Shalawat dan salam semoga tercurah kepada junjungan kita Nabi Muhammad SAW, beserta keluarga, sahabat, dan orang-orang yang mengikuti jejak beliau hingga hari kiamat.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ وَسَلَامٌ عَلَى الْمُرْسَلِينَ وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maha Suci Tuhanmu, Tuhan Yang Maha Perkasa, dari apa yang mereka sifatkan. Dan keselamatan semoga tercurah kepada para rasul. Dan segala puji bagi Allah, Tuhan semesta alam."
+<br>— QS. Ash-Shaffat: 180-182
+</div>
+</div>
+</div>
+<!-- NAVIGASI 6 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ibnuadham1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham6.html" class="article-nav-btn active" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

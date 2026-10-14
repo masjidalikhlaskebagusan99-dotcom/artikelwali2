@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ibrahim Ibn Adham - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.3rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 10px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 40px;
+height: 40px;
+font-size: 1.1rem;
+}
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ibrahim Ibn Adham — Halaman 3
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ibrahim Ibn Adham</h1>
+<div class="subtitle">Halaman 3 dari 6 — Karomah di Makkah, Madinah & Mesir</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kaaba2.jpg/440px-Kaaba2.jpg"
+alt="Makkah Al-Mukarramah"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi Ka'bah di Makkah Al-Mukarramah, tempat Syeikh Ibrahim Ibn Adham menunaikan haji dan beriktikaf</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah melewati perjalanan spiritual yang panjang di Syam dan Baghdad, Syeikh Ibrahim Ibn Adham melanjutkan pengembaraan beliau menuju negeri-negeri suci — Makkah Al-Mukarramah, Madinah Al-Munawwarah, dan Mesir. Di setiap negeri yang beliau singgahi, Allah tampakkan karomah-karomah yang semakin menakjubkan sebagai tanda pemuliaan atas keikhlasan, zuhud, dan cinta beliau kepada-Nya. Perjalanan ke negeri-negeri suci ini menjadi puncak dari perjalanan spiritual beliau, di mana hati beliau semakin dekat dengan Allah dan semakin terbuka berbagai karomah ilahiyah.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG RUMAH ALLAH — QS. AL-HAJJ: 26</div>
+<div class="arabic-text">
+وَإِذْ بَوَّأْنَا لِإِبْرَاهِيمَ مَكَانَ الْبَيْتِ أَن لَّا تُشْرِكْ بِي شَيْئًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan (ingatlah) ketika Kami memberikan tempat kepada Ibrahim di tempat Baitullah (dengan berfirman): Janganlah engkau mempersekutukan sesuatu pun dengan Aku."
+<br>— QS. Al-Hajj: 26
+</div>
+</div>
+<h2>Perjalanan ke Makkah Al-Mukarramah</h2>
+<p>
+Setelah beberapa tahun mengembara di negeri Syam dan Baghdad, Syeikh Ibrahim Ibn Adham merasa rindu yang sangat mendalam untuk mengunjungi Baitullah di Makkah. Beliau berangkat dengan berjalan kaki, tanpa bekal yang cukup, hanya bertawakkal sepenuhnya kepada Allah. Perjalanan dari Baghdad ke Makkah pada masa itu memakan waktu berbulan-bulan, melintasi padang pasir yang luas dan berbahaya. Namun hati beliau dipenuhi ketenangan dan kecintaan kepada Allah, sehingga segala kesulitan perjalanan terasa ringan.
+</p>
+<p>
+Ketika akhirnya beliau tiba di Makkah, beliau langsung menuju Ka'bah dengan penuh kerendahan hati. Beliau thawaf di sekeliling Ka'bah dengan air mata yang berlinang, dan berdoa dengan penuh kekhusyukan. Beliau tinggal di Makkah selama beberapa waktu, beriktikaf di Masjidil Haram, memperbanyak thawaf, shalat, dan dzikir. Di Makkah inilah Allah tampakkan kepada beliau beberapa karomah yang sangat menakjubkan.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">10</span>
+<span class="karomah-title">Karomah di Makkah — Bertemu Nabi Khidr AS</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِالسَّيِّدِ الْخَضِرِ عَلَيْهِ السَّلَامُ فِي مَكَّةَ</div>
+<p>
+Salah satu karomah terbesar Syeikh Ibrahim di Makkah adalah pertemuan beliau dengan Nabi Khidir 'alaihissalam. Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Ibrahim sedang thawaf di sekeliling Ka'bah pada malam hari, beliau bertemu dengan seorang lelaki tua yang berpakaian sederhana, yang sedang berdoa dengan penuh kekhusyukan di Multazam (antara Hajar Aswad dan pintu Ka'bah).
+</p>
+<p>
+Syeikh Ibrahim mendekat kepadanya dan mereka pun saling berkenalan. Lelaki tua itu ternyata adalah Nabi Khidir AS, yang diutus oleh Allah untuk menguji dan membimbing Syeikh Ibrahim. Nabi Khidir bertanya kepada beliau: <em>"Wahai Ibrahim, apakah yang engkau cari di sini?"</em> Syeikh Ibrahim menjawab: <em>"Aku mencari ridha Allah dan cinta-Nya, wahai wali Allah."</em>
+</p>
+<p>
+Nabi Khidir tersenyum dan berkata: <em>"Sesungguhnya Allah telah menerima amal-amalmu, dan Dia telah menjadikan engkau termasuk wali-wali-Nya yang dicintai. Maka tetaplah istiqamah di atas jalan ini, dan janganlah engkau berpaling dari-Nya walau sekejap mata."</em> Setelah itu, Nabi Khidir mendoakan Syeikh Ibrahim, dan beliau merasakan cahaya kewalian yang semakin terang di dalam hatinya.
+</p>
+<p>
+Pertemuan ini adalah karomah yang sangat agung, karena tidak semua wali mendapatkan kesempatan bertemu dengan Nabi Khidir AS. Ini adalah tanda bahwa Allah telah memilih Syeikh Ibrahim sebagai salah satu kekasih-Nya yang istimewa.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG NABI KHIDR — QS. AL-KAHF: 65</div>
+<div class="arabic-text">
+فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْمَةً مِنْ عِندِنَا وَعَلَّمْنَاهُ مِن لَّدُنَّا عِلْمًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Lalu mereka bertemu dengan seorang hamba di antara hamba-hamba Kami, yang telah Kami berikan kepadanya rahmat dari sisi Kami, dan yang telah Kami ajarkan kepadanya ilmu dari sisi Kami."
+<br>— QS. Al-Kahf: 65
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">11</span>
+<span class="karomah-title">Karomah di Makkah — Doa Mustajab di Multazam</span>
+<div class="karomah-arabic">إِجَابَةُ دُعَائِهِ عِنْدَ الْمُلْتَزَمِ</div>
+<p>
+Di Makkah, Syeikh Ibrahim sering beriktikaf di Multazam — tempat antara Hajar Aswad dan pintu Ka'bah yang dikenal sebagai tempat paling mustajab untuk berdoa. Dalam sebuah riwayat, diceritakan bahwa beliau pernah berdoa di Multazam selama tiga hari tiga malam tanpa makan dan minum, hanya bertawakkal kepada Allah.
+</p>
+<p>
+Pada malam ketiga, beliau mendengar suara dari dalam Ka'bah yang berkata kepadanya: <em>"Wahai Ibrahim, sesungguhnya Aku telah mengabulkan doamu, dan Aku telah menjadikan doamu sebagai sebab dikabulkannya doa orang-orang yang membaca shalawat atasmu dan memohon syafa'atmu hingga hari kiamat."</em>
+</p>
+<p>
+Syeikh Ibrahim menangis mendengar suara itu, dan beliau bersujud syukur kepada Allah. Beliau berkata: <em>"Ya Allah, aku tidak meminta ini untuk diriku, melainkan untuk umat Muhammad SAW yang mencintai-Mu dan mencintai orang-orang yang mencintai-Mu."</em> Sejak saat itu, banyak orang yang datang kepada beliau untuk meminta doa, dan doa-doa beliau selalu dikabulkan oleh Allah.
+</p>
+<p>
+Ini adalah karomah berupa <em>istijabah ad-du'a</em> (dikabulkannya doa) — tanda bahwa Allah telah menerima keikhlasan dan kecintaan beliau kepada-Nya. Para ulama berkata bahwa doa para wali di tempat-tempat mustajab seperti Multazam selalu dikabulkan, karena hati mereka senantiasa hidup bersama Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DOA — QS. GHAFIR: 60</div>
+<div class="arabic-text">
+وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Tuhanmu berfirman: Berdoalah kepada-Ku, niscaya akan Kuperkenankan bagimu."
+<br>— QS. Ghafir: 60
+</div>
+</div>
+<h2>Perjalanan ke Madinah Al-Munawwarah</h2>
+<p>
+Setelah beberapa waktu di Makkah, Syeikh Ibrahim Ibn Adham melanjutkan perjalanan ke Madinah Al-Munawwarah — kota Nabi Muhammad SAW. Beliau rindu untuk berziarah ke makam Rasulullah SAW dan masjid beliau. Perjalanan dari Makkah ke Madinah pada masa itu memakan waktu sekitar satu minggu dengan berjalan kaki, melintasi padang pasir yang panas dan gersang.
+</p>
+<p>
+Ketika beliau tiba di Madinah, beliau langsung menuju Masjid Nabawi dengan penuh kerendahan hati. Beliau shalat di Rawdah (taman surga di antara makam Nabi dan mimbar), dan kemudian berziarah ke makam Rasulullah SAW serta dua sahabat beliau, Abu Bakar dan Umar radhiyallahu 'anhuma. Di Madinah inilah Allah tampakkan kepada beliau karomah yang sangat istimewa.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">12</span>
+<span class="karomah-title">Karomah di Madinah — Bertemu Rasulullah SAW dalam Mimpi</span>
+<div class="karomah-arabic">رُؤْيَتُهُ لِلرَّسُولِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فِي الْمَنَامِ</div>
+<p>
+Di Madinah, Syeikh Ibrahim tidur di Masjid Nabawi setelah shalat Isya. Dalam tidurnya, beliau bermimpi bertemu dengan Rasulullah SAW. Rasulullah SAW tersenyum kepadanya dan berkata: <em>"Wahai Ibrahim, engkau telah meninggalkan kerajaan ayahmu karena Aku, dan engkau telah menempuh perjalanan yang panjang untuk mencari ridha-Ku. Maka ketahuilah, sesungguhnya Aku telah meridhaimu, dan Aku telah menjadikan engkau termasuk orang-orang yang dicintai-Ku."</em>
+</p>
+<p>
+Rasulullah SAW kemudian mengusap dada Syeikh Ibrahim, dan beliau merasakan cahaya yang sangat terang masuk ke dalam hatinya. Setelah itu, Rasulullah SAW bersabda: <em>"Wahai Ibrahim, sampaikanlah salam-Ku kepada umatku yang mencintai-Ku dan mencintai orang-orang yang mencintai-Ku. Dan beritakanlah kepada mereka bahwa barangsiapa yang meninggalkan sesuatu karena Aku, niscaya Aku akan memberikan kepadanya yang lebih baik darinya."</em>
+</p>
+<p>
+Ketika Syeikh Ibrahim terbangun, beliau menangis dengan penuh kegembiraan. Beliau berkata: <em>"Demi Allah, aku telah bertemu dengan Rasulullah SAW, dan beliau telah memberikan aku kabar gembira dari Allah."</em> Sejak saat itu, hati beliau dipenuhi ketenangan dan kecintaan yang semakin mendalam kepada Rasulullah SAW.
+</p>
+<p>
+Ini adalah karomah berupa <em>ru'ya ash-shalihat</em> (mimpi yang baik) — mimpi para wali adalah sebagian dari kenabian, sebagaimana sabda Rasulullah SAW: <em>"Mimpi orang mukmin adalah seperempat puluh enam dari kenabian."</em> (HR. Bukhari).
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MIMPI ORANG MUKMIN</div>
+<div class="arabic-text">
+الرُّؤْيَا الصَّالِحَةُ مِنَ اللَّهِ وَالْحُلْمُ مِنَ الشَّيْطَانِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Mimpi yang baik adalah dari Allah, dan mimpi yang buruk adalah dari setan."
+<br>— HR. Bukhari & Muslim
+</div>
+</div>
+<h2>Perjalanan ke Mesir</h2>
+<p>
+Setelah beberapa waktu di Madinah, Syeikh Ibrahim Ibn Adham melanjutkan perjalanan ke Mesir. Beliau ingin mengunjungi negeri yang penuh dengan berkah dan sejarah para nabi. Mesir pada masa itu merupakan salah satu pusat keilmuan dan spiritualitas Islam, tempat berkumpulnya para ulama, sufi, dan ahli ibadah.
+</p>
+<p>
+Perjalanan dari Madinah ke Mesir melintasi padang pasir yang sangat luas dan berbahaya. Namun Syeikh Ibrahim bertawakkal sepenuhnya kepada Allah, dan beliau yakin bahwa Allah akan mencukupkan keperluannya. Di Mesir inilah Allah tampakkan kepada beliau beberapa karomah yang sangat menakjubkan.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">13</span>
+<span class="karomah-title">Karomah di Mesir — Menyeberangi Sungai Nil tanpa Perahu</span>
+<div class="karomah-arabic">عُبُورُهُ نَهْرَ النِّيلِ بِغَيْرِ سَفِينَةٍ</div>
+<p>
+Salah satu karomah Syeikh Ibrahim di Mesir yang paling masyhur adalah ketika beliau ingin menyeberangi Sungai Nil. Ketika beliau tiba di tepi sungai, beliau tidak menemukan perahu atau jembatan untuk menyeberang. Sungai Nil pada saat itu sedang deras, dan airnya sangat dalam.
+</p>
+<p>
+Syeikh Ibrahim tidak putus asa. Beliau meletakkan tongkat beliau di atas air, dan beliau menginjak tongkat itu dengan penuh tawakkal kepada Allah. Maka atas izin Allah, tongkat itu menjadi keras seperti batu, dan beliau dapat berjalan di atasnya menyeberangi Sungai Nil dengan selamat, seolah-olah beliau berjalan di atas tanah yang kering.
+</p>
+<p>
+Orang-orang yang melihat kejadian itu takjub dan berkata: <em>"Siapakah lelaki ini? Ia berjalan di atas air seperti berjalan di atas tanah!"</em> Syeikh Ibrahim tersenyum dan berkata: <em>"Ini bukanlah karomahku, melainkan karomah Allah yang Dia tampakkan kepada hamba-Nya yang fakir. Sesungguhnya Allah Maha Kuasa atas segala sesuatu."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>masyi 'alal-ma'</em> (berjalan di atas air) — karomah yang juga diberikan kepada sebagian sahabat Rasulullah SAW dan para wali Allah. Ini bukanlah mukjizat nabi, melainkan karomah wali yang Allah berikan sebagai tanda pemuliaan atas keikhlasan dan tawakkal beliau.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TAWAKKAL — QS. ATH-THALAQ: 3</div>
+<div class="arabic-text">
+وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan barangsiapa bertawakkal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya."
+<br>— QS. Ath-Thalaq: 3
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">14</span>
+<span class="karomah-title">Karomah di Mesir — Memberi Makan Penduduk Kampung yang Kelaparan</span>
+<div class="karomah-arabic">إِطْعَامُهُ أَهْلَ الْقَرْيَةِ فِي مِصْرَ</div>
+<p>
+Dalam sebuah riwayat lain, diceritakan bahwa ketika Syeikh Ibrahim melewati sebuah kampung di Mesir, beliau mendapati penduduk kampung itu sedang dilanda kelaparan yang sangat parah. Mereka tidak memiliki makanan sama sekali, dan banyak di antara mereka yang hampir mati kelaparan.
+</p>
+<p>
+Syeikh Ibrahim merasa iba melihat keadaan mereka. Beliau berdoa kepada Allah dengan penuh kekhusyukan: <em>"Ya Allah, Engkau Maha Kaya dan mereka fakir, Engkau Maha Pemberi dan mereka membutuhkan, maka berilah mereka rezeki dari sisi-Mu."</em>
+</p>
+<p>
+Tidak lama kemudian, datanglah kafilah pedagang dari Syam yang membawa banyak makanan. Mereka berhenti di kampung itu dan memberikan makanan kepada penduduk kampung dengan cuma-cuma, karena mereka merasa tergerak oleh hati mereka untuk bersedekah. Penduduk kampung itu pun dapat makan dengan kenyang, dan mereka berkata: <em>"Ini adalah karunia Allah yang Dia berikan melalui doa orang shaleh ini."</em>
+</p>
+<p>
+Sejak saat itu, penduduk kampung itu sangat menghormati Syeikh Ibrahim, dan banyak di antara mereka yang datang kepada beliau untuk meminta bimbingan spiritual. Syeikh Ibrahim tinggal di kampung itu selama beberapa waktu, mengajarkan ilmu agama dan membimbing mereka menuju jalan Allah.
+</p>
+<p>
+Ini adalah karomah berupa <em>istijabah ad-du'a</em> (dikabulkannya doa) dan <em>taskhir al-khalq</em> (penundukan makhluk) — Allah tundukkan hati para pedagang untuk bersedekah kepada penduduk kampung itu melalui doa Syeikh Ibrahim.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG SEDEKAH — QS. AL-BAQARAH: 261</div>
+<div class="arabic-text">
+مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Perumpamaan (nafkah yang dikeluarkan oleh) orang-orang yang menafkahkan hartanya di jalan Allah adalah serupa dengan sebutir benih yang menumbuhkan tujuh bulir, pada tiap-tiap bulir ada seratus biji."
+<br>— QS. Al-Baqarah: 261
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Syeikh Ibrahim di Makkah, Madinah & Mesir:</strong>
+<ul>
+<li><strong>Bertemu Nabi Khidir AS di Makkah</strong> — Karomah pertemuan dengan wali Allah yang masih hidup</li>
+<li><strong>Doa mustajab di Multazam</strong> — Doa beliau dikabulkan dan menjadi sebab dikabulkannya doa umat</li>
+<li><strong>Bertemu Rasulullah SAW dalam mimpi</strong> — Mimpi yang baik sebagai sebagian dari kenabian</li>
+<li><strong>Menyeberangi Sungai Nil tanpa perahu</strong> — Karomah berjalan di atas air dengan tawakkal</li>
+<li><strong>Memberi makan penduduk kampung yang kelaparan</strong> — Doa beliau menjadi sebab datangnya rezeki</li>
+<li><strong>Ziarah ke makam Rasulullah SAW</strong> — Cinta yang mendalam kepada Nabi SAW</li>
+</ul>
+</div>
+<h2>Doa Memohon Keberkahan di Negeri Suci</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA KETIKA MASUK TANAH HARAM</div>
+<div class="arabic-text">
+اللَّهُمَّ حَرِّمْ لَحْمِي وَدَمِي وَشَعْرِي وَبَشَرِي عَلَى النَّارِ، وَأَمِّنِّي مِنْ فَزَعِ يَوْمِ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, haramkanlah dagingku, darahku, rambutku, dan kulitku dari api neraka, dan amanahkanlah aku dari ketakutan pada hari kiamat."
+<br>— Doa Masuk Tanah Haram
+</div>
+</div>
+<h2>Penutup Halaman 3</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Ibrahim Ibn Adham selama perjalanan spiritual beliau di Makkah, Madinah, dan Mesir. Karomah-karomah ini bukanlah tujuan utama beliau, melainkan buah dari keikhlasan, zuhud, dan ketaatan beliau kepada Allah SWT. Pada halaman berikutnya, kita akan membahas pertemuan beliau dengan para ulama besar sezamannya — seperti Syeikh Fudhail bin 'Iyadh, Syeikh Sufyan ats-Tsauri, dan lainnya — serta bagaimana mereka saling memuliakan dan mengambil manfaat satu sama lain.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكًا وَهُدًى لِّلْعَالَمِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya rumah yang mula-mula dibangun untuk (tempat beribadah) manusia, ialah Baitullah yang di Bakkah (Makkah) yang diberkahi dan menjadi petunjuk bagi semua manusia."
+<br>— QS. Ali 'Imran: 96
+</div>
+</div>
+</div>
+<!-- NAVIGASI 6 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ibnuadham1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham3.html" class="article-nav-btn active" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

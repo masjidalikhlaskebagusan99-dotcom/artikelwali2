@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ibrahim Ibn Adham - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.3rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 10px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 40px;
+height: 40px;
+font-size: 1.1rem;
+}
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ibrahim Ibn Adham — Halaman 5
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ibrahim Ibn Adham</h1>
+<div class="subtitle">Halaman 5 dari 6 — Karomah-karomah Luar Biasa terhadap Alam Semesta</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Hajar_Desert.jpg/440px-Hajar_Desert.jpg"
+alt="Alam Gurun dan Karomah"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi padang pasir dan alam luas, tempat Allah tampakkan karomah-karomah luar biasa kepada Syeikh Ibrahim Ibn Adham</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Di antara karomah-karomah paling menakjubkan yang Allah anugerahkan kepada Syeikh Ibrahim Ibn Adham adalah karomah-karomah yang melibatkan alam semesta — tumbuhan, hewan, batu, air, angin, bahkan makhluk gaib seperti malaikat dan jin. Semua itu tunduk kepada beliau atas izin Allah, sebagaimana Allah tundukkan alam kepada para nabi-Nya. Karomah-karomah ini menjadi bukti nyata bahwa Allah telah memilih Syeikh Ibrahim sebagai salah satu kekasih-Nya yang istimewa, dan bahwa seluruh alam semesta ini bertasbih kepada-Nya dengan caranya masing-masing.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TASBIH ALAM SEMESTA — QS. AL-ISRA': 44</div>
+<div class="arabic-text">
+تُسَبِّحُ لَهُ السَّمَاوَاتُ السَّبْعُ وَالْأَرْضُ وَمَن فِيهِنَّ ۚ وَإِن مِّن شَيْءٍ إِلَّا يُسَبِّحُ بِحَمْدِهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Langit yang tujuh, bumi dan semua yang ada di dalamnya bertasbih kepada Allah. Dan tak ada suatupun melainkan bertasbih dengan memuji-Nya."
+<br>— QS. Al-Isra': 44
+</div>
+</div>
+<h2>Karomah terhadap Tumbuhan dan Pohon</h2>
+<p>
+Salah satu bentuk karomah Syeikh Ibrahim yang paling masyhur adalah bagaimana tumbuhan dan pohon seolah-olah mengenal beliau dan tunduk kepadanya. Para perawi menceritakan bahwa ketika beliau berjalan di padang pasir atau di hutan, pepohonan seolah-olah menundukkan ranting-rantingnya kepada beliau sebagai bentuk penghormatan, dan dedaunan berguguran di hadapan beliau seolah-olah bersujud.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">20</span>
+<span class="karomah-title">Karomah Pohon Kurma yang Berbicara</span>
+<div class="karomah-arabic">كَلَامُ النَّخْلَةِ مَعَهُ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Ibrahim sedang berjalan di sebuah oasis di pinggiran Syam, beliau melewati sebuah pohon kurma yang sudah tua dan kering. Tiba-tiba pohon itu "berbicara" kepada beliau — bukan dengan suara yang didengar oleh telinga, melainkan dengan isyarat yang dipahami oleh hati beliau. Pohon itu berkata: <em>"Wahai wali Allah, doakanlah agar Allah menghidupkanku kembali, karena aku telah lama kering dan tidak berbuah."</em>
+</p>
+<p>
+Syeikh Ibrahim tersenyum dan berdoa: <em>"Ya Allah, jika pohon ini memiliki kebaikan, maka hidupkanlah ia dan berilah ia buah sebagai tanda kekuasaan-Mu."</em> Tidak lama kemudian, atas izin Allah, pohon kurma yang kering itu tiba-tiba menghijau kembali, mengeluarkan daun-daun baru, dan berbuah dengan lebat. Orang-orang yang melihat kejadian itu takjub dan berkata: <em>"Ini adalah karomah wali Allah yang dicintai-Nya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>kalam al-asyjar</em> (percakapan dengan pohon) — sebagaimana Allah berikan kemampuan kepada Nabi Isa AS untuk berbicara ketika masih dalam ayunan, dan sebagaimana Allah berbicang dengan pohon kepada Nabi Musa AS di lembah Thuwa. Para ulama berkata bahwa karomah ini adalah tanda bahwa alam semesta mengenal wali-wali Allah, sebagaimana mereka mengenal Pencipta mereka.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PEPERGAUNGAN MUSA AS — QS. THAHA: 11-12</div>
+<div class="arabic-text">
+فَلَمَّا أَتَاهَا نُودِيَ يَا مُوسَىٰ إِنِّي أَنَا رَبُّكَ فَاخْلَعْ نَعْلَيْكَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maka ketika ia sampai ke api itu, diserulah dia: Wahai Musa, sesungguhnya Aku adalah Tuhanmu, maka lepaskanlah kedua sandalmu."
+<br>— QS. Thaha: 11-12
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">21</span>
+<span class="karomah-title">Karomah Air Mengalir dari Batu</span>
+<div class="karomah-arabic">انْجِرَاسُ الْمَاءِ مِنَ الصَّخْرِ</div>
+<p>
+Dalam sebuah riwayat lain, diceritakan bahwa ketika Syeikh Ibrahim sedang mengembara di padang pasir yang sangat gersang, beliau kehausan yang sangat hebat. Beliau tidak menemukan air sama sekali, dan beliau sudah hampir kehabisan tenaga. Beliau kemudian duduk di dekat sebuah batu besar dan berdoa kepada Allah: <em>"Ya Allah, Engkau Maha Pemberi, maka berilah aku minum dari sisi-Mu."</em>
+</p>
+<p>
+Kemudian beliau memukul batu itu dengan tongkat beliau, dan atas izin Allah, air segar mengalir deras dari dalam batu tersebut, seolah-olah batu itu adalah mata air yang melimpah. Syeikh Ibrahim minum dengan penuh rasa syukur, dan kemudian beliau berwudhu dengan air itu. Air itu terus mengalir selama beberapa waktu, hingga banyak orang yang lewat dapat minum dari sana.
+</p>
+<p>
+Ini adalah karomah yang mirip dengan karomah Nabi Musa AS ketika beliau memukul batu dengan tongkatnya, lalu memancarlah dua belas mata air dari batu itu untuk kaumnya (QS. Al-Baqarah: 60). Para ulama berkata bahwa karomah para wali adalah bayangan dari mukjizat para nabi, dan ini adalah tanda pemuliaan Allah atas hamba-Nya yang ikhlas.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AIR DARI BATU — QS. AL-BAQARAH: 60</div>
+<div class="arabic-text">
+وَإِذِ اسْتَسْقَىٰ مُوسَىٰ لِقَوْمِهِ فَقُلْنَا اضْرِب بِّعَصَاكَ الْحَجَرَ ۖ فَانفَجَرَتْ مِنْهُ اثْنَتَا عَشْرَةَ عَيْنًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan (ingatlah) ketika Musa memohon air untuk kaumnya, lalu Kami berfirman: 'Pukullah batu itu dengan tongkatmu.' Lalu memancarlah daripadanya dua belas mata air."
+<br>— QS. Al-Baqarah: 60
+</div>
+</div>
+<h2>Karomah terhadap Hewan dan Burung</h2>
+<p>
+Selain tumbuhan dan batu, hewan-hewan dan burung-burung pun tunduk kepada Syeikh Ibrahim dengan cara yang menakjubkan. Beliau tidak hanya ditemani oleh hewan-hewan jinak, tetapi juga oleh hewan-hewan liar yang biasanya menghindari manusia. Semua itu datang kepada beliau dengan penuh ketundukan, seolah-olah mereka mengenal beliau sebagai wali Allah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">22</span>
+<span class="karomah-title">Karomah Burung-burung yang Menghadap</span>
+<div class="karomah-arabic">تَوَاجُدُ الطُّيُورِ إِلَيْهِ</div>
+<p>
+Dalam sebuah riwayat yang sangat indah, diceritakan bahwa ketika Syeikh Ibrahim sedang berdzikir di sebuah padang terbuka pada waktu fajar, datanglah sekelompok besar burung-burung dari berbagai jenis — merpati, pipit, elang, dan burung-burung lainnya. Mereka semua berkumpul di sekitar beliau, seolah-olah mereka ingin ikut berdzikir bersama beliau.
+</p>
+<p>
+Burung-burung itu tidak bersuara ribut, melainkan mereka diam dengan penuh khidmat, seolah-olah mereka memahami dzikir yang dibaca oleh Syeikh Ibrahim. Ketika beliau selesai berdzikir, burung-burung itu terbang ke udara dan membuat formasi yang indah di langit, seolah-olah mereka ingin menunjukkan penghormatan mereka kepada wali Allah. Kemudian mereka terbang pergi dengan tenang, meninggalkan Syeikh Ibrahim dalam keadaan penuh kekhusyukan.
+</p>
+<p>
+Para murid beliau yang menyaksikan kejadian itu bertanya: <em>"Wahai Syeikh, apakah burung-burung itu mengerti dzikir yang engkau baca?"</em> Syeikh Ibrahim menjawab: <em>"Segala sesuatu bertasbih kepada Allah dengan caranya masing-masing, dan Allah mengajarkan kepada mereka cara untuk mengenal wali-wali-Nya. Maka janganlah engkau heran jika makhluk-Nya mengenal orang-orang yang mengenal-Nya."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TASBIH MAKHLUK — QS. AN-NUR: 41</div>
+<div class="arabic-text">
+أَلَمْ تَرَ أَنَّ اللَّهَ يُسَبِّحُ لَهُ مَن فِي السَّمَاوَاتِ وَالْأَرْضِ وَالطَّيْرُ صَافَّاتٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Tidakkah engkau tahu bahwa kepada Allah bertasbih apa yang di langit dan di bumi, dan burung-burung dengan mengembangkan sayapnya?"
+<br>— QS. An-Nur: 41
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">23</span>
+<span class="karomah-title">Karomah Singa yang Menjadi Penjaga</span>
+<div class="karomah-arabic">الْأَسَدُ حَارِسًا لَهُ</div>
+<p>
+Dalam sebuah riwayat yang sangat menakjubkan, diceritakan bahwa ketika Syeikh Ibrahim sedang mengembara di padang pasir yang berbahaya, beliau bertemu dengan seekor singa besar. Singa itu mendekat kepada beliau dengan langkah yang tenang, dan kemudian berbaring di kaki beliau seperti seekor kucing yang jinak.
+</p>
+<p>
+Syeikh Ibrahim mengusap kepala singa itu dan berkata: <em>"Wahai makhluk Allah, engkau pun tunduk kepada-Nya, sebagaimana aku tunduk kepada-Nya. Pergilah dengan selamat, dan janganlah engkau menyakiti siapa pun."</em> Singa itu kemudian berdiri dan pergi dengan tenang, namun setiap malam setelah itu, singa itu kembali dan berbaring di dekat tempat tidur Syeikh Ibrahim, seolah-olah menjadi penjaga beliau.
+</p>
+<p>
+Orang-orang yang melihat kejadian itu sangat takjub dan berkata: <em>"Ini adalah karomah yang hanya diberikan Allah kepada para nabi dan wali-Nya yang istimewa."</em> Syeikh Ibrahim menjawab: <em>"Ini bukanlah karomahku, melainkan karomah Allah yang Dia tampakkan kepada hamba-Nya yang fakir. Sesungguhnya Allah Maha Kuasa atas segala sesuatu."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>taskhir as-siba'</em> (penundukan binatang buas) — sebagaimana Allah tundukkan binatang buas kepada Nabi Daniyal AS ketika beliau dilempar ke kandang singa, dan sebagaimana Allah tundukkan binatang buas kepada sebagian sahabat Rasulullah SAW.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TASKHIR — QS. AL-AN'AM: 165</div>
+<div class="arabic-text">
+وَهُوَ الَّذِي جَعَلَكُمْ خَلَائِفَ الْأَرْضِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Dialah yang menjadikan kamu penguasa-penguasa di bumi."
+<br>— QS. Al-An'am: 165
+</div>
+</div>
+<h2>Karomah terhadap Malaikat dan Jin</h2>
+<p>
+Karomah yang paling agung dari Syeikh Ibrahim Ibn Adham adalah bahwa Allah pertemukan beliau dengan makhluk-makhluk gaib — malaikat dan jin muslim — yang datang kepada beliau untuk mengambil berkah dan belajar ilmu spiritual. Ini adalah karomah yang sangat langka, karena tidak semua wali mendapatkan kesempatan seperti ini.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">24</span>
+<span class="karomah-title">Karomah Malaikat yang Mengunjungi</span>
+<div class="karomah-arabic">زِيَارَةُ الْمَلَائِكَةِ لَهُ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Ibrahim sedang beriktikaf di sebuah gua di pinggiran Syam, beliau didatangi oleh seorang tamu yang sangat tampan wajahnya, berpakaian putih bersih, dan memancarkan cahaya yang sangat terang. Tamu itu mengucapkan salam kepada beliau dengan suara yang sangat lembut: <em>"Assalamu'alaika ya waliyyallah — Keselamatan atasmu, wahai wali Allah."</em>
+</p>
+<p>
+Syeikh Ibrahim menjawab salam itu dan bertanya: <em>"Siapakah engkau, wahai hamba Allah?"</em> Tamu itu menjawab: <em>"Aku adalah salah satu malaikat Allah yang diutus oleh-Nya untuk mengunjungimu dan membawa kabar gembira dari-Nya. Allah berfirman: 'Wahai Ibrahim, sesungguhnya Aku telah mencintaimu, dan Aku telah menjadikan engkau termasuk orang-orang yang dekat kepada-Ku. Maka tetaplah istiqamah di atas jalan-Ku, dan janganlah engkau takut kepada siapa pun selain Aku.'"</em>
+</p>
+<p>
+Syeikh Ibrahim menangis mendengar kabar gembira itu, dan beliau berkata: <em>"Segala puji bagi Allah yang telah memberikan aku cinta-Nya. Aku tidak meminta apa-apa selain ridha-Nya dan cinta-Nya."</em> Malaikat itu kemudian mendoakan beliau, lalu terbang ke langit dengan sayap-sayapnya yang bercahaya, meninggalkan Syeikh Ibrahim dalam keadaan penuh ketenangan dan kecintaan kepada Allah.
+</p>
+<p>
+Ini adalah karomah berupa <em>ziyarah al-mala'ikah</em> (kunjungan malaikat) — karomah yang hanya diberikan Allah kepada para wali-Nya yang sangat istimewa. Para ulama berkata bahwa malaikat mengunjungi para wali untuk mengambil berkah dari mereka, sebagaimana mereka mengambil berkah dari para nabi.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MALAIKAT YANG TURUN — QS. AL-FUSHSHILAT: 30</div>
+<div class="arabic-text">
+إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang-orang yang mengatakan: 'Tuhan kami ialah Allah' kemudian mereka istiqamah, maka malaikat-malaikat akan turun kepada mereka."
+<br>— QS. Fushshilat: 30
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">25</span>
+<span class="karomah-title">Karomah Jin Muslim yang Menjadi Murid</span>
+<div class="karomah-arabic">الْجِنُّ الْمُسْلِمُ يَتَلَمَّذُ عَلَيْهِ</div>
+<p>
+Dalam sebuah riwayat lain, diceritakan bahwa ketika Syeikh Ibrahim sedang mengajar para murid beliau di sebuah masjid di pinggiran Baghdad, tiba-tiba datanglah seorang lelaki yang sangat aneh — berpakaian sangat sederhana, wajahnya tertutup, dan suaranya sangat halus. Lelaki itu duduk di antara para murid dan mendengarkan pelajaran Syeikh Ibrahim dengan penuh kekhusyukan.
+</p>
+<p>
+Setelah pelajaran selesai, lelaki itu datang kepada Syeikh Ibrahim dan berkata: <em>"Wahai Syeikh, aku adalah seorang jin muslim yang tinggal di negeri ini. Aku telah mendengar tentang zuhudmu dan kecintaanmu kepada Allah, maka aku datang kepadamu untuk belajar ilmu spiritual dan mengambil berkah dari engkau."</em>
+</p>
+<p>
+Syeikh Ibrahim tidak terkejut mendengar hal itu, karena beliau memang memiliki kemampuan untuk melihat makhluk gaib. Beliau berkata kepada jin itu: <em>"Wahai saudaraku, ilmu yang paling utama adalah ilmu tentang Allah dan cinta kepada-Nya. Maka bertakwalah kepada Allah, dan tetaplah istiqamah di atas Islam-mu. Dan ketahuilah, bahwa barangsiapa yang mencintai Allah, niscaya Allah akan mencintainya."</em>
+</p>
+<p>
+Jin itu menangis mendengar nasihat itu, dan beliau berkata: <em>"Wahai Syeikh, doakanlah agar Allah memberikan aku istiqamah hingga akhir hayatku, dan agar Allah mewafatkanku dalam keadaan Islam."</em> Syeikh Ibrahim pun mendoakan jin itu, dan sejak saat itu jin itu sering datang untuk mendengarkan pelajaran Syeikh Ibrahim, meskipun tidak terlihat oleh para murid yang lain.
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'lim al-jinn</em> (pengajaran jin) — karomah yang juga diberikan kepada Rasulullah SAW ketika beliau mengajarkan Al-Qur'an kepada jin-jin muslim (QS. Al-Jinn: 1-2). Para ulama berkata bahwa ini adalah tanda bahwa Syeikh Ibrahim memiliki maqam kenabian dalam pengajaran, meskipun beliau bukan nabi.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG JIN YANG MENDENGAR AL-QUR'AN — QS. AL-JINN: 1-2</div>
+<div class="arabic-text">
+قُلْ أُوحِيَ إِلَيَّ أَنَّهُ اسْتَمَعَ نَفَرٌ مِّنَ الْجِنِّ فَقَالُوا إِنَّا سَمِعْنَا قُرْآنًا عَجَبًا ۝ يَهْدِي إِلَى الرُّشْدِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Katakanlah: Telah diwahyukan kepadamu bahwasanya telah mendengarkan sekumpulan jin, lalu mereka berkata: 'Sesungguhnya kami telah mendengarkan Al-Qur'an yang menakjubkan, yang memberikan petunjuk kepada jalan yang lurus.'"
+<br>— QS. Al-Jinn: 1-2
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Luar Biasa Syeikh Ibrahim terhadap Alam Semesta:</strong>
+<ul>
+<li><strong>Pohon kurma yang berbicara</strong> — Karomah kalam al-asyjar (percakapan dengan pohon)</li>
+<li><strong>Air mengalir dari batu</strong> — Karomah mirip mukjizat Nabi Musa AS</li>
+<li><strong>Burung-burung yang berkumpul untuk berdzikir</strong> — Tasbih makhluk kepada Allah</li>
+<li><strong>Singa yang menjadi penjaga</strong> — Taskhir as-siba' (penundukan binatang buas)</li>
+<li><strong>Malaikat yang mengunjungi</strong> — Ziyarah al-mala'ikah sebagai tanda cinta Allah</li>
+<li><strong>Jin muslim yang menjadi murid</strong> — Ta'lim al-jinn seperti Nabi SAW</li>
+</ul>
+</div>
+<h2>Doa Memohon Karomah dari Allah</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON CAHAYA IMAN</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَل لِّي نُورًا فِي قَلْبِي وَنُورًا فِي قَبْرِي وَنُورًا فِي سَمْعِي وَنُورًا فِي بَصَرِي
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah untukku cahaya di hatiku, cahaya di kuburku, cahaya di pendengaranku, dan cahaya di penglihatanku."
+<br>— HR. Bukhari & Muslim
+</div>
+</div>
+<h2>Penutup Halaman 5</h2>
+<p>
+Demikianlah sebagian karomah luar biasa Syeikh Ibrahim Ibn Adham terhadap alam semesta — tumbuhan, batu, hewan, burung, malaikat, dan jin. Semua itu tunduk kepada beliau atas izin Allah, sebagai tanda bahwa Allah telah memilih beliau sebagai salah satu kekasih-Nya yang istimewa. Karomah-karomah ini bukanlah tujuan utama beliau, melainkan buah dari keikhlasan, zuhud, dan ketaatan beliau kepada Allah SWT.
+</p>
+<p>
+Pada halaman berikutnya — halaman terakhir — kita akan membahas akhir perjalanan hidup beliau, wafat beliau yang penuh berkah, warisan spiritual yang beliau tinggalkan, serta doa penutup untuk mengambil berkah dari beliau.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَلِلَّهِ جُنُودُ السَّمَاوَاتِ وَالْأَرْضِ ۚ وَكَانَ اللَّهُ عَزِيزًا حَكِيمًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan kepunyaan Allah-lah tentara langit dan bumi. Dan adalah Allah Maha Perkasa lagi Maha Bijaksana."
+<br>— QS. Al-Fath: 7
+</div>
+</div>
+</div>
+<!-- NAVIGASI 6 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ibnuadham1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham5.html" class="article-nav-btn active" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ibnuadham6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
