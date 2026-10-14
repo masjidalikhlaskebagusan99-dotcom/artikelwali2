@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ali Nurruddin Asy-Sya'roni - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f5f5f0;
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.8;
+}
+
+/* 2. MEDIA QUERY TABLET (Dipindahkan ke root level agar valid) */
+@media (max-width: 768px) {
+    .article-container { /* Diperbaiki: sebelumnya .container (tidak ada di HTML) */
+        max-width: 100%;
+        padding: 20px;
+    }
+    h1 { font-size: 26px; }
+    .featured-img { max-width: 100%; }
+}
+
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo-kalam {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e94560;
+    letter-spacing: 5px;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+.logo-kalam:hover {
+    background: rgba(233, 69, 96, 0.15);
+    transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+    padding: 15px 40px;
+    background: #eee;
+    font-size: 0.85rem;
+    color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+    font-size: 2.2rem;
+    color: #1a1a2e;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+.article-header .subtitle {
+    font-size: 1.1rem;
+    color: #e94560;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #888;
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+    margin: 25px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    position: relative;
+}
+.article-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+    background: rgba(0,0,0,0.7);
+    color: #ccc;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+}
+.share-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+.font-btn:hover {
+    background: #e94560;
+    color: #fff;
+    border-color: #e94560;
+}
+
+/* 7. KONTEN ARTIKEL */
+.article-content {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #444;
+}
+.article-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.article-content .lead {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #1a1a2e;
+    border-left: 4px solid #e94560;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+.article-content blockquote {
+    background: #f0f0eb;
+    border-left: 4px solid #e94560;
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #555;
+}
+.article-content h2 {
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    margin: 35px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 25px 0 10px;
+}
+.article-content ul {
+    margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+    background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 30px 25px;
+    margin: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    position: relative;
+}
+.arabic-box::before {
+    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f8f6f0;
+    padding: 0 12px;
+    font-size: 1.2rem;
+    color: #d4af37;
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    white-space: nowrap;
+    line-height: 1.4;
+    z-index: 2;
+}
+.arabic-text {
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    font-size: 1.8rem;
+    line-height: 2.8;
+    color: #1a1a2e;
+    direction: rtl;
+    margin: 15px 0;
+}
+.arabic-translation {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+    display: inline-block;
+    background: #d4af37;
+    color: #fff;
+    padding: 4px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+.karomah-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+    border: 1px solid #e0ddd5;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #e94560;
+}
+.karomah-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+.karomah-title {
+    font-size: 1.3rem;
+    color: #1a1a2e;
+    font-weight: bold;
+    display: inline;
+}
+.karomah-arabic {
+    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+    font-size: 1.6rem;
+    color: #d4af37;
+    direction: rtl;
+    margin: 10px 0;
+    text-align: right;
+}
+.highlight-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+    border: 1px solid #e0ddd5;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+    margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Diperkecil dari 20px agar lebih rapat */
+    margin: 40px 0;
+    padding: 20px; /* Diperkecil dari 30px */
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 15px;
+}
+.article-nav-btn {
+    width: 50px; /* DIPERKECIL dari 70px */
+    height: 50px; /* DIPERKECIL dari 70px */
+    border-radius: 50%;
+    border: 2px solid #e94560;
+    background: rgba(233, 69, 96, 0.1);
+    color: #fff;
+    font-size: 1.3rem; /* DIPERKECIL dari 1.8rem */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.article-nav-btn:hover {
+    background: #e94560;
+    transform: scale(1.15);
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+    background: #e94560;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+    display: block;
+    text-align: center;
+    margin: 40px auto;
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #e94560, #c23152);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+    max-width: 350px;
+}
+.kalam-back-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+    background: linear-gradient(135deg, #ff6b81, #e94560);
+    letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    opacity: 0.8;
+    font-weight: normal;
+}
+footer {
+    background: #1a1a2e;
+    color: #888;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+footer span { color: #e94560; }
+
+/* 11. PERBAIKAN FINAL: MEDIA QUERY MOBILE (HP) YANG KONSOLIDASI & VALID */
+@media (max-width: 600px) {
+    body { font-size: 14px; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    
+    header { 
+        flex-direction: column; 
+        gap: 10px; 
+        padding: 15px 20px; 
+    }
+    nav { /* Diperbaiki: sebelumnya .nav (tidak valid untuk tag <nav>) */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+    .article-container { padding: 0 15px; }
+    .article-content { font-size: 0.95rem; }
+    .arabic-text { font-size: 1.4rem; line-height: 2.4; }
+    .karomah-arabic { font-size: 1.3rem; }
+    
+    /* PERBAIKAN KRUSIAL: Class disesuaikan dengan HTML (.article-nav-btn, bukan .page-btn) */
+    .article-nav { 
+        gap: 10px; 
+        padding: 15px; 
+    }
+    .article-nav-btn { 
+        width: 40px;   /* Ukuran optimal untuk HP */
+        height: 40px;  /* Ukuran optimal untuk HP */
+        font-size: 1.1rem; 
+    }
+}
+/* ============================================
+   PATCH UNIVERSAL v2.0
+   Fix: Logo KALAM center + Nav horizontal
+   Berlaku untuk semua halaman (hanafi1-5, artikelwali, dll)
+   ============================================ */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column !important;   /* Logo di atas, nav di bawah */
+    align-items: center !important;      /* ← KUNCI: semua child di-center */
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 15px 16px !important;
+    text-align: center;
+  }
+
+  header .logo-kalam {
+    font-size: 1.5rem !important;
+    letter-spacing: 4px !important;
+    padding: 6px 14px !important;
+    margin: 0 auto !important;           /* ← Logo benar-benar center */
+    display: inline-block;
+  }
+
+  header nav {
+    flex-direction: row !important;      /* ← Nav tetap horizontal */
+    gap: 8px !important;
+    width: auto !important;
+    justify-content: center !important;  /* ← Nav juga di-center */
+    margin: 0 auto !important;
+  }
+
+  header nav a {
+    padding: 8px 14px !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap;
+  }
+}
+
+/* Fallback untuk layar sangat kecil (≤ 360px) */
+@media (max-width: 360px) {
+  header .logo-kalam {
+    font-size: 1.3rem !important;
+    letter-spacing: 3px !important;
+  }
+  header nav a {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ali Nurruddin Asy-Sya'roni
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ali Nurruddin Asy-Sya'roni</h1>
+<div class="subtitle">Halaman 4 dari 5 — Wasiat, Ujian Akhir & Tanda Menjelang Wafat</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Minggu, 11 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Memasuki masa-masa terakhir kehidupannya, Syeikh Ali Nurruddin Asy-Sya'roni (903-973 H / 1497-1565 M) menerima berbagai ujian akhir dari Allah SWT, sekaligus menyampaikan wasiat-wasiat agung kepada para murid dan keturunannya. Pada halaman ini, kita akan menyelami ujian-ujian terakhir, wasiat beliau tentang tasawuf Sunni, serta tanda-tanda agung menjelang wafatnya sang pembela tasawuf Sunni terbesar di zamannya.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG UJIAN — QS. AL-ANKABUT: 2-3</div>
+<div class="arabic-text">
+أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ ۝ وَلَقَدْ فَتَنَّا الَّذِينَ مِن قَبْلِهِمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Apakah manusia itu mengira bahwa mereka dibiarkan (saja) mengatakan: 'Kami telah beriman', sedang mereka tidak diuji lagi? Dan sesungguhnya Kami telah menguji orang-orang yang sebelum mereka."
+<br>— QS. Al-'Ankabut: 2-3
+</div>
+</div>
+<h2>Ujian Akhir di Masa Tua</h2>
+<p>
+Ketika Syeikh Ali Nurruddin Asy-Sya'roni memasuki masa tua, Allah mengujinya dengan berbagai cobaan yang berat. Beliau mengalami sakit yang berkepanjangan, fitnah dari sebagian ulama yang tidak sepaham dengan ajaran tasawuf beliau, serta tekanan dari penguasa yang tidak menyukai pengaruh beliau yang sangat besar di kalangan rakyat Mesir. Namun beliau menghadapi semua ujian itu dengan penuh kesabaran, ridha, dan tawakkal kepada Allah.
+</p>
+<p>
+Beliau pernah berkata: <em>"Ujian adalah tanda cinta Allah kepada hamba-Nya. Barangsiapa yang ridha atas ujian Allah, maka ia akan mendapat ridha-Nya. Dan barangsiapa yang marah atas ujian-Nya, maka ia akan kehilangan pahala kesabarannya."</em> Kesabaran dan keteguhan beliau di masa tua menjadi teladan bagi seluruh murid dan umat Islam hingga hari ini.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH ASY-SYA'RONI TENTANG UJIAN</div>
+<div class="arabic-text">
+الصَّبْرُ عَلَى الْبَلَاءِ عَلامَةُ الرِّضَا عَنِ اللَّهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Kesabaran atas ujian adalah tanda ridha kepada Allah. Barangsiapa yang ridha, maka ia akan mendapat kedekatan dengan-Nya."
+<br>— Syeikh Ali Nurruddin Asy-Sya'roni
+</div>
+</div>
+<h2>Karomah-Karomah Syeikh Ali Nurruddin di Masa-masa Terakhir</h2>
+<p>
+Berikut adalah karomah-karomah luar biasa yang Allah anugerahkan kepada Syeikh Ali Nurruddin Asy-Sya'roni di masa-masa terakhir kehidupannya di Kairo.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">13</span>
+<span class="karomah-title">Karomah Menyelesaikan Kitab Terakhir dalam Keadaan Sakit</span>
+<div class="karomah-arabic">إِنْجَازُ آخِرِ كِتَابٍ فِي حَالِ الْمَرَضِ</div>
+<p>
+Salah satu karomah Syeikh Ali Nurruddin Asy-Sya'roni yang paling menakjubkan di masa tua beliau adalah kemampuan beliau menyelesaikan penulisan kitab-kitab terakhir beliau meskipun dalam keadaan sakit yang sangat parah. Para murid beliau menceritakan bahwa ketika beliau sedang terbaring sakit, beliau tetap meminta para muridnya untuk membawakan pena dan kertas, lalu beliau mendiktekan isi kitab beliau dengan suara yang lemah namun jelas.
+</p>
+<p>
+Beliau berkata kepada para muridnya: <em>"Ilmu ini adalah amanah dari Allah yang harus aku sampaikan kepada umat sebelum aku pergi. Jika aku tidak menyampaikannya, maka aku akan dimintai pertanggungjawaban di hadapan Allah."</em> Dengan izin Allah, beliau berhasil menyelesaikan beberapa kitab terakhir beliau, termasuk revisi dan penyempurnaan kitab <em>Al-Yawaqit wal Jawahir</em>, yang kemudian menjadi rujukan utama dalam ilmu tasawuf Sunni hingga hari ini.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AMANAH ILMU — QS. AL-AHZAB: 72</div>
+<div class="arabic-text">
+إِنَّا عَرَضْنَا الْأَمَانَةَ عَلَى السَّمَاوَاتِ وَالْأَرْضِ وَالْجِبَالِ فَأَبَيْنَ أَن يَحْمِلْنَهَا وَأَشْفَقْنَ مِنْهَا وَحَمَلَهَا الْإِنسَانُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Kami telah mengemukakan amanat kepada langit, bumi dan gunung-gunung, maka semuanya enggan untuk memikul amanat itu dan mereka khawatir akan mengkhianatinya, dan dipikullah amanat itu oleh manusia."
+<br>— QS. Al-Ahzab: 72
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">14</span>
+<span class="karomah-title">Karomah Wasiat Terakhir tentang Tasawuf Sunni</span>
+<div class="karomah-arabic">وَصِيَّتُهُ الْأَخِيرَةُ عَنِ التَّصَوُّفِ السُّنِّيِّ</div>
+<p>
+Ketika Syeikh Ali Nurruddin Asy-Sya'roni merasakan bahwa ajalnya telah dekat, beliau mengumpulkan seluruh murid-muridnya di majlis terakhir beliau di Kairo. Dalam keadaan sakit namun bersinar wajahnya dengan cahaya iman dan ma'rifat, beliau menyampaikan wasiat yang sangat menyentuh hati:
+</p>
+<p>
+<em>"Wahai anak-anakku dan murid-muridku, ketahuilah bahwa tasawuf yang sejati adalah tasawuf yang berlandaskan pada Al-Qur'an dan Sunnah. Janganlah kalian mengikuti orang-orang yang menyimpang dari syariat atas nama tasawuf, karena mereka bukan sufi yang sejati. Sufi yang sejati adalah orang yang mengikuti syariat dengan sempurna dan menghidupkan hatinya dengan dzikir dan ma'rifat. Jagalah amanah ilmu ini, amalkan dengan ikhlas, dan ajarkan dengan hikmah."</em>
+</p>
+<p>
+Beliau kemudian menoleh ke arah setiap muridnya dan menyebut nama mereka satu per satu, memberikan nasihat khusus sesuai dengan keadaan batin masing-masing. Kepada salah satu murid beliau yang paling setia, beliau berpesan: <em>"Jagalah amanah ini dan ajarkanlah tasawuf Sunni kepada manusia dengan kasih sayang. Kematian bukanlah akhir, melainkan awal dari pertemuan dengan Yang Dicintai."</em> Para murid menangis tersedu-sedu, namun hati mereka dipenuhi ketenangan karena wasiat beliau begitu jelas dan membimbing.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ISTIQAMAH — QS. FUSSILAT: 30</div>
+<div class="arabic-text">
+إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنتُمْ تُوعَدُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang-orang yang mengatakan: 'Tuhan kami ialah Allah' kemudian mereka istiqamah, maka malaikat-malaikat akan turun kepada mereka (dengan berkata): 'Janganlah kamu takut dan janganlah merasa sedih; dan gembirakanlah mereka dengan jannah yang telah dijanjikan Allah kepadamu.'"
+<br>— QS. Fussilat: 30
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">15</span>
+<span class="karomah-title">Karomah Cahaya Wajah dan Harumnya Tubuh Menjelang Wafat</span>
+<div class="karomah-arabic">نُورُ وَجْهِهِ وَطِيبُ رَائِحَتِهِ قُبَيْلَ وَفَاتِهِ</div>
+<p>
+Tiga hari sebelum wafat, para murid yang menjenguk Syeikh Ali Nurruddin Asy-Sya'roni melihat cahaya yang sangat terang memancar dari wajah beliau. Mereka tidak dapat menatap wajah beliau terlalu lama karena silaunya cahaya itu. Selain itu, dari tubuh beliau tercium harum yang sangat wangi, seperti harum bunga mawar dan kesturi yang tidak pernah mereka cium sebelumnya.
+</p>
+<p>
+Ketika ditanya tentang cahaya dan harum itu, beliau menjawab dengan senyuman: <em>"Itu adalah cahaya dan harum dari Allah yang telah Dia janjikan kepada hamba-hamba-Nya yang mencintai-Nya. Aku melihat Rabb-ku dalam keadaan terjaga, dan Dia telah meridhaiku. Harum ini adalah harum surga yang Allah kirimkan sebagai tanda keridhaan-Nya."</em>
+</p>
+<p>
+Para ulama tasawuf menjelaskan bahwa cahaya dan harum yang tampak di tubuh seorang wali menjelang wafatnya adalah tanda bahwa Allah telah meridhai hamba-Nya dan sedang menjemputnya dengan penuh kemuliaan. Para murid beliau merasakan bahwa cahaya itu adalah cahaya ilmu dan ma'rifat yang Allah anugerahkan kepada beliau sebagai balasan atas perjuangan beliau membela tasawuf Sunni sepanjang hayatnya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA WALI — QS. AN-NUR: 35</div>
+<div class="arabic-text">
+اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ ۚ مَثَلُ نُورِهِ كَمِشْكَاةٍ فِيهَا مِصْبَاحٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah (Pemberi) cahaya (kepada) langit dan bumi. Perumpamaan cahaya Allah, adalah seperti sebuah lubang yang tak tembus, yang di dalamnya ada pelita besar. Pelita itu di dalam kaca (dan) kaca itu seakan-akan bintang (yang bercahaya) seperti mutiara."
+<br>— QS. An-Nur: 35
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">16</span>
+<span class="karomah-title">Karomah Sakaratul Maut dalam Keadaan Dzikir dan Ma'rifat</span>
+<div class="karomah-arabic">سُكْرَةُ الْمَوْتِ فِي حَالِ الذِّكْرِ وَالْمَعْرِفَةِ</div>
+<p>
+Pada malam menjelang wafatnya, Syeikh Ali Nurruddin Asy-Sya'roni meminta para muridnya untuk membacakan Surah Yasin di sisi pembaringannya. Ketika ayat-ayat suci Al-Qur'an dibacakan, wajah beliau berseri-seri dan beliau tersenyum. Beliau mengulang-ulang kalimat <em>"Allah, Allah"</em> dan shalawat kepada Nabi Muhammad SAW dengan suara yang lembut namun penuh kekuatan.
+</p>
+<p>
+Ketika sampai pada saat-saat terakhir, beliau mengangkat tangannya dan berkata dengan suara yang sangat jelas: <em>"Ya Allah, aku telah menghabiskan seluruh hidupku untuk membela tasawuf Sunni dan mengajarkan ilmu kepada umat-Mu. Kini, ketika tirai dunia mulai tersingkap, aku melihat wajah-Mu yang Maha Indah. Terimalah aku di sisi-Mu, dan kumpulkanlah aku bersama para wali-Mu yang shaleh."</em>
+</p>
+<p>
+Kemudian beliau mengucapkan <em>"La ilaha illallah, Muhammadur Rasulullah"</em> dengan suara yang sangat jelas, dan ruh beliau berpisah dari jasadnya dengan sangat mudah dan tenang, seperti setetes embun yang jatuh dari kelopak bunga mawar. Para murid yang hadir merasakan ketenangan yang luar biasa di ruangan itu, dan harum wangi yang memenuhi seluruh ruangan semakin kuat. Seolah-olah malaikat-malaikat sedang turun menjemput ruh sang pembela tasawuf Sunni.
+</p>
+<p>
+Syeikh Ali Nurruddin Asy-Sya'roni wafat pada tahun 973 H (1565 M) di Kairo, Mesir. Beliau dimakamkan di Kairo, dan makam beliau hingga hari ini menjadi tempat ziarah bagi ribuan umat Islam dari berbagai penjuru dunia.
+</p>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Syeikh Ali Nurruddin di Masa-masa Terakhir:</strong>
+<ul>
+<li><strong>Menyelesaikan kitab terakhir dalam keadaan sakit</strong> — Semangat menyampaikan ilmu hingga akhir hayat</li>
+<li><strong>Wasiat terakhir tentang tasawuf Sunni</strong> — Membimbing murid hingga napas terakhir</li>
+<li><strong>Cahaya ilahi dan harum surga di tubuhnya</strong> — Tanda keridhaan Allah</li>
+<li><strong>Sakaratul maut dalam keadaan dzikir</strong> — Ruh berpisah dengan penuh ketenangan</li>
+<li><strong>Wafat dengan kalimat syahadat</strong> — Husnul khotimah yang sempurna</li>
+<li><strong>Dimakamkan di Kairo</strong> — Makamnya menjadi pusat ziarah hingga hari ini</li>
+</ul>
+</div>
+<h2>Doa Memohon Karomah dari Allah</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KAROMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْنِي مِنْ أَوْلِيَائِكَ الصَّالِحِينَ، وَارْزُقْنِي الْكَرَامَةَ وَالِاسْتِقَامَةَ، وَاجْعَلْ سَيِّدَنَا عَلِيَّ النُّورِ الدِّينِ الشَّعْرَانِيِّ شَفِيعِي يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah aku termasuk wali-wali-Mu yang shaleh, anugerahkanlah kepadaku karomah dan istiqamah, dan jadikanlah Sayyidina Ali Nurruddin Asy-Sya'roni sebagai pemberi syafaat bagiku pada hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 4</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Ali Nurruddin Asy-Sya'roni di masa-masa terakhir kehidupannya. Ujian-ujian yang beliau alami justru menjadi pintu menuju karomah-karomah yang lebih agung, dan wafat beliau menjadi teladan bagi seluruh umat Islam tentang bagaimana seharusnya seorang hamba menjemput ajalnya — dengan dzikir, istiqamah, dan kecintaan yang mendalam kepada Allah SWT. Pada halaman berikutnya, kita akan membahas penutup, warisan spiritual, dan doa-doa yang beliau wariskan.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa bertakwa kepada Allah niscaya Dia akan mengadakan baginya jalan keluar. Dan memberinya rezeki dari arah yang tiada disangka-sangkanya."
+<br>— QS. At-Talaq: 2-3
+</div>
+</div>
+</div>
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="alinurruddin1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="alinurruddin2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="alinurruddin3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="alinurruddin4.html" class="article-nav-btn active" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="alinurruddin5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
