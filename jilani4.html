@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karomah Syeikh Abdul Qadir Jilani (Halaman 3) - KALAM</title>
+<title>Karomah Syeikh Abdul Qadir Al-Jilani - KALAM</title>
 <style>
+/* 1. RESET & DASAR */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
 font-family: 'Georgia', serif;
@@ -12,38 +13,17 @@ background-color: #f5f5f0;
 color: #333;
 min-height: 100vh;
 line-height: 1.8;
-/* Untuk Tablet */
-  @media (max-width: 768px) {
-    .container { 
-      max-width: 100%; 
-      padding: 20px; 
-    }
-    h1 { font-size: 26px; }
-    .featured-img { max-width: 100%; }
-  }
-  
-  /* Untuk HP */
-  @media (max-width: 600px) {
-    body { font-size: 14px; }
-    h1 { font-size: 22px; }
-    h2 { font-size: 18px; }
-    .arabic { font-size: 20px; line-height: 1.8; }
-    .header { 
-      flex-direction: column; 
-      gap: 10px; 
-      padding: 15px; 
-    }
-    .nav { 
-      flex-direction: column; 
-      gap: 10px; 
-    }
-    .page-btn { 
-      width: 35px; 
-      height: 35px; 
-      font-size: 14px; 
-    }
-  }
 }
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
 header {
 background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 padding: 20px 40px;
@@ -81,6 +61,7 @@ transition: all 0.3s ease;
 font-size: 0.95rem;
 }
 nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
 .breadcrumb {
 padding: 15px 40px;
 background: #eee;
@@ -94,6 +75,7 @@ max-width: 800px;
 margin: 40px auto;
 padding: 0 20px;
 }
+/* 5. ARTICLE HEADER & META */
 .article-header { margin-bottom: 30px; }
 .article-header h1 {
 font-size: 2.2rem;
@@ -117,6 +99,7 @@ font-size: 0.9rem;
 padding-bottom: 20px;
 border-bottom: 1px solid #ddd;
 }
+.author { display: flex; align-items: center; gap: 8px; }
 .author-avatar {
 width: 35px;
 height: 35px;
@@ -130,17 +113,22 @@ font-weight: bold;
 font-size: 0.85rem;
 }
 .author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
 .article-image-wrapper {
 margin: 25px 0;
 border-radius: 12px;
 overflow: hidden;
 box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
 }
 .article-image-wrapper img {
 width: 100%;
 height: auto;
 display: block;
+transition: transform 0.5s ease;
 }
+.article-image-wrapper:hover img { transform: scale(1.02); }
 .image-caption {
 background: rgba(0,0,0,0.7);
 color: #ccc;
@@ -195,6 +183,7 @@ background: #e94560;
 color: #fff;
 border-color: #e94560;
 }
+/* 7. KONTEN ARTIKEL */
 .article-content {
 font-size: 1.05rem;
 line-height: 1.9;
@@ -240,6 +229,7 @@ margin: 15px 0 20px 30px;
 margin-bottom: 10px;
 line-height: 1.7;
 }
+/* 8. KOTAK ARAB & KAROMAH */
 .arabic-box {
 background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
 border: 2px solid #d4af37;
@@ -251,19 +241,19 @@ box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 position: relative;
 }
 .arabic-box::before {
-    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #f8f6f0;
-    padding: 0 12px;
-    font-size: 1.2rem;
-    color: #d4af37;
-    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
-    white-space: nowrap;
-    line-height: 1.4;
-    z-index: 2;
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
 }
 .arabic-text {
 font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
@@ -344,23 +334,25 @@ margin: 15px 0 0 30px;
 margin-bottom: 10px;
 line-height: 1.7;
 }
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
 .article-nav {
 display: flex;
 justify-content: center;
-gap: 20px;
+gap: 10px;
 margin: 40px 0;
-padding: 30px;
+padding: 20px;
 background: linear-gradient(135deg, #1a1a2e, #16213e);
 border-radius: 15px;
+flex-wrap: wrap;
 }
 .article-nav-btn {
-width: 70px;
-height: 70px;
+width: 45px;
+height: 45px;
 border-radius: 50%;
 border: 2px solid #e94560;
 background: rgba(233, 69, 96, 0.1);
 color: #fff;
-font-size: 1.8rem;
+font-size: 1.15rem;
 font-weight: bold;
 cursor: pointer;
 transition: all 0.3s ease;
@@ -381,14 +373,15 @@ box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
 .nav-btn-label {
 text-align: center;
 color: #aaa;
-font-size: 0.8rem;
-margin-top: 8px;
+font-size: 0.75rem;
+margin-top: 6px;
 }
 .nav-group {
 display: flex;
 flex-direction: column;
 align-items: center;
 }
+/* 10. TOMBOL KEMBALI & FOOTER */
 .kalam-back-btn {
 display: block;
 text-align: center;
@@ -428,15 +421,81 @@ font-size: 0.9rem;
 margin-top: 40px;
 }
 footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
 @media (max-width: 600px) {
-header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
 .article-container { padding: 0 15px; }
-.article-header h1 { font-size: 1.5rem; }
 .article-content { font-size: 0.95rem; }
 .arabic-text { font-size: 1.4rem; line-height: 2.4; }
 .karomah-arabic { font-size: 1.3rem; }
-.article-nav { gap: 15px; }
-.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
 }
 </style>
 </head>
@@ -451,29 +510,34 @@ header { flex-direction: column; gap: 10px; padding: 15px 20px; }
 </nav>
 </header>
 <div class="breadcrumb">
-<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; <a href="karomah1.html">Karomah Syeikh Abdul Qadir Jilani</a> &raquo; Halaman 3
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abdul Qadir Al-Jilani — Halaman 4
 </div>
 <div class="article-container">
 <div class="article-header">
-<h1>Karomah Syeikh Abdul Qadir Jilani</h1>
-<div class="subtitle">Halaman 3 dari 5 — Karomah dalam Mengajar & Dakwah</div>
+<h1>Karomah Syeikh Abdul Qadir Al-Jilani</h1>
+<div class="subtitle">Halaman 4 dari 9 — Pertemuan dengan Para Ulama & Wali Sezaman</div>
 <div class="article-meta">
+<div class="author">
 <div class="author-avatar">MY</div>
 <div>
 <div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
-<div style="color:#999; font-size:0.85rem;">Jumat, 09 Oktober 2026, 14:30 WIB</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
 </div>
 </div>
 </div>
 <div class="article-image-wrapper">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg"
-alt="Syeikh Abdul Qadir Jilani">
-<div class="image-caption">Sumber: kalam.web.id — Potret Syeikh Abdul Qadir Jilani</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Baghdad-16th-century.jpg/440px-Baghdad-16th-century.jpg"
+alt="Pertemuan Para Ulama di Baghdad"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi kota Baghdad pada masa Abbasiyah, tempat Syeikh Abdul Qadir Al-Jilani bertemu dengan para ulama dan wali besar sezamannya</div>
 </div>
 <div class="share-bar">
 <span>Bagikan:</span>
 <a href="#" class="share-btn fb">f</a>
-<a href="#" class="share-btn tw">𝕏</a>
+<a href="#" class="share-btn tw">t</a>
 <a href="#" class="share-btn wa">W</a>
 <a href="#" class="share-btn tg">T</a>
 <div class="font-size-controls">
@@ -483,216 +547,311 @@ alt="Syeikh Abdul Qadir Jilani">
 </div>
 <div class="article-content" id="articleContent">
 <p class="lead">
-Setelah 25 tahun bermujahadah dan beruzlah, pada usia sekitar 50 tahun, Syeikh Abdul Qadir Jilani mulai mengajar dan berdakwah secara terbuka di Baghdad. Majelis beliau di Masjid Ar-Rusafah menjadi pusat ilmu dan spiritualitas yang menarik ribuan murid dari berbagai penjuru dunia Islam. Di sinilah karomah-karomah beliau dalam mengajar dan berdakwah semakin tampak.
+Salah satu karomah besar Syeikh Abdul Qadir Al-Jilani adalah bahwa Allah pertemukan beliau dengan para ulama besar dan wali Allah sezaman beliau. Pertemuan-pertemuan ini bukanlah kebetulan, melainkan takdir Allah yang menghimpun para kekasih-Nya dalam satu zaman untuk saling memuliakan, saling mengambil manfaat, dan saling menguatkan dalam perjalanan spiritual menuju Allah. Dari pertemuan-pertemuan inilah lahir nasihat-nasihat agung yang menjadi warisan spiritual bagi umat Islam hingga hari ini, dan dari majelis-majelis beliau lahirlah para ulama besar yang kemudian menyebarkan cahaya kewalian ke seluruh penjuru dunia.
 </p>
-
-<div class="karomah-card">
-<span class="karomah-number">10</span>
-<span class="karomah-title">Karomah Pidato yang Menggetarkan Hati</span>
-<div class="karomah-arabic">خُطَبُهُ تُهَزُّ الْقُلُوبَ</div>
-<p>
-Setiap kali Syeikh Abdul Qadir Jilani berpidato di atas mimbar, hadirin — baik yang muslim, ahli kitab, maupun orang fasik — tidak kuasa menahan air mata. Beliau berbicara dengan suara yang lembut namun penuh kekuatan, dan setiap kata yang keluar dari lisannya seolah-olah menusuk langsung ke hati pendengarnya.
-</p>
-<p>
-Dikisahkan bahwa dalam satu majelis, lebih dari 100.000 orang hadir, dan tidak kurang dari 10.000 orang di antaranya bertaubat dalam satu majelis saja. Orang-orang yahudi, nasrani, dan bahkan para pencuri pun datang kepadanya untuk bertaubat.
-</p>
-</div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG AKHLAK MULIA — QS. ALI 'IMRAN: 159</div>
+<div class="arabic-label">DALIL TENTANG SOHIB SHALIH — QS. AZ-ZUKHRUF: 67</div>
 <div class="arabic-text">
-وَلَوْ كُنْتَ فَظًّا غَلِيظَ الْقَلْبِ لَانْفَضُّوا مِنْ حَوْلِكَ
+الْأَخِلَّاءُ يَوْمَئِذٍ بَعْضُهُمْ لِبَعْضٍ عَدُوٌّ إِلَّا الْمُتَّقِينَ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Maka disebabkan rahmat dari Allah-lah kamu berlaku lemah lembut terhadap mereka. Sekiranya kamu bersikap keras lagi berhati kasar, tentulah mereka menjauhkan diri dari sekelilingmu."
-<br>— QS. Ali 'Imran: 159
+<strong>Artinya:</strong> "Teman-teman akrab pada hari itu sebagiannya menjadi musuh bagi sebagian yang lain, kecuali orang-orang yang bertakwa."
+<br>— QS. Az-Zukhruf: 67
 </div>
 </div>
-
-<div class="karomah-card">
-<span class="karomah-number">11</span>
-<span class="karomah-title">Karomah Berbicara dalam Berbagai Bahasa</span>
-<div class="karomah-arabic">يَتَكَلَّمُ بِكُلِّ لِسَانٍ بِإِذْنِ اللَّهِ</div>
+<h2>Pertemuan dengan Syeikh Abu Sa'id al-Makhzumi</h2>
 <p>
-Salah satu karomah yang paling menakjubkan adalah kemampuan Syeikh Abdul Qadir Jilani berbicara dalam berbagai bahasa tanpa pernah mempelajarinya. Ketika datang orang-orang dari berbagai negeri — Persia, Turki, India, Afrika, dan Eropa — beliau mampu menjawab mereka masing-masing dalam bahasa mereka sendiri.
+Salah satu pertemuan paling berkesan dalam kehidupan Syeikh Abdul Qadir Al-Jilani adalah pertemuan beliau dengan Syeikh Abu Sa'id al-Makhzumi — ulama fiqih mazhab Hanbali yang menjadi guru utama beliau dalam bidang fiqih. Syeikh Abu Sa'id adalah seorang ulama besar di Baghdad yang dikenal dengan kedalaman ilmu dan kewara'annya. Beliau menjadi sosok yang sangat berperan dalam membentuk kepribadian keilmuan Syeikh Abdul Qadir.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">19</span>
+<span class="karomah-title">Karomah Pertemuan dengan Syeikh Abu Sa'id al-Makhzumi</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِالشَّيْخِ أَبِي سَعِيدٍ الْمَخْزُومِيِّ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Abdul Qadir pertama kali datang ke majelis Syeikh Abu Sa'id al-Makhzumi, sang syeikh langsung menatap wajah beliau dengan penuh perhatian. Setelah beberapa saat, Syeikh Abu Sa'id berkata kepada para muridnya: <em>"Perhatikanlah pemuda ini. Di wajahnya terpancar cahaya ilmu yang dalam, dan aku melihat tanda-tanda kefaqihan yang akan tampak di zamannya kelak. Ia akan menjadi salah satu ulama besar yang ilmunya bermanfaat bagi umat hingga hari kiamat."</em>
+</p>
+<p>
+Syeikh Abu Sa'id kemudian memberikan perhatian khusus kepada Syeikh Abdul Qadir, mengajarkan kepadanya ilmu-ilmu fiqih mazhab Hanbali dengan penuh kasih sayang. Beliau berkata kepada Syeikh Abdul Qadir: <em>"Wahai Abdul Qadir, engkau memiliki kecerdasan yang luar biasa dalam memahami masalah-masalah fiqih yang rumit. Namun ingatlah, bahwa ilmu tanpa amal adalah pohon tanpa buah, dan amal tanpa ikhlas adalah tubuh tanpa ruh."</em>
+</p>
+<p>
+Nasihat inilah yang kemudian menjadi salah satu prinsip utama dalam ajaran Syeikh Abdul Qadir — bahwa ilmu syariat harus selalu berjalan beriringan dengan amal dan keikhlasan. Beliau tidak pernah memisahkan antara ilmu lahiriah dan batiniah, antara syariat dan hakikat, karena baginya keduanya adalah dua sisi dari mata uang yang sama.
+</p>
+<p>
+Pertemuan ini adalah karomah berupa <em>hidayah al-mu'allim</em> (petunjuk dari seorang guru) — karomah yang Allah berikan kepada hamba-Nya dengan mengirimkan guru yang tepat pada waktu yang tepat. Para ulama berkata bahwa barangsiapa yang mendapatkan guru yang sejati, maka ia telah mendapatkan kunci menuju ilmu yang bermanfaat.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">KESAKSIAN MURID DARI INDIA</div>
+<div class="arabic-label">PERKATAAN SYEIKH ABU SA'ID AL-MAKHZUMI</div>
 <div class="arabic-text">
-أَتَيْتُهُ بِقَلْبٍ أَسْأَلُهُ بِلُغَتِي، فَأَجَابَنِي بِلُغَتِي بِفَصَاحَةٍ
+هَذَا الْغُلَامُ سَيَكُونُ مِنْ أَكْبَرِ عُلَمَاءِ زَمَانِهِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Seorang murid dari India menceritakan: 'Aku datang kepadanya dengan niat bertanya dalam bahasa Hindiku. Namun beliau menjawab dalam bahasa Hindiku yang fasih, padahal beliau tidak pernah belajar bahasa itu.'"
+<strong>Artinya:</strong> "Anak muda ini akan menjadi salah satu ulama terbesar di zamannya, dan ilmunya akan bermanfaat bagi umat hingga hari kiamat."
+<br>— Syeikh Abu Sa'id al-Makhzumi tentang Syeikh Abdul Qadir Al-Jilani
 </div>
 </div>
-
+<h2>Pertemuan dengan Syeikh Aqil al-Banna</h2>
+<p>
+Syeikh Aqil al-Banna adalah salah seorang ulama besar di Baghdad yang dikenal dengan kedalaman ilmu hadits dan kewara'annya. Beliau adalah salah satu guru Syeikh Abdul Qadir dalam bidang ilmu hadits, dan pertemuan keduanya menjadi salah satu pertemuan paling berkesan dalam sejarah keilmuan Baghdad pada masa itu.
+</p>
 <div class="karomah-card">
-<span class="karomah-number">12</span>
-<span class="karomah-title">Karomah Menaklukkan Jin dan Setan</span>
-<div class="karomah-arabic">دَاسَ رِقَابَ الْجِنِّ وَالشَّيَاطِينِ</div>
+<span class="karomah-number">20</span>
+<span class="karomah-title">Karomah Pertemuan dengan Syeikh Aqil al-Banna</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِالشَّيْخِ عَقِيلٍ الْبَنَّاءِ</div>
 <p>
-Syeikh Abdul Qadir Jilani dikenal sebagai penakluk jin dan setan. Beliau pernah berkata: <em>"Aku telah menginjak leher setiap jin dan setan dengan kakiku."</em> Pernyataan ini bukan dalam arti fisik, melainkan dalam arti spiritual — beliau telah menguasai dan menundukkan semua gangguan makhluk ghaib dengan kekuatan dzikir dan tawakkal kepada Allah.
+Dalam sebuah riwayat, diceritakan bahwa ketika Syeikh Abdul Qadir menghadiri majelis hadits Syeikh Aqil al-Banna, beliau mengajukan sebuah pertanyaan tentang masalah sanad hadits yang sangat rumit. Pertanyaan itu membuat para murid lain terdiam, karena mereka tidak mampu memahami masalah tersebut. Namun Syeikh Aqil tersenyum dan berkata: <em>"Wahai Abdul Qadir, engkau telah mengajukan pertanyaan yang hanya bisa diajukan oleh orang yang telah mencapai maqam tinggi dalam ilmu hadits."</em>
 </p>
 <p>
-Dikisahkan bahwa ada seorang raja jin yang datang kepadanya dalam wujud manusia dan menyatakan keislamannya. Raja jin itu berkata: <em>"Wahai Syeikh, aku dan seluruh bala tentaraku bersaksi bahwa engkau adalah wali Allah yang haq."</em>
+Syeikh Aqil kemudian menjawab pertanyaan itu dengan penjelasan yang sangat mendalam, dan beliau berkata kepada para muridnya: <em>"Perhatikanlah pemuda ini. Ia bukan hanya memahami lahiriah ilmu, melainkan juga hakikatnya. Inilah tanda bahwa Allah telah memberikan kepadanya cahaya pemahaman (fath) dari sisi-Nya."</em>
+</p>
+<p>
+Sejak saat itu, Syeikh Aqil al-Banna senantiasa memuji Syeikh Abdul Qadir di hadapan para murid beliau, dan beliau berkata: <em>"Barangsiapa yang ingin melihat contoh ulama yang menggabungkan antara ilmu syariat dan hakikat, maka lihatlah Abdul Qadir al-Jilani."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>syahadah al-'ulama'</em> (pengakuan dari para ulama) — karomah yang Allah berikan kepada hamba-Nya dengan menjadikan para ulama besar bersaksi atas ketinggian ilmu dan kewalian beliau.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG JIN — QS. AL-HIJR: 42</div>
+<div class="arabic-label">DALIL TENTANG ILMU — QS. AL-BAQARAH: 269</div>
 <div class="arabic-text">
-إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلَّا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ
+يُؤْتِي الْحِكْمَةَ مَن يَشَاءُ وَمَن يُؤْتَ الْحِكْمَةَ فَقَدْ أُوتِيَ خَيْرًا كَثِيرًا
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Sesungguhnya hamba-hamba-Ku tidak ada kekuasaan bagimu terhadap mereka, kecuali orang-orang yang mengikut kamu, yaitu orang-orang yang sesat."
-<br>— QS. Al-Hijr: 42
+<strong>Artinya:</strong> "Dia memberikan hikmah kepada siapa yang Dia kehendaki. Dan barangsiapa yang diberikan hikmah, sungguh telah diberikan kepadanya kebaikan yang banyak."
+<br>— QS. Al-Baqarah: 269
 </div>
 </div>
-
-<div class="karomah-card">
-<span class="karomah-number">13</span>
-<span class="karomah-title">Karomah Menghidupkan Orang Mati</span>
-<div class="karabic-arabic" style="font-family: 'Traditional Arabic', serif; font-size: 1.6rem; color: #d4af37; direction: rtl; text-align: right; margin: 10px 0;">
-إِحْيَاءُ الْمَيِّتِ بِإِذْنِ اللَّهِ
-</div>
+<h2>Dialog dengan Para Khalifah dan Guberner</h2>
 <p>
-Dengan izin Allah, Syeikh Abdul Qadir Jilani pernah menghidupkan orang yang telah mati. Dikisahkan bahwa seorang muridnya yang shaleh meninggal dunia, dan keluarganya datang menangis kepada Syeikh. Beliau datang ke rumah duka, meletakkan tangannya di dada mayit, dan berdoa:
+Selain bertemu dengan para ulama, Syeikh Abdul Qadir Al-Jilani juga sering berdialog dengan para khalifah dan gubernur pada masanya. Beliau tidak takut kepada mereka, karena hati beliau telah dipenuhi keberanian yang berasal dari Allah. Beliau senantiasa menasihati mereka dengan kata-kata yang lembut namun tegas, mengingatkan mereka tentang tanggung jawab mereka sebagai pemimpin di hadapan Allah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">21</span>
+<span class="karomah-title">Karomah Menasihati Para Khalifah dengan Keberanian</span>
+<div class="karomah-arabic">نُصْحُهُ لِلْخُلَفَاءِ بِشَجَاعَةٍ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa Khalifah Abbasiyah pada masa itu — yang dalam riwayat disebutkan sebagai An-Nashir atau Al-Mustandjid — mengirim utusan kepada Syeikh Abdul Qadir untuk meminta nasihat. Utusan itu berkata: <em>"Wahai Syeikh, Amirul Mukminin ingin mengetahui nasihatmu tentang bagaimana cara menjalankan pemerintahan dengan adil."</em>
+</p>
+<p>
+Syeikh Abdul Qadir menjawab: <em>"Katakanlah kepada tuanmu bahwa pemerintahan adalah amanah yang berat di hadapan Allah. Barangsiapa yang menjalankan pemerintahan dengan adil, niscaya Allah akan memberikan kepadanya pahala yang besar. Dan barangsiapa yang menjalankan pemerintahan dengan zalim, niscaya Allah akan mengazabnya dengan azab yang pedih. Maka bertakwalah kepada Allah, dan perlakukanlah rakyatmu dengan kebaikan dan keadilan."</em>
+</p>
+<p>
+Ketika pesan ini sampai kepada Khalifah, beliau menangis dan berkata: <em>"Sungguh, nasihat Syeikh Abdul Qadir telah menyentuh hatiku. Aku akan menjalankan pemerintahan dengan adil dan kebaikan, karena aku takut kepada Allah."</em> Sejak saat itu, Khalifah menjadi pemimpin yang lebih adil dan wara', dan rakyatnya hidup dalam kedamaian dan kesejahteraan.
+</p>
+<p>
+Dalam riwayat lain, diceritakan bahwa seorang gubernur yang zalim datang sendiri kepada Syeikh Abdul Qadir untuk meminta nasihat. Namun ketika ia memasuki majelis Syeikh Abdul Qadir, ia merasakan kewibawaan yang sangat besar sehingga ia gemetar dan menangis. Syeikh Abdul Qadir berkata kepadanya dengan lembut: <em>"Wahai saudaraku, kembalilah kepada Allah, dan perlakukanlah rakyatmu dengan kebaikan. Sesungguhnya Allah tidak akan menyia-nyiakan hamba-Nya yang bertaubat."</em>
+</p>
+<p>
+Gubernur itu pun bertaubat dan menjadi pemimpin yang adil sejak saat itu. Ia berkata: <em>"Ketika aku memasuki majelis Syeikh Abdul Qadir, aku merasakan seolah-olah aku berdiri di hadapan Allah sendiri. Kewibawaan beliau bukanlah kewibawaan manusia biasa, melainkan kewibawaan rabbani yang Allah berikan kepadanya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>al-haybah ar-rabbaniyah</em> (kewibawaan rabbani) — Allah memberikan kewibawaan kepada Syeikh Abdul Qadir, sehingga para raja dan gubernur tunduk kepada nasihat beliau dan mengikuti petunjuk beliau.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DOA MENGHIDUPKAN MAYIT</div>
+<div class="arabic-label">DALIL TENTANG KEADILAN — QS. AN-NISA': 58</div>
 <div class="arabic-text">
-يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَعِدْ إِلَيْنَا رُوحَ هَذَا الْمَيِّتِ بِإِذْنِكَ يَا رَبَّ الْعَالَمِينَ
+إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Wahai Dzat Yang Maha Hidup, Wahai Dzat Yang Maha Berdiri Sendiri, dengan rahmat-Mu aku memohon pertolongan. Kembalikanlah ruh mayit ini kepada kami dengan izin-Mu, wahai Tuhan semesta alam."
+<strong>Artinya:</strong> "Sesungguhnya Allah menyuruh kamu menyampaikan amanat kepada yang berhak menerimanya, dan (menyuruh kamu) apabila menetapkan hukum di antara manusia supaya kamu menetapkan dengan adil."
+<br>— QS. An-Nisa': 58
 </div>
 </div>
-
+<h2>Himpunan Para Wali dalam Majelis Dzikir</h2>
 <p>
-Maka dengan izin Allah, mayit itu bangkit dan mengucapkan syahadat, lalu hidup kembali beberapa hari sebelum akhirnya wafat dengan tenang.
+Salah satu karomah terbesar Syeikh Abdul Qadir Al-Jilani adalah bahwa Allah menghimpun para wali besar dari berbagai zaman dalam majelis-majelis spiritual beliau. Para wali yang telah wafat maupun yang masih hidup datang kepada beliau untuk mengambil berkah dan mendengarkan nasihat-nasihat beliau.
 </p>
-
 <div class="karomah-card">
-<span class="karomah-number">14</span>
-<span class="karomah-title">Karomah Memberkahi Makanan yang Sedikit</span>
-<div class="karomah-arabic">تَبَارُكُ الطَّعَامِ عَلَى يَدَيْهِ</div>
+<span class="karomah-number">22</span>
+<span class="karomah-title">Karomah Himpunan Para Wali dalam Majelis Dzikir</span>
+<div class="karomah-arabic">اجْتِمَاعُ الْأَوْلِيَاءِ فِي مَجَالِسِهِ</div>
 <p>
-Banyak kisah tentang keberkahan makanan di tangan Syeikh Abdul Qadir Jilani. Sebuah roti yang kecil mampu memberi makan ratusan orang. Air minum yang beliau doakan mampu menyembuhkan berbagai penyakit. Para murid yang makan di majelisnya tidak pernah merasa kenyang yang berlebihan, namun tubuh mereka menjadi kuat dan sehat.
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu malam Syeikh Abdul Qadir mengadakan majelis dzikir yang dihadiri oleh ribuan murid beliau. Ketika majelis berlangsung, para murid merasakan kehadiran makhluk-makhluk gaib yang ikut berdzikir bersama mereka — para malaikat, para nabi, dan para wali dari berbagai zaman.
+</p>
+<p>
+Salah seorang murid beliau yang memiliki bashirah (penglihatan spiritual) berkata kepada Syeikh Abdul Qadir setelah majelis selesai: <em>"Wahai Syeikh, aku melihat dalam majelis tadi kehadiran Sayyidina Ahmad al-Badawi, Sayyidina Ahmad ar-Rifa'i, Sayyidina Junaid al-Baghdadi, dan banyak wali lainnya yang telah wafat. Mereka semua datang untuk mendengarkan nasihatmu dan mengambil berkah dari engkau."</em>
+</p>
+<p>
+Syeikh Abdul Qadir tersenyum dan berkata: <em>"Wahai saudaraku, para wali Allah tidak pernah mati. Mereka hidup di sisi Allah, dan mereka senantiasa datang kepada orang-orang yang Allah cintai untuk mengambil berkah dan memberikan syafa'at. Maka janganlah engkau heran jika engkau melihat mereka dalam majelis-majelis dzikir, karena mereka adalah saudara-saudara kita dalam perjalanan menuju Allah."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>al-jam'u bayna al-awliya'</em> (himpunan para wali) — Allah menghimpun para kekasih-Nya dalam satu tempat dan satu zaman sebagai tanda pemuliaan. Para ulama berkata bahwa pertemuan para wali adalah rahmat Allah yang diturunkan kepada hamba-hamba-Nya yang shaleh.
 </p>
 </div>
-
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MAQAM WALI — QS. YUNUS: 62-63</div>
+<div class="arabic-text">
+أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ ۝ الَّذِينَ آمَنُوا وَكَانُوا يَتَّقُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu tidak ada ketakutan bagi mereka dan tidak pula mereka bersedih hati. (Yaitu) orang-orang yang beriman dan mereka senantiasa bertakwa."
+<br>— QS. Yunus: 62-63
+</div>
+</div>
+<h2>Mengajar dengan Cahaya Hati</h2>
+<p>
+Salah satu karomah terbesar Syeikh Abdul Qadir Al-Jilani adalah kemampuan beliau dalam mengajar dan membimbing para murid. Beliau tidak hanya mengajarkan ilmu syariat, melainkan juga membimbing mereka dalam perjalanan spiritual menuju Allah. Para murid beliau merasakan perubahan yang luar biasa dalam diri mereka setelah berguru kepada beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">23</span>
+<span class="karomah-title">Karomah Mengajar dengan Cahaya Hati</span>
+<div class="karomah-arabic">تَدْرِيسُهُ بِنُورِ الْقَلْبِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa ketika Syeikh Abdul Qadir mengajar para murid beliau, beliau tidak hanya menjelaskan lafazh-lafazh kitab, melainkan juga membuka makna-makna yang tersembunyi di baliknya. Para murid merasakan seolah-olah ilmu itu masuk langsung ke dalam hati mereka, bukan hanya ke dalam pikiran mereka.
+</p>
+<p>
+Salah seorang murid beliau berkata: <em>"Ketika Syeikh Abdul Qadir mengajar, aku merasakan cahaya yang masuk ke dalam hatiku. Aku memahami masalah-masalah yang sebelumnya tidak aku pahami, dan aku merasakan ketenangan yang tidak pernah aku rasakan sebelumnya. Seolah-olah ilmu itu bukan dari Syeikh Abdul Qadir, melainkan langsung dari Allah yang Dia alirkan melalui lisan beliau."</em>
+</p>
+<p>
+Syeikh Abdul Qadir sendiri berkata: <em>"Aku tidak mengajarkan apa-apa. Aku hanya membuka pintu-pintu yang telah Allah tutup di dalam hati kalian. Jika Allah berkehendak, maka pintu-pintu itu akan terbuka, dan kalian akan melihat cahaya-Nya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'lim bin-nur</em> (pengajaran dengan cahaya) — karomah yang Allah berikan kepada para wali-Nya, sehingga ilmu yang mereka ajarkan masuk langsung ke dalam hati para murid. Para ulama berkata bahwa pengajaran yang paling bermanfaat adalah pengajaran yang disertai dengan cahaya hati, karena ia tidak hanya memberikan informasi, melainkan juga memberikan transformasi spiritual.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA ILMU — QS. AN-NISA': 174</div>
+<div class="arabic-text">
+يَا أَيُّهَا النَّاسُ قَدْ جَاءَكُم بُرْهَانٌ مِّن رَّبِّكُمْ وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai manusia, sesungguhnya telah datang kepadamu bukti (kebenaran) dari Tuhanmu, dan telah Kami turunkan kepadamu cahaya yang terang benderang."
+<br>— QS. An-Nisa': 174
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">24</span>
+<span class="karomah-title">Karomah Mengubah Hati Para Pendosa</span>
+<div class="karomah-arabic">تَحْوِيلُ قُلُوبِ الْمُجْرِمِينَ</div>
+<p>
+Salah satu karomah paling menakjubkan Syeikh Abdul Qadir Al-Jilani adalah kemampuan beliau mengubah hati para pendosa menjadi hati yang bertaubat. Ribuan pencuri, pezina, peminum khamar, dan orang-orang fasik lainnya datang kepada beliau, dan setelah mendengarkan nasihat beliau, mereka semua bertaubat dengan taubat yang nasuha.
+</p>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu hari Syeikh Abdul Qadir memberikan pengajian di hadapan lebih dari seratus ribu orang. Di antara mereka terdapat seorang pencuri besar yang dikenal dengan kejahatannya di seluruh Baghdad. Ketika Syeikh Abdul Qadir menyebutkan tentang keagungan Allah dan hari kiamat, pencuri itu menangis tersedu-sedu dan berkata: <em>"Wahai Syeikh, aku telah melakukan dosa yang sangat besar. Aku telah merampok, membunuh, dan berzina. Apakah masih ada harapan bagiku untuk bertaubat?"</em>
+</p>
+<p>
+Syeikh Abdul Qadir menatapnya dengan penuh kasih sayang dan berkata: <em>"Wahai saudaraku, rahmat Allah lebih besar daripada dosa-dosamu. Janganlah engkau berputus asa dari rahmat Allah, karena Dia Maha Pengampun lagi Maha Penyayang. Kembalilah kepada-Nya dengan taubat yang nasuha, dan Dia akan menerima taubatmu."</em>
+</p>
+<p>
+Pencuri itu pun bertaubat dengan sungguh-sungguh. Ia mengembalikan seluruh harta curian kepada pemiliknya, meminta maaf kepada orang-orang yang ia zalimi, dan mulai beribadah kepada Allah dengan sungguh-sungguh. Ia menjadi salah satu murid Syeikh Abdul Qadir yang paling shaleh, dan ia berkata: <em>"Dulu aku adalah pencuri di dunia, sekarang aku ingin menjadi pencuri di akhirat — mencuri hati manusia dengan kebaikan dan cinta kepada Allah."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>hidayah al-qulub</em> (petunjuk hati) — karomah yang Allah berikan kepada Syeikh Abdul Qadir sehingga kata-kata beliau mampu menembus hati yang paling keras dan mengubahnya menjadi hati yang lembut dan tunduk kepada Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TAUBAT — QS. AZ-ZUMAR: 53</div>
+<div class="arabic-text">
+قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Katakanlah: Wahai hamba-hamba-Ku yang melampaui batas terhadap diri mereka sendiri, janganlah kamu berputus asa dari rahmat Allah. Sesungguhnya Allah mengampuni dosa-dosa semuanya."
+<br>— QS. Az-Zumar: 53
+</div>
+</div>
 <div class="highlight-box">
-<strong style="color: #d4af37; font-size: 1.1rem;">Keberkahan Makanan di Majelis Syeikh:</strong>
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Pertemuan Syeikh Abdul Qadir dengan Para Ulama & Wali:</strong>
 <ul>
-<li><strong>Roti sedikit mampu memberi makan ratusan orang</strong></li>
-<li><strong>Air yang didoakan menyembuhkan penyakit</strong></li>
-<li><strong>Makanan yang dimakan dengan bismillah menjadi berlipat ganda</strong></li>
-<li><strong>Para murid tidak pernah merasakan lapar berlebihan</strong></li>
+<li><strong>Pertemuan dengan Syeikh Abu Sa'id al-Makhzumi</strong> — Guru fiqih yang membimbing dalam ilmu syariat</li>
+<li><strong>Pertemuan dengan Syeikh Aqil al-Banna</strong> — Pengakuan atas ketinggian ilmu hadits</li>
+<li><strong>Dialog dengan para khalifah dan gubernur</strong> — Kewibawaan rabbani di hadapan para pemimpin</li>
+<li><strong>Himpunan para wali dalam majelis dzikir</strong> — Al-jam'u bayna al-awliya' sebagai tanda pemuliaan</li>
+<li><strong>Mengajar dengan cahaya hati</strong> — Ta'lim bin-nur, ilmu masuk langsung ke hati murid</li>
+<li><strong>Mengubah hati para pendosa</strong> — Hidayah al-qulub, ribuan orang bertaubat di tangan beliau</li>
 </ul>
 </div>
-
-<div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG KEBERKAHAN — QS. QAF: 9</div>
-<div class="arabic-text">
-وَأَلْقِ بَارِكًا عَلَيْهَا وَاقْدُرْ عَلَيْهَا مِنْ ثَمَرَاتِهَا لَعَلَّكُمْ تَشْكُرُونَ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Dan limpahkanlah keberkahan di atasnya, dan tentukanlah ukuran-ukurannya dan ciptakan padanya berbagai buah-buahan, agar kamu bersyukur."
-<br>— QS. Qaf: 9
-</div>
-</div>
-
-<div class="karomah-card">
-<span class="karomah-number">15</span>
-<span class="karomah-title">Karomah Mendoakan Orang yang Hadir</span>
-<div class="karomah-arabic">دَعَاؤُهُ مُسْتَجَابٌ عِنْدَ اللَّهِ</div>
+<h2>Pelajaran dari Pertemuan-Pertemuan Beliau</h2>
 <p>
-Doa Syeikh Abdul Qadir Jilani mustajab. Siapa pun yang beliau doakan, maka doa itu akan terkabul. Orang yang mandul kemudian diberi keturunan, orang yang sakit disembuhkan, orang yang bangkrut diberi rezeki, dan orang yang tersesat diberi petunjuk — semua dengan izin Allah melalui doa beliau.
+Dari pertemuan-pertemuan yang disebutkan di atas, terdapat beberapa pelajaran penting yang dapat kita ambil:
 </p>
-</div>
-
+<blockquote>
+<em>Pertama</em>, seorang wali tidak hidup dalam kesendirian. Ia senantiasa bergaul dengan para ulama dan wali lainnya untuk saling mengambil manfaat. Ini menunjukkan bahwa jalan spiritual bukanlah jalan yang individualistik, melainkan jalan yang dijalani bersama-sama dengan saudara-saudara seiman.
+<br><br>
+<em>Kedua</em>, ketinggian ilmu seorang wali tidak membuatnya sombong. Syeikh Abdul Qadir senantiasa rendah hati di hadapan para gurunya, dan beliau tidak pernah membanggakan ilmunya. Ini menunjukkan bahwa ilmu yang bermanfaat adalah ilmu yang disertai dengan akhlak yang mulia.
+<br><br>
+<em>Ketiga</em>, seorang wali tidak hanya memikirkan dirinya sendiri, melainkan juga memikirkan umat. Syeikh Abdul Qadir senantiasa mengajar, membimbing, dan menasihati orang-orang di sekelilingnya — baik para murid, para penguasa, maupun masyarakat umum. Ini menunjukkan bahwa kewalian bukanlah pelarian dari dunia, melainkan kehadiran di tengah-tengah umat untuk membimbing mereka menuju Allah.
+<br><br>
+<em>Keempat</em>, rahmat Allah lebih besar daripada dosa-dosa manusia. Syeikh Abdul Qadir senantiasa membuka pintu taubat bagi siapa pun yang datang kepadanya, tidak peduli seberapa besar dosa mereka. Ini menunjukkan bahwa seorang wali adalah pewaris rahmat Rasulullah SAW, yang diutus sebagai rahmat bagi seluruh alam.
+</blockquote>
+<h2>Doa Memohon Hikmah dan Keberanian</h2>
 <div class="arabic-box">
-<div class="arabic-label">PERKATAAN SYAIKH TENTANG DOA</div>
+<div class="arabic-label">DOA MEMOHON HIKMAH DAN PETUNJUK</div>
 <div class="arabic-text">
-دُعَاءُ الْوَلِيِّ لِلَّهِ كَسَهْمٍ لَا يُخْطِئُ الْهَدَفَ
+رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Doa seorang wali kepada Allah seperti panah yang tidak pernah meleset dari sasaran."
-<br>— Syeikh Abdul Qadir Al-Jilani
+<strong>Artinya:</strong> "Ya Tuhan kami, berikanlah rahmat kepada kami dari sisi-Mu dan sempurnakanlah bagi kami petunjuk yang lurus dalam urusan kami."
+<br>— QS. Al-Kahf: 10
 </div>
 </div>
-
-<h2>Doa Memohon Keberkahan Ilmu</h2>
-
-<div class="arabic-box">
-<div class="arabic-label">DOA MEMOHON KEBERKAHAN ILMU</div>
-<div class="arabic-text">
-اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا، وَاجْعَلْ سَيِّدَنَا عَبْدَ الْقَادِرِ الْجِيلَانِيَّ دَلِيلِي إِلَى مَرْضَاتِكَ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Ya Allah, berilah manfaat kepadaku atas apa yang telah Engkau ajarkan kepadaku, ajarkanlah kepadaku apa yang bermanfaat bagiku, tambahkanlah ilmu kepadaku, dan jadikanlah Sayyidina Abdul Qadir Al-Jilani sebagai penuntunku menuju keridhaan-Mu."
-</div>
-</div>
-
-<h2>Penutup Halaman 3</h2>
-
+<h2>Penutup Halaman 4</h2>
 <p>
-Demikianlah sebagian karomah Syeikh Abdul Qadir Jilani dalam mengajar dan berdakwah. Majelis beliau adalah lautan ilmu dan hikmah yang tidak pernah kering. Pada halaman berikutnya, kita akan membahas karomah beliau dalam menolong dan memberkahi umat.
+Demikianlah sebagian karomah Syeikh Abdul Qadir Al-Jilani dalam pertemuan beliau dengan para ulama dan wali sezaman beliau. Pertemuan-pertemuan ini bukanlah kebetulan, melainkan takdir Allah yang menghimpun para kekasih-Nya untuk saling memuliakan dan saling mengambil manfaat. Dari pertemuan-pertemuan inilah lahir warisan spiritual yang agung — termasuk Tarekat Qadiriyah yang akan didirikan oleh para murid beliau dan tersebar ke seluruh penjuru dunia.
 </p>
-
+<p>
+Pada halaman berikutnya, kita akan membahas berdirinya Tarekat Qadiriyah, ajaran-ajaran utama yang beliau wariskan, serta bagaimana tarekat ini menjadi salah satu tarekat terbesar dan paling tersebar di dunia Islam hingga hari ini.
+</p>
 <p>
 <em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
 </p>
-
 <div class="arabic-box">
 <div class="arabic-text">
-وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
+وَاصْبِرْ نَفْسَكَ مَعَ الَّذِينَ يَدْعُونَ رَبَّهُم بِالْغَدَاةِ وَالْعَشِيِّ يُرِيدُونَ وَجْهَهُ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan tidak ada taufik bagiku melainkan dengan (pertolongan) Allah. Hanya kepada Allah aku bertawakkal dan hanya kepada-Nya-lah aku kembali."
-<br>— QS. Hud: 88
+<strong>Artinya:</strong> "Dan bersabarlah kamu bersama-sama dengan orang-orang yang menyeru Tuhannya di pagi dan sore hari dengan mengharap keridhaan-Nya."
+<br>— QS. Al-Kahf: 28
 </div>
 </div>
 </div>
-
-<!-- NAVIGASI 5 TOMBOL -->
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
 <div class="article-nav">
 <div class="nav-group">
-<a href="karomah1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<a href="jilani1.html" class="article-nav-btn" title="Halaman 1">1</a>
 <div class="nav-btn-label">Halaman 1</div>
 </div>
 <div class="nav-group">
-<a href="karomah2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<a href="jilani2.html" class="article-nav-btn" title="Halaman 2">2</a>
 <div class="nav-btn-label">Halaman 2</div>
 </div>
 <div class="nav-group">
-<a href="karomah3.html" class="article-nav-btn active" title="Halaman 3">3</a>
+<a href="jilani3.html" class="article-nav-btn" title="Halaman 3">3</a>
 <div class="nav-btn-label">Halaman 3</div>
 </div>
 <div class="nav-group">
-<a href="karomah4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<a href="jilani4.html" class="article-nav-btn active" title="Halaman 4">4</a>
 <div class="nav-btn-label">Halaman 4</div>
 </div>
 <div class="nav-group">
-<a href="karomah5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<a href="jilani5.html" class="article-nav-btn" title="Halaman 5">5</a>
 <div class="nav-btn-label">Halaman 5</div>
 </div>
+<div class="nav-group">
+<a href="jilani6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
 </div>
-
+<div class="nav-group">
+<a href="jilani7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="jilani8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="jilani9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
 <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
 KALAM
 <span class="btn-sub">← Kembali ke Beranda</span>
 </a>
 </div>
-
 <footer>
 <p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
 </footer>
-
 <script>
 let currentFontSize = 1.05;
 function changeFontSize(delta) {
