@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ibrahim Ad-Dasuki - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET (Dipindahkan ke root level agar valid) */
+@media (max-width: 768px) {
+.article-container { /* Diperbaiki: sebelumnya .container (tidak ada di HTML) */
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 15px; /* Diperkecil dari 20px agar lebih rapat */
+margin: 40px 0;
+padding: 20px; /* Diperkecil dari 30px */
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 50px; /* DIPERKECIL dari 70px */
+height: 50px; /* DIPERKECIL dari 70px */
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.3rem; /* DIPERKECIL dari 1.8rem */
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. PERBAIKAN FINAL: MEDIA QUERY MOBILE (HP) YANG KONSOLIDASI & VALID */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav { /* Diperbaiki: sebelumnya .nav (tidak valid untuk tag <nav>) */
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+/* PERBAIKAN KRUSIAL: Class disesuaikan dengan HTML (.article-nav-btn, bukan .page-btn) */
+.article-nav {
+gap: 10px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 40px;   /* Ukuran optimal untuk HP */
+height: 40px;  /* Ukuran optimal untuk HP */
+font-size: 1.1rem;
+}
+}
+/* ============================================
+PATCH UNIVERSAL v2.0
+Fix: Logo KALAM center + Nav horizontal
+Berlaku untuk semua halaman (hanafi1-5, artikelwali, dll)
+============================================ */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;   /* Logo di atas, nav di bawah */
+align-items: center !important;      /* ← KUNCI: semua child di-center */
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;           /* ← Logo benar-benar center */
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;      /* ← Nav tetap horizontal */
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;  /* ← Nav juga di-center */
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+/* Fallback untuk layar sangat kecil (≤ 360px) */
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ibrahim Ad-Dasuki — Halaman 3
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ibrahim Ad-Dasuki</h1>
+<div class="subtitle">Halaman 3 dari 6 — Karomah-karomah Luar Biasa terhadap Alam dan Makhluk Gaib</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nile_River_in_Egypt.jpg/440px-Nile_River_in_Egypt.jpg"
+alt="Sungai Nil dan Karomah Syeikh Ibrahim Ad-Dasuki"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg/440px-Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi Sungai Nil, saksi bisu karomah Syeikh Ibrahim Ad-Dasuki ketika Allah menundukkan air atas izin-Nya</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Di antara karomah yang paling menakjubkan dari Syeikh Ibrahim Ad-Dasuki adalah peristiwa-peristiwa luar biasa yang Allah tampakkan melalui tangan beliau — menyeberangi Sungai Nil tanpa perahu, cahaya yang menyinari rumah beliau ketika shalat malam, makanan yang cukup untuk seluruh desa, firasat yang menembus isi hati, hingga doa yang menurunkan hujan saat tanah retak oleh kemarau. Semua itu bukanlah hasil usaha manusia, melainkan <em>fiat kun</em> — perintah Allah "Jadilah!" — yang Dia tampakkan kepada hamba-hamba pilihan-Nya sebagai tanda pemuliaan.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KUASA ALLAH — QS. YASIN: 82</div>
+<div class="arabic-text">
+إِنَّمَا أَمْرُهُ إِذَا أَرَادَ شَيْئًا أَنْ يَقُولَ لَهُ كُنْ فَيَكُونُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya urusan-Nya apabila Dia menghendaki sesuatu hanyalah berkata kepadanya: 'Jadilah!' Maka terjadilah ia."
+<br>— QS. Yasin: 82
+</div>
+</div>
+<h2>Menyeberangi Sungai Nil atas Izin Allah</h2>
+<p>
+Desa Dusuq terletak di tepi salah satu cabang Sungai Nil. Pada masa itu, belum ada jembatan yang menghubungkan desa Dusuq dengan desa-desa di seberangnya. Untuk menyeberang, penduduk harus menggunakan perahu dayung yang kecil dan sering kali tidak memadai ketika arus sedang deras. Syeikh Ibrahim Ad-Dasuki sendiri sering menyeberang untuk menghadiri majelis ilmu, mengajar penduduk desa seberang, atau mengunjungi orang sakit.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">11</span>
+<span class="karomah-title">Karomah Menyeberangi Sungai Nil tanpa Perahu</span>
+<div class="karomah-arabic">عُبُورُهُ نَهْرَ النِّيلِ بِإِذْنِ اللَّهِ</div>
+<p>
+Dalam sebuah riwayat yang masyhur di kalangan penduduk Dusuq, diceritakan bahwa pada suatu hari Syeikh Ibrahim hendak menyeberang Sungai Nil untuk menghadiri sebuah majelis. Ketika beliau tiba di tepian, tidak ada satu pun perahu yang tersedia. Hari sudah menjelang asar, dan jika beliau menunggu datangnya perahu berikutnya, beliau akan ketinggalan majelis tersebut.
+</p>
+<p>
+Syeikh Ibrahim kemudian berhenti sejenak di tepi sungai. Beliau membaca basmalah, memohon pertolongan kepada Allah, lalu meletakkan tongkat kayunya di atas permukaan air. Dengan langkah yang tenang dan penuh tawakkal, beliau menginjakkan kakinya — dan atas izin Allah, beliau berjalan di atas permukaan sungai seolah-olah berjalan di atas tanah yang kering. Air di bawah kaki beliau tidak basah, dan jubah beliau tidak tersentuh oleh percikan sedikit pun.
+</p>
+<p>
+Beberapa penduduk yang melihat kejadian itu dari kejauhan tertegun. Mereka berlari menyusuri tepi sungai untuk mengikuti langkah beliau, sementara mata mereka tak percaya dengan apa yang mereka lihat. Ketika Syeikh Ibrahim tiba di seberang dan menoleh ke belakang, beliau bersabda kepada mereka: <em>"Janganlah kalian takjub kepadaku. Yang menundukkan air ini bukanlah aku, melainkan Allah Yang Maha Kuasa. Jika Allah berkehendak, maka laut pun menjadi jalan."</em>
+</p>
+<p>
+Para ulama menjelaskan bahwa karomah semacam ini disebut <em>masyyi 'alal-ma'</em> — berjalan di atas air. Ia bukanlah mukjizat, karena mukjizat khusus bagi para nabi, melainkan karomah yang Allah berikan kepada wali-Nya sebagai peneguhan atas kebenaran jalan beliau. Dan sebagaimana para nabi tidak pernah membanggakan mukjizat mereka, demikian pula para wali tidak pernah membanggakan karomah mereka.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TAWAKKAL — QS. ATH-THALAQ: 3</div>
+<div class="arabic-text">
+وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan barangsiapa bertawakkal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya."
+<br>— QS. Ath-Thalaq: 3
+</div>
+</div>
+<h2>Cahaya Gaib yang Menyertai Shalat Malam</h2>
+<p>
+Syeikh Ibrahim Ad-Dasuki dikenal sebagai seorang <em>qā'im</em> — orang yang menghidupkan malam dengan ibadah. Para tetangga beliau sering bercerita bahwa pada malam-malam tertentu, rumah beliau memancarkan cahaya yang sangat terang, meskipun tidak ada satu pun lampu atau lilin yang dinyalakan di dalamnya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">12</span>
+<span class="karomah-title">Karomah Cahaya yang Menyinari Rumah saat Shalat Malam</span>
+<div class="karomah-arabic">نُورٌ يَظْهَرُ فِي بَيْتِهِ عِنْدَ الْقِيَامِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa seorang tetangga Syeikh Ibrahim bangun pada sepertiga malam untuk mengambil air. Ketika ia melewati rumah beliau, ia melihat cahaya putih yang sangat terang keluar dari celah-celah pintu dan jendela rumah tersebut. Cahaya itu bukan cahaya api, karena tidak ada asap dan tidak ada panas. Cahaya itu lembut, menenangkan, dan membuat hati siapa pun yang memandangnya merasa dekat kepada Allah.
+</p>
+<p>
+Tetangga itu terkejut dan berpikir bahwa rumah Syeikh Ibrahim sedang terbakar. Ia segera berlari untuk memanggil orang-orang, namun ketika mereka sampai di depan rumah, mereka mendengar suara lantunan Al-Qur'an yang sangat merdu dari dalam. Mereka pun berhenti dan mendengarkan hingga subuh. Ketika Syeikh Ibrahim keluar untuk shalat subuh, mereka bertanya tentang cahaya itu.
+</p>
+<p>
+Syeikh Ibrahim menjawab dengan rendah hati: <em>"Aku hanyalah seorang hamba yang fakir. Ketika aku berdiri di hadapan keagungan Allah, hati ini dipenuhi cahaya, dan apa yang tampak di dalam hati tampak pula pada lahirnya. Maka janganlah kalian menjadikan cahaya itu sebagai kebanggaan bagiku, melainkan sebagai peringatan bagi kalian untuk menghidupkan malam."</em>
+</p>
+<p>
+Para ulama tasawuf menyebut fenomena ini sebagai <em>nur al-qalb al-zahir</em> — cahaya hati yang tampak pada lahiriah. Ia merupakan tanda bahwa dzikir dan shalat seseorang telah sampai pada tingkat kehadiran hati (<em>hudhur al-qalb</em>), sehingga cahaya iman yang ada di dalam hati memancar ke luar. Namun para wali senantiasa menyembunyikan hal ini, karena mereka lebih mencintai kerendahan hati daripada penampilan yang menakjubkan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH IBRAHIM AD-DASUKI</div>
+<div class="arabic-text">
+نُورُ الْقَلْبِ أَدَلُّ عَلَى الْوَصْلِ مِنْ نُورِ الْعَيْنِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Cahaya hati lebih menjadi bukti dekatnya seorang hamba kepada Allah daripada cahaya yang terlihat oleh mata."
+<br>— Syeikh Ibrahim Ad-Dasuki
+</div>
+</div>
+<h2>Keberkahan dalam Makanan</h2>
+<p>
+Di desa Dusuq, kehidupan masyarakat pada masa itu sangat sederhana. Hasil panen bergantung pada pasang surut Sungai Nil, dan kadang-kadang makanan menjadi sangat terbatas. Dalam keadaan seperti itu, karomah keberkahan makanan yang Allah anugerahkan kepada Syeikh Ibrahim menjadi penyelamat bagi banyak keluarga.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">13</span>
+<span class="karomah-title">Karomah Makanan yang Cukup untuk Seluruh Desa</span>
+<div class="karomah-arabic">بَرَكَةُ الطَّعَامِ عِنْدَهُ</div>
+<p>
+Dalam sebuah riwayat yang sering diceritakan oleh para tetua desa Dusuq, diceritakan bahwa pada suatu tahun terjadi gagal panen. Air sungai tidak naik sebagaimana mestinya, sehingga ladang-ladang kering dan gandum tidak tumbuh. Penduduk desa mulai kelaparan, dan banyak keluarga yang tidak memiliki apa-apa untuk dimakan selama berhari-hari.
+</p>
+<p>
+Mereka datang kepada Syeikh Ibrahim dengan penuh harap. Beliau mengumpulkan seluruh gandum yang ada di rumah beliau — hanya cukup untuk membuat beberapa potong roti bagi keluarga beliau sendiri. Namun beliau berkata: <em>"Letakkanlah gandum ini di tempat yang luas, dan panggillah seluruh penduduk desa."</em>
+</p>
+<p>
+Dengan izin Allah, ketika roti itu dibagikan, setiap keluarga yang datang memperoleh bagian yang cukup untuk beberapa hari. Orang-orang makan hingga kenyang, dan tetap ada sisa yang melimpah. Para perempuan yang membawa wadah kosong pulang dengan wadah yang penuh. Sejak hari itu, penduduk Dusuq menyebut peristiwa tersebut sebagai <em>'aish al-barakah</em> — roti keberkahan.
+</p>
+<p>
+Syeikh Ibrahim berkata kepada mereka: <em>"Sesungguhnya Allah tidak pernah menyia-nyiakan orang yang bertakwa kepada-Nya. Yang kalian lihat hari ini bukanlah kehebatan Ibrahim, melainkan rahmat Rabb Ibrahim. Maka bersyukurlah kepada-Nya, dan bagikanlah kepada orang yang lebih membutuhkan daripada kalian."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG BERKAH — QS. AL-A'RAF: 96</div>
+<div class="arabic-text">
+وَلَوْ أَنَّ أَهْلَ الْقُرَىٰ آمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِم بَرَكَاتٍ مِّنَ السَّمَاءِ وَالْأَرْضِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sekiranya penduduk negeri-negeri beriman dan bertakwa, pastilah Kami akan melimpahkan kepada mereka berkah dari langit dan bumi."
+<br>— QS. Al-A'raf: 96
+</div>
+</div>
+<h2>Firasat yang Menembus Isi Hati</h2>
+<p>
+Karomah yang sering membuat para tamu tercengang adalah ketajaman firasat Syeikh Ibrahim Ad-Dasuki. Beliau sering mengetahui niat seseorang sebelum orang itu mengucapkannya, dan mengetahui keadaan seseorang yang belum pernah beliau temui. Namun beliau tidak pernah menggunakan kemampuan ini untuk mempermalukan orang, melainkan untuk membimbing mereka kepada kebaikan.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">14</span>
+<span class="karomah-title">Karomah Mengetahui Isi Hati Seorang Tamu</span>
+<div class="karomah-arabic">فِرَاسَتُهُ الصَّادِقَةُ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa seorang pedagang kaya dari Kairo datang berkunjung ke Dusuq. Ia mengenakan pakaian yang sangat bagus dan membawa hadiah yang mahal. Di depan orang banyak, ia berkata dengan suara lantang: <em>"Wahai Syeikh, aku datang untuk bersedekah dan meminta doamu."</em>
+</p>
+<p>
+Namun Syeikh Ibrahim menatapnya dengan lembut dan berkata: <em>"Wahai saudaraku, sebelum engkau berbicara tentang sedekah, ada satu hal yang perlu engkau bereskan. Engkau masih menahan hak seorang pekerja yang telah bekerja untukmu selama setahun penuh, dan engkau belum membayarnya. Sesungguhnya sedekah tidak akan diterima sementara hak sesama masih engkau tahan."</em>
+</p>
+<p>
+Wajah pedagang itu pucat. Ia tidak pernah menceritakan persoalan itu kepada siapa pun, dan tidak seorang pun dari penduduk Dusuq yang mengetahuinya. Ia segera mengakui kesalahannya, mengembalikan hak pekerja itu, dan meminta maaf kepada Syeikh Ibrahim. Sejak hari itu, ia menjadi seorang yang sangat berhati-hati dalam urusan harta, dan ia berkata: <em>"Aku datang kepada Syeikh untuk memberi, tetapi justru aku yang diberi — diberi pelajaran tentang kejujuran."</em>
+</p>
+<p>
+Para ulama menjelaskan bahwa firasat orang mukmin adalah cahaya yang Allah berikan kepada hati yang bersih. Ia bukan ilmu gaib yang dimiliki sendiri, melainkan ilham dan petunjuk dari Allah sebagai bentuk pemuliaan. Dan karena itu, para wali menggunakan firasat mereka hanya untuk menasihati, menyembuhkan, dan memperbaiki — bukan untuk membanggakan diri atau merendahkan orang lain.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">SABDA RASULULLAH SAW TENTANG FIRASAT</div>
+<div class="arabic-text">
+اتَّقُوا فِرَاسَةَ الْمُؤْمِنِ فَإِنَّهُ يَنْظُرُ بِنُورِ اللَّهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Takutilah firasat orang mukmin, karena sesungguhnya ia melihat dengan cahaya Allah."
+<br>— HR. Tirmidzi
+</div>
+</div>
+<h2>Doa yang Menurunkan Hujan</h2>
+<p>
+Selain karomah berupa makanan yang diberkahi, Syeikh Ibrahim Ad-Dasuki juga dikenal dengan doa istisqa' — doa memohon hujan — yang sangat mustajab. Pada masa kemarau panjang, penduduk desa-desa di sekitar Dusuq biasa datang kepada beliau untuk memohon agar beliau berdoa kepada Allah agar menurunkan hujan.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">15</span>
+<span class="karomah-title">Karomah Memohon Hujan saat Kemarau</span>
+<div class="karomah-arabic">اسْتِسْقَاؤُهُ وَاسْتِجَابَةُ دُعَائِهِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu musim panas, hujan tidak turun selama berbulan-bulan. Tanah retak, saluran-saluran air mengering, dan ternak-ternak mati karena kehausan. Para petani berdiri di ladang mereka yang gersang tanpa tahu harus berbuat apa. Mereka pun berkumpul dan memutuskan untuk mendatangi Syeikh Ibrahim Ad-Dasuki.
+</p>
+<p>
+Ketika mereka sampai di rumah beliau, Syeikh Ibrahim tidak langsung menjawab permintaan mereka. Beliau bertanya: <em>"Wahai saudara-saudaraku, apakah kita sudah memperbaiki hubungan kita dengan Allah? Apakah hak-hak fakir miskin sudah kita tunaikan? Apakah kita masih menyimpan kedengkian di dalam hati terhadap sesama?"</em>
+</p>
+<p>
+Beliau kemudian mengajak seluruh penduduk keluar menuju tanah lapang. Mereka shalat dua rakaat, memohon ampun, dan bertaubat dengan sungguh-sungguh. Setelah itu Syeikh Ibrahim mengangkat kedua tangannya dan berdoa dengan air mata yang berlinang. Belum sempat mereka pulang ke rumah, langit mulai menggelap, angin bertiup, dan turunlah hujan yang sangat lebat.
+</p>
+<p>
+Air mengisi kembali saluran-saluran, ladang-ladang menjadi hijau, dan penduduk kembali bercocok tanam. Mereka datang untuk mengucapkan terima kasih kepada Syeikh Ibrahim, namun beliau berkata: <em>"Jangan berterima kasih kepada Ibrahim. Berterima kasihlah kepada Allah. Sesungguhnya hujan ini turun karena taubat kalian, bukan karena kehebatan Ibrahim."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ISTIGFAR DAN HUJAN — QS. NUH: 10-11</div>
+<div class="arabic-text">
+فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ إِنَّهُ كَانَ غَفَّارًا ۝ يُرْسِلِ السَّمَاءَ عَلَيْكُم مِّدْرَارًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maka aku berkata kepada mereka: 'Mohonlah ampun kepada Tuhanmu, sesungguhnya Dia adalah Maha Pengampun. Niscaya Dia akan mengirimkan hujan kepadamu dengan lebat.'"
+<br>— QS. Nuh: 10-11
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Luar Biasa Syeikh Ibrahim Ad-Dasuki:</strong>
+<ul>
+<li><strong>Menyeberangi Sungai Nil tanpa perahu</strong> — Masyyi 'alal-ma' dengan tawakkal penuh</li>
+<li><strong>Cahaya yang menyinari rumah saat shalat malam</strong> — Nur al-qalb al-zahir</li>
+<li><strong>Makanan yang cukup untuk seluruh desa</strong> — Barakah dalam rezeki saat kemarau</li>
+<li><strong>Firasat yang menembus isi hati</strong> — Melihat dengan cahaya Allah</li>
+<li><strong>Doa istisqa' yang dikabulkan</strong> — Hujan turun setelah taubat dan istigfar</li>
+<li><strong>Selalu menyembunyikan karomah</strong> — Mengembalikannya seluruhnya kepada Allah</li>
+</ul>
+</div>
+<h2>Pelajaran dari Karomah-Karomah Beliau</h2>
+<p>
+Dari kelima karomah yang disebutkan di atas, terdapat satu benang merah yang sangat penting: Syeikh Ibrahim Ad-Dasuki tidak pernah sekali pun membanggakan karomah beliau. Setiap kali seseorang takjub kepada beliau, beliau segera mengalihkan kekaguman itu kepada Allah. Ketika berjalan di atas sungai, beliau berkata, <em>"Yang menundukkan air ini bukanlah aku."</em> Ketika makanan berlipat ganda, beliau berkata, <em>"Ini adalah rahmat Rabb Ibrahim."</em> Ketika hujan turun, beliau berkata, <em>"Hujan ini turun karena taubat kalian."</em>
+</p>
+<blockquote>
+<em>"Karomah yang paling agung adalah istiqamah di atas syariat dan hakikat. Sebab siapa pun bisa takjub pada air yang membelah, tetapi hanya orang yang dipilih Allah yang mampu istiqamah dalam ketaatan."</em>
+</blockquote>
+<p>
+Inilah pelajaran terbesar bagi kita: jangan mengejar karomah, tetapi kejarlah ketakwaan. Karena karomah adalah buah, sedangkan takwa adalah akarnya. Orang yang sibuk mencari buah tanpa merawat akar akan kecewa, sedangkan orang yang merawat akar dengan sabar akan mendapati buah itu datang dengan sendirinya — pada waktu yang terbaik menurut Allah.
+</p>
+<h2>Doa Memohon Kekuatan Iman</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON CAHAYA IMAN DAN KEYAKINAN</div>
+<div class="arabic-text">
+اللَّهُمَّ أَلْبِسْنَا نُورَ الْإِيمَانِ، وَارْزُقْنَا الْيَقِينَ وَالْإِخْلَاصَ، وَاجْعَلْنَا مِنْ أَوْلِيَائِكَ الْمُخْلَصِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, kenakanlah kepada kami cahaya iman, anugerahkanlah kepada kami keyakinan dan keikhlasan, dan jadikanlah kami termasuk wali-wali-Mu yang ikhlas."
+</div>
+</div>
+<h2>Penutup Halaman 3</h2>
+<p>
+Demikianlah sebagian karomah luar biasa Syeikh Ibrahim Ad-Dasuki yang Allah tampakkan melalui tangan beliau — menyeberangi Sungai Nil, cahaya shalat malam, makanan yang diberkahi, firasat yang tepat, dan doa yang menurunkan hujan. Semuanya menjadi bukti bahwa Allah tidak pernah menyia-nyiakan hamba yang ikhlas kepada-Nya.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas pertemuan-pertemuan Syeikh Ibrahim Ad-Dasuki dengan para ulama dan wali sezaman beliau, serta bagaimana beliau saling mengambil dan memberikan manfaat dalam perjalanan menuju Allah SWT.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya."
+<br>— QS. Al-Baqarah: 286
+</div>
+</div>
+</div>
+<!-- NAVIGASI 6 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="dasuki1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="dasuki2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="dasuki3.html" class="article-nav-btn active" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="dasuki4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="dasuki5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="dasuki6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

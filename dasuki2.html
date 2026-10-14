@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ibrahim Ad-Dasuki - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.3rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 10px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 40px;
+height: 40px;
+font-size: 1.1rem;
+}
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ibrahim Ad-Dasuki — Halaman 2
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ibrahim Ad-Dasuki</h1>
+<div class="subtitle">Halaman 2 dari 6 — Perjalanan Spiritual & Menuntut Ilmu di Kairo</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg/440px-Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg"
+alt="Perjalanan Syeikh Ibrahim Ad-Dasuki ke Kairo"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi gerbang Bab Zuweila di Kairo, tempat Syeikh Ibrahim Ad-Dasuki menuntut ilmu kepada para ulama besar Mesir</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah tumbuh di desa Dusuq dengan pendidikan agama yang kuat dari keluarganya, Syeikh Ibrahim Ad-Dasuki merasa rindu yang mendalam untuk menuntut ilmu kepada para ulama besar di Kairo — pusat keilmuan dunia Islam pada masa itu. Perjalanan dari Dusuq ke Kairo melintasi Sungai Nil yang panjang, dan di sanalah Allah tampakkan karomah-karomah baru yang menunjukkan ketinggian maqam spiritual beliau. Di Kairo, beliau berguru kepada para ulama besar, mendalami ilmu fiqih, hadits, tafsir, dan tasawuf, hingga menjadi salah satu ulama paling disegani di Mesir pada zamannya.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MENUNTUT ILMU — QS. AL-MUJADALAH: 11</div>
+<div class="arabic-text">
+يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah akan meninggikan orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu pengetahuan beberapa derajat."
+<br>— QS. Al-Mujadalah: 11
+</div>
+</div>
+<h2>Perjalanan ke Kairo — Pusat Keilmuan Dunia Islam</h2>
+<p>
+Pada masa itu, Kairo merupakan pusat keilmuan dunia Islam, tempat berkumpulnya para ulama besar dari berbagai penjuru negeri. Masjid Al-Azhar, Masjid Amr bin Ash, dan masjid-masjid besar lainnya menjadi tempat pengajian para ulama. Syeikh Ibrahim berangkat dari Dusuq dengan berjalan kaki, membawa bekal yang sangat sedikit, dan bertawakkal sepenuhnya kepada Allah.
+</p>
+<p>
+Perjalanan dari Dusuq ke Kairo memakan waktu beberapa hari, menyusuri tepi Sungai Nil yang indah. Di sepanjang perjalanan, beliau senantiasa berdzikir dan membaca Al-Qur'an. Orang-orang yang melihat beliau merasa takjub dengan ketenangan dan cahaya yang terpancar dari wajah beliau, meskipun beliau hanya mengenakan pakaian yang sangat sederhana.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">6</span>
+<span class="karomah-title">Karomah Perjalanan ke Kairo — Ditemani Malaikat</span>
+<div class="karomah-arabic">مُؤَانَسَتُهُ بِالْمَلَائِكَةِ فِي رِحْلَتِهِ إِلَى الْقَاهِرَةِ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa selama perjalanan dari Dusuq ke Kairo, Syeikh Ibrahim senantiasa ditemani oleh makhluk-makhluk Allah yang tak terlihat — para malaikat yang diutus oleh Allah untuk menjaganya dan menemaninya dalam perjalanan. Beliau merasakan kehadiran mereka dalam bentuk ketenangan yang luar biasa di dalam hati, dan cahaya yang senantiasa menyertai langkah beliau.
+</p>
+<p>
+Pada suatu malam, ketika beliau berhenti untuk beristirahat di tepi Sungai Nil, beliau bermimpi bertemu dengan Rasulullah SAW. Rasulullah SAW tersenyum kepadanya dan berkata: <em>"Wahai Ibrahim, engkau sedang dalam perjalanan untuk menuntut ilmu yang akan bermanfaat bagi umat hingga hari kiamat. Maka bersabarlah, karena Allah telah menyiapkan untukmu kedudukan yang mulia di sisi-Nya."</em>
+</p>
+<p>
+Ketika Syeikh Ibrahim terbangun, beliau menangis dengan penuh kegembiraan. Beliau berkata: <em>"Demi Allah, aku telah bertemu dengan Rasulullah SAW dalam mimpi, dan beliau memberikan aku kabar gembira. Maka aku akan terus berjalan dengan penuh keyakinan bahwa Allah akan mencukupkan keperluanku."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ru'ya ash-shalihat</em> (mimpi yang baik) — mimpi para wali adalah sebagian dari kenabian, sebagaimana sabda Rasulullah SAW: <em>"Mimpi orang mukmin adalah seperempat puluh enam dari kenabian."</em> (HR. Bukhari).
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MIMPI ORANG MUKMIN</div>
+<div class="arabic-text">
+الرُّؤْيَا الصَّالِحَةُ مِنَ اللَّهِ وَالْحُلْمُ مِنَ الشَّيْطَانِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Mimpi yang baik adalah dari Allah, dan mimpi yang buruk adalah dari setan."
+<br>— HR. Bukhari & Muslim
+</div>
+</div>
+<h2>Menuntut Ilmu di Kairo</h2>
+<p>
+Ketika tiba di Kairo, Syeikh Ibrahim langsung menuju Masjid Al-Azhar — universitas tertua di dunia Islam yang pada masa itu menjadi pusat keilmuan paling bergengsi. Beliau mulai menuntut ilmu dari para ulama besar, belajar fiqih mazhab Syafi'i, hadits, tafsir, ushul fiqih, dan berbagai ilmu agama lainnya.
+</p>
+<p>
+Kecerdasan spiritual Syeikh Ibrahim begitu luar biasa sehingga para guru beliau sendiri takjub dengan kemampuan beliau memahami masalah-masalah yang rumit. Beliau tidak hanya menghafal lafazh-lafazh kitab, melainkan juga memahami makna-makna yang dalam di baliknya. Dalam waktu yang relatif singkat, beliau telah menguasai berbagai ilmu agama dan menjadi salah satu murid paling cemerlang di zamannya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">7</span>
+<span class="karomah-title">Karomah Menguasai Ilmu dengan Cepat</span>
+<div class="karomah-arabic">إِتْقَانُهُ لِلْعِلْمِ بِسُرْعَةٍ عَجِيبَةٍ</div>
+<p>
+Salah satu karomah Syeikh Ibrahim di Kairo adalah kemampuan beliau menguasai ilmu dengan kecepatan yang luar biasa. Para ulama menceritakan bahwa beliau dapat membaca dan memahami sebuah kitab besar hanya dalam waktu satu malam, sedangkan murid-murid lain membutuhkan waktu berbulan-bulan untuk memahami kitab yang sama.
+</p>
+<p>
+Salah seorang guru beliau — yang dalam riwayat disebutkan sebagai Syeikh Ahmad bin Ali Al-Bashiri — berkata: <em>"Aku belum pernah melihat murid yang seperti Ibrahim. Ia membaca kitab dengan sekali baca, lalu ia memahami seluruh isinya seolah-olah ia telah membacanya seribu kali. Ini adalah tanda bahwa Allah telah memberikan kepadanya cahaya pemahaman (fath) dari sisi-Nya."</em>
+</p>
+<p>
+Para ulama berkata bahwa karomah berupa kecepatan dalam memahami ilmu adalah tanda bahwa Allah telah membuka pintu-pintu hikmah di dalam hati hamba-Nya. Ini bukanlah kecerdasan intelektual semata, melainkan anugerah ilahiyah yang Allah berikan kepada orang-orang yang ikhlas dalam menuntut ilmu.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA ILMU — QS. AN-NISA': 174</div>
+<div class="arabic-text">
+يَا أَيُّهَا النَّاسُ قَدْ جَاءَكُم بُرْهَانٌ مِّن رَّبِّكُمْ وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai manusia, sesungguhnya telah datang kepadamu bukti (kebenaran) dari Tuhanmu, dan telah Kami turunkan kepadamu cahaya yang terang benderang."
+<br>— QS. An-Nisa': 174
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">8</span>
+<span class="karomah-title">Karomah Shalat Malam yang Panjang</span>
+<div class="karomah-arabic">طُولُ قِيَامِهِ فِي اللَّيْلِ</div>
+<p>
+Di samping menuntut ilmu di siang hari, Syeikh Ibrahim senantiasa menghidupkan malamnya dengan shalat tahajjud, dzikir, dan tilawah Al-Qur'an. Beliau biasa shalat malam selama berjam-jam, membaca Al-Qur'an dengan tartil dan penuh kekhusyukan. Ketika beliau membaca Al-Qur'an di malam hari, orang-orang yang mendengarnya dari kejauhan merasakan ketenangan yang luar biasa, seolah-olah ayat-ayat Al-Qur'an itu turun dari langit langsung ke dalam hati mereka.
+</p>
+<p>
+Para murid beliau menceritakan bahwa seringkali mereka mendengar suara tangisan beliau dari dalam kamarnya ketika beliau sedang shalat malam. Tangisan itu bukanlah tangisan kesedihan, melainkan tangisan kecintaan dan kerinduan kepada Allah. Beliau sering berkata: <em>"Malam adalah waktu bermunajat kepada Allah, maka janganlah engkau sia-siakan dengan tidur yang tidak perlu."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>taufiq al-qiyam</em> (pertolongan untuk bangun malam) — karomah yang Allah berikan kepada hamba-hamba-Nya yang dicintai. Para ulama berkata bahwa barangsiapa yang diberikan taufiq untuk bangun malam dan bermunajat kepada Allah, maka ia telah diberikan kunci kebaikan yang banyak.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG SHALAT MALAM — QS. AS-SAJDAH: 16</div>
+<div class="arabic-text">
+تَتَجَافَىٰ جُنُوبُهُمْ عَنِ الْمَضَاجِعِ يَدْعُونَ رَبَّهُمْ خَوْفًا وَطَمَعًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Lambung mereka jauh dari tempat tidurnya, mereka berdoa kepada Tuhannya dengan rasa takut dan harap."
+<br>— QS. As-Sajdah: 16
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">9</span>
+<span class="karomah-title">Karomah Kedermawanan yang Luar Biasa</span>
+<div class="karomah-arabic">كَرَمُهُ وَإِطْعَامُهُ لِلْفُقَرَاءِ</div>
+<p>
+Meskipun beliau sendiri hidup dalam kesederhanaan, Syeikh Ibrahim sangat dermawan kepada orang-orang fakir dan miskin. Beliau senantiasa membagi-bagikan makanan kepada mereka yang membutuhkan, meskipun beliau sendiri hanya memiliki sedikit. Para ulama menceritakan bahwa seringkali beliau memberikan seluruh makanan yang ada di rumahnya kepada tetangga yang lapar, dan beliau sendiri berpuasa hingga beberapa hari.
+</p>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu hari beliau hanya memiliki sepotong roti untuk makan siang beliau dan keluarganya. Ketika beliau hendak memakannya, datanglah seorang fakir yang mengetuk pintu dan meminta makanan. Syeikh Ibrahim tanpa ragu memberikan seluruh roti itu kepada fakir tersebut, dan beliau beserta keluarganya berpuasa hingga malam hari.
+</p>
+<p>
+Ketika istrinya bertanya: <em>"Wahai suamiku, mengapa engkau memberikan seluruh roti kita kepada orang itu?"</em> Syeikh Ibrahim menjawab: <em>"Wahai istriku, Allah Maha Kaya dan Maha Pemberi. Ia tidak akan membiarkan kita kelaparan karena kita telah memberi karena-Nya. Percayalah, Allah akan memberikan ganti yang lebih baik."</em> Dan benarlah, tidak lama kemudian datanglah seorang dermawan yang memberikan mereka makanan yang banyak, lebih dari cukup untuk beberapa hari.
+</p>
+<p>
+Ini adalah karomah berupa <em>barakah</em> (keberkahan) dalam rezeki — sebagaimana Allah berikan keberkahan kepada makanan orang-orang yang ikhlas dan dermawan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG SEDEKAH — QS. AL-BAQARAH: 261</div>
+<div class="arabic-text">
+مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Perumpamaan (nafkah yang dikeluarkan oleh) orang-orang yang menafkahkan hartanya di jalan Allah adalah serupa dengan sebutir benih yang menumbuhkan tujuh bulir, pada tiap-tiap bulir ada seratus biji."
+<br>— QS. Al-Baqarah: 261
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">10</span>
+<span class="karomah-title">Karomah Doa yang Mustajab</span>
+<div class="karomah-arabic">إِجَابَةُ دُعَائِهِ</div>
+<p>
+Salah satu karomah terbesar Syeikh Ibrahim Ad-Dasuki adalah bahwa doa-doa beliau senantiasa dikabulkan oleh Allah. Para ulama dan masyarakat sekitar Kairo sering datang kepada beliau untuk meminta doa, dan mereka semua merasakan keberkahan dari doa beliau. Ada yang sembuh dari penyakit setelah beliau doakan, ada yang mendapatkan rezeki yang tidak disangka-sangka, ada yang mendapatkan petunjuk dalam urusan mereka, dan ada yang mendapatkan ketenangan hati.
+</p>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa seorang pedagang besar di Kairo datang kepada Syeikh Ibrahim dengan membawa harta yang sangat banyak. Ia berkata: <em>"Wahai Syeikh, aku ingin memberikan hartaku kepadamu agar engkau dapat membantu orang-orang fakir."</em> Namun Syeikh Ibrahim menolak dan berkata: <em>"Wahai saudaraku, aku tidak membutuhkan hartamu. Namun jika engkau ingin doaku, maka bertaubatlah kepada Allah, dan tunaikanlah hak-hak fakir miskin dari hartamu."</em>
+</p>
+<p>
+Pedagang itu pun bertaubat dan mulai bersedekah dengan ikhlas. Tidak lama kemudian, usahanya berkembang pesat dan hartanya bertambah berlipat ganda. Ia berkata: <em>"Demi Allah, doa Syeikh Ibrahim telah mengubah hidupku. Bukan karena hartaku, melainkan karena taubat dan keikhlasanku kepada Allah."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>istijabah ad-du'a</em> (dikabulkannya doa) — tanda bahwa Allah telah menerima keikhlasan dan kecintaan beliau kepada-Nya. Para ulama berkata bahwa doa para wali selalu dikabulkan, karena hati mereka senantiasa hidup bersama Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DOA — QS. GHAFIR: 60</div>
+<div class="arabic-text">
+وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Tuhanmu berfirman: Berdoalah kepada-Ku, niscaya akan Kuperkenankan bagimu."
+<br>— QS. Ghafir: 60
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Syeikh Ibrahim di Kairo:</strong>
+<ul>
+<li><strong>Ditemani malaikat dalam perjalanan</strong> — Kehadiran makhluk gaib yang menjaganya</li>
+<li><strong>Bermimpi bertemu Rasulullah SAW</strong> — Kabar gembira menjelang menuntut ilmu</li>
+<li><strong>Menguasai ilmu dengan cepat</strong> — Cahaya pemahaman (fath) dari Allah</li>
+<li><strong>Shalat malam yang panjang</strong> — Taufiq al-qiyam sebagai tanda cinta Allah</li>
+<li><strong>Kedermawanan yang luar biasa</strong> — Barakah dalam rezeki</li>
+<li><strong>Doa yang mustajab</strong> — Istijabah ad-du'a sebagai tanda kewalian</li>
+</ul>
+</div>
+<h2>Doa Memohon Ilmu yang Bermanfaat</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON ILMU YANG BERMANFAAT</div>
+<div class="arabic-text">
+رَبِّ زِدْنِي عِلْمًا وَارْزُقْنِي فَهْمًا وَاجْعَلْنِي مِنَ الصَّالِحِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhanku, tambahkanlah kepadaku ilmu, anugerahkanlah kepadaku pemahaman, dan jadikanlah aku termasuk orang-orang yang shaleh."
+<br>— QS. Thaha: 114 & doa tambahan
+</div>
+</div>
+<h2>Penutup Halaman 2</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Ibrahim Ad-Dasuki selama perjalanan spiritual beliau menuntut ilmu di Kairo. Karomah-karomah ini bukanlah tujuan utama beliau, melainkan buah dari keikhlasan, zuhud, dan ketaatan beliau kepada Allah SWT. Pada halaman berikutnya, kita akan membahas karomah-karomah luar biasa beliau — seperti berjalan di atas air Sungai Nil, melihat cahaya gaib, dan mukjizat-mukjizat lainnya yang Allah tampakkan melalui tangan beliau.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَاتَّقُوا اللَّهَ وَيُعَلِّمُكُمُ اللَّهُ ۗ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan bertakwalah kepada Allah, niscaya Allah akan mengajarmu; dan Allah Maha Mengetahui segala sesuatu."
+<br>— QS. Al-Baqarah: 282
+</div>
+</div>
+</div>
+<!-- NAVIGASI 6 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="dasuki1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="dasuki2.html" class="article-nav-btn active" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="dasuki3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="dasuki4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="dasuki5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="dasuki6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

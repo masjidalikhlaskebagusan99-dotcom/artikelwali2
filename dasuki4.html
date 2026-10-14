@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ibrahim Ad-Dasuki - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.3rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 10px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 40px;
+height: 40px;
+font-size: 1.1rem;
+}
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ibrahim Ad-Dasuki — Halaman 4
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ibrahim Ad-Dasuki</h1>
+<div class="subtitle">Halaman 4 dari 6 — Pertemuan dengan Para Ulama & Wali Sezaman</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg/440px-Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg"
+alt="Pertemuan Para Ulama di Kairo"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi gerbang Bab Zuweila di Kairo, tempat Syeikh Ibrahim Ad-Dasuki bertemu dengan para ulama dan wali besar sezamannya</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Salah satu karomah besar Syeikh Ibrahim Ad-Dasuki adalah bahwa Allah pertemukan beliau dengan para ulama besar dan wali Allah sezaman beliau. Pertemuan-pertemuan ini bukanlah kebetulan, melainkan takdir Allah yang menghimpun para kekasih-Nya dalam satu zaman untuk saling memuliakan, saling mengambil manfaat, dan saling menguatkan dalam perjalanan spiritual menuju Allah. Dari pertemuan-pertemuan inilah lahir nasihat-nasihat agung yang menjadi warisan spiritual bagi umat Islam hingga hari ini — dan dari didikan beliau lahirlah para ulama besar, termasuk putranya sendiri, Syeikh Ahmad Ad-Dasuki, pendiri Tarekat Dasuqiyah yang masyhur.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG SOHIB SHALIH — QS. AZ-ZUKHRUF: 67</div>
+<div class="arabic-text">
+الْأَخِلَّاءُ يَوْمَئِذٍ بَعْضُهُمْ لِبَعْضٍ عَدُوٌّ إِلَّا الْمُتَّقِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Teman-teman akrab pada hari itu sebagiannya menjadi musuh bagi sebagian yang lain, kecuali orang-orang yang bertakwa."
+<br>— QS. Az-Zukhruf: 67
+</div>
+</div>
+<h2>Pertemuan dengan Syeikh Muhammad al-Khafaji</h2>
+<p>
+Salah satu pertemuan paling berkesan dalam kehidupan Syeikh Ibrahim Ad-Dasuki adalah pertemuan beliau dengan Syeikh Muhammad al-Khafaji — seorang sufi besar di Kairo yang dikenal dengan kedalaman ma'rifat dan kewara'an beliau. Syeikh Muhammad al-Khafaji adalah guru spiritual yang membimbing Syeikh Ibrahim dalam perjalanan suluk, dan beliau menjadi salah satu tokoh yang paling berperan dalam membentuk kepribadian spiritual Syeikh Ibrahim.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">16</span>
+<span class="karomah-title">Karomah Pertemuan dengan Syeikh Muhammad al-Khafaji</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِالشَّيْخِ مُحَمَّدٍ الْخَفَاجِيِّ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Ibrahim pertama kali datang ke majelis Syeikh Muhammad al-Khafaji, sang syeikh langsung menatap wajah beliau dengan penuh perhatian. Setelah beberapa saat, Syeikh Muhammad berkata kepada para muridnya: <em>"Perhatikanlah pemuda ini. Di wajahnya terpancar cahaya kenabian, dan aku melihat tanda-tanda kewalian yang akan tampak di zamannya kelak. Ia akan menjadi salah satu wali besar yang ilmunya bermanfaat bagi umat hingga hari kiamat."</em>
+</p>
+<p>
+Syeikh Ibrahim kemudian menjadi murid terdekat Syeikh Muhammad al-Khafaji. Di bawah bimbingan beliau, Syeikh Ibrahim menempuh perjalanan spiritual yang sangat ketat — mulai dari mujahadah (perjuangan melawan hawa nafsu), riyadhah (latihan spiritual), hingga khalwat (pengasingan diri untuk bermunajat kepada Allah). Syeikh Muhammad mengajarkan kepadanya tentang adab-adab suluk, tazkiyatun nafs (penyucian jiwa), dan cara-cara mendekatkan diri kepada Allah.
+</p>
+<p>
+Setelah beberapa tahun menempuh pendidikan spiritual, Syeikh Muhammad al-Khafaji berkata kepada Syeikh Ibrahim: <em>"Wahai Ibrahim, engkau telah mencapai maqam yang tinggi. Sekarang pergilah dan ajarkanlah ilmu yang telah engkau peroleh kepada umat. Sesungguhnya Allah telah memilihmu untuk menjadi pelita bagi orang-orang yang mencari jalan kepada-Nya."</em>
+</p>
+<p>
+Pertemuan ini adalah karomah berupa <em>hidayah al-mursyid</em> (petunjuk dari seorang mursyid) — karomah yang Allah berikan kepada hamba-Nya dengan mengirimkan guru spiritual yang tepat pada waktu yang tepat. Para ulama berkata bahwa barangsiapa yang mendapatkan mursyid yang sejati, maka ia telah mendapatkan kunci menuju ma'rifatullah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH MUHAMMAD AL-KHAFAJI</div>
+<div class="arabic-text">
+هَذَا الْغُلَامُ سَيَكُونُ مِنْ أَكْبَرِ أَوْلِيَاءِ زَمَانِهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Anak muda ini akan menjadi salah satu wali terbesar di zamannya, dan ilmunya akan bermanfaat bagi umat hingga hari kiamat."
+<br>— Syeikh Muhammad al-Khafaji tentang Syeikh Ibrahim Ad-Dasuki
+</div>
+</div>
+<h2>Pertemuan dengan Syeikh Zakariya al-Anshari</h2>
+<p>
+Syeikh Zakariya al-Anshari (824-926 H / 1420-1520 M) adalah salah seorang imam besar dalam bidang fiqih Syafi'i, hadits, dan ushul fiqih. Beliau dikenal dengan gelar <em>Syeikh al-Islam</em> karena ketinggian ilmu dan kewara'an beliau. Syeikh Zakariya al-Anshari adalah salah satu guru Syeikh Ibrahim dalam bidang ilmu syariat, dan pertemuan keduanya menjadi salah satu pertemuan paling berkesan dalam sejarah keilmuan Mesir pada masa itu.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">17</span>
+<span class="karomah-title">Karomah Pertemuan dengan Syeikh Zakariya al-Anshari</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِشَيْخِ الْإِسْلَامِ زَكَرِيَّا الْأَنْصَارِيِّ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa ketika Syeikh Ibrahim menghadiri majelis ilmu Syeikh Zakariya al-Anshari di Masjid Al-Azhar, beliau mengajukan sebuah pertanyaan tentang masalah fiqih yang sangat rumit. Pertanyaan itu membuat para murid lain terdiam, karena mereka tidak mampu memahami masalah tersebut. Namun Syeikh Zakariya al-Anshari tersenyum dan berkata: <em>"Wahai Ibrahim, engkau telah mengajukan pertanyaan yang hanya bisa diajukan oleh orang yang telah mencapai maqam tinggi dalam ilmu dan amal."</em>
+</p>
+<p>
+Syeikh Zakariya kemudian menjawab pertanyaan itu dengan penjelasan yang sangat mendalam, dan beliau berkata kepada para muridnya: <em>"Perhatikanlah pemuda ini. Ia bukan hanya memahami lahiriah ilmu, melainkan juga hakikatnya. Inilah tanda bahwa Allah telah memberikan kepadanya cahaya pemahaman (fath) dari sisi-Nya."</em>
+</p>
+<p>
+Sejak saat itu, Syeikh Zakariya al-Anshari senantiasa memuji Syeikh Ibrahim di hadapan para murid beliau, dan beliau berkata: <em>"Barangsiapa yang ingin melihat contoh ulama yang menggabungkan antara ilmu syariat dan hakikat, maka lihatlah Ibrahim Ad-Dasuki."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>syahadah al-'ulama'</em> (pengakuan dari para ulama) — karomah yang Allah berikan kepada hamba-Nya dengan menjadikan para ulama besar bersaksi atas ketinggian ilmu dan kewalian beliau.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU — QS. AL-BAQARAH: 269</div>
+<div class="arabic-text">
+يُؤْتِي الْحِكْمَةَ مَن يَشَاءُ وَمَن يُؤْتَ الْحِكْمَةَ فَقَدْ أُوتِيَ خَيْرًا كَثِيرًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dia memberikan hikmah kepada siapa yang Dia kehendaki. Dan barangsiapa yang diberikan hikmah, sungguh telah diberikan kepadanya kebaikan yang banyak."
+<br>— QS. Al-Baqarah: 269
+</div>
+</div>
+<h2>Pertemuan dengan Para Wali Besar Mesir</h2>
+<p>
+Selain bertemu dengan para ulama besar dalam bidang ilmu syariat, Syeikh Ibrahim Ad-Dasuki juga bertemu dengan para wali besar Mesir pada masanya. Pertemuan-pertemuan ini menjadi sarana bagi beliau untuk saling mengambil manfaat spiritual, dan menjadi tanda bahwa Allah telah menghimpun para kekasih-Nya dalam satu zaman.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">18</span>
+<span class="karomah-title">Karomah Pertemuan dengan Para Wali Besar Mesir</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِأَوْلِيَاءِ مِصْرَ الْكِبَارِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu hari Syeikh Ibrahim menghadiri sebuah majelis dzikir yang dihadiri oleh banyak wali besar Mesir. Di antara mereka terdapat Syeikh Ahmad al-Badawi, Syeikh Ahmad ar-Rifa'i, dan para wali lainnya yang telah wafat namun ruh mereka hadir dalam majelis tersebut (dalam bentuk ru'yah atau penglihatan spiritual).
+</p>
+<p>
+Ketika Syeikh Ibrahim masuk ke dalam majelis, para wali itu berdiri untuk menghormati beliau. Syeikh Ahmad al-Badawi berkata kepada beliau: <em>"Wahai Ibrahim, engkau adalah salah satu dari kami. Allah telah memilihmu untuk menjadi salah satu kutub (poros) kewalian di zaman ini. Maka tetaplah istiqamah di atas jalan-Nya, dan janganlah engkau takut kepada siapa pun selain Dia."</em>
+</p>
+<p>
+Syeikh Ibrahim menangis mendengar kata-kata itu, dan beliau berkata: <em>"Wahai tuan-tuanku, aku hanyalah hamba yang fakir yang mencari ridha Allah. Doakanlah aku agar Allah memberikan aku istiqamah hingga akhir hayatku."</em> Para wali itu pun mendoakan beliau, dan beliau merasakan cahaya kewalian yang semakin terang di dalam hatinya.
+</p>
+<p>
+Ini adalah karomah berupa <em>al-jam'u bayna al-awliya'</em> (himpunan para wali) — Allah menghimpun para kekasih-Nya dalam satu tempat dan satu zaman sebagai tanda pemuliaan. Para ulama berkata bahwa pertemuan para wali adalah rahmat Allah yang diturunkan kepada hamba-hamba-Nya yang shaleh.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MAQAM WALI — QS. YUNUS: 62-63</div>
+<div class="arabic-text">
+أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ ۝ الَّذِينَ آمَنُوا وَكَانُوا يَتَّقُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu tidak ada ketakutan bagi mereka dan tidak pula mereka bersedih hati. (Yaitu) orang-orang yang beriman dan mereka senantiasa bertakwa."
+<br>— QS. Yunus: 62-63
+</div>
+</div>
+<h2>Karomah dalam Mengajar dan Membimbing Murid</h2>
+<p>
+Salah satu karomah terbesar Syeikh Ibrahim Ad-Dasuki adalah kemampuan beliau dalam mengajar dan membimbing para murid. Beliau tidak hanya mengajarkan ilmu syariat, melainkan juga membimbing mereka dalam perjalanan spiritual menuju Allah. Para murid beliau merasakan perubahan yang luar biasa dalam diri mereka setelah berguru kepada beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">19</span>
+<span class="karomah-title">Karomah Mengajar dengan Cahaya Hati</span>
+<div class="karomah-arabic">تَدْرِيسُهُ بِنُورِ الْقَلْبِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa ketika Syeikh Ibrahim mengajar para murid beliau, beliau tidak hanya menjelaskan lafazh-lafazh kitab, melainkan juga membuka makna-makna yang tersembunyi di baliknya. Para murid merasakan seolah-olah ilmu itu masuk langsung ke dalam hati mereka, bukan hanya ke dalam pikiran mereka.
+</p>
+<p>
+Salah seorang murid beliau berkata: <em>"Ketika Syeikh Ibrahim mengajar, aku merasakan cahaya yang masuk ke dalam hatiku. Aku memahami masalah-masalah yang sebelumnya tidak aku pahami, dan aku merasakan ketenangan yang tidak pernah aku rasakan sebelumnya. Seolah-olah ilmu itu bukan dari Syeikh Ibrahim, melainkan langsung dari Allah yang Dia alirkan melalui lisan beliau."</em>
+</p>
+<p>
+Syeikh Ibrahim sendiri berkata: <em>"Aku tidak mengajarkan apa-apa. Aku hanya membuka pintu-pintu yang telah Allah tutup di dalam hati kalian. Jika Allah berkehendak, maka pintu-pintu itu akan terbuka, dan kalian akan melihat cahaya-Nya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'lim bin-nur</em> (pengajaran dengan cahaya) — karomah yang Allah berikan kepada para wali-Nya, sehingga ilmu yang mereka ajarkan masuk langsung ke dalam hati para murid. Para ulama berkata bahwa pengajaran yang paling bermanfaat adalah pengajaran yang disertai dengan cahaya hati, karena ia tidak hanya memberikan informasi, melainkan juga memberikan transformasi spiritual.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA ILMU — QS. AN-NISA': 174</div>
+<div class="arabic-text">
+يَا أَيُّهَا النَّاسُ قَدْ جَاءَكُم بُرْهَانٌ مِّن رَّبِّكُمْ وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai manusia, sesungguhnya telah datang kepadamu bukti (kebenaran) dari Tuhanmu, dan telah Kami turunkan kepadamu cahaya yang terang benderang."
+<br>— QS. An-Nisa': 174
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">20</span>
+<span class="karomah-title">Karomah Mendidik Putra — Syeikh Ahmad Ad-Dasuki</span>
+<div class="karomah-arabic">تَرْبِيَتُهُ لِابْنِهِ الشَّيْخِ أَحْمَدَ الدَّسُوقِيِّ</div>
+<p>
+Karomah terbesar Syeikh Ibrahim Ad-Dasuki dalam bidang pengajaran adalah bahwa Allah anugerahkan kepadanya putra yang menjadi salah satu wali terbesar di Mesir, yaitu Syeikh Ahmad bin Ibrahim Ad-Dasuki (wafat 933 H / 1527 M), pendiri Tarekat Dasuqiyah yang masyhur hingga hari ini.
+</p>
+<p>
+Syeikh Ibrahim mendidik putranya dengan pendidikan yang sangat ketat — baik dalam bidang ilmu syariat maupun ilmu hakikat. Beliau mengajarkan kepada putranya tentang adab-adab suluk, tazkiyatun nafs (penyucian jiwa), dan cara-cara mendekatkan diri kepada Allah. Beliau juga mengajarkan kepada putranya tentang pentingnya mengikuti sunnah Rasulullah SAW dan menjauhi bid'ah.
+</p>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa ketika Syeikh Ahmad masih kecil, Syeikh Ibrahim pernah berkata kepada istrinya: <em>"Perhatikanlah anak kita. Aku melihat cahaya kenabian di wajahnya. Ia akan menjadi salah satu wali besar di zamannya, dan tarekat yang ia dirikan akan bermanfaat bagi umat hingga hari kiamat."</em>
+</p>
+<p>
+Didikan inilah yang membentuk Syeikh Ahmad menjadi salah satu wali besar yang karomahnya masyhur hingga hari ini. Tarekat Dasuqiyah yang didirikan oleh Syeikh Ahmad hingga kini memiliki jutaan pengikut di Mesir, Afrika Utara, dan berbagai penjuru dunia.
+</p>
+<p>
+Para ulama berkata bahwa karomah seorang ayah yang mendidik putranya menjadi wali besar adalah karomah yang sangat agung, karena ia menjadi sebab adanya cahaya kewalian yang terus bersambung hingga hari kiamat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DIDIKAN ANAK — QS. AL-FURQAN: 74</div>
+<div class="arabic-text">
+رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhan kami, anugerahkanlah kepada kami dari istri-istri dan keturunan kami sebagai penyejuk hati (kami), dan jadikanlah kami imam bagi orang-orang yang bertakwa."
+<br>— QS. Al-Furqan: 74
+</div>
+</div>
+<h2>Dialog dengan Para Penguasa</h2>
+<p>
+Selain bertemu dengan para ulama dan wali, Syeikh Ibrahim Ad-Dasuki juga sering berdialog dengan para penguasa pada masanya. Beliau tidak takut kepada mereka, karena hati beliau telah dipenuhi keberanian yang berasal dari Allah. Beliau senantiasa menasihati mereka dengan kata-kata yang lembut namun tegas, mengingatkan mereka tentang tanggung jawab mereka sebagai pemimpin di hadapan Allah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">21</span>
+<span class="karomah-title">Karomah Menasihati Para Penguasa dengan Keberanian</span>
+<div class="karomah-arabic">نُصْحُهُ لِلْأُمَرَاءِ بِشَجَاعَةٍ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa seorang gubernur Mesir pada masa itu mengirim utusan kepada Syeikh Ibrahim untuk meminta nasihat. Utusan itu berkata: <em>"Wahai Syeikh, tuan kami ingin mengetahui nasihatmu tentang bagaimana cara menjalankan pemerintahan dengan adil."</em>
+</p>
+<p>
+Syeikh Ibrahim menjawab: <em>"Katakanlah kepada tuanmu bahwa pemerintahan adalah amanah yang berat di hadapan Allah. Barangsiapa yang menjalankan pemerintahan dengan adil, niscaya Allah akan memberikan kepadanya pahala yang besar. Dan barangsiapa yang menjalankan pemerintahan dengan zalim, niscaya Allah akan mengazabnya dengan azab yang pedih. Maka bertakwalah kepada Allah, dan perlakukanlah rakyatmu dengan kebaikan dan keadilan."</em>
+</p>
+<p>
+Ketika pesan ini sampai kepada gubernur itu, beliau menangis dan berkata: <em>"Sungguh, nasihat Syeikh Ibrahim telah menyentuh hatiku. Aku akan menjalankan pemerintahan dengan adil dan kebaikan, karena aku takut kepada Allah."</em> Sejak saat itu, gubernur itu menjadi pemimpin yang lebih adil dan wara', dan rakyatnya hidup dalam kedamaian dan kesejahteraan.
+</p>
+<p>
+Ini adalah karomah berupa <em>al-haybah ar-rabbaniyah</em> (kewibawaan rabbani) — Allah memberikan kewibawaan kepada Syeikh Ibrahim, sehingga para penguasa tunduk kepada nasihat beliau dan mengikuti petunjuk beliau.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEADILAN — QS. AN-NISA': 58</div>
+<div class="arabic-text">
+إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah menyuruh kamu menyampaikan amanat kepada yang berhak menerimanya, dan (menyuruh kamu) apabila menetapkan hukum di antara manusia supaya kamu menetapkan dengan adil."
+<br>— QS. An-Nisa': 58
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Pertemuan Syeikh Ibrahim dengan Para Ulama & Wali:</strong>
+<ul>
+<li><strong>Pertemuan dengan Syeikh Muhammad al-Khafaji</strong> — Guru spiritual yang membimbing beliau dalam suluk</li>
+<li><strong>Pertemuan dengan Syeikh Zakariya al-Anshari</strong> — Pengakuan dari Syeikh al-Islam atas ketinggian ilmu beliau</li>
+<li><strong>Pertemuan dengan para wali besar Mesir</strong> — Himpunan para wali dalam majelis dzikir</li>
+<li><strong>Mengajar dengan cahaya hati</strong> — Ilmu yang masuk langsung ke dalam hati para murid</li>
+<li><strong>Mendidik putra wali besar</strong> — Syeikh Ahmad Ad-Dasuki, pendiri Tarekat Dasuqiyah</li>
+<li><strong>Menasihati para penguasa dengan keberanian</strong> — Kewibawaan rabbani di hadapan para pemimpin</li>
+</ul>
+</div>
+<h2>Pelajaran dari Pertemuan-Pertemuan Beliau</h2>
+<p>
+Dari pertemuan-pertemuan yang disebutkan di atas, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, seorang wali tidak hidup dalam kesendirian. Ia senantiasa bergaul dengan para ulama dan wali lainnya untuk saling mengambil manfaat. Ini menunjukkan bahwa jalan spiritual bukanlah jalan yang individualistik, melainkan jalan yang dijalani bersama-sama dengan saudara-saudara seiman.
+<br><br>
+<em>Kedua</em>, ketinggian ilmu seorang wali tidak membuatnya sombong. Syeikh Ibrahim senantiasa rendah hati di hadapan para gurunya, dan beliau tidak pernah membanggakan ilmunya. Ini menunjukkan bahwa ilmu yang bermanfaat adalah ilmu yang disertai dengan akhlak yang mulia.
+<br><br>
+<em>Ketiga</em>, seorang wali tidak hanya memikirkan dirinya sendiri, melainkan juga memikirkan umat. Syeikh Ibrahim senantiasa mengajar, membimbing, dan menasihati orang-orang di sekelilingnya — baik para murid, para penguasa, maupun masyarakat umum. Ini menunjukkan bahwa kewalian bukanlah pelarian dari dunia, melainkan kehadiran di tengah-tengah umat untuk membimbing mereka menuju Allah.
+</blockquote>
+<h2>Doa Memohon Hikmah dan Keberanian</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON HIKMAH DAN PETUNJUK</div>
+<div class="arabic-text">
+رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhan kami, berikanlah rahmat kepada kami dari sisi-Mu dan sempurnakanlah bagi kami petunjuk yang lurus dalam urusan kami."
+<br>— QS. Al-Kahf: 10
+</div>
+</div>
+<h2>Penutup Halaman 4</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Ibrahim Ad-Dasuki dalam pertemuan beliau dengan para ulama dan wali sezaman beliau. Pertemuan-pertemuan ini bukanlah kebetulan, melainkan takdir Allah yang menghimpun para kekasih-Nya untuk saling memuliakan dan saling mengambil manfaat. Dari pertemuan-pertemuan inilah lahir warisan spiritual yang agung — termasuk Tarekat Dasuqiyah yang didirikan oleh putra beliau, Syeikh Ahmad Ad-Dasuki.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas warisan spiritual Syeikh Ibrahim Ad-Dasuki — termasuk Tarekat Dasuqiyah yang beliau wariskan kepada putranya, serta ajaran-ajaran beliau yang terus hidup hingga hari ini.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَاصْبِرْ نَفْسَكَ مَعَ الَّذِينَ يَدْعُونَ رَبَّهُم بِالْغَدَاةِ وَالْعَشِيِّ يُرِيدُونَ وَجْهَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan bersabarlah kamu bersama-sama dengan orang-orang yang menyeru Tuhannya di pagi dan sore hari dengan mengharap keridhaan-Nya."
+<br>— QS. Al-Kahf: 28
+</div>
+</div>
+</div>
+<!-- NAVIGASI 6 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="dasuki1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="dasuki2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="dasuki3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="dasuki4.html" class="article-nav-btn active" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="dasuki5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="dasuki6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

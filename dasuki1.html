@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Ibrahim Ad-Dasuki - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (TOMBOL LINGKARAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.3rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 10px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 40px;
+height: 40px;
+font-size: 1.1rem;
+}
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Ibrahim Ad-Dasuki
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Ibrahim Ad-Dasuki</h1>
+<div class="subtitle">Halaman 1 dari 6 — Pendahuluan & Karomah Masa Awal Kehidupan</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg/440px-Cairo_-_Islamic_district_-_Gate_of_Bab_Zuweila.jpg"
+alt="Syeikh Ibrahim Ad-Dasuki"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi gerbang Bab Zuweila di Kairo, negeri tempat Syeikh Ibrahim Ad-Dasuki hidup dan mengabdi</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Syeikh Ibrahim bin Ibrahim bin Radi Ad-Dasuki (wafat sekitar 889 H / 1484 M) adalah seorang wali besar dari Mesir, ayah dari Syeikh Ahmad bin Ibrahim Ad-Dasuki — pendiri Tarekat Dasuqiyah yang masyhur hingga hari ini. Beliau lahir dan dibesarkan di desa Dusuq, sebuah desa di tepi Sungai Nil, wilayah Kafr asy-Syaikh, Mesir. Syeikh Ibrahim dikenal luas karena kewara'an, zuhud, kedalaman ilmunya, serta karomah-karomah luar biasa yang Allah anugerahkan kepadanya. Dari didikan beliau lahirlah salah satu wali terbesar Mesir, yaitu putranya Syeikh Ahmad Ad-Dasuki, yang makamnya hingga kini diziarahi oleh jutaan umat Islam dari berbagai penjuru dunia.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG WALI — QS. YUNUS: 62</div>
+<div class="arabic-text">
+أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu tidak ada ketakutan bagi mereka dan tidak pula mereka bersedih hati."
+<br>— QS. Yunus: 62
+</div>
+</div>
+<h2>Nasab Mulia Syeikh Ibrahim Ad-Dasuki</h2>
+<p>
+Syeikh Ibrahim Ad-Dasuki adalah seorang <em>sayyid</em> atau <em>habib</em> — keturunan Rasulullah SAW melalui cucu beliau, Sayyidina Husain bin Ali bin Abi Thalib radhiyallahu 'anhuma. Nasab beliau bersambung hingga kepada Rasulullah SAW melalui jalur Imam Husain, yang merupakan salah satu dari dua pemuda penghulu penghuni surga. Kemuliaan nasab ini menjadi salah satu tanda pemuliaan Allah kepadanya, sebagaimana sabda Rasulullah SAW: <em>"Sesungguhnya Allah telah memilih Kinanah dari keturunan Ismail, memilih Quraisy dari Kinanah, memilih Bani Hasyim dari Quraisy, dan memilih aku dari Bani Hasyim."</em> (HR. Muslim).
+</p>
+<div class="arabic-box">
+<div class="arabic-label">SILSILAH NASAB SYEIKH IBRAHIM AD-DASUKI</div>
+<div class="arabic-text">
+إِبْرَاهِيمُ بْنُ إِبْرَاهِيمَ بْنِ رَاضِي بْنِ مُحَمَّدٍ بْنِ عَبْدِ اللَّهِ بْنِ عَبْدِ الرَّحِيمِ بْنِ أَبِي بَكْرٍ الْحُسَيْنِيِّ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ibrahim bin Ibrahim bin Radhi bin Muhammad bin Abdullah bin Abdurrahim bin Abi Bakar al-Husaini" — bersambung hingga Sayyidina Husain bin Ali bin Abi Thalib, cucu Rasulullah SAW.
+</div>
+</div>
+<h2>Pengertian Karomah</h2>
+<p>
+Karomah (كَرَامَةٌ) secara bahasa berarti "kemuliaan" atau "anugerah istimewa". Dalam istilah tasawuf, karomah adalah peristiwa luar biasa yang Allah tampakkan melalui tangan seorang wali sebagai bentuk pemuliaan, berbeda dengan mukjizat yang diberikan kepada para nabi. Para ulama Ahlussunnah wal Jama'ah sepakat bahwa karomah adalah hak dan anugerah Allah yang diberikan kepada orang-orang yang beriman serta bertakwa. Syeikh Ibrahim Ad-Dasuki sendiri pernah berkata bahwa karomah yang paling agung bukanlah berjalan di atas air atau terbang di udara, melainkan istiqamah di atas syariat dan mengikuti sunnah Rasulullah SAW dalam setiap keadaan.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH IBRAHIM AD-DASUKI</div>
+<div class="arabic-text">
+أَعْظَمُ الْكَرَامَةِ الِاسْتِقَامَةُ عَلَى الشَّرِيعَةِ وَاتِّبَاعُ السُّنَّةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Karomah yang paling agung adalah istiqamah di atas syariat dan mengikuti sunnah Nabi SAW dalam setiap keadaan."
+<br>— Syeikh Ibrahim Ad-Dasuki
+</div>
+</div>
+<h2>Karomah-Karomah Syeikh Ibrahim Ad-Dasuki</h2>
+<p>
+Berikut adalah beberapa karomah luar biasa yang Allah anugerahkan kepada Syeikh Ibrahim Ad-Dasuki, mulai dari masa awal kehidupan beliau hingga perjalanan spiritual di desa Dusuq dan sekitarnya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">1</span>
+<span class="karomah-title">Karomah Nasab yang Mulia dari Rasulullah SAW</span>
+<div class="karomah-arabic">شَرَفُ نَسَبِهِ مِنَ الرَّسُولِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+<p>
+Karomah pertama yang Allah anugerahkan kepada Syeikh Ibrahim Ad-Dasuki adalah kemuliaan nasab yang bersambung kepada Rasulullah SAW melalui Sayyidina Husain bin Ali. Nasab yang mulia ini bukanlah sesuatu yang kebetulan, melainkan pilihan Allah yang telah menetapkan beliau sebagai salah satu keturunan kekasih-Nya. Para ulama berkata bahwa kemuliaan nasab adalah salah satu karomah yang Allah berikan kepada hamba-hamba-Nya yang terpilih, sebagai tanda bahwa darah Rasulullah SAW mengalir di dalam tubuh beliau.
+</p>
+<p>
+Syeikh Ibrahim senantiasa menjaga kehormatan nasab beliau dengan akhlak yang mulia, ibadah yang tekun, dan zuhud yang mendalam. Beliau tidak pernah menyombongkan nasabnya, melainkan menjadikannya sebagai motivasi untuk semakin dekat kepada Allah dan mengikuti jejak kakeknya, Rasulullah SAW. Beliau pernah berkata: <em>"Nasab yang mulia bukanlah kebanggaan, melainkan amanah yang harus dijaga dengan amal shaleh dan akhlak yang mulia."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AHLUL BAIT — QS. AL-AHZAB: 33</div>
+<div class="arabic-text">
+إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah bermaksud hendak menghilangkan dosa dari kamu, hai ahlul bait, dan membersihkan kamu sebersih-bersihnya."
+<br>— QS. Al-Ahzab: 33
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">2</span>
+<span class="karomah-title">Karomah Lahir di Desa Dusuq yang Penuh Berkah</div>
+<div class="karomah-arabic">وِلَادَتُهُ فِي قَرْيَةِ دَسُوقَ الْمُبَارَكَةِ</div>
+<p>
+Allah anugerahkan kepada Syeikh Ibrahim karomah berupa kelahiran di desa Dusuq, sebuah desa yang terletak di tepi Sungai Nil, wilayah Kafr asy-Syaikh, Mesir. Desa ini pada masa itu dikenal sebagai negeri yang penuh berkah, tempat berkumpulnya para ulama, ahli ibadah, dan orang-orang shaleh. Kelahiran beliau di negeri ini menjadi tanda bahwa Allah telah memilih beliau untuk menjadi salah satu wali besar di Mesir.
+</p>
+<p>
+Para ulama menceritakan bahwa ketika Syeikh Ibrahim lahir, cahaya yang sangat terang menyinari rumah keluarganya, seolah-olah matahari terbit di tengah malam. Orang-orang yang melihat cahaya itu takjub dan berkata: <em>"Sesungguhnya anak ini akan menjadi orang yang besar di zamannya."</em> Ibunya merasakan ketenangan yang luar biasa ketika mengandungnya, dan beliau lahir dalam keadaan yang sehat dan sempurna, tanpa cacat sedikit pun.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA IMAN — QS. AN-NUR: 35</div>
+<div class="arabic-text">
+اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah (Pemberi) cahaya (kepada) langit dan bumi."
+<br>— QS. An-Nur: 35
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">3</span>
+<span class="karomah-title">Karomah Menghafal Al-Qur'an Sejak Kecil</span>
+<div class="karomah-arabic">حِفْظُهُ لِلْقُرْآنِ مُنْذُ صِغَرِهِ</div>
+<p>
+Sejak usia yang sangat muda, Syeikh Ibrahim telah menunjukkan kecerdasan spiritual yang luar biasa. Beliau menghafal Al-Qur'an sebelum usia baligh, dan beliau senantiasa membacanya dengan tartil dan penuh kekhusyukan. Ketika beliau membaca Al-Qur'an, orang-orang yang mendengarnya merasakan ketenangan yang luar biasa, seolah-olah ayat-ayat Al-Qur'an itu turun dari langit langsung ke dalam hati mereka.
+</p>
+<p>
+Para guru beliau takjub dengan kemampuan beliau memahami makna-makna Al-Qur'an yang dalam, meskipun usia beliau masih sangat muda. Beliau tidak hanya menghafal lafazh-lafazh Al-Qur'an, melainkan juga mengamalkannya dalam kehidupan sehari-hari. Beliau pernah berkata: <em>"Al-Qur'an bukanlah kitab yang hanya dibaca di lisan, melainkan kitab yang harus dihidupkan di dalam hati dan diamalkan dalam setiap perbuatan."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AL-QUR'AN — QS. AL-ISRA': 82</div>
+<div class="arabic-text">
+وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Kami turunkan dari Al-Qur'an suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."
+<br>— QS. Al-Isra': 82
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">4</span>
+<span class="karomah-title">Karomah Mendapat Gelar 'Ad-Dasuki'</span>
+<div class="karomah-arabic">لُقُوبُهُ بِالدَّسُوقِيِّ</div>
+<p>
+Syeikh Ibrahim dikenal dengan gelar <em>Ad-Dasuki</em> yang dinisbatkan kepada desa Dusuq, tempat beliau lahir dan dibesarkan. Gelar ini bukanlah gelar yang beliau minta, melainkan gelar yang diberikan oleh masyarakat setempat sebagai bentuk penghormatan kepada beliau. Gelar ini kemudian diwariskan kepada keturunan beliau, termasuk putranya Syeikh Ahmad Ad-Dasuki, yang menjadi pendiri Tarekat Dasuqiyah yang masyhur hingga hari ini.
+</p>
+<p>
+Para ulama berkata bahwa gelar yang dinisbatkan kepada negeri adalah salah satu tanda kemuliaan, karena negeri itu menjadi saksi atas kewalian hamba Allah yang tinggal di sana. Desa Dusuq menjadi terkenal di seluruh Mesir karena kehadiran Syeikh Ibrahim dan putranya Syeikh Ahmad, sehingga hingga hari ini desa itu menjadi salah satu tempat ziarah paling ramai di Mesir.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG NISBAH KEPADA NEGERI — QS. AT-TIN: 1-3</div>
+<div class="arabic-text">
+وَالتِّينِ وَالزَّيْتُونِ ۝ وَطُورِ سِينِينَ ۝ وَهَٰذَا الْبَلَدِ الْأَمِينِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Demi (buah) Tin dan (buah) Zaitun, dan demi bukit Sinai, dan demi kota (Makkah) yang aman ini."
+<br>— QS. At-Tin: 1-3 (Allah bersumpah dengan negeri-negeri mulia)
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">5</span>
+<span class="karomah-title">Karomah Mendidik Putra Wali Besar — Syeikh Ahmad Ad-Dasuki</span>
+<div class="karomah-arabic">تَرْبِيَتُهُ لِابْنِهِ الشَّيْخِ أَحْمَدَ الدَّسُوقِيِّ</div>
+<p>
+Salah satu karomah terbesar Syeikh Ibrahim Ad-Dasuki adalah bahwa Allah anugerahkan kepadanya putra yang menjadi salah satu wali terbesar di Mesir, yaitu Syeikh Ahmad bin Ibrahim Ad-Dasuki (wafat 933 H / 1527 M), pendiri Tarekat Dasuqiyah. Syeikh Ahmad dididik oleh ayahnya dengan pendidikan yang sangat ketat — baik dalam bidang ilmu syariat maupun ilmu hakikat.
+</p>
+<p>
+Syeikh Ibrahim mengajarkan kepada putranya tentang adab-adab suluk, tazkiyatun nafs (penyucian jiwa), dan cara-cara mendekatkan diri kepada Allah. Beliau juga mengajarkan kepada putranya tentang pentingnya mengikuti sunnah Rasulullah SAW dan menjauhi bid'ah. Didikan inilah yang membentuk Syeikh Ahmad menjadi salah satu wali besar yang karomahnya masyhur hingga hari ini.
+</p>
+<p>
+Para ulama berkata bahwa karomah seorang ayah yang mendidik putranya menjadi wali besar adalah karomah yang sangat agung, karena ia menjadi sebab adanya cahaya kewalian yang terus bersambung hingga hari kiamat. Tarekat Dasuqiyah yang didirikan oleh Syeikh Ahmad hingga kini memiliki jutaan pengikut di Mesir, Afrika Utara, dan berbagai penjuru dunia.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DIDIKAN ANAK — QS. AL-FURQAN: 74</div>
+<div class="arabic-text">
+رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhan kami, anugerahkanlah kepada kami dari istri-istri dan keturunan kami sebagai penyejuk hati (kami), dan jadikanlah kami imam bagi orang-orang yang bertakwa."
+<br>— QS. Al-Furqan: 74
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Masa Awal Syeikh Ibrahim Ad-Dasuki:</strong>
+<ul>
+<li><strong>Nasab mulia dari Rasulullah SAW</strong> — Keturunan Sayyidina Husain bin Ali</li>
+<li><strong>Lahir di desa Dusuq yang penuh berkah</strong> — Disinari cahaya kewalian</li>
+<li><strong>Menghafal Al-Qur'an sejak kecil</strong> — Kecerdasan spiritual yang luar biasa</li>
+<li><strong>Mendapat gelar Ad-Dasuki</strong> — Nisbah kepada negeri yang mulia</li>
+<li><strong>Mendidik putra wali besar</strong> — Syeikh Ahmad Ad-Dasuki, pendiri Tarekat Dasuqiyah</li>
+<li><strong>Zuhud dan wara' sejak muda</strong> — Menolak kemewahan dunia demi akhirat</li>
+</ul>
+</div>
+<h2>Doa Memohon Karomah dari Allah</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KAROMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْنِي مِنْ أَوْلِيَائِكَ الصَّالِحِينَ، وَارْزُقْنِي الْكَرَامَةَ وَالِاسْتِقَامَةَ، وَاجْعَلْ سَيِّدَنَا إِبْرَاهِيمَ الدَّسُوقِيَّ شَفِيعِي يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah aku termasuk wali-wali-Mu yang shaleh, anugerahkanlah kepadaku karomah dan istiqamah, dan jadikanlah Sayyidina Ibrahim Ad-Dasuki sebagai pemberi syafaat bagiku pada hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 1</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Ibrahim Ad-Dasuki sejak masa awal kehidupan beliau. Karomah-karomah ini bukanlah tujuan utama, melainkan buah dari keikhlasan, zuhud, dan ketaatan beliau kepada Allah SWT. Pada halaman berikutnya, kita akan membahas karomah beliau selama perjalanan spiritual menuntut ilmu dan berguru kepada para ulama besar Mesir pada masanya.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa bertakwa kepada Allah niscaya Dia akan mengadakan baginya jalan keluar. Dan memberinya rezeki dari arah yang tiada disangka-sangkanya."
+<br>— QS. At-Talaq: 2-3
+</div>
+</div>
+</div>
+<!-- NAVIGASI 6 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="dasuki1.html" class="article-nav-btn active" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="dasuki2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="dasuki3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="dasuki4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="dasuki5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="dasuki6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
