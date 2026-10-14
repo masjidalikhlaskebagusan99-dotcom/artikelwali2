@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abdul Qadir Al-Jilani - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abdul Qadir Al-Jilani — Halaman 7
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abdul Qadir Al-Jilani</h1>
+<div class="subtitle">Halaman 7 dari 9 — Keturunan yang Melanjutkan Dakwah</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Baghdad_-_Mustansiriyah_Madrasa.jpg/440px-Baghdad_-_Mustansiriyah_Madrasa.jpg"
+alt="Keturunan Syeikh Abdul Qadir Al-Jilani"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi madrasah kuno di Baghdad, tempat para putra dan keturunan Syeikh Abdul Qadir Al-Jilani menjaga dan meneruskan ilmu beliau</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Salah satu karomah terbesar yang Allah anugerahkan kepada Syeikh Abdul Qadir Al-Jilani adalah <em>baqa' an-nasl</em> — kekekalan keturunan. Beliau dikaruniai banyak putra dan putri yang shaleh, berilmu, dan bertakwa, yang setelah wafatnya terus menjaga, merawat, dan meneruskan ajaran-ajaran beliau ke berbagai penjuru dunia. Rasulullah SAW bersabda bahwa salah satu dari tiga amal yang tidak terputus pahalanya adalah <em>anak shaleh yang mendoakannya</em>. Dan Syeikh Abdul Qadir Al-Jilani mendapatkan anugerah itu dalam jumlah yang luar biasa — sebuah karomah yang membuktikan bahwa doa seorang wali untuk keturunannya tidak pernah ditolak oleh Allah SWT.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KETURUNAN ORANG SHALEH — QS. ATH-THUR: 21</div>
+<div class="arabic-text">
+وَالَّذِينَ آمَنُوا وَاتَّبَعَتْهُمْ ذُرِّيَّتُهُم بِإِيمَانٍ أَلْحَقْنَا بِهِمْ ذُرِّيَّتَهُمْ وَمَا أَلَتْنَاهُم مِّنْ عَمَلِهِم مِّن شَيْءٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan orang-orang yang beriman, dan yang anak cucu mereka mengikuti mereka dalam keimanan, Kami hubungkan anak cucu mereka dengan mereka, dan Kami tiada mengurangi sedikit pun dari pahala amal mereka."
+<br>— QS. Ath-Thur: 21
+</div>
+</div>
+<h2>Anugerah Banyak Keturunan yang Shaleh</h2>
+<p>
+Para ulama yang menulis tentang kehidupan Syeikh Abdul Qadir Al-Jilani menyebutkan bahwa beliau dikaruniai keturunan dalam jumlah yang sangat banyak — sebagian riwayat menyebut sekitar dua puluh lima putra dan beberapa putri, yang semuanya dibesarkan dalam didikan spiritual yang ketat. Semua mereka belajar langsung di majelis ayahnya sendiri, menghafal Al-Qur'an, mempelajari fiqih Hanbali, dan menempuh latihan spiritual di bawah bimbingan beliau secara langsung.
+</p>
+<p>
+Ini adalah keistimewaan yang sangat langka. Karena jarang sekali seorang wali besar memiliki anak-anak yang semuanya menjadi orang shaleh dan berilmu. Biasanya, hanya sebagian kecil dari keturunan seorang ulama yang meneruskan jejaknya. Namun Syeikh Abdul Qadir Al-Jilani dikaruniai karomah bahwa hampir seluruh keturunannya menjadi pembawa cahaya — para ulama, mursyid, dan orang-orang yang dikenal dengan kezuhudan dan kewara'an mereka.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">37</span>
+<span class="karomah-title">Karomah Dikaruniai Banyak Keturunan yang Shaleh</span>
+<div class="karomah-arabic">أُنْعِمَ عَلَيْهِ بِكَثْرَةِ الذُّرِّيَّةِ الصَّالِحَةِ</div>
+<p>
+Karomah yang paling mendasar dalam hal keturunan adalah bahwa Allah mengabulkan doa Syeikh Abdul Qadir untuk memperoleh keturunan yang shaleh. Beliau sendiri sering berdoa dengan doa yang diajarkan Al-Qur'an: <em>"Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yun"</em> — "Ya Tuhan kami, anugerahkanlah kepada kami dari istri-istri dan keturunan kami sebagai penyejuk hati (kami)."
+</p>
+<p>
+Dan Allah benar-benar mengabulkan doa itu. Anak-anak beliau tumbuh menjadi orang-orang yang mencintai Allah dan Rasul-Nya, yang menjaga shalat, memperbanyak dzikir, dan menghidupkan malam dengan qiyamullail. Ketika para sahabat dan murid beliau menyaksikan didikan beliau terhadap anak-anaknya, mereka berkata: <em>"Inilah bukti bahwa seorang wali tidak hanya membimbing orang lain, tetapi juga mampu membimbing keluarganya sendiri."</em>
+</p>
+<p>
+Syeikh Abdul Qadir pernah berkata kepada putra-putranya: <em>"Wahai anak-anakku, janganlah kalian bangga dengan nasabku. Nasab yang paling berguna bagi kalian di hadapan Allah bukanlah bahwa kalian anak Abdul Qadir, melainkan bahwa kalian adalah hamba-hamba Allah yang bertakwa. Barangsiapa yang bertakwa, maka ia adalah anakku — meskipun ia bukan keturunan darahku. Dan barangsiapa yang bermaksiat, maka ia bukanlah anakku — meskipun ia lahir dari sulbiku."</em>
+</p>
+<p>
+Nasihat ini menjadi prinsip utama dalam keluarga Al-Jilani: bahwa kemuliaan tidak diukur dari darah, melainkan dari takwa. Prinsip inilah yang menjaga keluarga beliau tetap berada di jalan yang lurus selama berabad-abad.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KETURUNAN YANG SHALEH — QS. AL-FURQAN: 74</div>
+<div class="arabic-text">
+رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhan kami, anugerahkanlah kepada kami dari istri-istri dan keturunan kami sebagai penyejuk hati (kami), dan jadikanlah kami imam bagi orang-orang yang bertakwa."
+<br>— QS. Al-Furqan: 74
+</div>
+</div>
+<h2>Para Putra yang Meneruskan Risalah</h2>
+<p>
+Di antara putra-putra Syeikh Abdul Qadir Al-Jilani, terdapat beberapa nama yang disebut oleh para ulama sebagai penerus utama risalah spiritual beliau. Mereka menjadi mursyid-mursyid yang membimbing para murid Tarekat Qadiriyah setelah wafatnya sang ayah, dan menjadi penjaga kemurnian ajaran beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">38</span>
+<span class="karomah-title">Karomah Syeikh Abdurrazzaq bin Abdul Qadir — Penerus Majelis</span>
+<div class="karomah-arabic">الشَّيْخُ عَبْدُ الرَّزَّاقِ بْنُ عَبْدِ الْقَادِرِ</div>
+<p>
+Syeikh Abdurrazzaq adalah salah seorang putra Syeikh Abdul Qadir yang paling terkenal karena keilmuan dan ketawadhuannya. Beliau adalah salah seorang yang paling banyak meriwayatkan perkataan-perkataan ayahnya, sehingga banyak nasihat dalam <em>Futuh al-Ghaib</em> dan <em>Al-Fath ar-Rabbani</em> diriwayatkan melalui sanad beliau.
+</p>
+<p>
+Para ulama menceritakan bahwa Syeikh Abdurrazzaq sangat menjaga adab di hadapan ayahnya. Beliau tidak pernah duduk sebelum ayahnya duduk, tidak pernah berbicara sebelum ayahnya berbicara, dan selalu berdiri ketika ayahnya masuk ke ruangan. Ketika ditanya mengapa beliau begitu ketat dalam beradab, beliau menjawab: <em>"Ayahku bukan hanya ayahku secara darah, melainkan juga guruku secara ruhani. Dan adab seorang murid kepada gurunya adalah separuh ilmunya."</em>
+</p>
+<p>
+Syeikh Abdurrazzaq juga terkenal karena kezuhudannya. Beliau menolak segala bentuk pemberian dari para penguasa, dan hidup hanya dari hasil kerja tangannya sendiri — sebagaimana yang diajarkan ayahnya. Ketika seorang gubernur mengirim sejumlah uang kepadanya, beliau menolaknya dengan sopan dan berkata: <em>"Aku memiliki ayah yang mengajarkanku bahwa tangan di atas lebih baik daripada tangan di bawah, dan bahwa rezeki yang halal walaupun sedikit lebih berkah daripada rezeki yang banyak tetapi dari tangan penguasa yang zalim."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>itsar al-'ilmi wal-adab</em> (peninggalan ilmu dan adab) — seorang putra yang tidak hanya mewarisi nama ayahnya, tetapi juga mewarisi ilmu, adab, dan akhlaknya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH ABDURRAZZAQ BIN ABDUL QADIR</div>
+<div class="arabic-text">
+أَدَبُ الْمُرِيدِ مَعَ شَيْخِهِ نِصْفُ عِلْمِهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Adab seorang murid terhadap gurunya adalah separuh dari ilmunya."
+<br>— Syeikh Abdurrazzaq bin Abdul Qadir Al-Jilani
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">39</span>
+<span class="karomah-title">Karomah Syeikh Abdul Wahhab bin Abdul Qadir — Penjaga Tarekat</span>
+<div class="karomah-arabic">الشَّيْخُ عَبْدُ الْوَهَّابِ بْنُ عَبْدِ الْقَادِرِ حَافِظُ الطَّرِيقَةِ</div>
+<p>
+Syeikh Abdul Wahhab adalah salah seorang putra Syeikh Abdul Qadir yang mendapat amanah untuk menjaga kelangsungan Tarekat Qadiriyah setelah wafatnya sang ayah. Beliau menjadi mursyid utama di Baghdad, dan dari majelis belailah ribuan murid menerima bai'at dan bimbingan spiritual.
+</p>
+<p>
+Para ulama menceritakan bahwa ketika Syeikh Abdul Qadir menjelang wafat, beliau memanggil putra-putranya dan berkata: <em>"Wahai anak-anakku, aku tidak meninggalkan harta, tidak meninggalkan istana, tidak meninggalkan kerajaan. Yang aku tinggalkan untuk kalian adalah tiga perkara: ketaatan kepada Allah, kecintaan kepada Rasulullah SAW, dan kasih sayang kepada sesama manusia. Jaga lah tiga perkara ini, maka kalian akan tetap menjadi anak-anakku — meskipun aku telah tiada."</em>
+</p>
+<p>
+Syeikh Abdul Wahhab menjaga wasiat ini dengan sangat ketat. Beliau tidak pernah mengubah satu pun dari ajaran ayahnya, dan beliau menolak setiap usaha untuk menambahkan praktik-praktik baru yang tidak pernah diajarkan oleh Syeikh Abdul Qadir. Ketika seseorang mengusulkan agar ditambah suatu wirid tertentu, beliau menjawab: <em>"Cukuplah apa yang telah diajarkan ayahku. Aku tidak berani menambah apa pun, karena aku takut mengubah jalan yang telah Allah berkahi."</em>
+</p>
+<p>
+Kesetiaan inilah yang menjaga Tarekat Qadiriyah tetap murni selama berabad-abad. Dan para ulama menyebut kesetiaan kepada ajaran guru sebagai salah satu tanda kewalian yang paling tinggi — karena ia lahir dari ketakwaan, bukan dari fanatisme.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">WASIAT SYEIKH ABDUL QADIR KEPADA ANAK-ANAKNYA</div>
+<div class="arabic-text">
+تَرَكْتُ لَكُمْ ثَلَاثًا: طَاعَةَ اللَّهِ، وَحُبَّ رَسُولِهِ، وَرَحْمَةَ الْخَلْقِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Aku meninggalkan untuk kalian tiga perkara: ketaatan kepada Allah, kecintaan kepada Rasulullah SAW, dan kasih sayang kepada sesama makhluk."
+<br>— Wasiat Syeikh Abdul Qadir Al-Jilani kepada putra-putranya
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">40</span>
+<span class="karomah-title">Karomah Penjagaan Kitab-Kitab oleh Keturunan</span>
+<div class="karomah-arabic">حِفْظُ الذُّرِّيَّةِ لِكُتُبِ الشَّيْخِ</div>
+<p>
+Salah satu karomah terbesar keturunan Syeikh Abdul Qadir adalah bahwa Allah memberikan kepada mereka taufiq untuk menjaga, menyalin, dan melestarikan kitab-kitab beliau hingga sampai kepada generasi setelahnya. Tanpa usaha para keturunan ini, sangat mungkin kitab-kitab seperti <em>Futuh al-Ghaib</em>, <em>Al-Fath ar-Rabbani</em>, dan <em>Ghunyat at-Thalibin</em> tidak akan sampai kepada kita hari ini.
+</p>
+<p>
+Sejarah mencatat bahwa Baghdad beberapa kali mengalami kehancuran besar — termasuk invasi Mongol pada tahun 656 H (1258 M) yang menghancurkan banyak perpustakaan dan manuskrip. Namun anehnya, kitab-kitab Syeikh Abdul Qadir tetap selamat. Para keturunan beliau menyelamatkan manuskrip-manuskrip tersebut dengan membawanya ke tempat-tempat yang aman — ke Damaskus, ke Kairo, ke Makkah, dan ke berbagai negeri lainnya — dan dari sana kitab-kitab itu disalin ulang dan tersebar ke seluruh dunia.
+</p>
+<p>
+Para ulama berkata bahwa keselamatan kitab-kitab ini dari kehancuran besar adalah karomah yang nyata. Karena ribuan kitab lain lenyap ditelan api dan air, sementara kitab-kitab seorang wali tetap bertahan — bukan karena usaha manusia semata, melainkan karena Allah menghendaki agar cahaya ajaran beliau terus menyala.
+</p>
+<p>
+Syeikh Abdul Qadir sendiri pernah berkata kepada putra-putranya: <em>"Wahai anak-anakku, jagalah kitab-kitab ini. Karena suatu hari nanti, ketika aku telah tiada, kitab-kitab inilah yang akan berbicara atas namaku. Dan apabila kalian menjaganya, maka seolah-olah kalian menjagaku."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU YANG BERMANFAAT — HR. MUSLIM</div>
+<div class="arabic-text">
+إِذَا مَاتَ ابْنُ آدَمَ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Apabila seorang anak Adam telah wafat, maka terputuslah amalannya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfaat, atau anak shaleh yang mendoakannya."
+<br>— HR. Muslim
+</div>
+</div>
+<h2>Keluarga Al-Jilani di Berbagai Negeri</h2>
+<p>
+Keturunan Syeikh Abdul Qadir Al-Jilani yang dikenal dengan nama keluarga <em>Al-Jilani</em>, <em>Al-Gailani</em>, <em>Al-Gillani</em>, atau <em>Al-Jaylani</em> tersebar ke berbagai penjuru dunia. Mereka dikenal sebagai keluarga yang menjaga nasabnya kepada Rasulullah SAW melalui jalur Husain bin Ali, dan sekaligus menjaga warisan spiritual Syeikh Abdul Qadir.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">41</span>
+<span class="karomah-title">Karomah Keluarga Al-Jilani yang Tersebar di Dunia</span>
+<div class="karomah-arabic">أُسْرَةُ الْجِيلَانِيَّةِ فِي الْبِلَادِ</div>
+<p>
+Hingga hari ini, keluarga Al-Jilani dapat ditemukan di berbagai negeri:
+</p>
+<ul>
+<li><strong>Baghdad, Iraq</strong> — Pusat utama keluarga, yang menjaga makam Syeikh Abdul Qadir dan merawat kompleksnya hingga hari ini</li>
+<li><strong>Syria dan Lebanon</strong> — Keluarga Al-Gailani yang menjadi ulama dan mursyid di Damaskus, Aleppo, dan Beirut</li>
+<li><strong>Mesir</strong> — Keluarga yang menjadi penjaga tradisi Qadiriyah di Kairo dan Iskandariyah</li>
+<li><strong>Yaman dan Hadramaut</strong> — Keluarga yang kemudian membawa ajaran Qadiriyah ke Asia Tenggara</li>
+<li><strong>India, Pakistan, dan Bangladesh</strong> — Keluarga Gilani yang menjadi mursyid besar di Anak Benua</li>
+<li><strong>Turki dan Balkan</strong> — Keluarga yang menjaga tradisi Qadiriyah di Istanbul, Sarajevo, dan Tirana</li>
+<li><strong>Indonesia, Malaysia, dan Filipina</strong> — Keluarga yang menjadi bagian dari sejarah tasawuf Nusantara</li>
+<li><strong>Afrika Barat dan Timur</strong> — Keluarga yang membawa ajaran Qadiriyah ke Nigeria, Sudan, dan Somalia</li>
+</ul>
+<p>
+Di semua negeri ini, keluarga Al-Jilani dikenal dengan ciri khas yang sama: kesederhanaan hidup, kedermawanan, kecintaan kepada Rasulullah SAW, dan kesetiaan kepada ajaran Syeikh Abdul Qadir. Meskipun telah berabad-abad jauh dari Baghdad, ciri-ciri ini tetap bertahan — sebuah karomah berupa <em>tsabat al-'ahd</em> (keteguhan pada janji) yang hanya mungkin terjadi karena pertolongan Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KELUARGA YANG DIBERKAHI — QS. HUD: 73</div>
+<div class="arabic-text">
+إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah bermaksud hendak menghilangkan dosa dari kamu, hai ahlul bait, dan membersihkan kamu sebersih-bersihnya."
+<br>— QS. Al-Ahzab: 33 (Berkah bagi keluarga para nabi dan wali)
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">42</span>
+<span class="karomah-title">Karomah Mendoakan Kedua Orang Tua yang Telah Wafat</span>
+<div class="karomah-arabic">دُعَاءُ الذُّرِّيَّةِ لِوَالِدِهِمِ الْمُتَوَفَّى</div>
+<p>
+Salah satu karomah paling menyentuh dari keturunan Syeikh Abdul Qadir adalah doa mereka yang tidak pernah putus untuk beliau — lebih dari delapan abad setelah wafatnya. Setiap hari, di berbagai penjuru dunia, ada saja seorang keturunan atau murid beliau yang mendoakan beliau, membacakan Al-Qur'an untuk beliau, dan mengirim pahala kepadanya.
+</p>
+<p>
+Para ulama menjelaskan bahwa doa anak shaleh untuk orang tua yang telah wafat adalah salah satu amal yang paling bermanfaat bagi si mayit. Dan ketika doa itu datang dari ribuan anak, cucu, dan murid yang tersebar di seluruh dunia — selama lebih dari delapan abad — maka pahalanya menjadi seperti sungai yang tidak pernah kering.
+</p>
+<p>
+Syeikh Abdul Qadir sendiri pernah berkata: <em>"Yang paling kurindukan setelah kematianku bukanlah pujian orang, melainkan doa anak-anakku. Karena doa mereka adalah makanan ruhanku di alam barzakh."</em> Dan Allah mengabulkan kerinduan itu dengan cara yang paling indah — menjadikan keturunan dan murid beliau tidak pernah lupa mendoakan beliau hingga hari ini.
+</p>
+<p>
+Inilah karomah terakhir yang paling menyentuh: bukan kemampuan berjalan di atas air, bukan kemampuan menghidupkan yang mati, melainkan hati-hati yang tidak pernah lupa mendoakan seorang ayah yang telah wafat lebih dari delapan abad yang lalu.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DOA UNTUK KEDUA ORANG TUA — QS. AL-ISRA': 24</div>
+<div class="arabic-text">
+رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhanku, kasihilah mereka keduanya, sebagaimana mereka berdua telah mendidik aku waktu kecil."
+<br>— QS. Al-Isra': 24
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Keturunan Syeikh Abdul Qadir Al-Jilani:</strong>
+<ul>
+<li><strong>Banyak keturunan yang shaleh</strong> — Semua dibesarkan dalam didikan spiritual yang ketat</li>
+<li><strong>Syeikh Abdurrazzaq</strong> — Penerus majelis dan perawi utama perkataan beliau</li>
+<li><strong>Syeikh Abdul Wahhab</strong> — Penjaga kemurnian Tarekat Qadiriyah</li>
+<li><strong>Penjagaan kitab-kitab</strong> — Menyelamatkan manuskrip dari kehancuran Baghdad</li>
+<li><strong>Keluarga Al-Jilani di dunia</strong> — Tersebar dari Iraq hingga Nusantara</li>
+<li><strong>Doa yang tidak pernah putus</strong> — Lebih dari delapan abad mendoakan sang ayah</li>
+</ul>
+</div>
+<h2>Pelajaran dari Keturunan Beliau</h2>
+<p>
+Dari kisah keturunan Syeikh Abdul Qadir Al-Jilani, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>nasab bukanlah kebanggaan, melainkan amanah</strong>. Syeikh Abdul Qadir mengajarkan kepada anak-anaknya bahwa kemuliaan tidak diukur dari darah, melainkan dari takwa. Pelajaran ini sangat penting bagi kita yang sering membanggakan keturunan, nasab, atau keluarga — padahal yang bernilai di hadapan Allah hanyalah ketakwaan.
+<br><br>
+<em>Kedua</em>, <strong>didikan orang tua adalah warisan terbaik</strong>. Syeikh Abdul Qadir tidak meninggalkan harta kepada anak-anaknya, melainkan meninggalkan didikan, adab, dan cinta kepada Allah. Dan justru warisan itulah yang membuat keturunan beliau bertahan selama delapan abad. Harta bisa habis, tetapi didikan spiritual tidak akan pernah hilang.
+<br><br>
+<em>Ketiga</em>, <strong>menjaga ajaran guru adalah bentuk kesetiaan tertinggi</strong>. Para putra beliau menolak menambahkan apa pun kepada ajaran ayahnya, karena mereka takut mengubah jalan yang telah Allah berkahi. Kesetiaan seperti ini jarang ditemukan di zaman sekarang, ketika banyak orang lebih suka mengubah dan memodifikasi daripada menjaga.
+<br><br>
+<em>Keempat</em>, <strong>doa anak adalah makanan ruh orang tua di alam barzakh</strong>. Maka janganlah kita lupa mendoakan orang tua kita — baik yang masih hidup maupun yang telah wafat. Karena doa kita adalah salah satu amal yang paling mereka rindukan di alam sana.
+</blockquote>
+<h2>Doa untuk Keturunan dan Para Mursyid</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA UNTUK KETURUNAN SYEIKH ABDUL QADIR</div>
+<div class="arabic-text">
+اللَّهُمَّ ارْحَمْ سَيِّدَنَا عَبْدَ الْقَادِرِ الْجِيلَانِيَّ، وَارْحَمْ ذُرِّيَّتَهُ وَأَتْبَاعَهُ، وَاحْفَظْهُمْ فِي مَشَارِقِ الْأَرْضِ وَمَغَارِبِهَا، وَاجْعَلْهُمْ حُرَّاسًا لِلشَّرِيعَةِ وَالطَّرِيقَةِ إِلَى يَوْمِ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, kasihilah Sayyidina Abdul Qadir Al-Jilani, dan kasihilah keturunan serta pengikutnya, dan jagalah mereka di timur dan barat bumi, dan jadikanlah mereka penjaga syariat dan tarekat hingga hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 7</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Abdul Qadir Al-Jilani dalam hal keturunan — dari anugerah banyak anak yang shaleh, para putra yang meneruskan risalah, penjagaan kitab-kitab dari kehancuran, keluarga Al-Jilani yang tersebar ke seluruh dunia, hingga doa yang tidak pernah putus selama lebih dari delapan abad. Semua ini menjadi bukti bahwa seorang wali tidak pernah benar-benar wafat — ia hidup dalam amal keturunannya, dalam kitab-kitabnya, dan dalam doa orang-orang yang mencintainya.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas mukjizat-mukjizat dan karomah-karomah masyhur lainnya yang diriwayatkan oleh para ulama — peristiwa-peristiwa luar biasa yang membuat nama Syeikh Abdul Qadir Al-Jilani dikenal dari Baghdad hingga Nusantara.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhan kami, beri ampunlah aku dan kedua ibu bapakku dan sekalian orang-orang mukmin pada hari terjadinya hisab (hari kiamat)."
+<br>— QS. Ibrahim: 41
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="jilani1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="jilani2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="jilani3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="jilani4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="jilani5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="jilani6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="jilani7.html" class="article-nav-btn active" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="jilani8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="jilani9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
