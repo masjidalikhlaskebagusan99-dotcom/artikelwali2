@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali — Halaman 8
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 8 dari 9 — Mukjizat-Mukjizat Lain yang Masyhur</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Baghdad_-_Al_Mustansiriya_University.jpg/440px-Baghdad_-_Al_Mustansiriya_University.jpg"
+alt="Mukjizat-Mukjizat Syeikh Abu Hamid Al-Ghazali"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi kota Baghdad dan Thus, tempat Syeikh Abu Hamid Al-Ghazali menunjukkan karomah-karomah masyhur yang diriwayatkan oleh para ulama dari generasi ke generasi</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Selain karomah-karomah spiritual yang telah disebutkan pada halaman-halaman sebelumnya — seperti cahaya hati, firasat, ilham rabbani, dan kasyf — para ulama dalam kitab-kitab mereka masih meriwayatkan banyak lagi karomah masyhur Syeikh Abu Hamid Al-Ghazali yang bersifat lebih konkret dan tampak oleh mata kepala. Karomah-karomah ini diriwayatkan dengan sanad yang beragam oleh para ulama seperti Ibnu As-Subki, As-Suyuthi, Abdul Wahhab Asy-Sya'rani, dan banyak lagi. Halaman ini akan menguraikan sebagian dari karomah-karomah masyhur tersebut — yang menjadi bukti nyata bahwa Allah benar-benar telah memilih beliau sebagai salah satu wali-Nya yang paling istimewa di abad kelima Hijriyah.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KUASA ALLAH — QS. AL-BAQARAH: 20</div>
+<div class="arabic-text">
+إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah Maha Kuasa atas segala sesuatu."
+<br>— QS. Al-Baqarah: 20
+</div>
+</div>
+<h2>Karomah Tasarruf — Menolong Orang yang Jauh</h2>
+<p>
+Salah satu karomah yang paling sering diriwayatkan dari Syeikh Abu Hamid Al-Ghazali adalah <em>tasarruf</em> — kemampuan untuk menolong orang-orang yang berada di tempat jauh melalui kekuatan spiritual beliau. Karomah ini bukanlah sihir, melainkan anugerah ilahiyah yang Allah berikan kepada wali-Nya yang telah mencapai maqam kedekatan dengan-Nya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">55</span>
+<span class="karomah-title">Karomah Tasarruf — Menolong Pedagang yang Tenggelam</span>
+<div class="karomah-arabic">تَصَرُّفُهُ فِي إِغَاثَةِ الْبَعِيدِ</div>
+<p>
+Dalam sebuah riwayat yang diriwayatkan oleh Ibnu As-Subki dalam <em>Thabaqat Asy-Syafi'iyyah al-Kubra</em>, diceritakan bahwa pada suatu hari Syeikh Abu Hamid sedang duduk di kamarnya di Thus ketika tiba-tiba beliau berdiri dengan wajah yang cemas. Beliau berkata kepada para muridnya: <em>"Tunggulah sebentar, wahai saudara-saudaraku. Sesungguhnya ada seorang hamba Allah yang sedang dalam kesulitan besar di tengah lautan. Ia sedang tenggelam bersama kapalnya, dan ia berdoa kepada Allah dengan penuh kekhusyukan."</em>
+</p>
+<p>
+Syeikh Abu Hamid kemudian mengangkat kedua tangannya dan berdoa dengan penuh kekhusyukan. Beliau berkata: <em>"Ya Allah, selamatkanlah hamba-Mu yang sedang dalam kesulitan di tengah lautan itu, dan selamatkanlah semua orang yang bersamanya."</em> Setelah itu, beliau kembali duduk dengan tenang dan melanjutkan dzikirnya seolah-olah tidak terjadi apa-apa.
+</p>
+<p>
+Beberapa bulan kemudian, datanglah seorang pedagang dari negeri yang jauh — dari India atau Tiongkok — ke Thus. Ia datang kepada Syeikh Abu Hamid dengan air mata yang berlinang dan berkata: <em>"Wahai Syeikh, aku adalah orang yang berada di kapal yang hampir tenggelam beberapa bulan yang lalu. Ketika kami sudah hampir putus asa, tiba-tiba aku melihat seorang lelaki tua yang bercahaya berdiri di atas air, mengangkat kedua tangannya dan berdoa untuk kami. Tidak lama kemudian, badai reda, dan kapal kami selamat. Aku datang kepadamu untuk bertanya: apakah engkau adalah orang yang aku lihat itu?"</em>
+</p>
+<p>
+Syeikh Abu Hamid tersenyum dan berkata: <em>"Aku tidak melihat apa-apa. Aku hanyalah hamba yang fakir yang berdoa kepada Allah untuk hamba-Nya yang sedang dalam kesulitan. Jika Allah mengabulkan doaku, maka itu adalah karunia-Nya, bukan kehebatanku."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>tasarruf rabbani</em> (penolong rabbani) — karomah yang Allah berikan kepada para wali-Nya sehingga doa mereka dapat menjangkau tempat-tempat yang jauh, dan menolong orang-orang yang sedang dalam kesulitan meskipun mereka tidak berada di tempat tersebut.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DOA YANG DIKABULKAN — QS. GHAFIR: 60</div>
+<div class="arabic-text">
+وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Tuhanmu berfirman: Berdoalah kepada-Ku, niscaya akan Kuperkenankan bagimu."
+<br>— QS. Ghafir: 60
+</div>
+</div>
+<h2>Karomah Merasakan Makanan dari Jauh</h2>
+<p>
+Salah satu karomah yang paling menakjubkan dari Syeikh Abu Hamid adalah kemampuan beliau merasakan makanan yang sedang dimakan oleh orang-orang yang berada di tempat jauh. Karomah ini menjadi tanda bahwa hati beliau telah mencapai maqam kedekatan dengan Allah sedemikian rupa sehingga batas-batas ruang dan waktu tidak lagi menjadi penghalang.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">56</span>
+<span class="karomah-title">Karomah Merasakan Makanan Murid yang Berada di Negeri Jauh</span>
+<div class="karomah-arabic">ذَوْقُهُ لِلطَّعَامِ مِنْ مَسَافَةٍ بَعِيدَةٍ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu hari Syeikh Abu Hamid sedang duduk bersama para muridnya di Thus ketika tiba-tiba beliau berkata: <em>"Sesungguhnya salah seorang muridku yang berada di Baghdad sedang makan roti dengan madu hari ini. Dan rasanya sangat enak."</em>
+</p>
+<p>
+Para murid beliau terkejut dan bertanya: <em>"Wahai Syeikh, bagaimana engkau bisa tahu hal itu, padahal murid itu berada di Baghdad yang jaraknya sangat jauh dari sini?"</em> Syeikh Abu Hamid menjawab: <em>"Ketika seorang murid makan dengan menyebut nama Allah dan dengan hati yang bersih, maka rasa makanan itu sampai kepada hati gurunya yang mencintainya. Ini adalah karunia Allah yang Dia berikan kepada orang-orang yang saling mencintai karena-Nya."</em>
+</p>
+<p>
+Beberapa minggu kemudian, datanglah surat dari murid yang berada di Baghdad itu. Dalam suratnya, ia menceritakan bahwa pada hari yang disebutkan oleh Syeikh Abu Hamid, ia sedang makan roti dengan madu sambil mengingat gurunya dan berdoa agar Allah memberkahi beliau. Ia berkata: <em>"Ketika aku makan, aku merasakan kehadiran Syeikh Abu Hamid bersamaku, seolah-olah ia ikut makan bersamaku."</em>
+</p>
+<p>
+Para ulama berkata bahwa karomah ini adalah <em>ittishal ar-ruhi</em> (keterhubungan spiritual) — karomah yang Allah berikan kepada para wali-Nya sehingga hati mereka terhubung dengan hati orang-orang yang mereka cintai karena Allah, meskipun jarak memisahkan mereka.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CINTA KERANA ALLAH — HR. MUSLIM</div>
+<div class="arabic-text">
+إِنَّ اللَّهَ يَقُولُ يَوْمَ الْقِيَامَةِ: أَيْنَ الْمُتَحَابُّونَ بِجَلَالِي؟ أُظِلُّهُمْ فِي ظِلِّي يَوْمَ لَا ظِلَّ إِلَّا ظِلِّي
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah berfirman pada hari kiamat: 'Di mana orang-orang yang saling mencintai karena keagungan-Ku? Aku akan menaungi mereka dengan naungan-Ku pada hari yang tidak ada naungan selain naungan-Ku.'"
+<br>— HR. Muslim
+</div>
+</div>
+<h2>Karomah Menghilang dari Pandangan</h2>
+<p>
+Salah satu karomah yang paling menakjubkan dari Syeikh Abu Hamid Al-Ghazali adalah kemampuan beliau menghilang dari pandangan orang-orang yang ingin mencelakainya. Karomah ini menjadi bukti nyata bahwa Allah senantiasa menjaga hamba-Nya yang dicintai dari segala macam bahaya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">57</span>
+<span class="karomah-title">Karomah Menghilang dari Pandangan Orang Jahat</span>
+<div class="karomah-arabic">اخْتِفَاؤُهُ عَنْ أَبْصَارِ النَّاسِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu masa terdapat sekelompok orang yang dengki kepada Syeikh Abu Hamid karena pengaruh beliau yang begitu besar. Mereka merencanakan untuk mencelakainya, dan pada suatu malam mereka mengepung rumah beliau dengan senjata di tangan.
+</p>
+<p>
+Ketika mereka mendobrak pintu dan masuk ke dalam rumah, mereka mendapati Syeikh Abu Hamid sedang shalat di mihrabnya. Mereka mengangkat senjata untuk menyerangnya, namun tiba-tiba — atas izin Allah — Syeikh Abu Hamid menghilang dari pandangan mereka. Mereka mencari ke seluruh sudut rumah, tetapi beliau tidak ada di mana-mana. Mereka keluar dan mencari di halaman, di kebun, di jalan-jalan sekitar, tetapi beliau tidak ditemukan.
+</p>
+<p>
+Keesokan harinya, Syeikh Abu Hamid muncul kembali di majelis beliau seperti biasa, seolah-olah tidak terjadi apa-apa. Ketika para murid bertanya tentang kejadian malam itu, beliau berkata: <em>"Wahai anak-anakku, Allah-lah Yang menjaga hamba-Nya. Dia mampu menyembunyikan aku dari pandangan mereka, sebagaimana Dia mampu menyembunyikan Nabi Musa AS dari Fir'aun, dan Nabi Muhammad SAW dari orang-orang Quraisy di gua Tsur. Maka janganlah kalian takut kepada siapa pun selain Allah."</em>
+</p>
+<p>
+Orang-orang yang merencanakan kejahatan itu pun akhirnya bertaubat setelah menyaksikan karomah ini. Mereka berkata: <em>"Sungguh, orang ini dilindungi oleh Allah sendiri. Kami tidak akan mampu mencelakainya, karena Allah adalah penjaganya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ghaybah an-nazhar</em> (menghilang dari pandangan) — karomah yang Allah berikan kepada para wali-Nya sebagai bentuk penjagaan dari orang-orang yang jahat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENJAGAAN ALLAH — QS. AL-AHZAB: 39</div>
+<div class="arabic-text">
+الَّذِينَ يُبَلِّغُونَ رِسَالَاتِ اللَّهِ وَيَخْشَوْنَهُ وَلَا يَخْشَوْنَ أَحَدًا إِلَّا اللَّهَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Yaitu) orang-orang yang menyampaikan risalah-risalah Allah, mereka takut kepada-Nya dan mereka tidak takut kepada seorang (pun) selain kepada Allah."
+<br>— QS. Al-Ahzab: 39
+</div>
+</div>
+<h2>Karomah Hewan Liar yang Jinak</h2>
+<p>
+Salah satu karomah yang paling menyentuh dari Syeikh Abu Hamid Al-Ghazali adalah bahwa hewan-hewan liar — yang biasanya menghindari manusia — datang kepada beliau dengan penuh ketundukan, seolah-olah mereka mengenal beliau sebagai wali Allah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">58</span>
+<span class="karomah-title">Karomah Hewan Liar yang Mendekat dengan Jinak</span>
+<div class="karomah-arabic">أَلِفَةُ الْحَيَوَانَاتِ الْوَحْشِيَّةِ لَهُ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Abu Hamid sedang beriktikaf di sebuah gua di pinggiran Thus, beliau didatangi oleh seekor rusa yang sedang dikejar oleh pemburu. Rusa itu masuk ke dalam gua dan bersembunyi di belakang Syeikh Abu Hamid, seolah-olah meminta perlindungan.
+</p>
+<p>
+Tidak lama kemudian, pemburu itu datang dan bertanya kepada Syeikh Abu Hamid: <em>"Wahai Syeikh, apakah engkau melihat seekor rusa lewat sini?"</em> Syeikh Abu Hamid menjawab dengan jujur: <em>"Ya, aku melihatnya."</em> Pemburu itu bertanya lagi: <em>"Di mana ia sekarang?"</em> Syeikh Abu Hamid menunjuk ke arah rusa yang masih bersembunyi di belakangnya dan berkata: <em>"Ia ada di sana."</em>
+</p>
+<p>
+Pemburu itu tertawa dan berkata: <em>"Wahai Syeikh, engkau pasti bercanda. Rusa itu tidak mungkin bersembunyi di depan mataku tanpa aku melihatnya."</em> Namun ketika pemburu itu melihat ke arah yang ditunjuk oleh Syeikh Abu Hamid, ia tidak melihat apa-apa — rusa itu telah menghilang atas izin Allah.
+</p>
+<p>
+Pemburu itu terkejut dan bertanya: <em>"Wahai Syeikh, apa yang telah engkau lakukan?"</em> Syeikh Abu Hamid menjawab: <em>"Aku tidak melakukan apa-apa. Allah-lah Yang menyembunyikan rusa itu dari pandanganmu, karena ia datang kepadaku untuk meminta perlindungan. Dan aku tidak akan mengkhianati perlindungannya."</em>
+</p>
+<p>
+Pemburu itu pun menangis dan bertaubat. Ia berkata: <em>"Wahai Syeikh, aku datang untuk membunuh hewan, namun aku justru menemukan pelajaran tentang kejujuran dan perlindungan. Aku berjanji tidak akan berburu lagi, dan aku akan menjadi penjaga hewan-hewan di hutan ini."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>taskhir al-hayawan</em> (penundukan hewan) — sebagaimana Allah tundukkan hewan kepada para nabi-Nya, demikian pula Allah tundukkan hewan kepada para wali-Nya yang istimewa sebagai tanda pemuliaan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TASKHIR — QS. AL-AN'AM: 165</div>
+<div class="arabic-text">
+وَهُوَ الَّذِي جَعَلَكُمْ خَلَائِفَ الْأَرْضِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Dialah yang menjadikan kamu penguasa-penguasa di bumi."
+<br>— QS. Al-An'am: 165
+</div>
+</div>
+<h2>Karomah Cahaya yang Tampak di Malam Hari</h2>
+<p>
+Salah satu karomah yang paling sering disaksikan oleh para tetangga dan murid Syeikh Abu Hamid adalah cahaya yang terpancar dari kamar beliau pada malam-malam tertentu, terutama ketika beliau sedang shalat tahajjud atau membaca Al-Qur'an.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">59</span>
+<span class="karomah-title">Karomah Cahaya yang Menyinari Rumah di Malam Hari</span>
+<div class="karomah-arabic">النُّورُ الَّذِي يَظْهَرُ فِي بَيْتِهِ بِاللَّيْلِ</div>
+<p>
+Dalam sebuah riwayat yang diriwayatkan oleh para murid beliau, diceritakan bahwa pada malam-malam tertentu, rumah Syeikh Abu Hamid memancarkan cahaya yang sangat terang — cahaya yang bukan berasal dari lampu atau lilin, melainkan cahaya spiritual yang terpancar dari hati beliau ketika sedang bermunajat kepada Allah.
+</p>
+<p>
+Para tetangga beliau sering melihat cahaya itu dan bertanya-tanya: <em>"Apakah ada lampu yang sangat terang di rumah Syeikh Abu Hamid? Atau apakah ada bintang yang jatuh di kamarnya?"</em> Namun ketika mereka memeriksa, mereka tidak menemukan lampu atau lilin apa pun di dalam rumah beliau.
+</p>
+<p>
+Salah seorang murid beliau yang memiliki bashirah (penglihatan spiritual) berkata: <em>"Cahaya itu bukanlah cahaya fisik, melainkan cahaya ma'rifat yang Allah anugerahkan kepada hati Syeikh Abu Hamid. Ketika hatinya dipenuhi oleh cahaya ma'rifat, cahaya itu memancar ke luar dan menyinari rumah beliau. Hanya orang-orang yang hatinya bersih yang dapat melihat cahaya ini."</em>
+</p>
+<p>
+Ketika Syeikh Abu Hamid ditanya tentang cahaya itu, beliau berkata: <em>"Cahaya itu bukanlah cahayaku, melainkan cahaya Allah yang Dia anugerahkan kepada hamba-Nya yang ikhlas. Jika engkau ingin melihat cahaya seperti itu, maka bersihkanlah hatimu dari kotoran dunia, dan niscaya Allah akan memberikan kepadamu cahaya-Nya."</em>
+</p>
+<p>
+Para ulama tasawuf menyebut fenomena ini sebagai <em>nur al-qalb al-zahir</em> — cahaya hati yang tampak pada lahiriah. Ia merupakan tanda bahwa dzikir dan shalat seseorang telah sampai pada tingkat kehadiran hati (<em>hudhur al-qalb</em>), sehingga cahaya iman yang ada di dalam hati memancar ke luar.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA IMAN — QS. AN-NUR: 35</div>
+<div class="arabic-text">
+اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ ۚ مَثَلُ نُورِهِ كَمِشْكَاةٍ فِيهَا مِصْبَاحٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah (Pemberi) cahaya (kepada) langit dan bumi. Perumpamaan cahaya Allah adalah seperti sebuah misykat yang di dalamnya ada sebuah pelita."
+<br>— QS. An-Nur: 35
+</div>
+</div>
+<h2>Karomah Mengetahui Isi Kitab yang Belum Ditulis</h2>
+<p>
+Salah satu karomah yang paling menakjubkan dari Syeikh Abu Hamid adalah kemampuan beliau mengetahui isi kitab-kitab yang belum beliau tulis — pengetahuan yang datang langsung dari Allah melalui ilham rabbani.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">60</span>
+<span class="karomah-title">Karomah Mengetahui Isi Kitab yang Belum Ditulis</span>
+<div class="karomah-arabic">مَعْرِفَتُهُ بِمُحْتَوَى الْكُتُبِ قَبْلَ تَأْلِيفِهَا</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu hari seorang murid datang kepada Syeikh Abu Hamid dengan membawa sebuah kertas kosong. Murid itu berkata: <em>"Wahai Syeikh, aku ingin engkau menuliskan sesuatu di kertas ini sebagai kenang-kenangan bagiku."</em>
+</p>
+<p>
+Syeikh Abu Hamid mengambil kertas itu dan menatapnya sejenak. Kemudian beliau berkata: <em>"Wahai anakku, aku tidak akan menuliskan apa-apa di kertas ini. Namun aku akan memberitahumu apa yang akan terjadi dalam hidupmu selama sepuluh tahun ke depan."</em>
+</p>
+<p>
+Kemudian Syeikh Abu Hamid menceritakan dengan detail apa yang akan dialami oleh murid itu — mulai dari perjalanan yang akan ia tempuh, orang-orang yang akan ia temui, ujian-ujian yang akan ia hadapi, hingga keberhasilan yang akan ia raih. Semua yang beliau katakan terjadi persis seperti yang beliau ramalkan, satu per satu, selama sepuluh tahun berikutnya.
+</p>
+<p>
+Ketika sepuluh tahun telah berlalu, murid itu datang kembali kepada Syeikh Abu Hamid dan berkata: <em>"Wahai Syeikh, semua yang engkau katakan sepuluh tahun yang lalu telah terjadi persis seperti yang engkau ramalkan. Bagaimana engkau bisa tahu semua itu?"</em>
+</p>
+<p>
+Syeikh Abu Hamid tersenyum dan berkata: <em>"Aku tidak tahu apa-apa. Allah-lah Yang mengetahui yang gaib, dan Dia telah memberikan kepadaku pengetahuan tentang sebagian dari yang gaib sebagai karunia dari-Nya. Namun ingatlah, bahwa pengetahuan tentang yang gaib bukanlah tujuan, melainkan buah dari keikhlasan dan ketaatan kepada Allah."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ilm al-ghaib bil-ilham</em> (pengetahuan gaib melalui ilham) — karomah yang Allah berikan kepada para wali-Nya sebagai bentuk pemuliaan, bukan sebagai kekuasaan yang dapat mereka gunakan sesuka hati.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU GAIB — QS. AL-JINN: 26-27</div>
+<div class="arabic-text">
+عَالِمُ الْغَيْبِ فَلَا يُظْهِرُ عَلَىٰ غَيْبِهِ أَحَدًا ۝ إِلَّا مَنِ ارْتَضَىٰ مِن رَّسُولٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Dia adalah) Yang Maha Mengetahui yang gaib, maka Dia tidak memperlihatkan kepada seorang pun tentang yang gaib itu, kecuali kepada rasul yang diridhai-Nya."
+<br>— QS. Al-Jinn: 26-27 (Allah memberikan sebagian ilmu gaib kepada wali-Nya)
+</div>
+</div>
+<h2>Karomah Doa yang Langsung Dikabulkan</h2>
+<p>
+Salah satu karomah yang paling sering disaksikan oleh para murid Syeikh Abu Hamid adalah bahwa doa-doa beliau langsung dikabulkan oleh Allah — baik untuk kesembuhan, rezeki, petunjuk, maupun berbagai keperluan lainnya. Para murid senantiasa meminta doa beliau untuk berbagai masalah mereka, dan mereka semua merasakan keberkahan dari doa beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">61</span>
+<span class="karomah-title">Karomah Doa yang Langsung Dikabulkan</span>
+<div class="karomah-arabic">إِسْتِجَابَةُ دُعَائِهِ مُبَاشَرَةً</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa seorang wanita datang kepada Syeikh Abu Hamid dengan membawa bayinya yang sakit keras. Para dokter sudah menyerah dan mengatakan bahwa bayi itu tidak akan selamat. Wanita itu menangis tersedu-sedu dan berkata: <em>"Wahai Syeikh, doakanlah anakku agar Allah menyembuhkannya. Ia adalah satu-satunya anakku, dan aku tidak mampu hidup tanpanya."</em>
+</p>
+<p>
+Syeikh Abu Hamid menatap bayi itu dengan penuh kasih sayang. Beliau meletakkan tangannya di dada bayi itu dan berdoa: <em>"Ya Allah, Yang Maha Menyembuhkan, sembuhkanlah bayi ini dengan kesembuhan yang tidak meninggalkan penyakit sedikit pun. Ya Allah, kembalikanlah ia kepada ibunya dalam keadaan sehat dan selamat."</em>
+</p>
+<p>
+Maka atas izin Allah, bayi itu langsung membuka matanya dan menangis dengan suara yang kuat — tanda bahwa ia telah sembuh total. Wanita itu menangis penuh kegembiraan dan memeluk bayinya. Ia berkata: <em>"Wahai Syeikh, engkau telah mengembalikan hidupku. Semoga Allah membalasmu dengan kebaikan yang berlipat ganda."</em>
+</p>
+<p>
+Syeikh Abu Hamid menjawab: <em>"Jangan berterima kasih kepadaku. Berterima kasihlah kepada Allah Yang Maha Menyembuhkan. Aku hanyalah hamba yang fakir yang berdoa kepada-Nya, dan Dia mengabulkan doa hamba-Nya yang ikhlas."</em>
+</p>
+<p>
+Dalam riwayat lain, diceritakan bahwa seorang petani datang kepada beliau dengan keluhan bahwa ladangnya kering karena kemarau panjang. Syeikh Abu Hamid mendoakannya, dan tidak lama kemudian hujan turun dengan lebat di ladang petani itu — sementara di tempat-tempat lain tidak turun hujan. Petani itu pun panen dengan hasil yang melimpah, dan ia berkata: <em>"Ini adalah berkah doa Syeikh Abu Hamid."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>istijabah ad-du'a</em> (dikabulkannya doa) — tanda bahwa Allah telah menerima keikhlasan dan kecintaan beliau kepada-Nya. Para ulama berkata bahwa doa para wali selalu dikabulkan, karena hati mereka senantiasa hidup bersama Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DOA — QS. AL-BAQARAH: 186</div>
+<div class="arabic-text">
+وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan apabila hamba-hamba-Ku bertanya kepadamu tentang Aku, maka (jawablah), bahwasanya Aku adalah dekat. Aku mengabulkan permohonan orang yang berdoa apabila ia memohon kepada-Ku."
+<br>— QS. Al-Baqarah: 186
+</div>
+</div>
+<h2>Karomah Mengobati Penyakit dengan Air Doa</h2>
+<p>
+Salah satu karomah yang paling sering diminta oleh orang-orang yang datang kepada Syeikh Abu Hamid adalah doa yang dituliskan di atas air — air yang kemudian diminum oleh orang yang sakit, dan atas izin Allah, mereka sembuh dari penyakit mereka.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">62</span>
+<span class="karomah-title">Karomah Mengobati Penyakit dengan Air Doa</span>
+<div class="karomah-arabic">الشِّفَاءُ بِالْمَاءِ الْمَقْرُوءِ عَلَيْهِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu hari seorang lelaki datang kepada Syeikh Abu Hamid dengan membawa ayahnya yang sakit keras. Penyakit itu telah berlangsung selama berbulan-bulan, dan para dokter tidak mampu menyembuhkannya. Lelaki itu berkata: <em>"Wahai Syeikh, ayahku sedang sakit keras. Para dokter sudah menyerah. Aku mohon, doakanlah agar Allah menyembuhkannya."</em>
+</p>
+<p>
+Syeikh Abu Hamid kemudian meminta secangkir air. Beliau membaca ayat-ayat Al-Qur'an tertentu — termasuk ayat-ayat syifa' (penyembuhan) — dan meniupkannya ke dalam air itu. Kemudian beliau memberikan air itu kepada lelaki itu dan berkata: <em>"Berikanlah air ini kepada ayahmu untuk minum, dengan izin Allah ia akan sembuh."</em>
+</p>
+<p>
+Lelaki itu pulang dan memberikan air itu kepada ayahnya. Setelah meminum air itu, ayahnya mulai merasakan perubahan — demamnya turun, nafsu makannya kembali, dan kekuatannya berangsur-angsur pulih. Dalam waktu kurang dari seminggu, ayahnya sembuh total dari penyakit yang telah berbulan-bulan dideritanya.
+</p>
+<p>
+Lelaki itu datang kembali kepada Syeikh Abu Hamid dengan penuh kegembiraan dan berkata: <em>"Wahai Syeikh, ayahku telah sembuh total! Apa yang telah engkau lakukan?"</em> Syeikh Abu Hamid menjawab: <em>"Aku tidak melakukan apa-apa. Aku hanya membaca ayat-ayat Allah dan meniupkannya ke dalam air. Yang menyembuhkan adalah Allah, Yang Maha Penyembuh. Air itu hanyalah wasilah (perantara), sedangkan kesembuhan datang dari Allah semata."</em>
+</p>
+<p>
+Para ulama berkata bahwa karomah ini adalah <em>ruqyah syar'iyyah</em> (penyembuhan dengan ayat-ayat Al-Qur'an) — metode penyembuhan yang diajarkan oleh Rasulullah SAW dan yang dilanjutkan oleh para wali Allah. Kesembuhan ini bukanlah karena air atau doa itu sendiri, melainkan karena izin Allah yang mengabulkan doa hamba-Nya yang ikhlas.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG SYIFA' AL-QUR'AN — QS. AL-ISRA': 82</div>
+<div class="arabic-text">
+وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Kami turunkan dari Al-Qur'an suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."
+<br>— QS. Al-Isra': 82
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Masyhur Syeikh Abdul Qadir Al-Jilani:</strong>
+<ul>
+<li><strong>Tasarruf rabbani</strong> — Menolong orang yang tenggelam di lautan jauh</li>
+<li><strong>Ittishal ar-ruhi</strong> — Merasakan makanan murid yang berada di negeri jauh</li>
+<li><strong>Ghaybah an-nazhar</strong> — Menghilang dari pandangan orang yang ingin mencelakai</li>
+<li><strong>Taskhir al-hayawan</strong> — Melindungi rusa dari pemburu</li>
+<li><strong>Nur al-qalb al-zahir</strong> — Cahaya yang menyinari rumah di malam hari</li>
+<li><strong>Ilm al-ghaib bil-ilham</strong> — Mengetahui masa depan murid selama 10 tahun</li>
+<li><strong>Istijabah ad-du'a</strong> — Menyembuhkan bayi & menurunkan hujan</li>
+<li><strong>Ruqyah syar'iyyah</strong> — Mengobati penyakit dengan air doa</li>
+</ul>
+</div>
+<h2>Pelajaran dari Karomah-Karomah Masyhur</h2>
+<p>
+Dari karomah-karomah masyhur yang disebutkan di atas, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>semua karomah adalah atas izin Allah</strong>. Syeikh Abu Hamid tidak pernah mengklaim bahwa karomah itu berasal dari dirinya sendiri. Setiap kali beliau menunjukkan karomah, beliau segera mengingatkan bahwa yang melakukannya adalah Allah, bukan beliau. Ini adalah adab seorang wali yang sejati.
+<br><br>
+<em>Kedua</em>, <strong>karomah bukanlah tujuan, melainkan buah</strong>. Para wali tidak mencari karomah, melainkan mencari ridha Allah. Karomah datang dengan sendirinya ketika seorang hamba telah mencapai maqam keikhlasan yang tinggi. Barangsiapa yang mengejar karomah, ia akan tersesat; barangsiapa yang mengejar Allah, karomah akan mengikutinya.
+<br><br>
+<em>Ketiga</em>, <strong>karomah adalah ujian, bukan pujian</strong>. Setiap kali Syeikh Abu Hamid menunjukkan karomah, beliau menghadapi ujian baru — ada orang yang beriman, ada yang dengki, ada yang mencoba mencelakainya. Maka karomah bukanlah tanda bahwa seorang hamba akan selamat dari ujian, melainkan tanda bahwa ia akan diuji dengan cara yang lebih berat.
+<br><br>
+<em>Keempat</em>, <strong>karomah terbesar adalah istiqamah</strong>. Meskipun Syeikh Abu Hamid memiliki banyak karomah yang menakjubkan, beliau sendiri berkata bahwa karomah yang paling agung bukanlah menghilangkan diri atau merasakan makanan dari jauh, melainkan istiqamah di atas syariat dan hakikat. Karena istiqamah adalah karomah yang hanya diberikan kepada orang-orang yang benar-benar dicintai Allah.
+</blockquote>
+<h2>Doa Memohon Karomah dan Istiqamah</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KAROMAH DAN ISTIQAMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْنَا مِنْ أَوْلِيَائِكَ الْمُخْلَصِينَ، وَارْزُقْنَا الِاسْتِقَامَةَ عَلَى الشَّرِيعَةِ وَالْحَقِيقَةِ، وَاجْعَلْ سَيِّدَنَا أَبَا حَامِدٍ الْغَزَالِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ، وَلَا تَحْرِمْنَا بَرَكَتَهُ وَفَيْضَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah kami termasuk wali-wali-Mu yang ikhlas, anugerahkanlah kepada kami istiqamah di atas syariat dan hakikat, jadikanlah Sayyidina Abu Hamid Al-Ghazali sebagai pemberi syafaat bagi kami pada hari kiamat, dan janganlah Engkau halangi kami dari berkah dan limpahan cahaya beliau."
+</div>
+</div>
+<h2>Penutup Halaman 8</h2>
+<p>
+Demikianlah sebagian karomah masyhur Syeikh Abu Hamid Al-Ghazali yang diriwayatkan oleh para ulama — mulai dari tasarruf menolong orang yang tenggelam, merasakan makanan dari jauh, menghilang dari pandangan orang jahat, melindungi rusa dari pemburu, cahaya yang menyinari rumah, mengetahui masa depan murid, doa yang langsung dikabulkan, hingga mengobati penyakit dengan air doa. Semua ini menjadi bukti nyata bahwa Allah telah memilih beliau sebagai salah satu wali-Nya yang paling istimewa, dan bahwa cahaya kewalian beliau terus bersinar hingga hari ini.
+</p>
+<p>
+Pada halaman berikutnya — halaman terakhir — kita akan membahas akhir perjalanan hidup beliau, wafat beliau yang penuh berkah di Thus, makam beliau yang diziarahi hingga hari ini, warisan abadi yang beliau tinggalkan, serta doa penutup untuk mengambil berkah dari beliau.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+قُلْ بِفَضْلِ اللَّهِ وَبِرَحْمَتِهِ فَبِذَٰلِكَ فَلْيَفْرَحُوا هُوَ خَيْرٌ مِّمَّا يَجْمَعُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Katakanlah: 'Dengan kurnia Allah dan rahmat-Nya, hendaklah dengan itu mereka bergembira. Kurnia Allah dan rahmat-Nya itu adalah lebih baik dari apa yang mereka kumpulkan.'"
+<br>— QS. Yunus: 58
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ghazali1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ghazali2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn active" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

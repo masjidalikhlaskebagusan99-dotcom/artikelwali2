@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali — Halaman 5
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 5 dari 9 — Kitab-Kitab Monumental & Ajaran-Ajaran Utama</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Manuscript_of_Al-Ghazali.jpg/440px-Manuscript_of_Al-Ghazali.jpg"
+alt="Manuskrip Kitab Ihya' 'Ulumuddin"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi manuskrip kuno karya Syeikh Abu Hamid Al-Ghazali, yang menjadi warisan abadi bagi umat Islam hingga hari ini</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Salah satu karomah terbesar yang Allah anugerahkan kepada Syeikh Abu Hamid Al-Ghazali adalah kemampuan menulis kitab-kitab monumental yang menjadi rujukan para ulama hingga hari ini — lebih dari sembilan abad setelah beliau wafat. Kitab-kitab beliau bukan hanya karya intelektual, melainkan juga karya spiritual yang lahir dari pengalaman ma'rifat yang mendalam, dari air mata yang mengalir di malam hari, dari dzikir yang mengisi hati, dari cahaya yang Allah anugerahkan kepadanya setelah bertahun-tahun mencari kebenaran. Dari pena beliau lahirlah <em>Ihya' 'Ulumuddin</em> — ensiklopedia tasawuf dan akhlak yang menjadi salah satu karya terbesar dalam sejarah Islam, <em>Tahafut al-Falasifah</em> — pembelaan Islam dari filsafat yang menyimpang, <em>Al-Munqidz min ad-Dalal</em> — otobiografi spiritual yang menjadi panduan mencari kebenaran, dan banyak lagi kitab-kitab agung lainnya.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU YANG BERMANFAAT — QS. FATIR: 28</div>
+<div class="arabic-text">
+إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya yang takut kepada Allah di antara hamba-hamba-Nya, hanyalah ulama."
+<br>— QS. Fathir: 28
+</div>
+</div>
+<h2>Ihya' 'Ulumuddin — Menghidupkan Kembali Ilmu-Ilmu Agama</h2>
+<p>
+Kitab yang paling monumental dari Syeikh Abu Hamid Al-Ghazali — dan salah satu karya terbesar dalam sejarah Islam secara keseluruhan — adalah <em>Ihya' 'Ulumuddin</em> (إحياء علوم الدين), yang berarti "Menghidupkan Kembali Ilmu-Ilmu Agama". Kitab ini terdiri dari empat jilid besar yang mencakup seluruh aspek kehidupan seorang Muslim — dari ibadah lahiriah hingga tazkiyatun nafs, dari muamalah hingga akhlak, dari ilmu-ilmu duniawi hingga ilmu-ilmu ukhrawi.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">31</span>
+<span class="karomah-title">Karomah Kitab Ihya' 'Ulumuddin</span>
+<div class="karomah-arabic">كِتَابُ إِحْيَاءِ عُلُومِ الدِّينِ</div>
+<p>
+<em>Ihya' 'Ulumuddin</em> dibagi menjadi empat bagian utama, masing-masing terdiri dari sepuluh buku:
+</p>
+<ul>
+<li><strong>Rub' al-'Ibadat</strong> (Seperempat Ibadah) — membahas ilmu-ilmu dasar seperti ilmu, iman, tauhid, rahasia shalat, zakat, puasa, haji, dzikir, dan doa</li>
+<li><strong>Rub' al-'Adat</strong> (Seperempat Kebiasaan) — membahas adab makan, pernikahan, pencarian rezeki, persahabatan, perjalanan, dan berbagai muamalah duniawi</li>
+<li><strong>Rub' al-Muhlikat</strong> (Seperempat yang Membinasakan) — membahas penyakit-penyakit hati seperti syahwat, lisan, marah, dengki, cinta dunia, riya', takabbur, dan ghurur</li>
+<li><strong>Rub' al-Munjiyat</strong> (Seperempat yang Menyelamatkan) — membahas tobat, sabar, zuhud, tawakkal, mahabbah, ikhlas, muraqabah, dan berbagai maqam spiritual</li>
+</ul>
+<p>
+Syeikh Abu Hamid menulis kitab ini setelah sepuluh tahun pengasingan diri, ketika beliau telah mencapai maqam ma'rifat yang tinggi. Beliau berkata: <em>"Aku menulis Ihya' bukan dari buku-buku semata, melainkan dari hatiku yang telah dibersihkan oleh Allah. Setiap bab adalah cerminan dari perjalananku menuju Allah."</em>
+</p>
+<p>
+Para ulama berkata bahwa <em>Ihya' 'Ulumuddin</em> adalah kitab yang paling banyak dibaca dan dikaji setelah Al-Qur'an dan Hadits di dunia Islam. Ia menjadi rujukan utama bagi para salik, para fuqaha, dan para ulama di berbagai mazhab. Bahkan Imam Nawawi — salah seorang ulama besar mazhab Syafi'i — berkata: <em>"Ihya' 'Ulumuddin adalah kitab yang tidak ada tandingannya dalam menggabungkan antara syariat dan hakikat."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI DALAM IHYA'</div>
+<div class="arabic-text">
+الْعِلْمُ بِلَا عَمَلٍ جُنُونٌ، وَالْعَمَلُ بِلَا إِخْلَاسٍ رِيَاءٌ، وَالْإِخْلَاصُ بِلَا مُرَاقَبَةٍ غُرُورٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ilmu tanpa amal adalah kegilaan, amal tanpa ikhlas adalah riya', dan ikhlas tanpa muraqabah (pengawasan hati) adalah tipuan."
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Ihya' 'Ulumuddin</em>
+</div>
+</div>
+<h2>Tahafut al-Falasifah — Kerancuan Para Filsuf</h2>
+<p>
+Kitab kedua yang paling masyhur dari Syeikh Abu Hamid Al-Ghazali adalah <em>Tahafut al-Falasifah</em> (تهافت الفلاسفة), yang berarti "Kerancuan Para Filsuf". Kitab ini ditulis sebagai bantahan terhadap argumen-argumen filsuf-filsuf Yunani yang menyimpang — terutama Ibnu Sina (Avicenna) dan Al-Farabi — yang menggunakan akal untuk menyangkal kebenaran wahyu.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">32</span>
+<span class="karomah-title">Karomah Kitab Tahafut al-Falasifah</span>
+<div class="karomah-arabic">كِتَابُ تَهَافُتِ الْفَلَاسِفَةِ</div>
+<p>
+Dalam kitab ini, Syeikh Abu Hamid membongkar kelemahan argumen-argumen para filsuf dengan cara yang sangat elegan dan mendalam. Beliau menunjukkan bahwa akal memiliki batas-batasnya, dan bahwa ada kebenaran-kebenaran yang tidak dapat dicapai oleh akal semata — seperti kenabian, hari kiamat, dan sifat-sifat Allah.
+</p>
+<p>
+Beliau mengkategorikan kesalahan para filsuf ke dalam dua puluh masalah, di mana tiga di antaranya dianggap sebagai kekafiran:
+</p>
+<ul>
+<li><strong>Pengingkaran terhadap kebangkitan jasmani</strong> — Para filsuf menolak bahwa manusia akan dibangkitkan dengan jasadnya di hari kiamat</li>
+<li><strong>Pengingkaran terhadap ilmu Allah yang meliputi segala sesuatu</strong> — Mereka mengatakan bahwa Allah hanya mengetahui hal-hal universal, bukan hal-hal partikular</li>
+<li><strong>Pengakuan bahwa alam ini qadim (kekal)</strong> — Mereka mengatakan bahwa alam tidak diciptakan, melainkan ada bersama Allah sejak azali</li>
+</ul>
+<p>
+Kitab ini menjadi salah satu karya paling berpengaruh dalam sejarah pemikiran Islam. Ia menjadi rujukan bagi para ulama dalam membela akidah Ahlussunnah dari serangan filsafat yang menyimpang. Bahkan Ibnu Rusyd (Averroes) — seorang filsuf besar dari Andalusia — merasa perlu menulis bantahan terhadap kitab ini dengan kitabnya <em>Tahafut at-Tahafut</em> (Kerancuan dari Kerancuan), yang menunjukkan betapa kuatnya argumen Syeikh Abu Hamid.
+</p>
+<p>
+Para ulama berkata bahwa kemampuan Syeikh Abu Hamid membongkar kelemahan argumen para filsuf adalah karomah berupa <em>hujjatul haqq</em> (hujjah kebenaran) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan membela kebenaran dengan cara yang elegan dan mendalam.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI DALAM TAHAFUT</div>
+<div class="arabic-text">
+الْعَقْلُ مِصْبَاحٌ، وَالْوَحْيُ شَمْسٌ، فَمَنْ رَأَى بِالنُّجُومِ فَقَدْ ضَلَّ، وَمَنْ رَأَى بِالشَّمْسِ فَقَدِ اهْتَدَى
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Akal itu seperti pelita, dan wahyu itu seperti matahari. Barangsiapa yang melihat dengan bintang-bintang (akal semata), maka ia telah sesat. Dan barangsiapa yang melihat dengan matahari (wahyu), maka ia telah mendapat petunjuk."
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Tahafut al-Falasifah</em>
+</div>
+</div>
+<h2>Al-Munqidz min ad-Dalal — Penyelamat dari Kesesatan</h2>
+<p>
+Kitab ketiga yang paling masyhur adalah <em>Al-Munqidz min ad-Dalal</em> (المنقذ من الضلال), yang berarti "Penyelamat dari Kesesatan". Kitab ini adalah otobiografi spiritual Syeikh Abu Hamid — sebuah karya yang sangat jujur dan mendalam tentang perjalanan beliau mencari kebenaran, dari keraguan yang mengguncang jiwa hingga cahaya ma'rifat yang menerangi hati.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">33</span>
+<span class="karomah-title">Karomah Kitab Al-Munqidz min ad-Dalal</span>
+<div class="karomah-arabic">كِتَابُ الْمُنْقِذِ مِنَ الضَّلَالِ</div>
+<p>
+Dalam kitab ini, Syeikh Abu Hamid menceritakan dengan sangat jujur tentang krisis spiritual yang beliau alami — ketika beliau meragukan segala sesuatu yang beliau ketahui, ketika beliau tidak mampu lagi membedakan antara kebenaran dan kebatilan, ketika beliau merasa bahwa ilmu yang beliau miliki tidak membawa beliau kepada ketenangan hati.
+</p>
+<p>
+Beliau menulis: <em>"Aku mencari kebenaran di empat tempat: di kalangan para teolog (mutakallimun), di kalangan para filsuf (falasifah), di kalangan kaum batiniyah, dan di kalangan para sufi. Dan aku menemukan bahwa kebenaran yang sejati hanya ada di kalangan para sufi — bukan melalui ilmu, melainkan melalui rasa (dzauq) dan pengalaman spiritual."</em>
+</p>
+<p>
+Kitab ini menjadi panduan bagi siapa saja yang sedang mencari kebenaran — terutama para pemuda yang sedang dilanda keraguan. Ia menunjukkan bahwa keraguan bukanlah akhir dari pencarian, melainkan awal dari pencarian yang lebih dalam. Dan bahwa kebenaran yang sejati tidak dapat dicapai oleh akal semata, melainkan oleh hati yang telah dibersihkan oleh Allah.
+</p>
+<p>
+Para ulama berkata bahwa <em>Al-Munqidz min ad-Dalal</em> adalah salah satu otobiografi spiritual terbaik dalam sejarah dunia — setara dengan <em>Confessions</em> karya St. Augustine dan <em>Meditations</em> karya Marcus Aurelius. Namun kitab ini memiliki keistimewaan yang tidak dimiliki oleh keduanya: ia ditulis oleh seorang Muslim yang menemukan kebenaran melalui wahyu dan pengalaman spiritual.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI DALAM AL-MUNQIDZ</div>
+<div class="arabic-text">
+الْحَقُّ مَا شَهِدَ لَهُ الْعَقْلُ وَالْقَلْبُ جَمِيعًا، وَالْبَاطِلُ مَا شَهِدَ لَهُ أَحَدُهُمَا دُونَ الْآخَرِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Kebenaran adalah apa yang disaksikan oleh akal dan hati bersama-sama. Dan kebatilan adalah apa yang disaksikan oleh salah satunya tanpa yang lain."
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Al-Munqidz min ad-Dalal</em>
+</div>
+</div>
+<h2>Al-Mustashfa — Ensiklopedia Ushul Fiqih</h2>
+<p>
+Selain kitab-kitab tasawuf dan filsafat, Syeikh Abu Hamid juga menulis kitab-kitab fiqih dan ushul fiqih yang menjadi rujukan utama dalam mazhab Syafi'i. Di antaranya yang paling masyhur adalah <em>Al-Mustashfa min 'Ilm al-Ushul</em> (المستصفى من علم الأصول), yang berarti "Yang Terpilih dari Ilmu Ushul".
+</p>
+<div class="karomah-card">
+<span class="karomah-number">34</span>
+<span class="karomah-title">Karomah Kitab Al-Mustashfa min 'Ilm al-Ushul</span>
+<div class="karomah-arabic">كِتَابُ الْمُسْتَصْفَى مِنْ عِلْمِ الْأُصُولِ</div>
+<p>
+Kitab ini adalah salah satu kitab ushul fiqih paling komprehensif dalam sejarah Islam. Ia membahas berbagai masalah ushul fiqih dengan kedalaman yang jarang dicapai oleh kitab-kitab lainnya — mulai dari sumber-sumber hukum (Al-Qur'an, Sunnah, Ijma', Qiyas), hingga kaidah-kaidah istinbath (penggalian hukum), hingga maqashid asy-syari'ah (tujuan-tujuan syariat).
+</p>
+<p>
+Salah satu kontribusi terbesar Syeikh Abu Hamid dalam kitab ini adalah teorinya tentang <em>maqashid asy-syari'ah</em> (tujuan-tujuan syariat) yang membagi tujuan syariat ke dalam lima kategori:
+</p>
+<ul>
+<li><strong>Hifzh ad-din</strong> — Menjaga agama</li>
+<li><strong>Hifzh an-nafs</strong> — Menjaga jiwa</li>
+<li><strong>Hifzh al-'aql</strong> — Menjaga akal</li>
+<li><strong>Hifzh an-nasl</strong> — Menjaga keturunan</li>
+<li><strong>Hifzh al-mal</strong> — Menjaga harta</li>
+</ul>
+<p>
+Teori ini menjadi salah satu fondasi utama dalam pemikiran hukum Islam modern, dan terus dikaji oleh para ulama hingga hari ini. Para ulama berkata bahwa kemampuan Syeikh Abu Hamid menggabungkan antara kedalaman ilmu fiqih dan kedalaman ilmu tasawuf adalah karomah yang sangat langka — karena jarang sekali seorang ulama yang mampu menguasai keduanya dengan sempurna.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MAQASHID ASY-SYARI'AH — QS. AL-BAQARAH: 195</div>
+<div class="arabic-text">
+وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan janganlah kamu menjatuhkan dirimu sendiri ke dalam kebinasaan."
+<br>— QS. Al-Baqarah: 195 (Dasar hifzh an-nafs — menjaga jiwa)
+</div>
+</div>
+<h2>Kimya' as-Sa'adah & Mizan al-'Amal</h2>
+<p>
+Selain kitab-kitab besar yang telah disebutkan, Syeikh Abu Hamid juga menulis dua kitab akhlak yang sangat masyhur: <em>Kimya' as-Sa'adah</em> (کیمیای سعادت) yang berarti "Kimia Kebahagiaan", dan <em>Mizan al-'Amal</em> (ميزان العمل) yang berarti "Timbangan Amal". Kedua kitab ini ditulis dalam bahasa Persia, dan menjadi rujukan utama bagi para salik dalam perjalanan spiritual mereka.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">35</span>
+<span class="karomah-title">Karomah Kitab Kimya' as-Sa'adah & Mizan al-'Amal</span>
+<div class="karomah-arabic">كِتَابَا كِيمِيَاءِ السَّعَادَةِ وَمِيزَانِ الْعَمَلِ</div>
+<p>
+<em>Kimya' as-Sa'adah</em> adalah ringkasan dari <em>Ihya' 'Ulumuddin</em> yang ditulis dalam bahasa Persia untuk masyarakat awam. Kitab ini membahas cara-cara mencapai kebahagiaan sejati melalui tazkiyatun nafs (penyucian jiwa) dan ma'rifatullah (mengenal Allah).
+</p>
+<p>
+<em>Mizan al-'Amal</em> adalah kitab yang lebih personal — ditulis oleh Syeikh Abu Hamid sebagai refleksi atas perjalanan spiritualnya sendiri. Dalam kitab ini, beliau membahas berbagai penyakit hati dan cara-cara mengobatinya, dengan gaya bahasa yang sangat menyentuh dan penuh hikmah.
+</p>
+<p>
+Salah satu nasihat masyhur dalam kitab ini adalah: <em>"Kebahagiaan bukanlah dalam harta, bukan dalam kedudukan, bukan dalam kemasyhuran. Kebahagiaan adalah dalam mengenal Allah dan mencintai-Nya. Barangsiapa yang mengenal Allah, maka ia akan bahagia meskipun ia fakir. Dan barangsiapa yang tidak mengenal Allah, maka ia akan sengsara meskipun ia kaya."</em>
+</p>
+<p>
+Para ulama berkata bahwa kemampuan Syeikh Abu Hamid menulis kitab-kitab yang begitu dalam dan menyentuh adalah karomah berupa <em>lisan as-sidq</em> (lidah kebenaran) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan berbicara dengan kata-kata yang penuh hikmah dan kebenaran.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI DALAM KIMYA' AS-SA'ADAH</div>
+<div class="arabic-text">
+السَّعَادَةُ فِي مَعْرِفَةِ اللَّهِ وَمَحَبَّتِهِ، لَا فِي كَثْرَةِ الْمَالِ وَالْجَاهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Kebahagiaan adalah dalam mengenal Allah dan mencintai-Nya, bukan dalam banyaknya harta dan kedudukan."
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Kimya' as-Sa'adah</em>
+</div>
+</div>
+<h2>Ajaran-Ajaran Utama Syeikh Abu Hamid Al-Ghazali</h2>
+<p>
+Dari seluruh kitab-kitab yang beliau tulis, terdapat beberapa ajaran utama yang menjadi ciri khas pemikiran Syeikh Abu Hamid Al-Ghazali — ajaran-ajaran yang terus dikaji dan diamalkan oleh para salik hingga hari ini.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">36</span>
+<span class="karomah-title">Karomah Ajaran Tauhid yang Murni</span>
+<div class="karomah-arabic">تَعْلِيمُ التَّوْحِيدِ الْخَالِصِ</div>
+<p>
+Salah satu ajaran utama Syeikh Abu Hamid adalah tauhid yang murni — keyakinan bahwa tidak ada yang berhak disembah selain Allah, tidak ada yang memberi manfaat atau bahaya selain Dia, dan tidak ada yang mengetahui yang gaib selain Dia. Beliau mengajarkan bahwa tauhid bukanlah sekadar pengakuan di lisan, melainkan keyakinan yang mendalam di dalam hati.
+</p>
+<p>
+Beliau berkata: <em>"Barangsiapa yang mencapai maqam tauhid yang sejati, maka ia akan bebas dari segala sesuatu selain Allah. Ia tidak akan takut kepada siapa pun selain Allah, tidak akan berharap kepada siapa pun selain Allah, dan tidak akan mencintai siapa pun kecuali karena Allah."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>tauhid haqiqi</em> (tauhid yang sejati) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan mencapai maqam tauhid yang murni, di mana hati tidak lagi bergantung pada siapa pun selain Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TAUHID — QS. AL-IKHLAS: 1-4</div>
+<div class="arabic-text">
+قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Katakanlah: Dia-lah Allah, Yang Maha Esa. Allah adalah Tuhan yang bergantung kepada-Nya segala sesuatu. Dia tiada beranak dan tidak pula diperanakkan, dan tidak ada seorang pun yang setara dengan Dia."
+<br>— QS. Al-Ikhlas: 1-4
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">37</span>
+<span class="karomah-title">Karomah Ajaran Tazkiyatun Nafs (Penyucian Jiwa)</span>
+<div class="karomah-arabic">تَعْلِيمُ تَزْكِيَةِ النَّفْسِ</div>
+<p>
+Ajaran kedua yang menjadi ciri khas Syeikh Abu Hamid adalah tazkiyatun nafs — penyucian jiwa dari kotoran-kotoran dosa dan penyakit-penyakit hati. Beliau mengajarkan bahwa hati adalah cermin yang memantulkan cahaya ilahi, dan bahwa untuk membersihkan cermin ini, seorang hamba harus melakukan tiga hal:
+</p>
+<ul>
+<li><strong>Takhliyah</strong> — Mengosongkan hati dari penyakit-penyakit seperti riya', takabbur, dengki, cinta dunia, dan ghurur</li>
+<li><strong>Tahliyah</strong> — Menghiasi hati dengan sifat-sifat terpuji seperti ikhlas, tawadhu', sabar, syukur, dan mahabbah</li>
+<li><strong>Tajliyah</strong> — Memantulkan cahaya ilahi di dalam hati setelah hati bersih dari kotoran dan dihiasi dengan sifat-sifat terpuji</li>
+</ul>
+<p>
+Beliau berkata: <em>"Tazkiyatun nafs adalah jalan menuju ma'rifatullah. Barangsiapa yang menyucikan dirinya, niscaya ia akan mengenal Tuhannya. Dan barangsiapa yang mengenal Tuhannya, niscaya ia akan mencintai-Nya. Dan barangsiapa yang mencintai-Nya, niscaya ia akan meninggalkan segala sesuatu selain-Nya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>tazkiyah rabbaniyah</em> (penyucian rabbani) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan membimbing orang lain dalam perjalanan penyucian jiwa.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TAZKIYAH — QS. ASY-SYAMS: 9-10</div>
+<div class="arabic-text">
+قَدْ أَفْلَحَ مَن زَكَّاهَا ۝ وَقَدْ خَابَ مَن دَسَّاهَا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya beruntunglah orang yang mensucikan jiwa itu, dan sesungguhnya merugilah orang yang mengotorinya."
+<br>— QS. Asy-Syams: 9-10
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">38</span>
+<span class="karomah-title">Karomah Ajaran Mahabbah (Cinta kepada Allah)</span>
+<div class="karomah-arabic">تَعْلِيمُ الْمَحَبَّةِ لِلَّهِ</div>
+<p>
+Ajaran ketiga yang menjadi ciri khas Syeikh Abu Hamid adalah mahabbah — cinta kepada Allah yang menjadi puncak dari perjalanan spiritual. Beliau menulis kitab khusus tentang ini dalam <em>Ihya' 'Ulumuddin</em> — kitab <em>al-Mahabbah wa ar-Ridha wa as-Sukr</em> (Cinta, Ridha, dan Syukur) — yang menjadi salah satu karya terbaik tentang cinta ilahi dalam sejarah Islam.
+</p>
+<p>
+Beliau mengajarkan bahwa cinta kepada Allah bukanlah perasaan yang datang dengan sendirinya, melainkan buah dari ma'rifat (mengenal Allah). Barangsiapa yang mengenal Allah dengan sebenar-benarnya, niscaya ia akan mencintai-Nya dengan cinta yang tidak akan pernah padam.
+</p>
+<p>
+Beliau berkata: <em>"Cinta kepada Allah adalah puncak dari segala maqam. Barangsiapa yang mencapainya, maka ia telah mencapai segala sesuatu. Dan barangsiapa yang tidak mencapainya, maka ia belum mencapai apa-apa meskipun ia telah mencapai semua maqam lainnya."</em>
+</p>
+<p>
+Beliau juga mengajarkan tanda-tanda orang yang mencintai Allah:
+</p>
+<ul>
+<li>Senantiasa berdzikir kepada-Nya dengan lisan dan hati</li>
+<li>Mencintai Al-Qur'an dan senantiasa membacanya dengan penuh perenungan</li>
+<li>Mencintai Rasulullah SAW dan mengikuti sunnah beliau</li>
+<li>Mencintai orang-orang shaleh dan para wali Allah</li>
+<li>Meninggalkan segala sesuatu yang menghalanginya dari Allah</li>
+<li>Bersabar atas ujian dan cobaan dari Allah</li>
+<li>Selalu merasa dekat dengan Allah dalam setiap keadaan</li>
+</ul>
+<p>
+Ini adalah karomah berupa <em>ta'lim al-mahabbah</em> (pengajaran cinta) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan mengajarkan cinta ilahi kepada orang lain.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MAHABBAH — QS. AL-MA'IDAH: 54</div>
+<div class="arabic-text">
+يُحِبُّهُمْ وَيُحِبُّونَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah mencintai mereka dan mereka pun mencintai-Nya."
+<br>— QS. Al-Ma'idah: 54
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">39</span>
+<span class="karomah-title">Karomah Ajaran Ikhtiar & Tawakkal</span>
+<div class="karomah-arabic">تَعْلِيمُ الِاكْتِسَابِ وَالتَّوَكُّلِ</div>
+<p>
+Salah satu ajaran Syeikh Abu Hamid yang paling praktis dan bermanfaat adalah ajaran tentang keseimbangan antara ikhtiar (berusaha) dan tawakkal (berserah diri kepada Allah). Beliau mengajarkan bahwa seorang Muslim harus berusaha dengan sungguh-sungguh dalam urusan dunianya, namun di saat yang sama harus berserah diri kepada Allah atas hasilnya.
+</p>
+<p>
+Beliau berkata: <em>"Tawakkal bukanlah meninggalkan ikhtiar, melainkan meninggalkan ketergantungan pada ikhtiar. Barangsiapa yang berusaha dengan sungguh-sungguh, namun hatinya tetap bergantung kepada Allah, maka ia telah mencapai maqam tawakkal yang sejati."</em>
+</p>
+<p>
+Beliau juga mengajarkan bahwa tawakkal memiliki tiga tingkatan:
+</p>
+<ul>
+<li><strong>Tawakkal al-'awamm</strong> (tawakkal orang awam) — berserah diri kepada Allah dalam urusan sehari-hari</li>
+<li><strong>Tawakkal al-khawass</strong> (tawakkal orang khusus) — berserah diri kepada Allah dalam segala keadaan, baik senang maupun susah</li>
+<li><strong>Tawakkal khawass al-khawass</strong> (tawakkal orang yang paling khusus) — berserah diri kepada Allah dengan penuh ridha atas segala takdir-Nya, baik yang disukai maupun yang tidak disukai</li>
+</ul>
+<p>
+Ini adalah karomah berupa <em>ta'lim at-tawazun</em> (pengajaran keseimbangan) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan mengajarkan keseimbangan dalam kehidupan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TAWAKKAL — QS. ATH-THALAQ: 3</div>
+<div class="arabic-text">
+وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan barangsiapa bertawakkal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya."
+<br>— QS. Ath-Thalaq: 3
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">40</span>
+<span class="karomah-title">Karomah Ajaran Menggabungkan Syariat & Hakikat</span>
+<div class="karomah-arabic">تَعْلِيمُ الْجَمْعِ بَيْنَ الشَّرِيعَةِ وَالْحَقِيقَةِ</div>
+<p>
+Salah satu kontribusi terbesar Syeikh Abu Hamid dalam sejarah pemikiran Islam adalah kemampuannya menggabungkan antara syariat dan hakikat — antara ilmu lahiriah dan batiniah, antara fiqih dan tasawuf. Sebelum beliau, sering terjadi pertentangan antara para fuqaha (ahli fiqih) dan para sufi — para fuqaha menganggap para sufi sebagai orang-orang yang meninggalkan syariat, dan para sufi menganggap para fuqaha sebagai orang-orang yang hanya memperhatikan lahiriah tanpa memperhatikan batiniah.
+</p>
+<p>
+Syeikh Abu Hamid datang sebagai juru damai yang menunjukkan bahwa syariat dan hakikat bukanlah dua hal yang bertentangan, melainkan dua sisi dari mata uang yang sama. Beliau berkata: <em>"Syariat tanpa hakikat adalah tubuh tanpa ruh, dan hakikat tanpa syariat adalah ruh tanpa tubuh. Keduanya harus berjalan beriringan, sebagaimana lahir dan batin harus seimbang."</em>
+</p>
+<p>
+Beliau juga mengajarkan bahwa para sufi yang sejati adalah orang-orang yang paling taat kepada syariat, karena mereka memahami bahwa syariat adalah jalan menuju hakikat. Dan para fuqaha yang sejati adalah orang-orang yang memperhatikan batiniah, karena mereka memahami bahwa lahiriah tanpa batiniah adalah ibadah yang kosong.
+</p>
+<p>
+Ini adalah karomah berupa <em>jam'u bayna asy-syari'ah wa al-haqiqah</em> (penggabungan antara syariat dan hakikat) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan menyatukan dua hal yang tampaknya bertentangan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG SYARIAT & HAKIKAT — QS. AL-BAQARAH: 172</div>
+<div class="arabic-text">
+يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِن طَيِّبَاتِ مَا رَزَقْنَاكُمْ وَاشْكُرُوا لِلَّهِ إِن كُنتُمْ إِيَّاهُ تَعْبُدُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai orang-orang yang beriman, makanlah di antara rezeki yang baik-baik yang Kami berikan kepadamu dan bersyukurlah kepada Allah, jika benar-benar kepada-Nya kamu menyembah."
+<br>— QS. Al-Baqarah: 172 (Menggabungkan lahiriah — makan — dan batiniah — syukur)
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Kitab-Kitab & Ajaran Syeikh Abu Hamid Al-Ghazali:</strong>
+<ul>
+<li><strong>Ihya' 'Ulumuddin</strong> — Ensiklopedia tasawuf & akhlak, 4 jilid, 40 buku</li>
+<li><strong>Tahafut al-Falasifah</strong> — Pembelaan Islam dari filsafat menyimpang</li>
+<li><strong>Al-Munqidz min ad-Dalal</strong> — Otobiografi spiritual terbaik dalam sejarah Islam</li>
+<li><strong>Al-Mustashfa</strong> — Ensiklopedia ushul fiqih & teori maqashid asy-syari'ah</li>
+<li><strong>Kimya' as-Sa'adah & Mizan al-'Amal</strong> — Kitab akhlak dalam bahasa Persia</li>
+<li><strong>Ajaran tauhid murni</strong> — Tauhid haqiqi, bebas dari segala sesuatu selain Allah</li>
+<li><strong>Ajaran tazkiyatun nafs</strong> — Takhliyah, tahliyah, tajliyah</li>
+<li><strong>Ajaran mahabbah</strong> — Cinta kepada Allah sebagai puncak maqam</li>
+<li><strong>Ajaran ikhtiar & tawakkal</strong> — Keseimbangan antara berusaha & berserah diri</li>
+<li><strong>Ajaran syariat & hakikat</strong> — Penggabungan lahiriah & batiniah</li>
+</ul>
+</div>
+<h2>Pelajaran dari Kitab-Kitab & Ajaran Beliau</h2>
+<p>
+Dari kitab-kitab dan ajaran Syeikh Abu Hamid Al-Ghazali, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>ilmu yang sejati adalah ilmu yang diamalkan</strong>. Syeikh Abu Hamid mengajarkan bahwa ilmu tanpa amal adalah kegilaan, dan amal tanpa ikhlas adalah riya'. Maka ilmu yang kita pelajari harus kita amalkan, dan amal yang kita lakukan harus kita ikhlaskan karena Allah.
+<br><br>
+<em>Kedua</em>, <strong>akal memiliki batas-batasnya</strong>. Syeikh Abu Hamid mengajarkan bahwa ada kebenaran-kebenaran yang tidak dapat dicapai oleh akal semata — seperti kenabian, hari kiamat, dan sifat-sifat Allah. Maka kita harus mengakui keterbatasan akal kita dan menerima kebenaran wahyu dengan penuh keridhaan.
+<br><br>
+<em>Ketiga</em>, <strong>hati yang bersih adalah cermin cahaya ilahi</strong>. Syeikh Abu Hamid mengajarkan bahwa untuk mencapai ma'rifatullah, seorang hamba harus membersihkan hatinya dari kotoran-kotoran dosa dan penyakit-penyakit hati. Maka jagalah hati kita dengan dzikir, taubat, dan ketaatan.
+<br><br>
+<em>Keempat</em>, <strong>syariat dan hakikat harus berjalan beriringan</strong>. Syeikh Abu Hamid mengajarkan bahwa tidak ada hakikat tanpa syariat, dan tidak ada syariat tanpa hakikat. Keduanya adalah dua sisi dari mata uang yang sama. Maka janganlah kita meninggalkan syariat demi hakikat, dan janganlah kita meninggalkan hakikat demi syariat.
+</blockquote>
+<h2>Doa Memohon Ilmu yang Bermanfaat</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON ILMU YANG BERMANFAAT & CAHAYA MA'RIFAT</div>
+<div class="arabic-text">
+اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا، وَارْزُقْنِي نُورَ الْمَعْرِفَةِ وَالْمَحَبَّةِ، وَاجْعَلْنَا مِمَّنْ يَجْمَعُونَ بَيْنَ الشَّرِيعَةِ وَالْحَقِيقَةِ، وَاجْعَلْ سَيِّدَنَا أَبَا حَامِدٍ الْغَزَالِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, manfaatkanlah aku dengan apa yang telah Engkau ajarkan kepadaku, ajarkanlah kepadaku apa yang bermanfaat bagiku, tambahkanlah ilmu kepadaku, anugerahkanlah kepadaku cahaya ma'rifat dan mahabbah, jadikanlah kami termasuk orang-orang yang menggabungkan antara syariat dan hakikat, dan jadikanlah Sayyidina Abu Hamid Al-Ghazali sebagai pemberi syafaat bagi kami pada hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 5</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Abu Hamid Al-Ghazali dalam kitab-kitab monumental dan ajaran-ajaran utama yang beliau wariskan kepada umat — mulai dari Ihya' 'Ulumuddin, Tahafut al-Falasifah, Al-Munqidz min ad-Dalal, Al-Mustashfa, Kimya' as-Sa'adah, hingga ajaran-ajaran tentang tauhid, tazkiyah, mahabbah, tawakkal, dan penggabungan syariat dengan hakikat. Semua ini menjadi bukti bahwa Allah telah memilih beliau sebagai salah satu wali-Nya yang istimewa, dan bahwa cahaya kewalian beliau terus bersinar melalui kitab-kitab yang beliau tulis.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas pengaruh Syeikh Abu Hamid Al-Ghazali di seluruh dunia Islam — bagaimana kitab-kitab beliau tersebar ke berbagai penjuru dunia, dan bagaimana ajaran-ajaran beliau mengubah jutaan hati dari Maroko hingga Indonesia.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan tidak ada bagiku taufiq kecuali dengan (pertolongan) Allah. Kepada-Nya aku bertawakkal dan kepada-Nya (pula) aku kembali."
+<br>— QS. Hud: 88
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ghazali1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ghazali2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn active" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

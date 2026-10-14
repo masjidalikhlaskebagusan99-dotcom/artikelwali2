@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali — Halaman 6
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 6 dari 9 — Pengaruh Al-Ghazali di Seluruh Dunia Islam</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/World_map_1897.jpg/440px-World_map_1897.jpg"
+alt="Peta Dunia Islam dan Pengaruh Al-Ghazali"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi peta dunia Islam, tempat ajaran Syeikh Abu Hamid Al-Ghazali menyebar dari Thus ke seluruh penjuru dunia selama lebih dari sembilan abad</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Salah satu karomah terbesar yang Allah anugerahkan kepada Syeikh Abu Hamid Al-Ghazali adalah bahwa ajaran beliau — melalui kitab-kitab monumental seperti <em>Ihya' 'Ulumuddin</em>, <em>Tahafut al-Falasifah</em>, dan <em>Al-Munqidz min ad-Dalal</em> — menyebar ke seluruh penjuru dunia Islam dalam waktu yang relatif singkat. Dari Thus di Khurasan, cahaya ilmu beliau menyebar ke Baghdad, Damaskus, Kairo, Jerusalem, lalu ke Afrika Utara, Turki, Balkan, Anak Benua India, Asia Tenggara, hingga Afrika Sub-Sahara. Hingga hari ini — lebih dari sembilan abad setelah wafatnya — nama beliau disebut dengan penuh penghormatan di hampir setiap sudut dunia Islam, dan kitab-kitab beliau terus dikaji di madrasah-madrasah, pesantren-pesantren, dan universitas-universitas dari Maroko hingga Indonesia.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENYEBARAN CAHAYA — QS. AN-NUR: 35</div>
+<div class="arabic-text">
+اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ ۚ مَثَلُ نُورِهِ كَمِشْكَاةٍ فِيهَا مِصْبَاحٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah (Pemberi) cahaya (kepada) langit dan bumi. Perumpamaan cahaya Allah adalah seperti sebuah misykat yang di dalamnya ada sebuah pelita."
+<br>— QS. An-Nur: 35
+</div>
+</div>
+<h2>Pengaruh di Mesir & Afrika Utara</h2>
+<p>
+Salah satu wilayah pertama yang menerima pengaruh Syeikh Abu Hamid Al-Ghazali setelah Iraq dan Syam adalah Mesir dan Afrika Utara. Para ulama Mesir — yang dikenal dengan kedalaman ilmu dan ketelitian mereka — menerima kitab-kitab Al-Ghazali dengan penuh antusiasme, dan dalam waktu yang singkat, <em>Ihya' 'Ulumuddin</em> menjadi salah satu kitab yang paling banyak dikaji di Al-Azhar dan madrasah-madrasah Kairo.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">41</span>
+<span class="karomah-title">Karomah Pengaruh di Mesir & Afrika Utara</span>
+<div class="karomah-arabic">تَأْثِيرُهُ فِي مِصْرَ وَشَمَالِ إِفْرِيقِيَا</div>
+<p>
+Di Mesir, pengaruh Syeikh Abu Hamid begitu mendalam sehingga banyak ulama besar Mesir yang menjadi "penerus spiritual" beliau. Di antaranya adalah:
+</p>
+<ul>
+<li><strong>Imam Nawawi</strong> (631-676 H) — yang menulis <em>Riyadh ash-Shalihin</em> dan <em>Al-Adzkar</em> dengan banyak mengambil inspirasi dari Ihya'</li>
+<li><strong>Imam As-Suyuthi</strong> (849-911 H) — yang menulis <em>Al-Yawaqit wal Jawahir</em> tentang ma'rifat dan ajaran para sufi, termasuk Syeikh Abu Hamid</li>
+<li><strong>Imam Asy-Sya'rani</strong> (898-973 H) — yang menulis <em>Latha'if al-Minan</em> dan <em>Al-Mizan al-Kubra</em> yang banyak mengutip ajaran Al-Ghazali</li>
+<li><strong>Imam Al-Bajuri</strong> dan <strong>Imam Ibnu Hajar al-Haitami</strong> — yang memberikan komentar dan syarah terhadap kitab-kitab Al-Ghazali</li>
+</ul>
+<p>
+Di Afrika Utara — khususnya di Aljazair, Tunisia, dan Maroko — ajaran Al-Ghazali menjadi salah satu fondasi utama bagi gerakan-gerakan pembaharuan Islam. Banyak ulama Maghribi yang menggabungkan antara fiqih Maliki dan tasawuf Ghazali, sehingga melahirkan tradisi keilmuan yang unik di wilayah tersebut.
+</p>
+<p>
+Di Maroko, pengaruh Al-Ghazali terlihat dalam tradisi <em>zawiyah</em> (pusat tarekat) yang banyak mengajarkan Ihya' sebagai kitab utama. Bahkan para sultan Maroko — seperti Sultan Ahmad al-Manshur — memberikan dukungan penuh kepada penyebaran ajaran Al-Ghazali di negeri mereka.
+</p>
+<p>
+Ini adalah karomah berupa <em>intishar an-nur</em> (penyebaran cahaya) — cahaya ilmu Syeikh Abu Hamid menyebar ke berbagai negeri sebagai tanda bahwa Allah telah meridhai beliau dan ajaran beliau.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA YANG MENYEBAR — QS. AT-TAGHABUN: 8</div>
+<div class="arabic-text">
+يَوْمَ يَجْمَعُكُمْ لِيَوْمِ الْجَمْعِ ۚ ذَٰلِكَ يَوْمُ التَّغَابُنِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Yaitu) hari dikumpulkannya kamu untuk hari berkumpul. Itulah hari yang ditentukan untuk saling kehilangan (dan saling mendapatkan)."
+<br>— QS. At-Taghabun: 8 (Hari berkumpulnya para ulama dan umat)
+</div>
+</div>
+<h2>Pengaruh di Turki & Balkan</h2>
+<p>
+Pengaruh Syeikh Abu Hamid Al-Ghazali juga menyebar ke Turki dan wilayah Balkan melalui para ulama dan sufi yang datang dari Baghdad dan Syam. Di Turki, ajaran beliau menjadi salah satu fondasi utama bagi perkembangan tasawuf di Kesultanan Utsmani, dan banyak sultan serta pejabat tinggi yang menjadi pengikut ajaran beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">42</span>
+<span class="karomah-title">Karomah Pengaruh di Turki & Balkan</span>
+<div class="karomah-arabic">تَأْثِيرُهُ فِي تُرْكِيَا وَالْبَلْقَان</div>
+<p>
+Di Turki, kitab-kitab Al-Ghazali — terutama <em>Ihya' 'Ulumuddin</em> dan <em>Kimya' as-Sa'adah</em> (yang ditulis dalam bahasa Persia dan kemudian diterjemahkan ke bahasa Turki) — menjadi rujukan utama bagi para ulama dan sufi. Banyak sultan Utsmani yang memberikan dukungan penuh kepada penyebaran ajaran Al-Ghazali, dan mereka sendiri menjadi pengikut ajaran beliau.
+</p>
+<p>
+Di wilayah Balkan — yang meliputi Bosnia, Albania, Kosovo, dan Makedonia — ajaran Al-Ghazali menyebar melalui para mursyid tarekat yang datang dari Turki. Tarekat-tarekat seperti Naqsyabandiyah, Qadiriyah, dan Mevleviyah banyak mengajarkan ajaran Al-Ghazali kepada para murid mereka. Bahkan hingga hari ini, di Sarajevo dan kota-kota lainnya di Bosnia, masih terdapat madrasah-madrasah yang mengkaji Ihya' sebagai kitab utama.
+</p>
+<p>
+Para ulama Balkan dikenal dengan kedalaman ma'rifat mereka dan kemampuan mereka dalam menggabungkan antara syariat dan hakikat — sebuah ciri khas ajaran Al-Ghazali. Mereka juga dikenal dengan keberanian mereka dalam mempertahankan Islam di tengah-tengah tekanan komunis pada abad ke-20.
+</p>
+<p>
+Ini adalah karomah berupa <em>tsabat 'alal-haqq</em> (keteguhan di atas kebenaran) — ajaran Syeikh Abu Hamid tetap hidup meskipun menghadapi berbagai tekanan dan tantangan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KETEGUHAN — QS. AL-ANKABUT: 69</div>
+<div class="arabic-text">
+وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan orang-orang yang berjihad untuk (mencari keridhaan) Kami, pastilah Kami akan tunjukkan kepada mereka jalan-jalan Kami."
+<br>— QS. Al-'Ankabut: 69
+</div>
+</div>
+<h2>Pengaruh di Anak Benua India</h2>
+<p>
+Salah satu wilayah yang paling banyak menerima pengaruh Syeikh Abu Hamid Al-Ghazali adalah Anak Benua India — yang meliputi India, Pakistan, dan Bangladesh. Ajaran beliau dibawa ke wilayah ini oleh para ulama dan sufi yang datang dari Afghanistan, Persia, dan Arab, dan dalam waktu yang singkat, ajaran beliau berkembang pesat di seluruh wilayah tersebut.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">43</span>
+<span class="karomah-title">Karomah Pengaruh di Anak Benua India</span>
+<div class="karomah-arabic">تَأْثِيرُهُ فِي شِبْهِ الْقَارَّةِ الْهِنْدِيَّةِ</div>
+<p>
+Di India, ajaran Al-Ghazali berkembang pesat terutama di kalangan ulama Deoband, Barelvi, dan berbagai tarekat sufi. Banyak ulama besar India yang menjadi pengikut ajaran Al-Ghazali, seperti:
+</p>
+<ul>
+<li><strong>Imam Ahmad Rida Khan</strong> — pendiri gerakan Barelvi yang banyak mengutip ajaran Al-Ghazali dalam kitab-kitabnya</li>
+<li><strong>Syeikh Muhammad Iqbal</strong> — filsuf dan penyair besar yang banyak terpengaruh oleh pemikiran Al-Ghazali</li>
+<li><strong>Syeikh Abul Hasan Ali Nadwi</strong> — ulama besar yang menulis biografi Al-Ghazali dan menyebarkan ajarannya</li>
+<li><strong>Banyak ulama Deoband</strong> — yang mengkaji Al-Mustashfa sebagai kitab ushul fiqih utama</li>
+</ul>
+<p>
+Di Pakistan, ajaran Al-Ghazali menjadi salah satu fondasi utama bagi gerakan Islamisasi yang dipimpin oleh para ulama. Banyak universitas Islam di Pakistan — seperti Universitas Islam Internasional Islamabad — yang menjadikan karya-karya Al-Ghazali sebagai bagian dari kurikulum utama mereka.
+</p>
+<p>
+Di Bangladesh, ajaran Al-Ghazali juga memiliki pengaruh yang kuat, terutama di kalangan para ulama dan sufi. Banyak madrasah dan pesantren di Bangladesh yang mengkaji Ihya' sebagai kitab utama dalam pengajaran tasawuf.
+</p>
+<p>
+Salah satu karomah terbesar Syeikh Abu Hamid di wilayah ini adalah bahwa ajaran beliau berhasil membentuk karakter umat Islam di Anak Benua — yang dikenal dengan kedalaman spiritual, kecintaan kepada Rasulullah SAW, dan komitmen terhadap syariat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DAKWAH — QS. AN-NAHL: 125</div>
+<div class="arabic-text">
+ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Serulah (manusia) kepada jalan Tuhanmu dengan hikmah dan pelajaran yang baik."
+<br>— QS. An-Nahl: 125
+</div>
+</div>
+<h2>Pengaruh di Asia Tenggara — Indonesia, Malaysia, Brunei</h2>
+<p>
+Salah satu karomah terbesar Syeikh Abu Hamid Al-Ghazali adalah bahwa ajaran beliau sampai ke Asia Tenggara — termasuk Indonesia, Malaysia, Brunei, Singapura, dan Filipina selatan — melalui para ulama yang datang dari Hadramaut (Yaman), Mekkah, dan Madinah. Di Nusantara, Al-Ghazali dikenal dengan nama <em>Imam Ghazali</em>, dan kitab-kitab beliau — terutama Ihya' 'Ulumuddin — menjadi salah satu kitab yang paling banyak dikaji di pesantren-pesantren tradisional.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">44</span>
+<span class="karomah-title">Karomah Pengaruh di Asia Tenggara</span>
+<div class="karomah-arabic">تَأْثِيرُهُ فِي جَنُوبِ شَرْقِ آسِيَا</div>
+<p>
+Di Indonesia, pengaruh Al-Ghazali begitu mendalam sehingga beliau dianggap sebagai salah satu ulama yang paling berjasa dalam pembentukan karakter Islam Nusantara. Banyak ulama besar Indonesia yang menjadi pengikut ajaran Al-Ghazali, seperti:
+</p>
+<ul>
+<li><strong>Syeikh Nawawi al-Bantani</strong> — ulama besar dari Banten yang menulis banyak kitab yang mengutip ajaran Al-Ghazali</li>
+<li><strong>Syeikh Ahmad Khatib al-Minankabawi</strong> — ulama besar dari Minangkabau yang menjadi imam di Masjidil Haram</li>
+<li><strong>Syeikh Mahfuzh at-Tarmasi</strong> — ulama dari Tremas yang menulis syarah terhadap kitab-kitab Al-Ghazali</li>
+<li><strong>KH. Hasyim Asy'ari</strong> — pendiri Nahdlatul Ulama yang banyak mengambil inspirasi dari Ihya'</li>
+<li><strong>KH. Wahab Chasbullah</strong> dan <strong>KH. Bisri Syansuri</strong> — pendiri NU yang lainnya</li>
+</ul>
+<p>
+Di pesantren-pesantren tradisional Jawa — seperti Pesantren Lirboyo, Tebuireng, Tambakberas, dan banyak lagi — Ihya' 'Ulumuddin menjadi salah satu kitab utama yang dikaji oleh para santri. Bahkan banyak pesantren yang mengkaji Ihya' secara lengkap selama beberapa tahun, karena kedalaman dan keluasan isinya.
+</p>
+<p>
+Kitab-kitab Al-Ghali yang paling populer di Indonesia adalah:
+</p>
+<ul>
+<li><em>Ihya' 'Ulumuddin</em> — dikaji di pesantren-pesantren besar</li>
+<li><em>Bidayatul Hidayah</em> — kitab akhlak ringkas yang menjadi bacaan wajib di banyak pesantren</li>
+<li><em>Ayyuhal Walad</em> — nasihat spiritual untuk para penuntut ilmu</li>
+<li><em>Minhajul 'Abidin</em> — kitab tentang ma'rifat dan perjalanan spiritual</li>
+<li><em>Al-Munqidz min ad-Dalal</em> — otobiografi spiritual yang menjadi rujukan para pencari kebenaran</li>
+</ul>
+<p>
+Di Malaysia dan Brunei, pengaruh Al-Ghazali juga sangat kuat. Banyak sultan dan pembesar di negeri ini yang menjadi pengikut ajaran beliau, dan mereka memberikan dukungan penuh kepada perkembangan ajaran beliau di negeri mereka. Universitas-universitas di Malaysia — seperti Universitas Malaya dan Universitas Islam Internasional Malaysia — menjadikan karya-karya Al-Ghazali sebagai bagian dari kurikulum mereka.
+</p>
+<p>
+Ini adalah karomah berupa <em>intishar al-islam</em> (penyebaran Islam) — ajaran Syeikh Abu Hamid menjadi salah satu sebab penguatan Islam di Asia Tenggara dan pembentukan karakter Islam Nusantara yang moderat, spiritual, dan berakhlak mulia.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENYEBARAN ISLAM — QS. AS-SAFF: 9</div>
+<div class="arabic-text">
+هُوَ الَّذِي أَرْسَلَ رَسُولَهُ بِالْهُدَىٰ وَدِينِ الْحَقِّ لِيُظْهِرَهُ عَلَى الدِّينِ كُلِّهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dialah yang mengutus Rasul-Nya dengan petunjuk dan agama yang hak, agar Dia memenangkannya di atas segala agama."
+<br>— QS. As-Saff: 9
+</div>
+</div>
+<h2>Pengaruh di Afrika Sub-Sahara</h2>
+<p>
+Ajaran Syeikh Abu Hamid Al-Ghazali juga menyebar ke Afrika Sub-Sahara — termasuk Nigeria, Senegal, Mali, Niger, Sudan, Somalia, dan berbagai negara lainnya. Penyebaran ini terjadi melalui para ulama dan sufi yang datang dari Mesir, Arab, dan Afrika Utara.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">45</span>
+<span class="karomah-title">Karomah Pengaruh di Afrika Sub-Sahara</span>
+<div class="karomah-arabic">تَأْثِيرُهُ فِي إِفْرِيقِيَا تَحْتَ الصَّحْرَاءِ</div>
+<p>
+Di Nigeria, ajaran Al-Ghazali menjadi salah satu fondasi utama bagi gerakan pembaharuan Islam yang dipimpin oleh Syeikh Utsman dan Fodio — pendiri Kekhalifahan Sokoto pada abad ke-19. Syeikh Utsman dan Fodio banyak mengutip ajaran Al-Ghazali dalam kitab-kitabnya, terutama dalam bidang akhlak dan tazkiyatun nafs.
+</p>
+<p>
+Di Senegal, ajaran Al-Ghazali juga memiliki pengaruh yang kuat, terutama di kalangan tarekat-tarekat sufi seperti Tijaniyah dan Muridiyah. Para mursyid tarekat di Senegal dikenal dengan kedalaman ma'rifat mereka dan kecintaan mereka kepada Rasulullah SAW — ciri khas ajaran Al-Ghazali.
+</p>
+<p>
+Di Somalia, Sudan, dan berbagai negeri Afrika lainnya, ajaran Al-Ghazali menjadi salah satu sumber inspirasi bagi para ulama dan dai dalam perjuangan mereka menegakkan Islam di tengah-tengah berbagai tantangan.
+</p>
+<p>
+Ini adalah karomah berupa <em>nasr al-islam</em> (kemenangan Islam) — ajaran Syeikh Abu Hamid menjadi salah satu sebab penguatan Islam di Afrika Sub-Sahara.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEMENANGAN ISLAM — QS. AN-NASHR: 1</div>
+<div class="arabic-text">
+إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Apabila telah datang pertolongan Allah dan kemenangan."
+<br>— QS. An-Nashr: 1
+</div>
+</div>
+<h2>Pengaruh di Dunia Barat</h2>
+<p>
+Salah satu karomah yang paling menakjubkan dari Syeikh Abu Hamid Al-Ghazali adalah bahwa ajaran beliau tidak hanya mempengaruhi dunia Islam, melainkan juga dunia Barat — baik dunia Kristen maupun dunia sekuler. Karya-karya beliau diterjemahkan ke dalam bahasa Latin sejak abad ke-12, dan mempengaruhi para pemikir besar Barat seperti Thomas Aquinas, Dante Alighieri, dan Blaise Pascal.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">46</span>
+<span class="karomah-title">Karomah Pengaruh di Dunia Barat</span>
+<div class="karomah-arabic">تَأْثِيرُهُ فِي الْغَرْبِ</div>
+<p>
+Di dunia Kristen abad pertengahan, karya-karya Al-Ghazali — terutama <em>Maqashid al-Falasifah</em> (Tujuan-tujuan Para Filsuf) — diterjemahkan ke dalam bahasa Latin dengan judul <em>Algazel's Intentions of the Philosophers</em>. Karya ini menjadi salah satu sumber utama bagi para teolog Kristen dalam memahami filsafat Islam, dan mempengaruhi pemikiran Thomas Aquinas — salah seorang teolog Kristen paling berpengaruh dalam sejarah.
+</p>
+<p>
+Di bidang sastra, <em>Al-Munqidz min ad-Dalal</em> — otobiografi spiritual Al-Ghazali — dianggap oleh banyak sarjana Barat sebagai salah satu inspirasi bagi <em>Confessions</em> karya St. Augustine dan <em>Divine Comedy</em> karya Dante Alighieri. Bahkan sarjana Barat seperti William Watt dan Margaret Smith menulis biografi-biografi tentang Al-Ghazali yang mengakui kedalaman spiritual dan kejeniusan intelektual beliau.
+</p>
+<p>
+Di dunia modern, pemikiran Al-Ghazali terus dikaji oleh para filsuf dan pemikir Barat. Karya-karya beliau tentang epistemologi (teori pengetahuan), etika, dan psikologi spiritual menjadi rujukan bagi para akademisi di universitas-universitas besar seperti Harvard, Oxford, dan Sorbonne.
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'tsir 'alami</em> (pengaruh global) — ajaran Syeikh Abu Hamid tidak hanya mempengaruhi umat Islam, melainkan juga mempengaruhi peradaban manusia secara keseluruhan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENGARUH YANG MENYELURUH — QS. SABA': 28</div>
+<div class="arabic-text">
+قُلْ إِنَّ رَبِّي يَبْسُطُ الرِّزْقَ لِمَن يَشَاءُ مِنْ عِبَادِهِ وَيَقْدِرُ لَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Katakanlah: 'Sesungguhnya Tuhanku melapangkan rezeki bagi siapa yang Dia kehendaki di antara hamba-hamba-Nya dan menyempitkan bagi (siapa yang Dia kehendaki).'"
+<br>— QS. Saba': 28 (Allah melapangkan pengaruh hamba-Nya yang dipilih)
+</div>
+</div>
+<h2>Pengaruh dalam Berbagai Bidang</h2>
+<p>
+Pengaruh Syeikh Abu Hamid Al-Ghazali tidak hanya terbatas pada bidang spiritual, melainkan juga meluas ke berbagai bidang lainnya — termasuk filsafat, teologi, pendidikan, psikologi, kesenian, sastra, dan pelayanan sosial.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">47</span>
+<span class="karomah-title">Karomah Pengaruh dalam Berbagai Bidang</span>
+<div class="karomah-arabic">التَّأْثِيرُ فِي مُخْتَلَفِ الْمَجَالَاتِ</div>
+<p>
+Pengaruh Syeikh Abu Hamid dalam berbagai bidang dapat dilihat dari:
+</p>
+<ul>
+<li><strong>Bidang Filsafat</strong> — <em>Tahafut al-Falasifah</em> menjadi salah satu karya paling berpengaruh dalam sejarah filsafat Islam, dan mempengaruhi pemikiran filsuf-filsuf setelahnya seperti Fakhruddin ar-Razi dan Ibnu Khaldun</li>
+<li><strong>Bidang Teologi</strong> — <em>Al-Iqtishad fi al-I'tiqad</em> dan <em>Fushul at-Ta'wila</em> menjadi rujukan utama dalam teologi Asy'ariyah</li>
+<li><strong>Bidang Ushul Fiqih</strong> — <em>Al-Mustashfa</em> menjadi salah satu kitab ushul fiqih paling komprehensif, dan teori <em>maqashid asy-syari'ah</em> beliau menjadi fondasi hukum Islam modern</li>
+<li><strong>Bidang Pendidikan</strong> — <em>Ayyuhal Walad</em> dan <em>Mizan al-'Amal</em> menjadi rujukan dalam pendidikan akhlak dan tazkiyatun nafs</li>
+<li><strong>Bidang Psikologi</strong> — Pembahasan beliau tentang penyakit-penyakit hati dan cara mengobatinya dalam Ihya' menjadi salah satu karya psikologi spiritual paling mendalam dalam sejarah</li>
+<li><strong>Bidang Kesenian & Sastra</strong> — Banyak syair-syair sufi — baik dalam bahasa Arab, Persia, Turki, Urdu, maupun Melayu — yang terpengaruh oleh ajaran Al-Ghazali</li>
+<li><strong>Bidang Pelayanan Sosial</strong> — Ajaran beliau tentang kedermawanan, kasih sayang, dan pelayanan kepada umat menjadi inspirasi bagi banyak lembaga sosial Islam di berbagai negeri</li>
+</ul>
+<p>
+Ini adalah karomah berupa <em>ta'tsir syamil</em> (pengaruh yang menyeluruh) — ajaran Syeikh Abu Hamid tidak hanya mempengaruhi aspek spiritual, melainkan juga aspek-aspek lainnya dari kehidupan umat manusia.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENGARUH YANG MENYELURUH — QS. AL-HASYR: 7</div>
+<div class="arabic-text">
+مَّا أَفَاءَ اللَّهُ عَلَىٰ رَسُولِهِ مِنْ أَهْلِ الْقُرَىٰ فَلِلَّهِ وَلِلرَّسُولِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Apa saja yang Allah berikan kepada Rasul-Nya dari harta benda penduduk negeri, maka itu untuk Allah, untuk Rasul."
+<br>— QS. Al-Hasyr: 7 (Semua milik Allah dan Rasul-Nya)
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">48</span>
+<span class="karomah-title">Karomah Gelar "Hujjatul Islam" yang Diterima Seluruh Umat</span>
+<div class="karomah-arabic">لَقَبُ حُجَّةِ الْإِسْلَامِ الَّذِي قَبِلَهُ الْجَمِيعُ</div>
+<p>
+Salah satu karomah terbesar Syeikh Abu Hamid Al-Ghazali adalah bahwa gelar <em>Hujjatul Islam</em> (Pembela Islam) yang disematkan kepadanya diterima oleh seluruh umat Islam — baik Sunni maupun Syi'ah, baik ulama Timur maupun ulama Barat, baik di masa lalu maupun di masa kini. Ini adalah sesuatu yang sangat langka, karena jarang sekali seorang ulama yang diterima oleh seluruh umat Islam tanpa kecuali.
+</p>
+<p>
+Bahkan para ulama yang berbeda pendapat dengan beliau dalam beberapa masalah — seperti Ibnu Rusyd (Averroes) dari Andalusia — tetap mengakui kehebatan dan kedalaman ilmu beliau. Ibnu Rusyd sendiri menulis bantahan terhadap <em>Tahafut al-Falasifah</em> dengan kitabnya <em>Tahafut at-Tahafut</em>, namun ia tetap mengakui bahwa Al-Ghazali adalah salah satu ulama terbesar dalam sejarah Islam.
+</p>
+<p>
+Di dunia Sunni, gelar <em>Hujjatul Islam</em> dan <em>Zainuddin</em> (Perhiasan Agama) yang disematkan kepada beliau diterima dengan penuh penghormatan. Para ulama besar seperti Imam Nawawi, Imam As-Suyuthi, Imam Ibnu Hajar al-Haitami, dan banyak lagi — semuanya mengakui kedudukan beliau sebagai salah satu ulama terbesar dalam sejarah Islam.
+</p>
+<p>
+Bahkan di kalangan Syi'ah — yang sering kali berbeda pendapat dengan Sunni — Syeikh Abu Hamid tetap dihormati sebagai salah satu ulama besar Islam. Banyak ulama Syi'ah yang mengutip karya-karya beliau dalam kitab-kitab mereka, dan mereka mengakui kedalaman ma'rifat dan kejeniusan intelektual beliau.
+</p>
+<p>
+Ini adalah karomah berupa <em>ijma' al-ummah</em> (kesepakatan umat) — karomah yang Allah berikan kepada hamba-Nya dengan menjadikan seluruh umat mengakui kehebatan dan kedalaman ilmu beliau.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENGAKUAN UMAT — QS. AL-HUJURAT: 13</div>
+<div class="arabic-text">
+إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang yang paling mulia di antara kamu di sisi Allah ialah orang yang paling takwa di antara kamu."
+<br>— QS. Al-Hujurat: 13
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Peta Pengaruh Syeikh Abu Hamid Al-Ghazali di Dunia:</strong>
+<ul>
+<li><strong>Timur Tengah</strong> — Iraq (Baghdad), Syam (Damaskus), Hijaz, Yaman, Iran (Thus)</li>
+<li><strong>Afrika Utara</strong> — Mesir (Kairo, Al-Azhar), Aljazair, Tunisia, Maroko</li>
+<li><strong>Turki & Balkan</strong> — Istanbul, Konya, Bosnia, Albania, Kosovo</li>
+<li><strong>Asia Selatan</strong> — India (Deoband, Barelvi), Pakistan, Bangladesh</li>
+<li><strong>Asia Tenggara</strong> — Indonesia (pesantren, NU), Malaysia, Brunei</li>
+<li><strong>Afrika Sub-Sahara</strong> — Nigeria (Sokoto), Senegal, Sudan, Somalia</li>
+<li><strong>Eropa & Barat</strong> — diterjemahkan ke Latin, mempengaruhi Aquinas, Dante, Pascal</li>
+<li><strong>Diakui oleh seluruh umat</strong> — Sunni, Syi'ah, bahkan filsuf Barat</li>
+</ul>
+</div>
+<h2>Rahasia di Balik Pengaruh yang Luas</h2>
+<p>
+Para ulama menjelaskan bahwa ada beberapa rahasia di balik pengaruh Syeikh Abu Hamid Al-Ghazali yang begitu luas dan bertahan selama lebih dari sembilan abad:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>keberkahan beliau sebagai wali Allah</strong>. Beliau adalah salah satu wali Allah yang paling dicintai-Nya, sehingga ajarannya membawa berkah ke mana pun ia tersebar.
+<br><br>
+<em>Kedua</em>, <strong>kemampuan menggabungkan antara akal dan wahyu</strong>. Al-Ghazali tidak menolak akal, namun ia juga tidak mengagungkannya di atas wahyu. Ia menunjukkan bahwa keduanya harus berjalan beriringan, dan ini menjadi daya tarik bagi para pemikir dari berbagai latar belakang.
+<br><br>
+<em>Ketiga</em>, <strong>kemampuan menggabungkan antara syariat dan hakikat</strong>. Sebelum Al-Ghazali, sering terjadi pertentangan antara para fuqaha dan para sufi. Al-Ghazali datang sebagai juru damai yang menunjukkan bahwa keduanya adalah dua sisi dari mata uang yang sama.
+<br><br>
+<em>Keempat</em>, <strong>kejujuran dalam menulis</strong>. Al-Ghazali menulis dari pengalaman spiritualnya sendiri, bukan hanya dari buku-buku. Inilah yang membuat kitab-kitab beliau — terutama Ihya' dan Al-Munqidz — begitu hidup dan menyentuh hati siapa pun yang membacanya.
+<br><br>
+<em>Kelima</em>, <strong>doa beliau</strong>. Beliau senantiasa mendoakan agar ajarannya bermanfaat bagi umat hingga hari kiamat, dan Allah mengabulkan doa beliau. Inilah rahasia mengapa ajaran beliau tetap hidup setelah lebih dari sembilan abad.
+</blockquote>
+<h2>Doa Memohon Keberkahan Pengaruh</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON PENYEBARAN CAHAYA ISLAM</div>
+<div class="arabic-text">
+اللَّهُمَّ انْشُرْ نُورَ سَيِّدِنَا أَبَا حَامِدٍ الْغَزَالِيِّ فِي الْأَرْضِ كُلِّهَا، وَاجْعَلْ كُتُبَهُ سَبَبًا لِهِدَايَةِ الْعِبَادِ، وَارْزُقْنَا حُبَّهُ وَمَحَبَّةَ مَنْ يُحِبُّهُ، وَاجْمَعْنَا بِهِ فِي جَنَّاتِ النَّعِيمِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, sebarkanlah cahaya Sayyidina Abu Hamid Al-Ghazali ke seluruh penjuru bumi, dan jadikanlah kitab-kitabnya sebagai sebab petunjuk bagi hamba-hamba-Mu, anugerahkanlah kepada kami cinta kepadanya dan cinta kepada orang-orang yang mencintainya, dan kumpulkanlah kami bersamanya di surga-surga kenikmatan."
+</div>
+</div>
+<h2>Penutup Halaman 6</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Abu Hamid Al-Ghazali dalam pengaruh beliau di seluruh dunia Islam — dari Mesir dan Afrika Utara, ke Turki dan Balkan, ke Anak Benua India, ke Asia Tenggara, hingga ke Afrika Sub-Sahara dan dunia Barat. Pengaruh ini menjadi bukti bahwa ajaran beliau adalah ajaran yang diridhai Allah, dan bahwa cahaya ilmu beliau terus bersinar hingga hari ini — lebih dari sembilan abad setelah wafatnya.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas kembalinya Syeikh Abu Hamid ke Naisabur dan masa-masa akhir kehidupan beliau — ketika beliau kembali mengajar setelah bertahun-tahun mengasingkan diri, dan ketika beliau mempersiapkan diri untuk pertemuan dengan Allah Yang Maha Mulia.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan tiadalah Kami mengutus kamu, melainkan untuk (menjadi) rahmat bagi semesta alam."
+<br>— QS. Al-Anbiya': 107
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ghazali1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ghazali2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn active" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

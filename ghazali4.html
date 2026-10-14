@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali — Halaman 4
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 4 dari 9 — Pertemuan dengan Para Ulama & Sufi Sezaman</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Baghdad_-_Al_Mustansiriya_University.jpg/440px-Baghdad_-_Al_Mustansiriya_University.jpg"
+alt="Pertemuan Para Ulama di Baghdad"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi kota Baghdad pada masa Abbasiyah-Seljuk, tempat Syeikh Al-Ghazali bertemu dengan para ulama, sufi, dan pemikir besar sezamannya</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Salah satu karomah besar Syeikh Abu Hamid Al-Ghazali adalah bahwa Allah pertemukan beliau dengan para ulama besar, sufi terkemuka, dan pemikir-pemikir sezaman beliau — dari Naisabur hingga Baghdad, dari Damaskus hingga Jerusalem. Pertemuan-pertemuan ini bukanlah kebetulan, melainkan takdir Allah yang menghimpun para kekasih-Nya dalam satu zaman untuk saling memuliakan, saling mengambil manfaat, dan saling menguatkan dalam perjalanan spiritual menuju Allah. Dari pertemuan-pertemuan inilah lahir nasihat-nasihat agung yang menjadi warisan spiritual bagi umat Islam hingga hari ini.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG SOHIB SHALIH — QS. AZ-ZUKHRUF: 67</div>
+<div class="arabic-text">
+الْأَخِلَّاءُ يَوْمَئِذٍ بَعْضُهُمْ لِبَعْضٍ عَدُوٌّ إِلَّا الْمُتَّقِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Teman-teman akrab pada hari itu sebagiannya menjadi musuh bagi sebagian yang lain, kecuali orang-orang yang bertakwa."
+<br>— QS. Az-Zukhruf: 67
+</div>
+</div>
+<h2>Pertemuan dengan Imam Al-Haramain Al-Juwaini</h2>
+<p>
+Pertemuan paling menentukan dalam kehidupan keilmuan Syeikh Abu Hamid Al-Ghazali adalah pertemuan beliau dengan Imam Al-Haramain Abu al-Ma'ali Abdul Malik bin Abdullah Al-Juwaini — salah seorang ulama besar mazhab Syafi'i dan imam di bidang ushul fiqih pada masanya. Imam Al-Juwaini adalah guru utama Syeikh Abu Hamid di Naisabur, dan beliau menjadi sosok yang sangat berperan dalam membentuk kepribadian keilmuan Syeikh Abu Hamid.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">25</span>
+<span class="karomah-title">Karomah Pertemuan dengan Imam Al-Haramain Al-Juwaini</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِالْإِمَامِ الْحَرَمَيْنِ الْجُوَيْنِيِّ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Abu Hamid pertama kali datang ke majelis Imam Al-Haramain, sang imam langsung menatap wajah beliau dengan penuh perhatian. Setelah beberapa saat, Imam Al-Juwaini berkata kepada para muridnya: <em>"Perhatikanlah pemuda ini. Di wajahnya terpancar cahaya ilmu yang dalam, dan aku melihat tanda-tanda kefaqihan yang akan tampak di zamannya kelak. Ia akan menjadi salah satu ulama besar yang ilmunya bermanfaat bagi umat hingga hari kiamat."</em>
+</p>
+<p>
+Imam Al-Juwaini kemudian memberikan perhatian khusus kepada Syeikh Abu Hamid, mengajarkan kepadanya ilmu-ilmu fiqih Syafi'i dan ushul fiqih dengan penuh kasih sayang. Beliau berkata kepada Syeikh Abu Hamid: <em>"Wahai Abu Hamid, engkau memiliki kecerdasan yang luar biasa dalam memahami masalah-masalah yang rumit. Namun ingatlah, bahwa ilmu tanpa amal adalah pohon tanpa buah, dan amal tanpa ikhlas adalah tubuh tanpa ruh."</em>
+</p>
+<p>
+Nasihat inilah yang kemudian menjadi salah satu prinsip utama dalam ajaran Syeikh Abu Hamid — bahwa ilmu syariat harus selalu berjalan beriringan dengan amal dan keikhlasan. Ketika Imam Al-Juwaini wafat pada tahun 478 H, beliau berpesan kepada para muridnya: <em>"Janganlah kalian melupakan Abu Hamid. Ia akan menjadi pelita bagi umat ini setelah aku tiada."</em>
+</p>
+<p>
+Pertemuan ini adalah karomah berupa <em>hidayah al-mu'allim</em> (petunjuk dari seorang guru) — karomah yang Allah berikan kepada hamba-Nya dengan mengirimkan guru yang tepat pada waktu yang tepat. Para ulama berkata bahwa barangsiapa yang mendapatkan guru yang sejati, maka ia telah mendapatkan kunci menuju ilmu yang bermanfaat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN IMAM AL-JUWAINI TENTANG SYEIKH AL-GHAZALI</div>
+<div class="arabic-text">
+لَا تَنْسَوْا أَبَا حَامِدٍ، فَإِنَّهُ سَيَكُونُ سِرَاجًا لِهَذِهِ الْأُمَّةِ مِنْ بَعْدِي
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Janganlah kalian melupakan Abu Hamid, karena ia akan menjadi pelita bagi umat ini setelah aku tiada."
+<br>— Imam Al-Haramain Al-Juwaini tentang Syeikh Abu Hamid Al-Ghazali
+</div>
+</div>
+<h2>Pertemuan dengan Nizam Al-Mulk — Wazir Seljuk</h2>
+<p>
+Salah satu pertemuan paling penting dalam kehidupan Syeikh Abu Hamid adalah pertemuan beliau dengan Nizam Al-Mulk — wazir (perdana menteri) Kesultanan Seljuk yang sangat berkuasa pada masa itu. Nizam Al-Mulk adalah seorang pemimpin yang sangat peduli terhadap keilmuan, dan beliau telah mendirikan madrasah-madrasah Nizamiyah di berbagai kota untuk menyebarkan ilmu agama.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">26</span>
+<span class="karomah-title">Karomah Pertemuan dengan Nizam Al-Mulk</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِنِظَامِ الْمُلْكِ وَزِيرِ السَّلَاجِقَةِ</div>
+<p>
+Ketika nama Syeikh Abu Hamid mulai terkenal di Naisabur, Nizam Al-Mulk mendengar tentang kehebatan beliau. Ia kemudian mengirim utusan kepada Syeikh Abu Hamid untuk mengundang beliau ke Baghdad dan menawarkan kepadanya jabatan sebagai profesor di Madrasah Nizamiyah Baghdad.
+</p>
+<p>
+Dalam pertemuan mereka, Nizam Al-Mulk sangat terkesan dengan kedalaman ilmu dan kerendahan hati Syeikh Abu Hamid. Beliau berkata kepada Syeikh Abu Hamid: <em>"Wahai Syeikh, aku telah melihat banyak ulama, namun aku belum pernah melihat seorang ulama yang menggabungkan antara kedalaman ilmu dan kerendahan hati seperti engkau. Engkau adalah orang yang tepat untuk menduduki jabatan di Madrasah Nizamiyah Baghdad."</em>
+</p>
+<p>
+Syeikh Abu Hamid menerima tawaran itu dengan penuh kerendahan hati, namun beliau menetapkan syarat bahwa beliau tidak akan menerima gaji yang berlebihan, dan beliau akan tetap hidup sederhana sebagaimana biasanya. Nizam Al-Mulk menyetujui syarat itu, dan sejak saat itu Syeikh Abu Hamid menjadi salah satu profesor paling disegani di Baghdad.
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'yin ilahi</em> (penunjukan ilahiyah) — karomah yang Allah berikan kepada hamba-Nya dengan menempatkan beliau di tempat yang tepat untuk menyebarkan ilmu dan membela agama.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG POSISI YANG TEPAT — QS. AL-HADID: 19</div>
+<div class="arabic-text">
+لِّكَيْلَا تَأْسَوْا عَلَىٰ مَا فَاتَكُمْ وَلَا تَفْرَحُوا بِمَا آتَاكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Kami tetapkan yang demikian) agar kamu tidak bersedih hati terhadap apa yang luput dari kamu, dan tidak pula terlalu gembira terhadap apa yang diberikan-Nya kepadamu."
+<br>— QS. Al-Hadid: 19
+</div>
+</div>
+<h2>Dialog dengan Para Filsuf dan Teolog</h2>
+<p>
+Salah satu karomah terbesar Syeikh Abu Hamid Al-Ghazali adalah kemampuan beliau berdialog dengan para filsuf dan teolog dari berbagai aliran — dari filsuf-filsuf yang terpengaruh oleh pemikiran Yunani, hingga kaum Mu'tazilah yang mengutamakan akal di atas wahyu, hingga kaum Batiniyah yang menyimpang dari jalan Ahlussunnah. Beliau mampu membongkar kelemahan argumen-argumen mereka dengan cara yang sangat elegan dan mendalam.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">27</span>
+<span class="karomah-title">Karomah Dialog dengan Para Filsuf & Teolog</span>
+<div class="karomah-arabic">حِوَارُهُ مَعَ الْفَلَاسِفَةِ وَالْمُتَكَلِّمِينَ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu hari Syeikh Abu Hamid diundang untuk berdialog dengan sekelompok filsuf di Baghdad. Para filsuf itu mengagungkan akal dan merendahkan wahyu. Mereka berkata: <em>"Wahai Syeikh, mengapa engkau mengikuti wahyu yang datang dari langit, padahal akal yang Allah berikan kepadamu sudah cukup untuk membimbingmu?"</em>
+</p>
+<p>
+Syeikh Abu Hamid menjawab dengan tenang: <em>"Wahai saudara-saudaraku, akal itu seperti mata, dan wahyu itu seperti cahaya matahari. Mata yang sehat tidak akan mampu melihat apa pun tanpa cahaya. Demikian pula akal yang sehat tidak akan mampu mencapai kebenaran tanpa cahaya wahyu. Barangsiapa yang mengandalkan akal saja tanpa wahyu, maka ia seperti orang yang berjalan di kegelapan malam tanpa pelita."</em>
+</p>
+<p>
+Para filsuf itu terdiam, tidak mampu membantah jawaban yang sangat dalam dan logis itu. Salah seorang dari mereka kemudian berkata: <em>"Wahai Syeikh, engkau telah mengalahkan kami bukan dengan kekuatan argumen semata, melainkan dengan cahaya kebenaran yang terpancar dari hatimu. Kami mengakui bahwa engkau adalah orang yang benar-benar mengenal Allah."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>hujjatul haqq</em> (hujjah kebenaran) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan membela kebenaran dengan cara yang elegan dan mendalam. Dari dialog-dialog inilah lahir kitab <em>Tahafut al-Falasifah</em> (Kerancuan Para Filsuf) yang meruntuhkan argumen-argumen filsuf yang menyimpang.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG HUJJAH — QS. AN-NISA': 174</div>
+<div class="arabic-text">
+يَا أَيُّهَا النَّاسُ قَدْ جَاءَكُم بُرْهَانٌ مِّن رَّبِّكُمْ وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai manusia, sesungguhnya telah datang kepadamu bukti (kebenaran) dari Tuhanmu, dan telah Kami turunkan kepadamu cahaya yang terang benderang."
+<br>— QS. An-Nisa': 174
+</div>
+</div>
+<h2>Pertemuan dengan Para Sufi Besar</h2>
+<p>
+Setelah masa pengasingan selama sepuluh tahun, Syeikh Abu Hamid kembali sebagai seorang sufi yang telah dipenuhi cahaya ma'rifat. Dalam perjalanan beliau, beliau bertemu dengan banyak sufi besar dari berbagai negeri. Pertemuan-pertemuan ini menjadi sarana bagi beliau untuk saling mengambil manfaat spiritual.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">28</span>
+<span class="karomah-title">Karomah Pertemuan dengan Para Sufi Besar</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِأَوْلِيَاءِ اللَّهِ الصُّوفِيَّةِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa ketika Syeikh Abu Hamid berada di Damaskus, beliau bertemu dengan seorang sufi besar yang dikenal dengan kezuhudannya. Sufi itu berkata kepada Syeikh Abu Hamid: <em>"Wahai Syeikh, aku mendengar bahwa engkau adalah seorang ulama besar yang meninggalkan segala kemewahan Baghdad demi mencari Allah. Aku ingin bertanya kepadamu: apakah engkau telah menemukan apa yang engkau cari?"</em>
+</p>
+<p>
+Syeikh Abu Hamid menjawab dengan penuh kerendahan hati: <em>"Wahai saudaraku, aku telah menemukan bahwa Allah lebih dekat kepadaku daripada urat nadiku sendiri. Aku telah menemukan bahwa segala sesuatu selain Allah adalah fana, dan hanya Allah yang kekal. Aku telah menemukan bahwa kebahagiaan sejati bukanlah dalam harta, kedudukan, atau kemasyhuran, melainkan dalam kecintaan kepada Allah dan keridhaan-Nya."</em>
+</p>
+<p>
+Sufi itu menangis mendengar jawaban itu, dan beliau berkata: <em>"Wahai Syeikh, engkau telah berbicara dengan lidah orang-orang yang cinta. Sesungguhnya engkau adalah salah satu wali Allah yang dicintai-Nya. Doakanlah aku agar Allah memberikan aku cinta yang sejati kepada-Nya."</em> Syeikh Abu Hamid pun mendoakan beliau, dan sejak saat itu mereka menjadi sahabat spiritual yang saling mendoakan.
+</p>
+<p>
+Ini adalah karomah berupa <em>al-jam'u bayna al-awliya'</em> (himpunan para wali) — Allah menghimpun para kekasih-Nya dalam satu tempat dan satu zaman sebagai tanda pemuliaan.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MAQAM WALI — QS. YUNUS: 62-63</div>
+<div class="arabic-text">
+أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ ۝ الَّذِينَ آمَنُوا وَكَانُوا يَتَّقُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu tidak ada ketakutan bagi mereka dan tidak pula mereka bersedih hati. (Yaitu) orang-orang yang beriman dan mereka senantiasa bertakwa."
+<br>— QS. Yunus: 62-63
+</div>
+</div>
+<h2>Murid-Murid Besar yang Lahir dari Bimbingan Beliau</h2>
+<p>
+Salah satu karomah terbesar Syeikh Abu Hamid Al-Ghazali adalah bahwa Allah anugerahkan kepadanya kemampuan untuk membimbing para murid yang kemudian menjadi ulama-ulama besar di zamannya. Dari majelis beliau lahirlah para pemikir, fuqaha, dan sufi yang menyebarkan cahaya ilmu ke berbagai penjuru dunia Islam.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">29</span>
+<span class="karomah-title">Karomah Melahirkan Murid-Murid Besar</span>
+<div class="karomah-arabic">تَخْرِيجُهُ لِلتَّلَامِيذِ الْكِبَارِ</div>
+<p>
+Di antara murid-murid besar Syeikh Abu Hamid yang kemudian menjadi ulama terkemuka adalah:
+</p>
+<ul>
+<li><strong>Imam Abu Bakr ibn al-'Arabi</strong> — ulama fiqih Maliki yang menjadi qadhi (hakim) agung di Andalusia, yang meriwayatkan banyak perkataan Syeikh Abu Hamid</li>
+<li><strong>Imam Abu al-Fath al-Busti</strong> — ulama ushul fiqih yang menjadi penerus ajaran Syeikh Abu Hamid di Nizamiyah</li>
+<li><strong>Syeikh Ahmad Ghazali</strong> — adik Syeikh Abu Hamid sendiri, yang menjadi sufi besar dan mursyid di Baghdad</li>
+<li><strong>Imam al-Kiya al-Harrasi</strong> — ulama Syafi'i yang menjadi penerus majelis Syeikh Abu Hamid di Baghdad</li>
+<li><strong>Banyak lagi ulama dan sufi</strong> — yang menyebarkan ajaran Syeikh Abu Hamid ke berbagai penjuru dunia Islam</li>
+</ul>
+<p>
+Salah seorang murid beliau berkata: <em>"Ketika aku berada di majelis Syeikh Abu Hamid, aku merasakan seolah-olah ilmu itu masuk langsung ke dalam hatiku, bukan hanya ke dalam pikiranku. Ia tidak hanya mengajarkan ilmu di atas kertas, melainkan juga mentransformasi jiwa kami melalui kehadiran spiritualnya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>tarbiyah ruhiyah</em> (pendidikan spiritual) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan mendidik para murid tidak hanya secara intelektual, melainkan juga secara spiritual.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENDIDIKAN — QS. AL-JUMU'AH: 2</div>
+<div class="arabic-text">
+هُوَ الَّذِي بَعَثَ فِي الْأُمِّيِّينَ رَسُولًا مِّنْهُمْ يَتْلُو عَلَيْهِمْ آيَاتِهِ وَيُزَكِّيهِمْ وَيُعَلِّمُهُمُ الْكِتَابَ وَالْحِكْمَةَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dialah yang mengutus kepada kaum yang buta huruf seorang Rasul di antara mereka, yang membacakan ayat-ayat-Nya kepada mereka, menyucikan mereka, dan mengajarkan mereka Kitab dan Hikmah."
+<br>— QS. Al-Jumu'ah: 2 (Tugas rasul dan pewarisnya: ulama)
+</div>
+</div>
+<h2>Dialog dengan Para Penguasa</h2>
+<p>
+Selain bertemu dengan para ulama dan sufi, Syeikh Abu Hamid Al-Ghazali juga sering berdialog dengan para penguasa pada masanya. Beliau tidak takut kepada mereka, karena hati beliau telah dipenuhi keberanian yang berasal dari Allah. Beliau senantiasa menasihati mereka dengan kata-kata yang lembut namun tegas, mengingatkan mereka tentang tanggung jawab mereka sebagai pemimpin di hadapan Allah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">30</span>
+<span class="karomah-title">Karomah Menasihati Para Penguasa dengan Keberanian</span>
+<div class="karomah-arabic">نُصْحُهُ لِلْأُمَرَاءِ بِشَجَاعَةٍ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu hari seorang penguasa datang kepada Syeikh Abu Hamid untuk meminta nasihat. Penguasa itu berkata: <em>"Wahai Syeikh, aku ingin tahu bagaimana cara menjalankan pemerintahan yang adil menurut pandangan Islam."</em>
+</p>
+<p>
+Syeikh Abu Hamid menjawab dengan tegas namun lembut: <em>"Wahai Amir, pemerintahan adalah amanah yang berat di hadapan Allah. Barangsiapa yang menjalankan pemerintahan dengan adil, niscaya Allah akan memberikan kepadanya pahala yang besar. Dan barangsiapa yang menjalankan pemerintahan dengan zalim, niscaya Allah akan mengazabnya dengan azab yang pedih. Ingatlah, bahwa engkau akan dipanggil oleh Allah pada hari kiamat, dan engkau akan ditanya tentang setiap jiwa yang engkau pimpin."</em>
+</p>
+<p>
+Penguasa itu menangis mendengar nasihat itu, dan beliau berkata: <em>"Wahai Syeikh, nasihatmu telah menyentuh hatiku. Aku akan menjalankan pemerintahan dengan adil dan kebaikan, karena aku takut kepada Allah."</em> Sejak saat itu, penguasa itu menjadi pemimpin yang lebih adil dan wara', dan rakyatnya hidup dalam kedamaian dan kesejahteraan.
+</p>
+<p>
+Ini adalah karomah berupa <em>al-haybah ar-rabbaniyah</em> (kewibawaan rabbani) — Allah memberikan kewibawaan kepada Syeikh Abu Hamid, sehingga para penguasa tunduk kepada nasihat beliau dan mengikuti petunjuk beliau.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEADILAN — QS. AN-NISA': 58</div>
+<div class="arabic-text">
+إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah menyuruh kamu menyampaikan amanat kepada yang berhak menerimanya, dan (menyuruh kamu) apabila menetapkan hukum di antara manusia supaya kamu menetapkan dengan adil."
+<br>— QS. An-Nisa': 58
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Pertemuan Syeikh Abu Hamid dengan Para Ulama & Sufi:</strong>
+<ul>
+<li><strong>Pertemuan dengan Imam Al-Juwaini</strong> — Guru utama yang membentuk kepribadian keilmuan beliau</li>
+<li><strong>Pertemuan dengan Nizam Al-Mulk</strong> — Penunjukan ilahiyah ke Madrasah Nizamiyah</li>
+<li><strong>Dialog dengan para filsuf & teolog</strong> — <em>Hujjatul haqq</em>, membela kebenaran dengan elegan</li>
+<li><strong>Pertemuan dengan para sufi besar</strong> — <em>Al-jam'u bayna al-awliya'</em>, himpunan para wali</li>
+<li><strong>Melahirkan murid-murid besar</strong> — <em>Tarbiyah ruhiyah</em>, pendidikan spiritual yang mendalam</li>
+<li><strong>Menasihati para penguasa</strong> — <em>Al-haybah ar-rabbaniyah</em>, kewibawaan rabbani</li>
+</ul>
+</div>
+<h2>Pelajaran dari Pertemuan-Pertemuan Beliau</h2>
+<p>
+Dari pertemuan-pertemuan yang disebutkan di atas, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>seorang ulama tidak hidup dalam kesendirian</strong>. Ia senantiasa bergaul dengan para ulama dan sufi lainnya untuk saling mengambil manfaat. Ini menunjukkan bahwa jalan spiritual bukanlah jalan yang individualistik, melainkan jalan yang dijalani bersama-sama dengan saudara-saudara seiman.
+<br><br>
+<em>Kedua</em>, <strong>ketinggian ilmu tidak boleh membuat sombong</strong>. Syeikh Abu Hamid senantiasa rendah hati di hadapan para gurunya, dan beliau tidak pernah membanggakan ilmunya. Ini menunjukkan bahwa ilmu yang bermanfaat adalah ilmu yang disertai dengan akhlak yang mulia.
+<br><br>
+<em>Ketiga</em>, <strong>kebenaran harus dibela dengan hikmah</strong>. Ketika berdialog dengan para filsuf, Syeikh Abu Hamid tidak menggunakan cara-cara yang kasar, melainkan menggunakan hikmah dan argumentasi yang elegan. Ini menunjukkan bahwa membela kebenaran bukan berarti harus memusuhi orang yang berbeda pendapat.
+<br><br>
+<em>Keempat</em>, <strong>seorang ulama harus berani menasihati penguasa</strong>. Syeikh Abu Hamid tidak takut menasihati para penguasa dengan tegas namun lembut, mengingatkan mereka tentang tanggung jawab mereka di hadapan Allah. Ini menunjukkan bahwa ulama adalah penjaga moralitas umat, termasuk moralitas para pemimpin.
+</blockquote>
+<h2>Doa Memohon Hikmah dan Keberanian</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON HIKMAH DAN PETUNJUK</div>
+<div class="arabic-text">
+رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Tuhan kami, berikanlah rahmat kepada kami dari sisi-Mu dan sempurnakanlah bagi kami petunjuk yang lurus dalam urusan kami."
+<br>— QS. Al-Kahf: 10
+</div>
+</div>
+<h2>Penutup Halaman 4</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Abu Hamid Al-Ghazali dalam pertemuan beliau dengan para ulama, sufi, filsuf, dan penguasa sezaman beliau. Pertemuan-pertemuan ini bukanlah kebetulan, melainkan takdir Allah yang menghimpun para kekasih-Nya untuk saling memuliakan dan saling mengambil manfaat. Dari pertemuan-pertemuan inilah lahir warisan spiritual yang agung — termasuk kitab-kitab monumental yang akan kita bahas pada halaman berikutnya.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas kitab-kitab monumental Syeikh Abu Hamid Al-Ghazali — mulai dari <em>Ihya' 'Ulumuddin</em>, <em>Tahafut al-Falasifah</em>, <em>Al-Munqidz min ad-Dalal</em>, hingga ajaran-ajaran utama yang beliau wariskan kepada umat.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَاصْبِرْ نَفْسَكَ مَعَ الَّذِينَ يَدْعُونَ رَبَّهُم بِالْغَدَاةِ وَالْعَشِيِّ يُرِيدُونَ وَجْهَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan bersabarlah kamu bersama-sama dengan orang-orang yang menyeru Tuhannya di pagi dan sore hari dengan mengharap keridhaan-Nya."
+<br>— QS. Al-Kahf: 28
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ghazali1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ghazali2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn active" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali — Halaman 9
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 9 dari 9 — Wafat di Thus, Makam, Warisan Abadi & Doa Penutup</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG"
+alt="Makam Syeikh Abu Hamid Al-Ghazali di Thus"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Baghdad_-_Al_Mustansiriya_University.jpg/440px-Baghdad_-_Al_Mustansiriya_University.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi kota Thus di Khurasan (kini Iran), tanah kelahiran dan tempat persemayaman terakhir Hujjatul Islam Syeikh Abu Hamid Al-Ghazali</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Setelah perjalanan hidup yang panjang dan penuh berkah — dari desa Ghazalah di Thus, ke Naisabur sebagai pemuda penuntut ilmu, ke Baghdad sebagai profesor paling dihormati, ke masa pengasingan sepuluh tahun di Damaskus, Jerusalem, dan Mesir, hingga kembali ke Thus sebagai sufi yang dipenuhi cahaya ma'rifat — <em>Hujjatul Islam</em> Syeikh Abu Hamid Al-Ghazali akhirnya dipanggil oleh Allah SWT ke sisi-Nya pada hari Senin, 14 Jumadil Akhir 505 H (19 Desember 1111 M), dalam usia sekitar 55 tahun. Namun meskipun jasad beliau telah bersemayam di dalam tanah di Thus selama lebih dari sembilan abad, cahaya ilmu beliau tetap bersinar, kitab-kitab beliau tetap hidup, dan makam beliau tetap menjadi tempat ziarah bagi para pencari ilmu dari berbagai penjuru dunia. Inilah karomah terakhir dan terbesar beliau: <em>baqa' al-atsar</em> — kekekalan jejak kebaikan yang tidak akan pernah padam hingga hari kiamat.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KEMATIAN — QS. AL-MULK: 2</div>
+<div class="arabic-text">
+الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Yang menjadikan mati dan hidup, supaya Dia menguji kamu, siapa di antara kamu yang lebih baik amalnya."
+<br>— QS. Al-Mulk: 2
+</div>
+</div>
+<h2>Wafat yang Penuh Berkah di Thus</h2>
+<p>
+Syeikh Abu Hamid Al-Ghazali wafat di kampung halamannya, Thus, di wilayah Khurasan (kini Iran), pada hari Senin, 14 Jumadil Akhir 505 H (19 Desember 1111 M), dalam usia sekitar 55 tahun. Beliau wafat dalam keadaan yang sangat mulia — setelah menyelesaikan seluruh tugas keilmuan dan spiritual beliau, setelah meninggalkan warisan yang begitu agung bagi umat, dan setelah mempersiapkan diri dengan penuh ketenangan untuk pertemuan dengan Allah Yang Maha Mulia.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">63</span>
+<span class="karomah-title">Karomah Wafat dalam Keadaan Husnul Khatimah</span>
+<div class="karomah-arabic">وَفَاتُهُ عَلَى حُسْنِ الْخَاتِمَةِ</div>
+<p>
+Para murid dan keluarga Syeikh Abu Hamid menceritakan bahwa menjelang wafat beliau, beliau berada dalam keadaan yang sangat tenang dan penuh ketenangan spiritual. Beliau telah menyelesaikan seluruh persiapan beliau untuk pertemuan dengan Allah — beliau telah membagikan seluruh harta beliau kepada orang-orang fakir, beliau telah meminta maaf kepada siapa pun yang pernah beliau zalimi, dan beliau telah berwasiat kepada keluarga dan murid-murid beliau.
+</p>
+<p>
+Pada hari-hari terakhir beliau, beliau menghabiskan waktunya dalam ibadah, dzikir, dan membaca Al-Qur'an. Wajah beliau bersinar dengan cahaya yang tidak pernah dilihat oleh siapa pun sebelumnya — cahaya yang merupakan pantulan dari ma'rifat yang telah memenuhi hati beliau selama puluhan tahun.
+</p>
+<p>
+Ketika ajal tiba, beliau mengucapkan syahadat dengan suara yang lemah namun penuh keyakinan: <em>"Asyhadu an laa ilaaha illallah, wa asyhadu anna Muhammadan rasulullah"</em> — "Aku bersaksi bahwa tiada Tuhan selain Allah, dan aku bersaksi bahwa Muhammad adalah utusan Allah." Kemudian ruh beliau kembali kepada Rabb-nya dengan penuh ketenangan dan keridhaan.
+</p>
+<p>
+Ini adalah karomah berupa <em>husn al-khatimah</em> (akhir hayat yang baik) — karomah yang paling agung bagi seorang wali. Wafat dengan mengucapkan syahadat adalah tanda bahwa Allah telah menerima amal-amal beliau dan meridhainya. Para ulama berkata bahwa husnul khatimah adalah buah dari istiqamah — dan Syeikh Abu Hamid adalah contoh paling nyata dari istiqamah di atas jalan Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG HUSNUL KHATIMAH — QS. AL-HIJR: 99</div>
+<div class="arabic-text">
+وَاعْبُدْ رَبَّكَ حَتَّىٰ يَأْتِيَكَ الْيَقِينُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan sembahlah Tuhanmu sampai datang kepadamu yang diyakini (ajal)."
+<br>— QS. Al-Hijr: 99
+</div>
+</div>
+<h2>Wasiat Terakhir yang Menggetarkan Hati</h2>
+<p>
+Sebelum beliau wafat, Syeikh Abu Hamid Al-Ghazali berpesan kepada keluarga dan para murid beliau dengan nasihat yang sangat mendalam. Nasihat ini menjadi wasiat spiritual yang terus dipegang teguh oleh para pengikut beliau hingga hari ini.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">64</span>
+<span class="karomah-title">Karomah Wasiat Terakhir yang Abadi</span>
+<div class="karomah-arabic">وَصِيَّتُهُ الْأَخِيرَةُ لِلْأُمَّةِ</div>
+<p>
+Syeikh Abu Hamid memanggil putra-putranya dan para murid terdekat beliau ke sisinya. Dengan suara yang lemah namun penuh hikmah, beliau berkata:
+</p>
+<blockquote>
+<em>"Wahai anak-anakku dan saudara-saudaraku, aku meninggalkan untuk kalian warisan yang paling berharga — bukan harta, bukan kitab-kitab, bukan kedudukan. Aku meninggalkan untuk kalian tiga perkara: ketakwaan kepada Allah, kecintaan kepada Rasulullah SAW, dan pelayanan kepada umat."</em>
+<br><br>
+<em>"Janganlah kalian tertipu oleh dunia, karena dunia ini adalah bayangan yang akan lenyap. Janganlah kalian tertipu oleh kemasyhuran, karena kemasyhuran ini adalah asap yang akan menghilang. Carilah ridha Allah, karena hanya Dia yang kekal."</em>
+<br><br>
+<em>"Dan ketahuilah, bahwa ilmu yang paling bermanfaat adalah ilmu yang membawa kalian kepada Allah. Dan amal yang paling mulia adalah amal yang dilakukan dengan ikhlas. Maka ikhlaskanlah niat kalian, dan bersihkanlah hati kalian, niscaya Allah akan menerima amal-amal kalian."</em>
+<br><br>
+<em>"Aku telah menulis puluhan kitab, aku telah mengajar ribuan murid, aku telah membela agama ini dengan pena dan lisanku. Namun semua itu tidak ada artinya jika tidak disertai dengan keikhlasan. Maka ikhlaslah dalam segala urusan kalian, karena keikhlasan adalah kunci penerimaan amal di sisi Allah."</em>
+<br>— Wasiat terakhir Syeikh Abu Hamid Al-Ghazali
+</blockquote>
+<p>
+Para murid beliau menangis mendengar wasiat itu, dan mereka berjanji untuk menjaganya dengan sepenuh hati. Wasiat inilah yang kemudian menjadi pondasi bagi generasi-generasi setelah beliau — sebuah warisan yang lebih berharga daripada seluruh harta dunia.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG IKHLAS — QS. AL-BAYYINAH: 5</div>
+<div class="arabic-text">
+وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Padahal mereka tidak disuruh kecuali supaya menyembah Allah dengan memurnikan ketaatan kepada-Nya dalam (menjalankan) agama."
+<br>— QS. Al-Bayyinah: 5
+</div>
+</div>
+<h2>Makam di Thus yang Diziarahi Umat</h2>
+<p>
+Jenazah Syeikh Abu Hamid Al-Ghazali dimakamkan di kampung halamannya, Thus, di wilayah Khurasan (kini Iran). Makam beliau terletak di tempat yang sederhana namun penuh berkah, dan hingga hari ini menjadi tempat ziarah bagi para pencari ilmu dari berbagai penjuru dunia.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">65</span>
+<span class="karomah-title">Karomah Makam di Thus yang Menjadi Pusat Berkah</span>
+<div class="karomah-arabic">قَبْرُهُ بِطُوسَ مَصْدَرُ الْبَرَكَةِ</div>
+<p>
+Hingga hari ini — lebih dari sembilan abad setelah wafatnya — makam Syeikh Abu Hamid Al-Ghazali di Thus menjadi tempat ziarah bagi banyak umat Islam dari berbagai penjuru dunia. Para peziarah datang dari Iran, Iraq, Turki, Asia Tengah, India, Pakistan, Indonesia, Malaysia, dan berbagai negeri lainnya — untuk berdoa di dekat makam beliau, memohon kepada Allah agar memberikan mereka berkah dari ilmu beliau, dan memohon syafa'at beliau di hari kiamat.
+</p>
+<p>
+Banyak orang yang menceritakan bahwa mereka mendapatkan karunia dan keberkahan setelah berziarah ke makam beliau — ada yang mendapatkan kemudahan dalam menuntut ilmu, ada yang mendapatkan ketenangan hati, ada yang mendapatkan petunjuk dalam urusan mereka, dan ada yang mendapatkan kesembuhan dari penyakit. Semua ini adalah tanda bahwa Allah masih memuliakan hamba-Nya yang shaleh meskipun beliau telah wafat.
+</p>
+<p>
+Para ulama berkata bahwa doa di dekat makam para wali adalah salah satu sebab dikabulkannya doa, karena Allah masih memuliakan para wali-Nya meskipun mereka telah wafat. Rasulullah SAW bersabda: <em>"Barangsiapa yang menziarahi kuburku, niscaya wajib bagiku memberikan syafa'at kepadanya."</em> (HR. Daraquthni). Dan para wali adalah orang-orang yang dekat dengan Rasulullah SAW, sehingga ziarah ke makam mereka juga menjadi sebab mendapatkan berkah.
+</p>
+<p>
+Kompleks makam Syeikh Abu Hamid di Thus hingga hari ini menjadi salah satu pusat spiritual dan keilmuan di Iran. Di sana terdapat masjid, perpustakaan, dan pusat-pusat pengajaran yang terus menghidupkan warisan keilmuan beliau. Setiap tahun, pada hari wafat beliau (14 Jumadil Akhir), diadakan peringatan (haul) yang dihadiri oleh ribuan orang dari berbagai penjuru dunia.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ZIARAH — QS. AT-TAUBAH: 105</div>
+<div class="arabic-text">
+وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan katakanlah: 'Bekerjalah kamu, maka Allah dan Rasul-Nya serta orang-orang mukmin akan melihat pekerjaanmu itu.'"
+<br>— QS. At-Taubah: 105 (Para wali melihat amal umat)
+</div>
+</div>
+<h2>Warisan Abadi yang Tak Pernah Padam</h2>
+<p>
+Meskipun Syeikh Abu Hamid Al-Ghazali telah wafat lebih dari sembilan abad yang lalu, warisan spiritual dan keilmuan beliau tetap hidup hingga hari ini. Beliau tidak meninggalkan harta yang melimpah, tidak meninggalkan istana megah, tidak meninggalkan kerajaan yang luas — namun beliau meninggalkan warisan yang jauh lebih berharga: kitab-kitab monumental, ajaran-ajaran yang mengubah jutaan hati, murid-murid yang menyebarkan cahaya ilmu ke berbagai penjuru dunia, dan teladan hidup yang menjadi inspirasi bagi para salik sepanjang zaman.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">66</span>
+<span class="karomah-title">Karomah Warisan yang Terus Mengalir Hingga Hari Kiamat</span>
+<div class="karomah-arabic">إِرْثٌ خَالِدٌ إِلَى يَوْمِ الْقِيَامَةِ</div>
+<p>
+Karomah terbesar Syeikh Abu Hamid Al-Ghazali bukanlah yang tampak di dunia, melainkan yang terus mengalir manfaatnya dari generasi ke generasi hingga hari kiamat. Inilah yang disebut oleh para ulama sebagai <em>baqa' al-atsar</em> — kekekalan jejak kebaikan. Dan inilah karomah yang paling agung, karena ia menjadi bukti bahwa Allah telah meridhai hamba-Nya dan menjadikan amal-amalnya sebagai cahaya yang menerangi jalan umat.
+</p>
+<p>
+Warisan beliau meliputi:
+</p>
+<ul>
+<li><strong>Kitab-kitab monumental</strong> — Ihya' 'Ulumuddin, Tahafut al-Falasifah, Al-Munqidz min ad-Dalal, Al-Mustashfa, Kimya' as-Sa'adah, dan puluhan kitab lainnya yang terus dikaji di seluruh dunia Islam</li>
+<li><strong>Ajaran tauhid, tazkiyah, dan mahabbah</strong> — yang menjadi pondasi spiritual bagi jutaan umat</li>
+<li><strong>Penggabungan syariat dan hakikat</strong> — yang mendamaikan pertentangan antara fuqaha dan sufi</li>
+<li><strong>Teori maqashid asy-syari'ah</strong> — yang menjadi fondasi hukum Islam modern</li>
+<li><strong>Murid-murid besar</strong> — yang menyebarkan ajaran beliau ke berbagai penjuru dunia</li>
+<li><strong>Teladan hidup</strong> — kisah perjalanan spiritual beliau yang menjadi inspirasi bagi para pencari kebenaran</li>
+</ul>
+<p>
+Rasulullah SAW bersabda: <em>"Apabila seorang anak Adam telah wafat, maka terputuslah amalannya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfaat, atau anak shaleh yang mendoakannya."</em> (HR. Muslim). Syeikh Abu Hamid Al-Ghazali mendapatkan ketiganya — ilmu beliau bermanfaat melalui kitab-kitab dan ajaran-ajarannya, keturunan dan murid-murid shaleh beliau melanjutkan dakwah beliau dan mendoakan beliau, serta jejak kebaikan beliau menjadi sedekah jariyah yang terus mengalir hingga hari kiamat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">SABDA RASULULLAH SAW TENTANG TIGA AMAL YANG TIDAK TERPUTUS</div>
+<div class="arabic-text">
+إِذَا مَاتَ ابْنُ آدَمَ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Apabila seorang anak Adam telah wafat, maka terputuslah amalannya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfaat, atau anak shaleh yang mendoakannya."
+<br>— HR. Muslim
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">67</span>
+<span class="karomah-title">Karomah Cinta Umat yang Tak Pernah Padam</span>
+<div class="karomah-arabic">مَحَبَّةُ الْأُمَّةِ لَهُ إِلَى يَوْمِ الْقِيَامَةِ</div>
+<p>
+Salah satu karomah paling menyentuh dari Syeikh Abu Hamid Al-Ghazali adalah bahwa cinta umat kepadanya tidak pernah padam meskipun telah lebih dari sembilan abad beliau wafat. Di berbagai penjuru dunia — dari Maroko hingga Indonesia, dari Turki hingga Afrika Sub-Sahara, dari Balkan hingga Asia Tengah — nama beliau disebut dengan penuh penghormatan, kitab-kitab beliau dibaca dengan penuh perenungan, dan ajaran beliau diamalkan dengan penuh kecintaan.
+</p>
+<p>
+Di Indonesia, beliau dikenal dengan nama <em>Imam Ghazali</em>, dan kitab-kitab beliau — terutama <em>Ihya' 'Ulumuddin</em> dan <em>Bidayatul Hidayah</em> — menjadi salah satu kitab yang paling banyak dikaji di pesantren-pesantren tradisional. Di Mesir, beliau dihormati sebagai salah satu ulama terbesar dalam sejarah Islam, dan kitab-kitab beliau menjadi rujukan utama di Al-Azhar. Di Turki, Pakistan, Malaysia, dan berbagai negeri lainnya, nama beliau disebut dengan penuh penghormatan.
+</p>
+<p>
+Para ulama berkata bahwa cinta umat kepada seorang wali adalah tanda bahwa Allah telah mencintai wali tersebut. Karena Allah meletakkan <em>mahabbah</em> (cinta) di hati orang-orang mukmin terhadap hamba-Nya yang dicintai-Nya. Dan Syeikh Abu Hamid adalah salah satu hamba yang paling dicintai Allah, sehingga cinta kepadanya tersebar di seluruh penjuru dunia.
+</p>
+<p>
+Syeikh Abu Hamid sendiri pernah berkata: <em>"Barangsiapa yang mencintai karena Allah, maka ia akan dicintai oleh Allah. Dan barangsiapa yang dicintai oleh Allah, maka ia akan dicintai oleh seluruh makhluk-Nya."</em> Dan inilah yang terjadi pada beliau — beliau dicintai oleh Allah, sehingga beliau dicintai oleh seluruh umat yang mengenalnya.
+</p>
+<p>
+Ini adalah karomah berupa <em>baqa' al-mahabbah</em> (kekekalan cinta) — karomah yang hanya diberikan Allah kepada para wali-Nya yang paling istimewa. Karena cinta manusia biasanya padam seiring dengan waktu, namun cinta kepada para wali tetap hidup meskipun telah berabad-abad mereka wafat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CINTA ALLAH — QS. MARYAM: 96</div>
+<div class="arabic-text">
+إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ سَيَجْعَلُ لَهُمُ الرَّحْمَٰنُ وُدًّا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang-orang yang beriman dan mengerjakan amal-amal yang saleh, kelak Allah Yang Maha Pemurah akan menanamkan dalam (hati) mereka rasa kasih sayang."
+<br>— QS. Maryam: 96
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ringkasan Karomah Akhir Hayat & Warisan Syeikh Abu Hamid Al-Ghazali:</strong>
+<ul>
+<li><strong>Wafat di Thus pada 14 Jumadil Akhir 505 H</strong> — 19 Desember 1111 M, usia ±55 tahun</li>
+<li><strong>Husnul khatimah</strong> — Wafat dengan mengucapkan syahadat</li>
+<li><strong>Wasiat terakhir yang abadi</strong> — Tiga perkara: takwa, cinta Rasulullah, pelayanan umat</li>
+<li><strong>Makam di Thus yang diziarahi</strong> — Pusat spiritual & keilmuan di Khurasan</li>
+<li><strong>Warisan tiga amal yang tidak terputus</strong> — Ilmu, keturunan shaleh, sedekah jariyah</li>
+<li><strong>Cinta umat yang tak pernah padam</strong> — <em>Baqa' al-mahabbah</em> selama 9+ abad</li>
+</ul>
+</div>
+<h2>Pelajaran dari Akhir Hayat Beliau</h2>
+<p>
+Dari kisah akhir hayat Syeikh Abu Hamid Al-Ghazali, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>persiapan menuju kematian adalah kewajiban setiap mukmin</strong>. Syeikh Abu Hamid tidak terkejut dengan kedatangan malaikat maut, karena beliau senantiasa bersiap-siap untuk pertemuan dengan Allah. Maka persiapkanlah diri kita dengan taubat, amal shaleh, dan kebaikan sebelum ajal datang.
+<br><br>
+<em>Kedua</em>, <strong>warisan terbaik bukanlah harta, melainkan amal shaleh</strong>. Syeikh Abu Hamid tidak meninggalkan harta yang melimpah, melainkan meninggalkan ilmu, keturunan shaleh, dan jejak kebaikan. Dan justru warisan itulah yang membuat beliau dikenang hingga hari ini.
+<br><br>
+<em>Ketiga</em>, <strong>husnul khatimah adalah buah dari istiqamah</strong>. Wafat dengan mengucapkan syahadat bukanlah kebetulan, melainkan buah dari kehidupan yang diisi dengan dzikir dan ketaatan kepada Allah. Maka istiqamahlah di atas ketaatan, niscaya Allah akan menganugerahkan husnul khatimah kepada kita.
+<br><br>
+<em>Keempat</em>, <strong>seorang wali tidak pernah benar-benar wafat</strong>. Ia hidup dalam amal keturunannya, dalam kitab-kitabnya, dalam doa orang-orang yang mencintainya, dan di sisi Allah Yang Maha Mulia. Maka janganlah kita takut kepada kematian, karena kematian seorang mukmin adalah pintu menuju kehidupan yang sejati.
+<br><br>
+<em>Kelima</em>, <strong>keikhlasan adalah kunci penerimaan amal</strong>. Wasiat terakhir Syeikh Abu Hamid menekankan bahwa ilmu, amal, dan kedudukan tidak ada artinya tanpa keikhlasan. Maka ikhlaskanlah niat kita dalam segala urusan, karena keikhlasan adalah kunci penerimaan amal di sisi Allah.
+</blockquote>
+<h2>Doa Tawassul & Penutup</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA TAWASSUL KEPADA SYEIKH ABI HAMID AL-GHAZALI</div>
+<div class="arabic-text">
+اللَّهُمَّ إِنَّا نَتَوَسَّلُ إِلَيْكَ بِحُرْمَةِ سَيِّدِنَا أَبِي حَامِدٍ الْغَزَالِيِّ، حُجَّةِ الْإِسْلَامِ، زَيْنِ الدِّينِ، الَّذِي أَحْيَا عُلُومَ الدِّينِ بِقَلَمِهِ وَلِسَانِهِ، وَنَشَرَ نُورَ الْمَعْرِفَةِ فِي الْمَشَارِقِ وَالْمَغَارِبِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, sesungguhnya kami bertawassul kepada-Mu dengan kehormatan Sayyidina Abu Hamid Al-Ghazali, Hujjatul Islam, Zainuddin, yang menghidupkan ilmu-ilmu agama dengan pena dan lisan beliau, dan yang menyebarkan cahaya ma'rifat di timur dan barat bumi."
+</div>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON SYAFA'AT</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْ سَيِّدَنَا أَبَا حَامِدٍ الْغَزَالِيَّ شَفِيعًا لَنَا يَوْمَ الْقِيَامَةِ، وَارْزُقْنَا حُبَّهُ وَمَحَبَّةَ مَنْ يُحِبُّهُ، وَاجْمَعْنَا بِهِ فِي جَنَّاتِ النَّعِيمِ مَعَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ مِنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah Sayyidina Abu Hamid Al-Ghazali sebagai pemberi syafa'at bagi kami pada hari kiamat, anugerahkanlah kepada kami cinta kepadanya dan cinta kepada orang-orang yang mencintainya, dan kumpulkanlah kami bersamanya di surga-surga kenikmatan bersama orang-orang yang Engkau anugerahi nikmat dari kalangan para nabi, shiddiiqiin, syuhada, dan orang-orang shaleh."
+</div>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON ILMU YANG BERMANFAAT</div>
+<div class="arabic-text">
+اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا، وَارْزُقْنِي إِخْلَاصَ النِّيَّةِ فِي جَمِيعِ أَعْمَالِي، وَاجْعَلْ عَاقِبَةَ أَمْرِي حُسْنَ الْخَاتِمَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, manfaatkanlah aku dengan apa yang telah Engkau ajarkan kepadaku, ajarkanlah kepadaku apa yang bermanfaat bagiku, tambahkanlah ilmu kepadaku, anugerahkanlah kepadaku keikhlasan niat dalam segala amalanku, dan jadikanlah akhir urusanku adalah husnul khatimah."
+</div>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON HUSNUL KHATIMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ ارْزُقْنَا حُسْنَ الْخَاتِمَةِ، وَتَوَفَّنَا وَنَحْنُ فِي ذِكْرِكَ، وَاجْعَلْ آخِرَ كَلَامِنَا مِنْ الدُّنْيَا شَهَادَةَ أَنْ لَا إِلٰهَ إِلَّا اللهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, anugerahkanlah kepada kami husn al-khatimah (akhir hayat yang baik), dan wafatkanlah kami dalam keadaan berdzikir kepada-Mu, dan jadikanlah akhir perkataan kami di dunia ini adalah syahadat bahwa tiada Tuhan selain Allah dan bahwa Muhammad adalah utusan Allah."
+</div>
+</div>
+<h2>Penutup Akhir — Selesai Seri Karomah Syeikh Abu Hamid Al-Ghazali</h2>
+<p>
+Demikianlah seri lengkap tentang karomah <em>Hujjatul Islam</em> Syeikh Abu Hamid Al-Ghazali yang dapat kami sampaikan — sembilan halaman yang menguraikan perjalanan hidup beliau dari lahir di desa Ghazalah dekat Thus, menuntut ilmu di Naisabur, menjadi profesor di Madrasah Nizamiyah Baghdad, krisis spiritual yang mengguncang jiwa, pengasingan diri selama sepuluh tahun, karomah-karomah luar biasa berupa cahaya hati, firasat, ilham, dan kasyf, pertemuan dengan para ulama dan sufi sezaman, kitab-kitab monumental yang beliau tulis, pengaruh beliau di seluruh dunia Islam, kembalinya ke Naisabur sebagai sufi yang dipenuhi cahaya ma'rifat, mukjizat-mukjizat yang masyhur, hingga wafat beliau yang penuh berkah di Thus dan warisan abadi yang terus hidup hingga hari ini.
+</p>
+<p>
+Semoga seri ini dapat menjadi wasilah bagi kita semua untuk mengambil berkah dari kehidupan <em>Hujjatul Islam</em> Syeikh Abu Hamid Al-Ghazali, meneladani keikhlasan, zuhud, kecerdasan, dan kecintaan beliau kepada Allah dan Rasulullah SAW, serta memohon kepada Allah agar memberikan kita syafa'at beliau di hari kiamat.
+</p>
+<blockquote>
+<em>"Ilmu tanpa amal adalah kegilaan, dan amal tanpa ikhlas adalah riya'. Maka ikhlaskanlah niat kalian, dan amalkanlah ilmu kalian, niscaya kalian akan mendapatkan kebahagiaan di dunia dan akhirat."</em>
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Ihya' 'Ulumuddin</em>
+</blockquote>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam. Shalawat dan salam semoga tercurah kepada junjungan kita Nabi Muhammad SAW, beserta keluarga, sahabat, dan orang-orang yang mengikuti jejak beliau hingga hari kiamat.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ وَسَلَامٌ عَلَى الْمُرْسَلِينَ وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maha Suci Tuhanmu, Tuhan Yang Maha Perkasa, dari apa yang mereka sifatkan. Dan keselamatan semoga tercurah kepada para rasul. Dan segala puji bagi Allah, Tuhan semesta alam."
+<br>— QS. Ash-Shaffat: 180-182
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ghazali1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ghazali2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn active" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
