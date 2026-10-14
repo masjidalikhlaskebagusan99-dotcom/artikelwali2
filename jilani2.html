@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menyingkap Karomah Imam Al-Ghazali - KALAM</title>
+<title>Karomah Syeikh Abdul Qadir Al-Jilani - KALAM</title>
 <style>
+/* 1. RESET & DASAR */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
 font-family: 'Georgia', serif;
@@ -12,38 +13,17 @@ background-color: #f5f5f0;
 color: #333;
 min-height: 100vh;
 line-height: 1.8;
-/* Untuk Tablet */
-  @media (max-width: 768px) {
-    .container { 
-      max-width: 100%; 
-      padding: 20px; 
-    }
-    h1 { font-size: 26px; }
-    .featured-img { max-width: 100%; }
-  }
-  
-  /* Untuk HP */
-  @media (max-width: 600px) {
-    body { font-size: 14px; }
-    h1 { font-size: 22px; }
-    h2 { font-size: 18px; }
-    .arabic { font-size: 20px; line-height: 1.8; }
-    .header { 
-      flex-direction: column; 
-      gap: 10px; 
-      padding: 15px; 
-    }
-    .nav { 
-      flex-direction: column; 
-      gap: 10px; 
-    }
-    .page-btn { 
-      width: 35px; 
-      height: 35px; 
-      font-size: 14px; 
-    }
-  }
 }
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
 header {
 background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 padding: 20px 40px;
@@ -81,6 +61,7 @@ transition: all 0.3s ease;
 font-size: 0.95rem;
 }
 nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
 .breadcrumb {
 padding: 15px 40px;
 background: #eee;
@@ -94,11 +75,18 @@ max-width: 800px;
 margin: 40px auto;
 padding: 0 20px;
 }
+/* 5. ARTICLE HEADER & META */
 .article-header { margin-bottom: 30px; }
 .article-header h1 {
 font-size: 2.2rem;
 color: #1a1a2e;
 line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
 margin-bottom: 15px;
 }
 .article-meta {
@@ -126,6 +114,7 @@ font-size: 0.85rem;
 }
 .author-name { font-weight: bold; color: #333; }
 .meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
 .article-image-wrapper {
 margin: 25px 0;
 border-radius: 12px;
@@ -194,6 +183,7 @@ background: #e94560;
 color: #fff;
 border-color: #e94560;
 }
+/* 7. KONTEN ARTIKEL */
 .article-content {
 font-size: 1.05rem;
 line-height: 1.9;
@@ -232,6 +222,14 @@ font-size: 1.2rem;
 color: #333;
 margin: 25px 0 10px;
 }
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
 .arabic-box {
 background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
 border: 2px solid #d4af37;
@@ -243,19 +241,19 @@ box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 position: relative;
 }
 .arabic-box::before {
-    content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #f8f6f0;
-    padding: 0 12px;
-    font-size: 1.2rem;
-    color: #d4af37;
-    font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
-    white-space: nowrap;
-    line-height: 1.4;
-    z-index: 2;
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
 }
 .arabic-text {
 font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
@@ -284,7 +282,7 @@ font-weight: bold;
 margin-bottom: 15px;
 letter-spacing: 1px;
 }
-.tips-card {
+.karomah-card {
 background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
 border: 1px solid #e0ddd5;
 border-radius: 12px;
@@ -293,7 +291,7 @@ margin: 25px 0;
 box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 border-left: 5px solid #e94560;
 }
-.tips-number {
+.karomah-number {
 display: inline-block;
 background: linear-gradient(135deg, #e94560, #c23152);
 color: #fff;
@@ -306,13 +304,13 @@ font-weight: bold;
 font-size: 1.2rem;
 margin-right: 10px;
 }
-.tips-title {
+.karomah-title {
 font-size: 1.3rem;
 color: #1a1a2e;
 font-weight: bold;
 display: inline;
 }
-.tips-arabic {
+.karomah-arabic {
 font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
 font-size: 1.6rem;
 color: #d4af37;
@@ -320,23 +318,41 @@ direction: rtl;
 margin: 10px 0;
 text-align: right;
 }
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
 .article-nav {
 display: flex;
 justify-content: center;
-gap: 20px;
+gap: 10px;
 margin: 40px 0;
-padding: 30px;
+padding: 20px;
 background: linear-gradient(135deg, #1a1a2e, #16213e);
 border-radius: 15px;
+flex-wrap: wrap;
 }
 .article-nav-btn {
-width: 70px;
-height: 70px;
+width: 45px;
+height: 45px;
 border-radius: 50%;
 border: 2px solid #e94560;
 background: rgba(233, 69, 96, 0.1);
 color: #fff;
-font-size: 1.8rem;
+font-size: 1.15rem;
 font-weight: bold;
 cursor: pointer;
 transition: all 0.3s ease;
@@ -357,14 +373,15 @@ box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
 .nav-btn-label {
 text-align: center;
 color: #aaa;
-font-size: 0.8rem;
-margin-top: 8px;
+font-size: 0.75rem;
+margin-top: 6px;
 }
 .nav-group {
 display: flex;
 flex-direction: column;
 align-items: center;
 }
+/* 10. TOMBOL KEMBALI & FOOTER */
 .kalam-back-btn {
 display: block;
 text-align: center;
@@ -404,15 +421,81 @@ font-size: 0.9rem;
 margin-top: 40px;
 }
 footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
 @media (max-width: 600px) {
-header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
 .article-container { padding: 0 15px; }
-.article-header h1 { font-size: 1.5rem; }
 .article-content { font-size: 0.95rem; }
 .arabic-text { font-size: 1.4rem; line-height: 2.4; }
-.tips-arabic { font-size: 1.3rem; }
-.article-nav { gap: 15px; }
-.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
 }
 </style>
 </head>
@@ -427,30 +510,34 @@ header { flex-direction: column; gap: 10px; padding: 15px 20px; }
 </nav>
 </header>
 <div class="breadcrumb">
-<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Imam Al-Ghazali
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abdul Qadir Al-Jilani — Halaman 2
 </div>
 <div class="article-container">
 <div class="article-header">
-<h1>Menyingkap Karomah Imam Al-Ghazali: Hujjatul Islam Sang Pembaharu Umat</h1>
+<h1>Karomah Syeikh Abdul Qadir Al-Jilani</h1>
+<div class="subtitle">Halaman 2 dari 9 — Perjalanan Spiritual di Baghdad & Masa Khalwat</div>
 <div class="article-meta">
 <div class="author">
 <div class="author-avatar">MY</div>
 <div>
 <div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
-<div class="meta-date">Sabtu, 10 Oktober 2026, 08:00 WIB</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
 </div>
 </div>
 </div>
 </div>
 <div class="article-image-wrapper">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Al-Ghazali.jpg/440px-Al-Ghazali.jpg"
-alt="Potret Imam Al-Ghazali">
-<div class="image-caption">Sumber: kalam.web.id — Potret Imam Al-Ghazali, Hujjatul Islam</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Baghdad-16th-century.jpg/440px-Baghdad-16th-century.jpg"
+alt="Kota Baghdad Masa Abbasiyah"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi kota Baghdad pada masa Abbasiyah, tempat Syeikh Abdul Qadir Al-Jilani menjalani khalwat selama 25 tahun</div>
 </div>
 <div class="share-bar">
 <span>Bagikan:</span>
 <a href="#" class="share-btn fb">f</a>
-<a href="#" class="share-btn tw"></a>
+<a href="#" class="share-btn tw">t</a>
 <a href="#" class="share-btn wa">W</a>
 <a href="#" class="share-btn tg">T</a>
 <div class="font-size-controls">
@@ -459,367 +546,290 @@ alt="Potret Imam Al-Ghazali">
 </div>
 </div>
 <div class="article-content" id="articleContent">
-
-<div class="arabic-box">
-<div class="arabic-label">BASMALAH</div>
-<div class="arabic-text">
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang."
-</div>
-</div>
-
 <p class="lead">
-Imam Abu Hamid Muhammad bin Muhammad Al-Ghazali (450-505 H / 1058-1111 M), yang dikenal dengan gelar <em>Hujjatul Islam</em> (Pembela Islam) dan <em>Zainuddin</em> (Perhiasan Agama), adalah salah satu ulama terbesar dalam sejarah Islam. Beliau tidak hanya dikenal sebagai filosof, teolog, dan ahli fikih, tetapi juga sebagai seorang wali Allah yang dikaruniai berbagai karomah luar biasa. Karomah-karomah beliau menjadi bukti nyata atas ketinggian maqam spiritual dan kedekatan beliau dengan Allah SWT.
+Setelah tiba di Baghdad dan berguru kepada para ulama besar pada masanya, Syeikh Abdul Qadir Al-Jilani memasuki fase perjalanan spiritual yang paling menentukan dalam hidup beliau — masa khalwat (pengasingan diri) yang berlangsung selama dua puluh lima tahun di padang pasir dan reruntuhan kota Baghdad. Di masa inilah Allah tempa hati beliau dengan ujian-ujian berat, anugerahkan kepada beliau maqam-maqam kewalian yang tinggi, dan persiapkan beliau untuk menjadi <em>Sulthanul Awliya'</em> — Sultan para wali yang dakwahnya akan mengguncang dunia Islam hingga hari kiamat.
 </p>
-
-<h2>Siapa Imam Al-Ghazali?</h2>
-<p>
-Imam Al-Ghazali lahir di Thus, wilayah Khurasan (kini Iran) pada tahun 450 H. Beliau adalah pengarang karya monumental <em>"Ihya' Ulumuddin"</em>, <em>"Al-Munqidz min ad-Dalal"</em> (Penyelamat dari Kesesatan), <em>"Mizanul 'Amal"</em>, dan ratusan kitab lainnya yang hingga kini menjadi rujukan utama umat Islam. Perjalanan spiritual beliau yang penuh dengan pencarian kebenaran mengantarkannya pada maqam waliyullah yang tinggi.
-</p>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL KAROMAH ORANG-ORANG WALI — QS. YUNUS: 62-64</div>
+<div class="arabic-label">DALIL TENTANG UJIAN SPIRITUAL — QS. AL-ANKABUT: 2-3</div>
 <div class="arabic-text">
-أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ ۝ الَّذِينَ آمَنُوا وَكَانُوا يَتَّقُونَ ۝ لَهُمُ الْبُشْرَىٰ فِي الْحَيَاةِ الدُّنْيَا وَفِي الْآخِرَةِ
+أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ ۝ وَلَقَدْ فَتَنَّا الَّذِينَ مِن قَبْلِهِمْ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu, tidak ada kekhawatiran terhadap mereka dan tidak (pula) mereka bersedih hati. (Yaitu) orang-orang yang beriman dan mereka selalu bertakwa. Bagi mereka berita gembira di dalam kehidupan di dunia dan (di kehidupan) di akhirat."
-<br>— QS. Yunus: 62-64
+<strong>Artinya:</strong> "Apakah manusia mengira bahwa mereka akan dibiarkan hanya dengan mengatakan 'Kami telah beriman', dan mereka tidak diuji? Dan sesungguhnya Kami telah menguji orang-orang yang sebelum mereka."
+<br>— QS. Al-'Ankabut: 2-3
 </div>
 </div>
-
+<h2>Pertemuan dengan Syeikh Hammad ad-Dabbas — Guru Spiritual</h2>
 <p>
-Ayat ini menjadi dasar bahwa orang-orang yang beriman dan bertakwa akan mendapatkan berita gembira, baik di dunia maupun di akhirat. Salah satu bentuk berita gembira di dunia adalah karomah, yaitu perkara luar biasa yang Allah anugerahkan kepada para wali-Nya.
+Sebelum memasuki masa khalwat, Syeikh Abdul Qadir mengalami titik balik spiritual yang sangat penting — pertemuan beliau dengan Syeikh Abu al-Khair Hammad ad-Dabbas, seorang sufi besar di Baghdad yang menjadi mursyid (pembimbing spiritual) beliau. Syeikh Hammad adalah seorang wali yang hidup dalam kesederhanaan yang ekstrem, bekerja sebagai penjual roti (ad-dabbas) untuk menghidupi dirinya, dan menghabiskan malam-malamnya dalam shalat dan dzikir.
 </p>
-
-<h2>Hakikat Karomah dalam Islam</h2>
+<div class="karomah-card">
+<span class="karomah-number">7</span>
+<span class="karomah-title">Karomah Pertemuan dengan Syeikh Hammad ad-Dabbas</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِالشَّيْخِ حَمَّادٍ الدَّبَّاسِ مُرْشِدَهُ</div>
 <p>
-Karomah (كَرَامَة) secara bahasa berarti kemuliaan. Dalam istilah tasawuf, karomah adalah perkara luar biasa (khariqul 'adah) yang Allah tampakkan melalui tangan seorang wali sebagai bentuk pemuliaan, tanpa disertai dakwaan kenabian. Karomah berbeda dengan mukjizat; mukjizat diberikan kepada para nabi sebagai bukti kenabian, sedangkan karomah diberikan kepada para wali sebagai bukti kedekatan mereka dengan Allah.
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa ketika Syeikh Abdul Qadir pertama kali datang kepada Syeikh Hammad ad-Dabbas, sang syeikh langsung menatap wajah beliau dengan penuh perhatian. Setelah beberapa saat, Syeikh Hammad berkata kepada para muridnya: <em>"Perhatikanlah pemuda ini. Di wajahnya terpancar cahaya kenabian, dan aku melihat tanda-tanda kewalian yang akan tampak di zamannya kelak. Ia akan menjadi salah satu wali besar yang ilmunya bermanfaat bagi umat hingga hari kiamat."</em>
 </p>
-
+<p>
+Syeikh Hammad kemudian memberikan bai'at (janji setia) kepada Syeikh Abdul Qadir dan membimbing beliau dalam perjalanan suluk yang sangat ketat. Beliau mengajarkan kepada Syeikh Abdul Qadir tentang adab-adab suluk, tazkiyatun nafs (penyucian jiwa), dan cara-cara mendekatkan diri kepada Allah. Di bawah bimbingan Syeikh Hammad inilah Syeikh Abdul Qadir mulai menempuh perjalanan spiritual yang akan mengubah hidup beliau selamanya.
+</p>
+<p>
+Syeikh Hammad pernah berkata kepada Syeikh Abdul Qadir: <em>"Wahai Ibrahim (Abdul Qadir), aku melihat di dalam hatimu cahaya yang sangat besar. Namun cahaya itu belum sempurna. Engkau harus menempuh ujian-ujian yang berat agar cahaya itu menjadi sempurna. Maka bersabarlah, karena Allah tidak akan menyia-nyiakan hamba-Nya yang ikhlas."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>hidayah al-mursyid</em> (petunjuk dari seorang mursyid) — karomah yang Allah berikan kepada hamba-Nya dengan mengirimkan guru spiritual yang tepat pada waktu yang tepat. Para ulama berkata bahwa barangsiapa yang mendapatkan mursyid yang sejati, maka ia telah mendapatkan kunci menuju ma'rifatullah.
+</p>
+</div>
 <div class="arabic-box">
-<div class="arabic-label">PERKATAAN IMAM AL-GHAZALI TENTANG KAROMAH</div>
+<div class="arabic-label">PERKATAAN SYEIKH HAMMAD AD-DABBAS</div>
 <div class="arabic-text">
-الْكَرَامَةُ ظِلُّ الْمُعْجِزَةِ، وَهِيَ عَطِيَّةٌ مِنَ اللَّهِ لِلْأَوْلِيَاءِ
+هَذَا الْغُلَامُ سَيَكُونُ مِنْ أَكْبَرِ أَوْلِيَاءِ زَمَانِهِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Karomah adalah bayangan mukjizat, dan ia adalah anugerah dari Allah bagi para wali."
-<br>— Imam Al-Ghazali dalam Ihya' Ulumuddin
+<strong>Artinya:</strong> "Anak muda ini akan menjadi salah satu wali terbesar di zamannya, dan ilmunya akan bermanfaat bagi umat hingga hari kiamat."
+<br>— Syeikh Hammad ad-Dabbas tentang Syeikh Abdul Qadir Al-Jilani
 </div>
 </div>
-
-<h2>Karomah-Karomah Imam Al-Ghazali</h2>
+<h2>Masa Khalwat di Padang Pasir — 25 Tahun Pengasingan</h2>
 <p>
-Berikut adalah beberapa karomah luar biasa yang diriwayatkan dari Imam Al-Ghazali, yang menunjukkan ketinggian maqam spiritual beliau:
+Setelah mendapat bimbingan dari Syeikh Hammad ad-Dabbas, Syeikh Abdul Qadir memasuki fase yang paling menentukan dalam perjalanan spiritual beliau — masa khalwat (pengasingan diri) yang berlangsung selama dua puluh lima tahun. Beliau meninggalkan kota Baghdad dan mengembara di padang pasir, reruntuhan kota-kota kuno, dan tempat-tempat sepi untuk bermunajat kepada Allah.
 </p>
-
-<div class="tips-card">
-<span class="tips-number">1</span>
-<span class="tips-title">Bisa Melihat Malaikat dan Alam Gaib</span>
-<div class="tips-arabic">رُؤْيَةُ الْمَلَائِكَةِ وَعَالَمِ الْغَيْبِ</div>
+<div class="karomah-card">
+<span class="karomah-number">8</span>
+<span class="karomah-title">Karomah Khalwat 25 Tahun di Padang Pasir</span>
+<div class="karomah-arabic">خَلْوَتُهُ خَمْسًا وَعِشْرِينَ سَنَةً فِي الْبَادِيَةِ</div>
 <p>
-Salah satu karomah paling masyhur dari Imam Al-Ghazali adalah kemampuan beliau melihat malaikat dan alam gaib. Dalam kitab <em>"Al-Munqidz min ad-Dalal"</em>, beliau menceritakan bahwa setelah melalui proses penyucian jiwa yang panjang, Allah membuka hijab baginya sehingga beliau bisa menyaksikan keindahan alam malakut. Beliau melihat para malaikat yang bertasbih, menyaksikan arsy Allah, dan memahami hakikat alam gaib dengan penglihatan hati (bashirah).
+Selama dua puluh lima tahun, Syeikh Abdul Qadir hidup dalam kesendirian yang ekstrem. Beliau tidak tinggal di rumah, tidak mengenakan pakaian yang nyaman, dan tidak makan makanan yang enak. Beliau tidur di atas tanah, mengenakan pakaian yang kasar, dan makan hanya seadanya — kadang-kadang hanya dedaunan dan akar-akaran yang beliau temukan di padang pasir.
+</p>
+<p>
+Dalam masa khalwat ini, beliau senantiasa beribadah kepada Allah — shalat malam sepanjang malam, berpuasa di siang hari, membaca Al-Qur'an, dan berdzikir tanpa henti. Beliau berkata tentang masa-masa itu: <em>"Aku menghabiskan dua puluh lima tahun di padang pasir, di reruntuhan, di tempat-tempat sepi. Aku tidak makan kecuali dedaunan dan akar-akaran. Aku tidak tidur kecuali sebentar saja. Aku senantiasa bermunajat kepada Allah, dan Allah menganugerahkan kepadaku cahaya ma'rifat yang tidak pernah aku bayangkan sebelumnya."</em>
+</p>
+<p>
+Para ulama berkata bahwa masa khalwat yang panjang ini adalah karomah berupa <em>tamkin</em> (peneguhan) — Allah teguhkan hati beliau dalam ketaatan selama dua puluh lima tahun tanpa sedikitpun merasa bosan atau lelah. Ini adalah ujian yang sangat berat, dan hanya hamba-hamba Allah yang istimewa yang mampu melewatinya.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">PERKATAAN IMAM AL-GHAZALI TENTANG KASYF</div>
+<div class="arabic-label">DALIL TENTANG SABAR — QS. AZ-ZUMAR: 10</div>
 <div class="arabic-text">
-ثُمَّ فَتَحَ اللَّهُ عَلَيَّ أَبْوَابَ الْكَشْفِ حَتَّىٰ رَأَيْتُ الْمَلَكُوتَ
+إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Kemudian Allah membukakan bagiku pintu-pintu kasyf (penyingkapan tabir gaib) sehingga aku melihat alam malakut (alam kerajaan Allah)."
-<br>— Imam Al-Ghazali, Al-Munqidz min ad-Dalal
+<strong>Artinya:</strong> "Sesungguhnya hanya orang-orang yang bersabarlah yang disempurnakan pahala mereka tanpa batas."
+<br>— QS. Az-Zumar: 10
 </div>
 </div>
-
-<div class="tips-card">
-<span class="tips-number">2</span>
-<span class="tips-title">Dikabulkannya Setiap Doa</span>
-<div class="tips-arabic">إِجَابَةُ الدَّعْوَةِ</div>
+<h2>Ujian-Ujian Berat di Masa Khalwat</h2>
 <p>
-Imam Al-Ghazali dikenal sebagai seorang wali yang doanya selalu dikabulkan oleh Allah SWT. Banyak riwayat yang menyebutkan bahwa ketika beliau mendoakan seseorang yang sakit, orang tersebut langsung sembuh. Ketika beliau mendoakan keberkahan atas suatu tempat atau makanan, tempat dan makanan itu menjadi berlimpah keberkahannya. Beliau selalu berhati-hati dalam berdoa, karena beliau tahu bahwa doa orang yang hatinya bersih pasti diterima.
+Selama masa khalwat, Syeikh Abdul Qadir menghadapi berbagai ujian berat yang Allah kirimkan untuk menguji keimanan dan keteguhan hati beliau. Ujian-ujian ini bukanlah hukuman, melainkan sarana bagi Allah untuk menaikkan maqam kewalian beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">9</span>
+<span class="karomah-title">Karomah Ujian Lapar, Haus, dan Kesepian</span>
+<div class="karomah-arabic">ابْتِلَاؤُهُ بِالْجُوعِ وَالْعَطَشِ وَالْوَحْدَةِ</div>
+<p>
+Dalam masa khalwat, Syeikh Abdul Qadir sering kali tidak memiliki makanan selama berhari-hari, bahkan berminggu-minggu. Beliau hanya memakan dedaunan, akar-akaran, dan kadang-kadang kulit kayu. Beliau juga sering kehausan di tengah padang pasir yang gersang, dan tidak ada air kecuali air hujan yang jarang turun.
+</p>
+<p>
+Namun dalam semua ujian itu, Allah anugerahkan kepadanya kesabaran yang luar biasa dan ketenangan hati yang tidak tergoyahkan. Beliau berkata: <em>"Ketika aku lapar, aku mengingat kelaparan orang-orang fakir. Ketika aku haus, aku mengingat hausnya orang-orang yang berdosa di hari kiamat. Ketika aku kesepian, aku mengingat kesepian orang-orang yang dikubur sendirian di dalam kubur. Maka aku bersyukur kepada Allah atas segala ujian-Nya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ridha bil-qadha'</em> (ridha dengan takdir) — karomah yang Allah berikan kepada hamba-Nya yang mampu menerima segala ujian dengan penuh keridhaan dan kesabaran. Para ulama berkata bahwa ridha dengan takdir adalah maqam tertinggi dalam perjalanan spiritual.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL DOA ORANG BERIMAN — QS. GHAFIR: 60</div>
+<div class="arabic-label">DALIL TENTANG RIDHA — QS. AR-RA'D: 28</div>
 <div class="arabic-text">
-وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ
+أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan Tuhanmu berfirman: 'Berdoalah kepada-Ku, niscaya akan Kuperkenankan bagimu.'"
-<br>— QS. Ghafir: 60
+<strong>Artinya:</strong> "(Yaitu) orang-orang yang beriman dan hati mereka menjadi tenteram dengan mengingat Allah. Ingatlah, hanya dengan mengingati Allah-lah hati menjadi tenteram."
+<br>— QS. Ar-Ra'd: 28
 </div>
 </div>
-
-<div class="tips-card">
-<span class="tips-number">3</span>
-<span class="tips-title">Mampu Mengetahui Isi Hati (Firasat Mukmin)</span>
-<div class="tips-arabic">فِرَاسَةُ الْمُؤْمِنِ</div>
+<div class="karomah-card">
+<span class="karomah-number">10</span>
+<span class="karomah-title">Karomah Ujian dari Setan dan Hawa Nafsu</span>
+<div class="karomah-arabic">ابْتِلَاؤُهُ مِنَ الشَّيْطَانِ وَالنَّفْسِ</div>
 <p>
-Imam Al-Ghazali dikaruniai firasat yang tajam, yaitu kemampuan untuk mengetahui isi hati seseorang tanpa mereka memberitahukannya. Beliau bisa mengetahui niat seseorang yang datang kepadanya, apakah niatnya baik atau buruk. Beliau juga bisa mengetahui penyakit hati para muridnya dan memberikan nasihat yang tepat untuk menyembuhkannya. Inilah yang disebut dengan firasatul mu'min, yang merupakan cahaya ilahi yang Allah berikan kepada orang-orang yang hatinya bersih.
+Selain ujian lahiriah, Syeikh Abdul Qadir juga menghadapi ujian batiniah yang sangat berat — godaan setan dan hawa nafsu yang datang dalam berbagai bentuk. Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu malam ketika beliau sedang shalat, setan datang kepadanya dalam bentuk cahaya yang sangat terang dan berkata: <em>"Wahai Abdul Qadir, aku adalah malaikat Jibril. Allah telah mengutusku kepadamu untuk menyampaikan kabar gembira bahwa engkau telah menjadi kekasih-Nya."</em>
+</p>
+<p>
+Namun Syeikh Abdul Qadir — dengan ketajaman firasat yang Allah anugerahkan kepadanya — menolak godaan itu. Beliau berkata: <em>"Pergilah wahai setan yang terkutuk! Malaikat Jibril tidak turun kecuali kepada para nabi, dan aku bukanlah nabi."</em> Setan itu pun pergi dengan kekalahan.
+</p>
+<p>
+Dalam riwayat lain, diceritakan bahwa pada suatu ketika beliau didatangi oleh sosok yang sangat indah yang berkata: <em>"Aku adalah Tuhanmu. Aku telah meridhaimu, dan Aku memberikan kepadamu kekuasaan atas seluruh alam semesta."</em> Namun Syeikh Abdul Qadir menjawab dengan tegas: <em>"Pergilah wahai musuh Allah! Tuhanku adalah Allah Yang Maha Tinggi, tidak serupa dengan makhluk-Nya, dan tidak datang kepada hamba-Nya dalam bentuk makhluk."</em> Sosok itu pun lenyap, dan ternyata itu adalah setan yang mencoba menggoda beliau.
+</p>
+<p>
+Ini adalah karomah berupa <em>firasat mu'min</em> (ketajaman firasat orang mukmin) — kemampuan untuk membedakan antara kebenaran dan kebatilan, antara cahaya dan kegelapan. Para ulama berkata bahwa ketajaman firasat adalah salah satu tanda kewalian yang paling tinggi.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">HADITS TENTANG FIRASAT MU'MIN</div>
+<div class="arabic-label">SABDA RASULULLAH SAW TENTANG FIRASAT</div>
 <div class="arabic-text">
 اتَّقُوا فِرَاسَةَ الْمُؤْمِنِ فَإِنَّهُ يَنْظُرُ بِنُورِ اللَّهِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Takutlah kalian kepada firasat orang mukmin, karena sesungguhnya ia melihat dengan cahaya Allah."
+<strong>Artinya:</strong> "Takutilah firasat orang mukmin, karena sesungguhnya ia melihat dengan cahaya Allah."
 <br>— HR. Tirmidzi
 </div>
 </div>
-
-<div class="tips-card">
-<span class="tips-number">4</span>
-<span class="tips-title">Berkah Ilmu yang Luar Biasa</span>
-<div class="tips-arabic">بَرَكَةُ الْعِلْمِ</div>
+<h2>Pertemuan dengan Nabi Khidir AS</h2>
 <p>
-Salah satu karomah terbesar Imam Al-Ghazali adalah keluasan dan kedalaman ilmunya. Beliau mampu menguasai berbagai disiplin ilmu pada masanya: fikih, ushul fikih, teologi (kalam), filsafat, logika, tasawuf, dan etika. Beliau menulis lebih dari 70 kitab, di antaranya <em>Ihya' Ulumuddin</em> yang terdiri dari 4 jilid besar. Semua ini beliau tulis dalam usia yang relatif singkat, menunjukkan bahwa ilmu beliau adalah ilmu ladunni, yaitu ilmu yang langsung diberikan oleh Allah ke dalam hati.
+Salah satu karomah terbesar Syeikh Abdul Qadir Al-Jilani selama masa khalwat adalah pertemuan beliau dengan Nabi Khidir 'alaihissalam. Pertemuan ini menjadi salah satu momen paling berkesan dalam perjalanan spiritual beliau, dan menjadi tanda bahwa Allah telah memilih beliau sebagai salah satu wali-Nya yang istimewa.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">11</span>
+<span class="karomah-title">Karomah Pertemuan dengan Nabi Khidir AS</span>
+<div class="karomah-arabic">لِقَاؤُهُ بِالسَّيِّدِ الْخَضِرِ عَلَيْهِ السَّلَامُ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu malam ketika Syeikh Abdul Qadir sedang bermunajat di reruntuhan kota Baghdad, beliau didatangi oleh seorang lelaki tua yang berpakaian sederhana. Lelaki itu mengucapkan salam kepada beliau dan berkata: <em>"Wahai Abdul Qadir, aku adalah Khidir. Allah mengutusku kepadamu untuk menyampaikan kabar gembira."</em>
+</p>
+<p>
+Syeikh Abdul Qadir bertanya: <em>"Kabar gembira apa, wahai wali Allah?"</em> Nabi Khidir menjawab: <em>"Allah berfirman: 'Wahai Abdul Qadir, sesungguhnya Aku telah memilihmu untuk menjadi salah satu kekasih-Ku. Aku telah menyiapkan untukmu maqam yang tinggi di sisi-Ku, dan Aku akan menjadikanmu sebagai pelita bagi orang-orang yang mencari jalan kepada-Ku. Maka tetaplah istiqamah di atas jalan-Ku, dan janganlah engkau takut kepada siapa pun selain Aku.'"</em>
+</p>
+<p>
+Nabi Khidir kemudian mendoakan Syeikh Abdul Qadir, dan beliau merasakan cahaya kewalian yang semakin terang di dalam hatinya. Setelah itu, Nabi Khidir berkata: <em>"Wahai Abdul Qadir, waktu telah tiba bagimu untuk kembali ke Baghdad. Allah akan menjadikanmu sebagai sulthanul awliya' — sultan para wali. Maka bersiaplah untuk memikul amanah yang berat ini."</em>
+</p>
+<p>
+Setelah mengucapkan salam, Nabi Khidir pun pergi, meninggalkan Syeikh Abdul Qadir dalam keadaan penuh kegembiraan dan ketenangan. Sejak saat itu, hati beliau dipenuhi keyakinan bahwa Allah telah memilihnya untuk mengemban misi besar di dunia ini.
+</p>
+<p>
+Ini adalah karomah berupa <em>liqa' al-khidr</em> (pertemuan dengan Nabi Khidir) — karomah yang sangat langka dan hanya diberikan kepada para wali yang istimewa. Para ulama berkata bahwa pertemuan dengan Nabi Khidir adalah tanda bahwa Allah telah meridhai hamba-Nya dan menyiapkan untuknya maqam yang tinggi.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL ILMU LADUNNI — QS. AL-KAHFI: 65</div>
+<div class="arabic-label">DALIL TENTANG NABI KHIDR — QS. AL-KAHF: 65</div>
 <div class="arabic-text">
-وَعَلَّمْنَاهُ مِنْ لَدُنَّا عِلْمًا
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Dan telah Kami ajarkan kepadanya ilmu dari sisi Kami."
-<br>— QS. Al-Kahfi: 65 (tentang Nabi Khidir a.s.)
-</div>
-</div>
-
-<div class="tips-card">
-<span class="tips-number">5</span>
-<span class="tips-title">Bisa Berbicara dengan Binatang</span>
-<div class="tips-arabic">كَلَامُ الْحَيَوَانَاتِ</div>
-<p>
-Dalam beberapa riwayat yang shahih, Imam Al-Ghazali dikaruniai kemampuan untuk memahami bahasa binatang. Beliau bisa berbicara dengan burung, kucing, dan binatang lainnya. Beliau memahami apa yang mereka rasakan dan apa yang ingin mereka sampaikan. Karomah ini mirip dengan karomah Nabi Sulaiman a.s., yang juga diberikan kepada sebagian wali Allah sebagai bentuk pemuliaan.
-</p>
-</div>
-
-<div class="arabic-box">
-<div class="arabic-label">DALIL KAROMAH NABI SULAIMAN — QS. AN-NAML: 16</div>
-<div class="arabic-text">
-وَوَرِثَ سُلَيْمَانُ دَاوُودَ ۖ وَقَالَ يَا أَيُّهَا النَّاسُ عُلِّمْنَا مَنْطِقَ الطَّيْرِ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Dan Sulaiman telah mewarisi Daud, dan dia berkata: 'Hai manusia, kami telah diberi pengertian tentang suara burung.'"
-<br>— QS. An-Naml: 16
-</div>
-</div>
-
-<div class="tips-card">
-<span class="tips-number">6</span>
-<span class="tips-title">Cahaya Wajah yang Terpancar</span>
-<div class="tips-arabic">نُورُ الْوَجْهِ</div>
-<p>
-Orang-orang yang pernah bertemu dengan Imam Al-Ghazali menceritakan bahwa wajah beliau selalu bercahaya, seolah-olah ada cahaya ilahi yang terpancar dari dalamnya. Cahaya ini bukan cahaya fisik, melainkan cahaya iman dan takwa yang menghiasi wajah beliau. Orang yang memandang wajah beliau akan merasa tenteram dan tenang. Inilah tanda orang yang hatinya selalu berdzikir kepada Allah.
-</p>
-</div>
-
-<div class="arabic-box">
-<div class="arabic-label">TANDA ORANG YANG BERDZIKIR — QS. AL-BAQARAH: 152</div>
-<div class="arabic-text">
-فَاذْكُرُونِي أَذْكُرْكُمْ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Karena itu, ingatlah kamu kepada-Ku niscaya Aku ingat (pula) kepadamu."
-<br>— QS. Al-Baqarah: 152
-</div>
-</div>
-
-<div class="tips-card">
-<span class="tips-number">7</span>
-<span class="tips-title">Makanan Sedikit Mengenyangkan Banyak Orang</span>
-<div class="tips-arabic">إِطْعَامُ الْكَثِيرِ مِنَ الْقَلِيلِ</div>
-<p>
-Diriwayatkan bahwa Imam Al-Ghazali pernah menjamu banyak tamu dengan makanan yang sangat sedikit. Namun, dengan keberkahan doa beliau, makanan itu menjadi berlipat ganda dan mampu mengenyangkan semua tamu yang hadir. Karomah ini mirip dengan karomah Rasulullah SAW dan para nabi terdahulu, yang mampu memberi makan banyak orang dengan makanan yang sedikit.
-</p>
-</div>
-
-<div class="arabic-box">
-<div class="arabic-label">DALIL KEBERKAHAN MAKANAN</div>
-<div class="arabic-text">
-اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami."
-<br>— Doa Keberkahan
-</div>
-</div>
-
-<div class="tips-card">
-<span class="tips-number">8</span>
-<span class="tips-title">Mendapat Pertemuan dengan Nabi Khidir a.s.</span>
-<div class="tips-arabic">اللِّقَاءُ مَعَ الْخَضِرِ عَلَيْهِ السَّلَامُ</div>
-<p>
-Dalam beberapa riwayat tasawuf, disebutkan bahwa Imam Al-Ghazali pernah bertemu dengan Nabi Khidir a.s. dalam keadaan sadar. Nabi Khidir mengajarkan kepada beliau ilmu ladunni dan membimbingnya dalam perjalanan spiritual. Pertemuan ini menjadi titik balik dalam kehidupan spiritual beliau, yang mengantarkannya pada maqam kewalian yang tinggi.
-</p>
-</div>
-
-<div class="arabic-box">
-<div class="arabic-label">TENTANG NABI KHIDIR — QS. AL-KAHFI: 65</div>
-<div class="arabic-text">
-فَوَجَدَا عَبْدًا مِنْ عِبَادِنَا آتَيْنَاهُ رَحْمَةً مِنْ عِنْدِنَا وَعَلَّمْنَاهُ مِنْ لَدُنَّا عِلْمًا
+فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْمَةً مِنْ عِندِنَا وَعَلَّمْنَاهُ مِن لَّدُنَّا عِلْمًا
 </div>
 <div class="arabic-translation">
 <strong>Artinya:</strong> "Lalu mereka bertemu dengan seorang hamba di antara hamba-hamba Kami, yang telah Kami berikan kepadanya rahmat dari sisi Kami, dan yang telah Kami ajarkan kepadanya ilmu dari sisi Kami."
-<br>— QS. Al-Kahfi: 65
+<br>— QS. Al-Kahf: 65
 </div>
 </div>
-
-<div class="tips-card">
-<span class="tips-number">9</span>
-<span class="tips-title">Mampu Mengendalikan Hawa Nafsu</span>
-<div class="tips-arabic">الْقُدْرَةُ عَلَى مُجَاهَدَةِ النَّفْسِ</div>
+<h2>Kembali ke Baghdad sebagai Mursyid Agung</h2>
 <p>
-Salah satu karomah terbesar Imam Al-Ghazali adalah kemampuan beliau mengendalikan hawa nafsu secara sempurna. Beliau meninggalkan jabatan tinggi sebagai guru di Nizamiyah Baghdad yang bergengsi, demi mencari kebenaran dan menyucikan jiwa. Beliau hidup sederhana, zuhud, dan selalu beribadah kepada Allah. Inilah karomah yang paling agung, yaitu karomah berupa akhlak yang mulia dan pengendalian diri yang sempurna.
+Setelah dua puluh lima tahun menjalani khalwat dan berbagai ujian spiritual, Syeikh Abdul Qadir kembali ke Baghdad sebagai seorang mursyid agung yang telah mencapai maqam kewalian yang tinggi. Beliau tidak lagi sama dengan Syeikh Abdul Qadir yang dulu datang ke Baghdad sebagai pemuda yang menuntut ilmu — beliau kini telah menjadi <em>Sulthanul Awliya'</em>, sultan para wali yang dakwahnya akan mengguncang dunia Islam.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">12</span>
+<span class="karomah-title">Karomah Kembalinya ke Baghdad sebagai Sulthanul Awliya'</span>
+<div class="karomah-arabic">عَوْدَتُهُ إِلَى بَغْدَادَ كَسُلْطَانِ الْأَوْلِيَاءِ</div>
+<p>
+Ketika Syeikh Abdul Qadir kembali ke Baghdad, beliau langsung mulai berdakwah kepada umat. Beliau memberikan pengajian di Masjid Jami' ar-Rushafah, dan dalam waktu yang sangat singkat, ribuan orang datang untuk mendengarkan pengajian beliau. Para ulama, para pedagang, para penguasa, bahkan para pencuri dan pezina — semuanya datang untuk bertaubat di tangan beliau.
+</p>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu hari Syeikh Abdul Qadir memberikan pengajian di hadapan lebih dari seratus ribu orang. Beliau berbicara dengan penuh hikmah, dan air mata beliau berlinang ketika beliau menyebutkan tentang keagungan Allah dan hari kiamat. Orang-orang yang hadir menangis bersama beliau, dan banyak di antara mereka yang bertaubat saat itu juga.
+</p>
+<p>
+Para ulama berkata bahwa karomah terbesar Syeikh Abdul Qadir adalah kemampuan beliau untuk mengubah hati orang-orang yang paling keras menjadi hati yang lembut dan tunduk kepada Allah. Beliau tidak hanya mengajarkan ilmu, melainkan juga memberikan <em>tarbiyah ruhiyah</em> (pendidikan spiritual) yang mampu mengubah jiwa manusia secara total.
+</p>
+<p>
+Syeikh Abdul Qadir berkata tentang masa ini: <em>"Aku menghabiskan dua puluh lima tahun di padang pasir untuk menempa diriku. Dan ketika aku kembali ke Baghdad, aku menemukan bahwa Allah telah menyiapkan untukku umat yang rindu kepada-Nya. Maka aku menjadi pelita bagi mereka, dan Allah menjadikan dakwahku sebagai sebab kembalinya banyak orang kepada-Nya."</em>
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL MUJAHADAH AN-NAFS — QS. AL-ANKABUT: 69</div>
+<div class="arabic-label">DALIL TENTANG DAKWAH — QS. FUSSHILAT: 33</div>
 <div class="arabic-text">
-وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا
+وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا وَقَالَ إِنَّنِي مِنَ الْمُسْلِمِينَ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan orang-orang yang berjihad untuk (mencari keridhaan) Kami, pastilah akan Kami tunjukkan kepada mereka jalan-jalan Kami."
-<br>— QS. Al-'Ankabut: 69
+<strong>Artinya:</strong> "Siapakah yang lebih baik perkataannya daripada orang yang menyeru kepada Allah, mengerjakan amal yang saleh, dan berkata: 'Sesungguhnya aku termasuk orang-orang yang menyerah diri?'"
+<br>— QS. Fushshilat: 33
 </div>
 </div>
-
-<div class="tips-card">
-<span class="tips-number">10</span>
-<span class="tips-title">Melihat Rasulullah SAW dalam Keadaan Jaga</span>
-<div class="tips-arabic">رُؤْيَةُ الرَّسُولِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فِي الْيَقَظَةِ</div>
-<p>
-Imam Al-Ghazali menceritakan dalam beberapa karya beliau bahwa beliau pernah melihat Rasulullah SAW dalam keadaan jaga (bukan dalam mimpi). Rasulullah SAW memberikan beliau izin untuk membela agama Islam melalui karya-karya beliau. Penglihatan ini menjadi sumber kekuatan spiritual bagi beliau dalam menulis kitab-kitab yang membela aqidah Ahlussunnah wal Jama'ah.
-</p>
-</div>
-
-<div class="arabic-box">
-<div class="arabic-label">HADITS TENTANG MELIHAT NABI SAW</div>
-<div class="arabic-text">
-مَنْ رَآنِي فِي الْمَنَامِ فَسَيَرَانِي فِي الْيَقَظَةِ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Barangsiapa yang melihatku dalam mimpi, maka ia akan melihatku dalam keadaan jaga."
-<br>— HR. Bukhari dan Muslim
-</div>
-</div>
-
-<div class="tips-card">
-<span class="tips-number">11</span>
-<span class="tips-title">Kematian yang Diberkahi</span>
-<div class="tips-arabic">حُسْنُ الْخَاتِمَةِ</div>
-<p>
-Karomah terakhir dan yang paling agung dari Imam Al-Ghazali adalah kematian beliau yang diberkahi. Beliau wafat pada hari Senin, 14 Jumadil Akhir 505 H, dalam keadaan bersuci (setelah berwudhu dan shalat). Beliau menghadap Allah dengan hati yang bersih dan jiwa yang tenang. Orang-orang yang hadir saat beliau wafat merasakan ketenangan dan cahaya ilahi yang menyelimuti beliau. Ini adalah karomah terbesar, yaitu husnul khotimah.
-</p>
-</div>
-
-<div class="arabic-box">
-<div class="arabic-label">DALIL HUSNUL KHOTIMAH — QS. FUSSILAT: 30</div>
-<div class="arabic-text">
-إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنْتُمْ تُوعَدُونَ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Sesungguhnya orang-orang yang mengatakan: 'Tuhan kami ialah Allah' kemudian mereka meneguhkan pendirian mereka, maka malaikat akan turun kepada mereka (dengan berkata): 'Janganlah kamu takut dan janganlah merasa sedih; dan gembirakanlah mereka dengan jannah yang telah dijanjikan Allah kepadamu.'"
-<br>— QS. Fussilat: 30
-</div>
-</div>
-
-<h2>Hikmah dari Karomah Imam Al-Ghazali</h2>
-<p>
-Karomah-karomah Imam Al-Ghazali mengandung banyak hikmah bagi umat Islam:
-</p>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Masa Khalwat Syeikh Abdul Qadir Al-Jilani:</strong>
 <ul>
-<li><strong>Bukti kebenaran tasawuf</strong> — Karomah beliau membuktikan bahwa tasawuf yang benar sesuai dengan syariat dapat mengantarkan seseorang pada maqam kewalian.</li>
-<li><strong>Motivasi untuk beribadah</strong> — Kisah karomah beliau menjadi motivasi bagi umat Islam untuk senantiasa mendekatkan diri kepada Allah.</li>
-<li><strong>Pentingnya ilmu dan amal</strong> — Imam Al-Ghazali menunjukkan bahwa ilmu yang tinggi harus disertai dengan amal yang shalih.</li>
-<li><strong>Kedudukan zuhud</strong> — Karomah beliau datang setelah beliau meninggalkan kemewahan dunia dan memilih kehidupan zuhud.</li>
-<li><strong>Kekuatan tawakkal</strong> — Karomah beliau menunjukkan bahwa orang yang bertawakkal kepada Allah akan selalu dicukupi oleh-Nya.</li>
+<li><strong>Pertemuan dengan Syeikh Hammad ad-Dabbas</strong> — Mursyid yang membimbing dalam suluk</li>
+<li><strong>Khalwat 25 tahun di padang pasir</strong> — Tamkin (peneguhan) dalam ketaatan</li>
+<li><strong>Ujian lapar, haus, dan kesepian</strong> — Ridha bil-qadha' (ridha dengan takdir)</li>
+<li><strong>Ujian dari setan dan hawa nafsu</strong> — Firasat mu'min yang tajam</li>
+<li><strong>Pertemuan dengan Nabi Khidir AS</strong> — Liqa' al-khidr sebagai tanda kewalian</li>
+<li><strong>Kembali ke Baghdad sebagai Sulthanul Awliya'</strong> — Dakwah yang mengubah ribuan hati</li>
 </ul>
-
+</div>
+<h2>Pelajaran dari Masa Khalwat</h2>
+<p>
+Dari masa khalwat Syeikh Abdul Qadir Al-Jilani, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, perjalanan spiritual bukanlah perjalanan yang mudah. Ia membutuhkan kesabaran, keteguhan hati, dan keikhlasan yang luar biasa. Syeikh Abdul Qadir menghabiskan dua puluh lima tahun di padang pasir untuk menempa dirinya, dan itu menunjukkan bahwa maqam kewalian yang tinggi tidak dapat dicapai dengan cara yang instan.
+<br><br>
+<em>Kedua</em>, ujian-ujian dalam perjalanan spiritual bukanlah hukuman, melainkan sarana bagi Allah untuk menaikkan maqam hamba-Nya. Syeikh Abdul Qadir menghadapi berbagai ujian — lapar, haus, kesepian, godaan setan — namun beliau melewatinya semua dengan penuh kesabaran dan keridhaan.
+<br><br>
+<em>Ketiga</em>, seorang mursyid yang sejati adalah karunia yang sangat besar dari Allah. Syeikh Abdul Qadir mendapatkan bimbingan dari Syeikh Hammad ad-Dabbas, dan itu menjadi titik balik dalam perjalanan spiritual beliau. Barangsiapa yang mendapatkan mursyid yang sejati, maka ia telah mendapatkan kunci menuju ma'rifatullah.
+<br><br>
+<em>Keempat</em>, ketajaman firasat adalah salah satu tanda kewalian yang paling tinggi. Syeikh Abdul Qadir mampu membedakan antara cahaya dan kegelapan, antara kebenaran dan kebatilan, bahkan ketika setan datang kepadanya dalam bentuk yang menipu. Ini menunjukkan bahwa hati yang bersih akan selalu mampu mengenali kebenaran.
+</blockquote>
+<h2>Doa Memohon Keteguhan Hati</h2>
 <div class="arabic-box">
-<div class="arabic-label">NASIHAT IMAM AL-GHAZALI</div>
+<div class="arabic-label">DOA MEMOHON KETEGUHAN HATI DAN KESABARAN</div>
 <div class="arabic-text">
-مَنْ عَرَفَ نَفْسَهُ فَقَدْ عَرَفَ رَبَّهُ، وَمَنْ عَرَفَ رَبَّهُ فَقَدْ عَرَفَ سِرَّ كَرَامَاتِ الْأَوْلِيَاءِ
+رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Barangsiapa yang mengenal dirinya, maka ia telah mengenal Tuhannya. Dan barangsiapa yang mengenal Tuhannya, maka ia telah mengenal rahasia karomah-karomah para wali."
-<br>— Imam Al-Ghazali
+<strong>Artinya:</strong> "Ya Tuhan kami, tuangkanlah kesabaran atas diri kami, dan teguhkanlah pendirian kami, dan tolonglah kami terhadap orang-orang kafir."
+<br>— QS. Al-Baqarah: 250
 </div>
 </div>
-
-<h2>Nasihat Imam Al-Ghazali tentang Karomah</h2>
+<h2>Penutup Halaman 2</h2>
 <p>
-Imam Al-Ghazali memberikan nasihat berharga tentang karomah dalam kitab <em>Ihya' Ulumuddin</em>:
-</p>
-
-<div class="arabic-box">
-<div class="arabic-label">NASIHAT IMAM AL-GHAZALI TENTANG KAROMAH</div>
-<div class="arabic-text">
-لَا تَطْلُبِ الْكَرَامَاتِ، وَإِنَّمَا اطْلُبِ اسْتِقَامَةَ الْحَالِ مَعَ اللَّهِ، فَإِنَّ الْكَرَامَاتِ ظِلُّ الِاسْتِقَامَةِ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Janganlah kamu mencari karomah, tetapi carilah istiqamah dalam keadaan bersama Allah, karena sesungguhnya karomah adalah bayangan dari istiqamah."
-<br>— Imam Al-Ghazali, Ihya' Ulumuddin
-</div>
-</div>
-
-<div class="arabic-box">
-<div class="arabic-label">NASIHAT LANJUTAN IMAM AL-GHAZALI</div>
-<div class="arabic-text">
-أَعْظَمُ الْكَرَامَاتِ الِاسْتِقَامَةُ عَلَى الطَّاعَةِ، وَدَوَامُ الْمُحَافَظَةِ عَلَى الشَّرِيعَةِ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Karomah yang paling agung adalah istiqamah di atas ketaatan, dan terus-menerus menjaga syariat."
-<br>— Imam Al-Ghazali
-</div>
-</div>
-
-<h2>Penutup</h2>
-<p>
-Karomah-karomah Imam Al-Ghazali adalah bukti nyata atas ketinggian maqam spiritual beliau. Namun, yang paling penting untuk kita teladani bukanlah karomah-karomah itu sendiri, melainkan perjalanan spiritual beliau dalam mencari ridha Allah. Beliau mengajarkan bahwa karomah sejati adalah istiqamah di atas jalan Allah, menjaga syariat, dan berakhlak mulia.
+Demikianlah sebagian karomah Syeikh Abdul Qadir Al-Jilani selama masa khalwat dan perjalanan spiritual beliau di Baghdad — mulai dari pertemuan dengan Syeikh Hammad ad-Dabbas, khalwat dua puluh lima tahun di padang pasir, ujian-ujian berat, pertemuan dengan Nabi Khidir AS, hingga kembalinya beliau ke Baghdad sebagai Sulthanul Awliya'. Karomah-karomah ini bukanlah tujuan utama beliau, melainkan buah dari keikhlasan, kesabaran, dan ketaatan beliau kepada Allah SWT.
 </p>
 <p>
-Semoga kita semua diberikan kekuatan oleh Allah SWT untuk meneladani Imam Al-Ghazali dalam kesungguhan beliau beribadah dan mencari ilmu. Dan semoga kita semua dikaruniai husnul khotimah. Aamiin ya Rabbal 'Alamiin.
+Pada halaman berikutnya, kita akan membahas karomah-karomah luar biasa yang Allah tampakkan melalui tangan beliau setelah beliau kembali ke Baghdad — seperti menghidupkan orang mati, menundukkan jin dan setan, mengetahui isi hati, dan mukjizat-mukjizat lainnya yang membuat nama beliau dikenal di seluruh dunia Islam.
 </p>
-
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
 <div class="arabic-box">
 <div class="arabic-text">
-وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+يَا أَيُّهَا الَّذِينَ آمَنُوا إِن تَنصُرُوا اللَّهَ يَنصُرْكُمْ وَيُثَبِّتْ أَقْدَامَكُمْ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Barangsiapa bertakwa kepada Allah niscaya Dia akan mengadakan baginya jalan keluar. Dan memberinya rezeki dari arah yang tiada disangka-sangkanya."
-<br>— QS. Ath-Thalaq: 2-3
+<strong>Artinya:</strong> "Wahai orang-orang yang beriman, jika kamu menolong (agama) Allah, niscaya Dia akan menolongmu dan meneguhkan kedudukanmu."
+<br>— QS. Muhammad: 7
 </div>
 </div>
-
-<p>
-Wallahu a'lam bish-shawab. Dan segala puji bagi Allah, Tuhan semesta alam.
-</p>
 </div>
-<!-- NAVIGASI 3 TOMBOL -->
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
 <div class="article-nav">
 <div class="nav-group">
-<a href="karomah1.html" class="article-nav-btn active" title="Artikel Utama">1</a>
-<div class="nav-btn-label">Artikel Utama</div>
+<a href="jilani1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
 </div>
 <div class="nav-group">
-<a href="karomah1-cabang.html" class="article-nav-btn" title="Artikel Cabang">2</a>
-<div class="nav-btn-label">Artikel Cabang</div>
+<a href="jilani2.html" class="article-nav-btn active" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
 </div>
 <div class="nav-group">
-<a href="karomah1-lanjutan.html" class="article-nav-btn" title="Artikel Lanjutan">3</a>
-<div class="nav-btn-label">Artikel Lanjutan</div>
+<a href="jilani3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="jilani4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="jilani5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="jilani6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="jilani7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="jilani8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="jilani9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
 </div>
 </div>
 <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
