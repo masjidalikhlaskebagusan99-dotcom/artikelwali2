@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali — Halaman 2
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 2 dari 9 — Krisis Spiritual & Pengasingan Diri Selama 10 Tahun</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Umayyad_Mosque_-_Damascus.jpg/440px-Umayyad_Mosque_-_Damascus.jpg"
+alt="Masjid Umayyah Damaskus — Tempat Iktikaf Al-Ghazali"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi Masjid Umayyah di Damaskus, tempat Syeikh Al-Ghazali beriktikaf di menara selama masa pengasingan spiritualnya</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Di puncak kemasyhuran dan keilmuan — ketika beliau adalah profesor paling dihormati di Madrasah Nizamiyah Baghdad, ketika ribuan murid datang kepadanya, ketika para khalifah dan wazir menghormatinya — Syeikh Abu Hamid Al-Ghazali mengalami sebuah krisis spiritual yang mengguncang jiwa beliau sedalam-dalamnya. Krisis ini bukanlah kelemahan, melainkan karomah ilahiyah yang Allah gunakan untuk "membangunkan" hati beliau dari kelalaian dunia, dan mengubahnya dari seorang ulama intelektual menjadi seorang sufi yang merasakan manisnya ma'rifat. Dari krisis inilah lahir pengasingan diri selama sepuluh tahun — sebuah perjalanan spiritual yang mengubah sejarah Islam selamanya, dan yang melahirkan karya agung <em>Ihya' 'Ulumuddin</em>.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG UJIAN HATI — QS. AL-ANKABUT: 2-3</div>
+<div class="arabic-text">
+أَحَسِبَ النَّاسُ أَن يُتْرَكُوا أَن يَقُولُوا آمَنَّا وَهُمْ لَا يُفْتَنُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Apakah manusia mengira bahwa mereka akan dibiarkan hanya dengan mengatakan 'Kami telah beriman', dan mereka tidak diuji?"
+<br>— QS. Al-'Ankabut: 2
+</div>
+</div>
+<h2>Krisis Spiritual — Ketika Ilmu Tidak Cukup</h2>
+<p>
+Pada tahun 488 H (1095 M), ketika Syeikh Abu Hamid berusia sekitar 38 tahun dan berada di puncak karir keilmuannya, beliau mengalami krisis spiritual yang sangat mendalam. Beliau menceritakan krisis ini sendiri dalam kitab otobiografi spiritualnya yang masyhur, <em>Al-Munqidz min ad-Dalal</em> (Penyelamat dari Kesesatan). Krisis ini dimulai dengan pertanyaan sederhana yang kemudian meruntuhkan seluruh fondasi keilmuan beliau: <em>"Apakah ilmu yang aku miliki ini benar-benar membawa aku kepada kebenaran? Atau aku hanya mengikuti tradisi tanpa kesadaran?"</em>
+</p>
+<div class="karomah-card">
+<span class="karomah-number">10</span>
+<span class="karomah-title">Karomah Krisis Keraguan yang Mengguncang Jiwa</span>
+<div class="karomah-arabic">أَزْمَةُ الشَّكِّ الَّتِي هَزَّتْ نَفْسَهُ</div>
+<p>
+Syeikh Abu Hamid menceritakan dalam <em>Al-Munqidz min ad-Dalal</em>: <em>"Aku memandang diriku, dan aku mendapati diriku tenggelam dalam berbagai hubungan duniawi — jabatan, kemasyhuran, kekayaan. Aku melihat bahwa ilmuku — meskipun banyak dan mendalam — tidak membersihkan hatiku dari cinta dunia, dan tidak mendekatkanku kepada Allah. Aku pun bertanya pada diriku: Apakah tujuan dari semua ini? Apakah aku mencari ilmu untuk Allah, atau untuk kemasyhuran dan kedudukan?"</em>
+</p>
+<p>
+Pertanyaan ini bukan pertanyaan orang yang bodoh, melainkan pertanyaan orang yang telah mencapai puncak keilmuan namun merasa bahwa ada sesuatu yang hilang — sesuatu yang tidak dapat ditemukan di dalam buku-buku, di dalam perdebatan ilmiah, atau di dalam majelis-majelis pengajian. Beliau menyadari bahwa ada perbedaan besar antara <em>ilmu yang dihafal</em> dan <em>ilmu yang dirasakan di hati</em>.
+</p>
+<p>
+Ini adalah karomah berupa <em>tanbih ilahi</em> (peringatan ilahiyah) — karomah yang Allah berikan kepada hamba-Nya dengan "mengguncang" hatinya agar ia terbangun dari kelalaian. Para ulama berkata bahwa krisis spiritual adalah salah satu bentuk kasih sayang Allah kepada hamba-Nya yang dicintai, karena Allah tidak ingin hamba-Nya itu tertipu oleh kemasyhuran dunia.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI DALAM AL-MUNQIDZ</div>
+<div class="arabic-text">
+طَلَبْتُ الْحَقَّ بِكُلِّ طَرِيقٍ، حَتَّى بَذَلْتُ جُهْدِي وَفَرَّغْتُ فِكْرِي فِي التَّغَوُّرِ فِي أَغْوَارِ الْبَحْرِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Aku mencari kebenaran dengan segala cara, hingga aku mengerahkan seluruh usahaku dan memfokuskan pikiranku untuk menyelami kedalaman lautan (ilmu)."
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Al-Munqidz min ad-Dalal</em>
+</div>
+</div>
+<h2>Penyakit yang Melumpuhkan — Tanda dari Allah</h2>
+<p>
+Krisis spiritual yang mendalam itu kemudian menjelma menjadi penyakit fisik yang melumpuhkan tubuh beliau. Para dokter tidak mampu menyembuhkannya, karena penyakit ini bukanlah penyakit biasa — melainkan penyakit hati yang menjelma menjadi penyakit tubuh.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">11</span>
+<span class="karomah-title">Karomah Penyakit yang Melumpuhkan sebagai Tanda</span>
+<div class="karomah-arabic">الْمَرَضُ الَّذِي عَجَزَ عَنْهُ الْأَطِبَّاءُ</div>
+<p>
+Syeikh Abu Hamid menceritakan: <em>"Ketika aku menyadari bahwa aku tidak mampu menemukan kebenaran melalui ilmu yang aku miliki, aku memutuskan untuk meninggalkan Baghdad. Namun ketika aku hendak pergi, lidahku menjadi kering, dan aku tidak mampu berbicara lagi. Para dokter datang dan mencoba menyembuhkanku, namun mereka tidak mampu. Aku menyadari bahwa ini adalah tanda dari Allah — bahwa aku tidak boleh pergi dengan hati yang masih terikat pada kemasyhuran dan kedudukan."</em>
+</p>
+<p>
+Beliau kemudian memaksa dirinya untuk melepaskan segala ikatan duniawi — jabatan, harta, kemasyhuran — satu per satu. Beliau membagikan seluruh hartanya kepada orang-orang fakir dan anak-anak yatim, beliau melepaskan jabatan profesornya di Nizamiyah, dan beliau meninggalkan Baghdad dengan pakaian yang sangat sederhana. Ketika itulah — setelah hatinya benar-benar terlepas dari segala ikatan duniawi — penyakitnya pun sembuh dengan sendirinya.
+</p>
+<p>
+Ini adalah karomah berupa <em>tazkiyah ilahiyah</em> (penyucian ilahiyah) — Allah gunakan penyakit untuk membersihkan hati beliau dari cinta dunia, sehingga beliau siap menerima cahaya ma'rifat yang akan datang.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENYAKIT SEBAGAI UJIAN — QS. AL-BAQARAH: 155</div>
+<div class="arabic-text">
+وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ وَنَقْصٍ مِّنَ الْأَمْوَالِ وَالْأَنفُسِ وَالثَّمَرَاتِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan pasti Kami akan menguji kamu dengan sedikit ketakutan, kelaparan, kekurangan harta, jiwa, dan buah-buahan."
+<br>— QS. Al-Baqarah: 155
+</div>
+</div>
+<h2>Meninggalkan Segala Kemewahan Baghdad</h2>
+<p>
+Setelah penyakitnya sembuh, Syeikh Abu Hamid mengambil keputusan yang mengguncang seluruh dunia Islam pada masa itu — beliau meninggalkan Baghdad, meninggalkan jabatan prestisiusnya, meninggalkan harta dan kemasyhuran, dan mengembara sebagai seorang sufi yang fakir. Keputusan ini bukanlah keputusan yang mudah, karena beliau meninggalkan segala sesuatu yang telah beliau bangun selama puluhan tahun.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">12</span>
+<span class="karomah-title">Karomah Meninggalkan Segala Kemewahan Dunia</span>
+<div class="karomah-arabic">تَرْكُهُ الدُّنْيَا كُلَّهَا لِطَلَبِ الْحَقِّ</div>
+<p>
+Syeikh Abu Hamid menceritakan dalam <em>Al-Munqidz</em>: <em>"Aku meninggalkan Baghdad dengan membawa harta yang tidak banyak — hanya cukup untuk bekal perjalanan dan untuk keluarga yang aku tinggalkan. Aku mengenakan pakaian yang sederhana, dan aku berjalan sebagai seorang faqir yang tidak dikenal oleh siapa pun. Orang-orang yang melihatku tidak tahu bahwa aku adalah guru besar di Nizamiyah, bahwa aku adalah penulis puluhan kitab, bahwa aku adalah orang yang paling dihormati di Baghdad."</em>
+</p>
+<p>
+Beliau meninggalkan dua orang putranya di Baghdad di bawah pengawasan sahabat-sahabat beliau yang shaleh, dan beliau pergi tanpa tujuan yang pasti — hanya mengikuti petunjuk Allah. Beliau berkata: <em>"Aku tidak tahu ke mana aku akan pergi. Aku hanya tahu bahwa aku harus pergi dari Baghdad, karena Baghdad telah menjadi penjara bagi hatiku. Aku harus mencari kebebasan spiritual di tempat lain."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>takhliyah 'anid-dunya</em> (pengosongan dari dunia) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan untuk meninggalkan segala sesuatu yang menghalanginya dari Allah. Para ulama berkata bahwa barangsiapa yang meninggalkan sesuatu karena Allah, niscaya Allah akan memberikan kepadanya yang lebih baik darinya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI TENTANG KEZUHUDAN</div>
+<div class="arabic-text">
+مَنْ عَرَفَ نَفْسَهُ فَقَدْ عَرَفَ رَبَّهُ، وَمَنْ تَرَكَ مَا سِوَى اللَّهِ فَقَدْ وَصَلَ إِلَى اللَّهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa yang mengenal dirinya, maka ia telah mengenal Tuhannya. Dan barangsiapa yang meninggalkan segala sesuatu selain Allah, maka ia telah sampai kepada Allah."
+<br>— Syeikh Abu Hamid Al-Ghazali
+</div>
+</div>
+<h2>Pengembaraan ke Damaskus — Iktikaf di Menara Masjid</h2>
+<p>
+Dari Baghdad, Syeikh Abu Hamid pergi ke Damaskus — kota yang penuh dengan sejarah para nabi dan para wali. Di Damaskus inilah beliau memulai fase pengasingan spiritual yang paling intens — beriktikaf di menara Masjid Umayyah selama berbulan-bulan, menyendiri dengan Allah, dan membersihkan hati dari segala kotoran duniawi.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">13</span>
+<span class="karomah-title">Karomah Iktikaf di Menara Masjid Umayyah Damaskus</span>
+<div class="karomah-arabic">اعْتِكَافُهُ فِي مِئْذَنَةِ الْمَسْجِدِ الْأُمَوِيِّ</div>
+<p>
+Di Damaskus, Syeikh Abu Hamid memilih menara yang dikenal sebagai <em>Manarat Isa</em> (Menara Isa AS) di Masjid Umayyah untuk beriktikaf. Beliau menyendiri di sana selama berbulan-bulan, menghabiskan harinya dengan puasa dan malamnya dengan shalat dan dzikir. Beliau hanya turun dari menara pada hari Jumat untuk menghadiri shalat Jumat dan memberikan ceramah singkat, lalu kembali lagi ke menaranya.
+</p>
+<p>
+Para ulama menceritakan bahwa selama masa iktikaf ini, Syeikh Abu Hamid mengalami berbagai pengalaman spiritual yang mendalam. Beliau melihat cahaya-cahaya ilahiyah, merasakan kehadiran malaikat, dan mendapatkan berbagai ilham dari Allah. Beliau berkata: <em>"Di menara ini, aku menemukan apa yang tidak aku temukan di Baghdad — ketenangan hati, kehadiran bersama Allah, dan rasa manisnya dzikir."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>khalwah ma'a Allah</em> (pengasingan bersama Allah) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan untuk menyendiri dengan-Nya di tengah-tengah keramaian dunia.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KETENANGAN HATI — QS. AR-RA'D: 28</div>
+<div class="arabic-text">
+أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Yaitu) orang-orang yang beriman dan hati mereka menjadi tenteram dengan mengingat Allah. Ingatlah, hanya dengan mengingati Allah-lah hati menjadi tenteram."
+<br>— QS. Ar-Ra'd: 28
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">14</span>
+<span class="karomah-title">Karomah Menulis Ihya' 'Ulumuddin di Pengasingan</span>
+<div class="karomah-arabic">تَأْلِيفُ إِحْيَاءِ عُلُومِ الدِّينِ فِي الْغُرْبَةِ</div>
+<p>
+Selama masa pengasingan di Damaskus inilah — dalam keadaan zuhud, fakir, dan menyendiri — Syeikh Abu Hamid mulai menulis karya agungnya yang paling monumental: <em>Ihya' 'Ulumuddin</em> (Menghidupkan Kembali Ilmu-Ilmu Agama). Kitab ini bukanlah kitab yang ditulis dengan pikiran semata, melainkan kitab yang lahir dari pengalaman spiritual yang mendalam — dari air mata yang mengalir di malam hari, dari dzikir yang mengisi hati, dari ma'rifat yang Allah anugerahkan kepadanya setelah bertahun-tahun mencari.
+</p>
+<p>
+Syeikh Abu Hamid menceritakan: <em>"Ketika aku menulis Ihya', aku tidak menulis dari buku-buku, melainkan dari hatiku. Aku menulis apa yang aku rasakan, apa yang aku alami, dan apa yang Allah ajarkan kepadaku melalui pengalaman spiritual. Setiap bab dalam Ihya' adalah cerminan dari perjalananku menuju Allah."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>talfiq ar-rabbani</em> (penyusunan rabbani) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan untuk menyusun ilmu yang lahir dari pengalaman spiritual, sehingga kitab yang ditulisnya menjadi hidup dan menghidupkan hati siapa pun yang membacanya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU YANG BERMANFAAT — QS. FATIR: 28</div>
+<div class="arabic-text">
+إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya yang takut kepada Allah di antara hamba-hamba-Nya, hanyalah ulama."
+<br>— QS. Fathir: 28
+</div>
+</div>
+<h2>Perjalanan ke Jerusalem, Hebron, dan Mesir</h2>
+<p>
+Setelah beberapa tahun di Damaskus, Syeikh Abu Hamid melanjutkan pengembaraannya ke berbagai negeri suci — Jerusalem, Hebron (tempat makam Nabi Ibrahim AS), dan Mesir. Di setiap negeri yang beliau singgahi, beliau berziarah ke makam-makam para nabi dan para wali, dan beliau mendapatkan berbagai pengalaman spiritual yang memperdalam ma'rifatnya kepada Allah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">15</span>
+<span class="karomah-title">Karomah Ziarah ke Baitul Maqdis (Jerusalem)</span>
+<div class="karomah-arabic">زِيَارَتُهُ لِبَيْتِ الْمَقْدِسِ</div>
+<p>
+Syeikh Abu Hamid berziarah ke Baitul Maqdis (Jerusalem) — kota suci yang menjadi tempat Isra' Mi'raj Rasulullah SAW. Di sana beliau shalat di Masjidil Aqsha, berziarah ke Qubbah ash-Shakhrah, dan bermalam di tempat-tempat suci. Beliau menceritakan: <em>"Ketika aku berdiri di hadapan Qubbah ash-Shakhrah, aku merasakan kehadiran para nabi dan para wali yang pernah shalat di tempat ini. Aku merasakan bahwa tanah ini adalah tanah yang diberkahi, dan aku menangis karena merasa tidak layak menginjakkan kaki di tanah yang begitu suci."</em>
+</p>
+<p>
+Dari Jerusalem, beliau melanjutkan perjalanan ke Hebron (Al-Khalil) untuk berziarah ke makam Nabi Ibrahim AS — khalilullah (kekasih Allah). Di sana beliau bermalam dan berdoa dengan penuh kekhusyukan, memohon kepada Allah agar memberikan kepadanya ma'rifat yang sejati.
+</p>
+<p>
+Ini adalah karomah berupa <em>ziyarah al-maqamat al-muqaddasah</em> (ziarah ke tempat-tempat suci) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan untuk merasakan kehadiran para nabi dan para wali di tempat-tempat suci.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TANAH YANG DIBERKAHI — QS. AL-ISRA': 1</div>
+<div class="arabic-text">
+سُبْحَانَ الَّذِي أَسْرَىٰ بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى الَّذِي بَارَكْنَا حَوْلَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maha Suci Allah, yang telah memperjalankan hamba-Nya pada suatu malam dari Al-Masjidil Haram ke Al-Masjidil Aqsha yang telah Kami berkahi sekelilingnya."
+<br>— QS. Al-Isra': 1
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">16</span>
+<span class="karomah-title">Karomah Perjalanan ke Mesir & Pertemuan dengan Para Ulama</span>
+<div class="karomah-arabic">رِحْلَتُهُ إِلَى مِصْرَ وَلِقَاؤُهُ بِالْعُلَمَاءِ</div>
+<p>
+Dari Jerusalem, Syeikh Abu Hamid melanjutkan perjalanan ke Mesir — negeri yang pada masa itu merupakan pusat keilmuan dunia Islam. Di Mesir beliau bertemu dengan para ulama besar, di antaranya para ulama di Al-Azhar, dan beliau memberikan pengajian-pengajian yang sangat memukau para pendengarnya.
+</p>
+<p>
+Para ulama Mesir menceritakan bahwa ketika Syeikh Abu Hamid memberikan pengajian di Kairo, orang-orang yang hadir merasakan cahaya ma'rifat yang terpancar dari setiap kata yang beliau ucapkan. Beliau tidak berbicara seperti seorang profesor yang mengajarkan ilmu dari buku, melainkan seperti seorang sufi yang berbicara dari pengalaman spiritualnya sendiri.
+</p>
+<p>
+Salah seorang ulama Mesir berkata: <em>"Ketika aku mendengar Syeikh Abu Hamid berbicara, aku merasakan seolah-olah aku tidak pernah mengetahui Islam sebelumnya. Ia membuka mata hatiku, dan aku melihat Islam dengan cara yang sama sekali berbeda."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>kalam min al-qalb</em> (perkataan dari hati) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan untuk berbicara dari kedalaman hati, sehingga setiap kata yang diucapkannya masuk langsung ke dalam hati pendengarnya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PERKATAAN DARI HATI — QS. AL-HAJJ: 46</div>
+<div class="arabic-text">
+فَإِنَّهَا لَا تَعْمَى الْأَبْصَارُ وَلَٰكِن تَعْمَى الْقُلُوبُ الَّتِي فِي الصُّدُورِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Karena sesungguhnya bukanlah mata itu yang buta, tetapi yang buta ialah hati yang di dalam dada."
+<br>— QS. Al-Hajj: 46
+</div>
+</div>
+<h2>Kembali ke Thus — Hidup Zuhud di Tanah Kelahiran</h2>
+<p>
+Setelah sepuluh tahun mengembara — dari Baghdad ke Damaskus, dari Damaskus ke Jerusalem, dari Jerusalem ke Hebron, dari Hebron ke Mesir — Syeikh Abu Hamid akhirnya kembali ke tanah kelahirannya, Thus, di Khurasan. Di sinilah beliau menghabiskan sisa hidupnya dalam zuhud, ibadah, dan pengajaran kepada para murid yang datang dari berbagai penjuru dunia.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">17</span>
+<span class="karomah-title">Karomah Kembali ke Thus & Hidup Zuhud</span>
+<div class="karomah-arabic">عَوْدَتُهُ إِلَى طُوسَ وَعَيْشُهُ الزَّاهِدَ</div>
+<p>
+Ketika Syeikh Abu Hamid kembali ke Thus, beliau tidak kembali sebagai seorang profesor yang dihormati, melainkan sebagai seorang sufi yang zuhud dan sederhana. Beliau menolak segala tawaran jabatan dan kemewahan, dan beliau memilih hidup dalam kesederhanaan yang ekstrem. Beliau tinggal di sebuah rumah kecil, mengenakan pakaian yang kasar, dan makan makanan yang sangat sederhana.
+</p>
+<p>
+Para murid beliau menceritakan bahwa meskipun beliau adalah salah satu ulama terbesar di zamannya, beliau hidup lebih sederhana daripada orang-orang fakir di kampungnya. Beliau sendiri yang membersihkan rumahnya, sendiri yang memasak makanannya, dan sendiri yang menjahit pakaiannya yang robek.
+</p>
+<p>
+Ketika ditanya mengapa beliau hidup begitu sederhana, beliau menjawab: <em>"Aku telah melihat dunia, dan aku telah melihat bahwa dunia ini tidak ada harganya di sisi Allah. Maka mengapa aku harus mencintai sesuatu yang tidak ada harganya? Aku telah menemukan harta yang sejati — harta yang ada di sisi Allah — dan harta itu tidak akan pernah habis."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>zuhd haqiqi</em> (zuhud yang sejati) — karomah yang Allah berikan kepada hamba-Nya dengan kemampuan untuk meninggalkan dunia bukan karena tidak mampu mendapatkannya, melainkan karena telah menemukan sesuatu yang lebih berharga.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI TENTANG KEZUHUDAN</div>
+<div class="arabic-text">
+الزُّهْدُ لَا يَعْنِي تَرْكَ الدُّنْيَا، بَلْ تَرْكَ حُبِّ الدُّنْيَا مِنَ الْقَلْبِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Zuhud bukanlah meninggalkan dunia, melainkan meninggalkan cinta dunia dari dalam hati."
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Ihya' 'Ulumuddin</em>
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">18</span>
+<span class="karomah-title">Karomah Cahaya Ma'rifat Setelah 10 Tahun Pengasingan</span>
+<div class="karomah-arabic">نُورُ الْمَعْرِفَةِ بَعْدَ عَشْرِ سَنَوَاتٍ مِنَ الْخَلْوَةِ</div>
+<p>
+Setelah sepuluh tahun pengasingan, Syeikh Abu Hamid merasakan cahaya ma'rifat yang tidak pernah beliau rasakan sebelumnya. Beliau menceritakan dalam <em>Al-Munqidz min ad-Dalal</em>: <em>"Setelah sepuluh tahun mengasingkan diri, Allah memberikan kepadaku cahaya ma'rifat yang tidak pernah aku bayangkan sebelumnya. Aku menyadari bahwa ilmu yang sejati bukanlah ilmu yang ada di dalam buku-buku, melainkan ilmu yang ada di dalam hati — ilmu yang Allah berikan kepada hamba-Nya yang ikhlas."</em>
+</p>
+<p>
+Beliau melanjutkan: <em>"Aku sekarang memahami makna firman Allah: 'Wa ittaqullaha wa yu'allimukumullah' (Bertakwalah kepada Allah, niscaya Allah akan mengajarmu). Ini bukanlah ilmu yang didapat melalui belajar, melainkan ilmu yang didapat melalui takwa dan keikhlasan."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>fath ar-rabbani</em> (pembukaan rabbani) — karomah yang Allah berikan kepada hamba-Nya setelah melalui ujian yang panjang, sehingga hatinya terbuka untuk menerima cahaya ma'rifat yang tidak dapat dicapai melalui ilmu biasa.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA MA'RIFAT — QS. AN-NISA': 174</div>
+<div class="arabic-text">
+يَا أَيُّهَا النَّاسُ قَدْ جَاءَكُم بُرْهَانٌ مِّن رَّبِّكُمْ وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai manusia, sesungguhnya telah datang kepadamu bukti (kebenaran) dari Tuhanmu, dan telah Kami turunkan kepadamu cahaya yang terang benderang."
+<br>— QS. An-Nisa': 174
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Krisis Spiritual & Pengasingan 10 Tahun:</strong>
+<ul>
+<li><strong>Krisis keraguan yang mengguncang jiwa</strong> — <em>Tanbih ilahi</em>, peringatan dari Allah</li>
+<li><strong>Penyakit yang melumpuhkan</strong> — <em>Tazkiyah ilahiyah</em>, penyucian hati</li>
+<li><strong>Meninggalkan segala kemewahan</strong> — <em>Takhliyah 'anid-dunya</em>, pengosongan dari dunia</li>
+<li><strong>Iktikaf di menara Masjid Umayyah</strong> — <em>Khalwah ma'a Allah</em>, pengasingan bersama Allah</li>
+<li><strong>Menulis Ihya' 'Ulumuddin</strong> — <em>Talfiq ar-rabbani</em>, penyusunan rabbani</li>
+<li><strong>Ziarah ke Baitul Maqdis</strong> — <em>Ziyarah al-maqamat al-muqaddasah</em></li>
+<li><strong>Perjalanan ke Mesir</strong> — <em>Kalam min al-qalb</em>, perkataan dari hati</li>
+<li><strong>Kembali ke Thus dengan zuhud</strong> — <em>Zuhd haqiqi</em>, zuhud yang sejati</li>
+<li><strong>Cahaya ma'rifat setelah 10 tahun</strong> — <em>Fath ar-rabbani</em>, pembukaan rabbani</li>
+</ul>
+</div>
+<h2>Pelajaran dari Krisis Spiritual Al-Ghazali</h2>
+<p>
+Dari kisah krisis spiritual dan pengasingan diri Syeikh Abu Hamid Al-Ghazali, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>ilmu tanpa amal adalah kegelapan</strong>. Syeikh Abu Hamid menyadari bahwa ilmu yang beliau miliki — meskipun banyak dan mendalam — tidak membersihkan hatinya dari cinta dunia. Ini menunjukkan bahwa ilmu yang sejati adalah ilmu yang diamalkan, bukan ilmu yang hanya dihafal.
+<br><br>
+<em>Kedua</em>, <strong>krisis spiritual adalah kasih sayang Allah</strong>. Ketika Allah mencintai seorang hamba, Dia akan "mengguncang" hatinya agar ia terbangun dari kelalaian. Maka janganlah kita takut pada krisis spiritual, melainkan hadapilah dengan sabar dan tawakkal.
+<br><br>
+<em>Ketiga</em>, <strong>pengasingan diri adalah jalan menuju ma'rifat</strong>. Syeikh Abu Hamid menemukan cahaya ma'rifat setelah sepuluh tahun mengasingkan diri. Ini menunjukkan bahwa ma'rifat tidak dapat dicapai di tengah-tengah keramaian dunia, melainkan di tempat yang sunyi di mana hati dapat berbicara dengan Tuhannya.
+<br><br>
+<em>Keempat</em>, <strong>zuhud yang sejati adalah zuhud hati</strong>. Syeikh Abu Hamid tidak meninggalkan dunia karena tidak mampu mendapatkannya, melainkan karena telah menemukan sesuatu yang lebih berharga. Inilah zuhud yang sejati — zuhud yang lahir dari ma'rifat, bukan dari keterpaksaan.
+</blockquote>
+<h2>Doa Memohon Cahaya Ma'rifat</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON CAHAYA MA'RIFAT & TAUBAT</div>
+<div class="arabic-text">
+اللَّهُمَّ أَرِنَا الْحَقَّ حَقًّا وَارْزُقْنَا اتِّبَاعَهُ، وَأَرِنَا الْبَاطِلَ بَاطِلًا وَارْزُقْنَا اجْتِنَابَهُ، وَاجْعَلْنَا مِمَّنْ خَشِيَكَ فَرَقَّ قَلْبُهُ لِدِكْرِكَ، وَاجْعَلْ سَيِّدَنَا أَبَا حَامِدٍ الْغَزَالِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, tunjukkanlah kepada kami kebenaran sebagai kebenaran dan anugerahkanlah kepada kami kemampuan untuk mengikutinya. Tunjukkanlah kepada kami kebatilan sebagai kebatilan dan anugerahkanlah kepada kami kemampuan untuk menjauhinya. Jadikanlah kami termasuk orang-orang yang takut kepada-Mu sehingga hati mereka melembut karena dzikir kepada-Mu, dan jadikanlah Sayyidina Abu Hamid Al-Ghazali sebagai pemberi syafaat bagi kami pada hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 2</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Abu Hamid Al-Ghazali selama masa krisis spiritual dan pengasingan diri selama sepuluh tahun — mulai dari krisis keraguan yang mengguncang jiwa, penyakit yang melumpuhkan, meninggalkan segala kemewahan Baghdad, iktikaf di menara Masjid Umayyah Damaskus, menulis Ihya' 'Ulumuddin, ziarah ke Baitul Maqdis, perjalanan ke Mesir, kembali ke Thus dengan zuhud, hingga cahaya ma'rifat yang Allah anugerahkan kepadanya setelah sepuluh tahun pengasingan.
+</p>
+<p>
+Kisah ini mengajarkan kepada kita bahwa karomah yang paling agung bukanlah kemampuan berjalan di atas air atau terbang di udara, melainkan kemampuan untuk meninggalkan dunia demi mencari ridha Allah, dan kemampuan untuk merasakan manisnya ma'rifat setelah melalui ujian yang panjang.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas karomah-karomah luar biasa yang Allah anugerahkan kepada Syeikh Abu Hamid setelah masa pengasingan — karomah-karomah yang tampak dalam bentuk cahaya hati, firasat, ilham, dan berbagai pengalaman spiritual yang menakjubkan.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan orang-orang yang berjihad untuk (mencari keridhaan) Kami, pastilah Kami akan tunjukkan kepada mereka jalan-jalan Kami. Dan sesungguhnya Allah benar-benar beserta orang-orang yang berbuat baik."
+<br>— QS. Al-'Ankabut: 69
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ghazali1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ghazali2.html" class="article-nav-btn active" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
