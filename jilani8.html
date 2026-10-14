@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abdul Qadir Al-Jilani - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color:  #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abdul Qadir Al-Jilani — Halaman 8
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abdul Qadir Al-Jilani</h1>
+<div class="subtitle">Halaman 8 dari 9 — Mukjizat-Mukjizat Lain yang Masyhur</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Baghdad_-_Al_Mustansiriya_University.jpg/440px-Baghdad_-_Al_Mustansiriya_University.jpg"
+alt="Mukjizat-Mukjizat Syeikh Abdul Qadir Al-Jilani"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi Baghdad, tempat Syeikh Abdul Qadir Al-Jilani menunjukkan karomah-karomah masyhur yang diriwayatkan oleh para ulama dari generasi ke generasi</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Selain karomah-karomah besar yang telah disebutkan pada halaman-halaman sebelumnya — seperti menghidupkan orang mati, menundukkan jin, berjalan di atas air, dan memberkahi makanan — para ulama dalam kitab-kitab mereka masih meriwayatkan banyak lagi karomah masyhur Syeikh Abdul Qadir Al-Jilani yang tersebar di berbagai penjuru dunia Islam. Karomah-karomah ini diriwayatkan dengan sanad yang beragam oleh para ulama seperti Imam As-Suyuthi, Imam Ibnu Hajar al-Haitami, Imam Abdul Wahhab Asy-Sya'rani, dan banyak lagi. Halaman ini akan menguraikan sebagian dari karomah-karomah masyhur tersebut — yang menjadi bukti nyata bahwa Allah benar-benar telah memilih beliau sebagai salah satu wali-Nya yang paling istimewa.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KUASA ALLAH — QS. AL-BAQARAH: 20</div>
+<div class="arabic-text">
+إِنَّ اللَّهَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah Maha Kuasa atas segala sesuatu."
+<br>— QS. Al-Baqarah: 20
+</div>
+</div>
+<h2>Pohon yang Berjalan Mendekatinya</h2>
+<p>
+Salah satu karomah yang paling masyhur dari Syeikh Abdul Qadir Al-Jilani — yang diriwayatkan oleh banyak ulama dalam kitab-kitab mereka — adalah peristiwa pohon yang berjalan mendekatinya atas izin Allah. Peristiwa ini menjadi salah satu tanda kewalian beliau yang paling terkenal, dan menjadi bukti bahwa Allah telah memberikan kepadanya maqam yang sangat tinggi di sisi-Nya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">43</span>
+<span class="karomah-title">Karomah Pohon yang Berjalan Mendekatinya</span>
+<div class="karomah-arabic">مَشْيُ الشَّجَرَةِ إِلَيْهِ بِإِذْنِ اللَّهِ</div>
+<p>
+Dalam sebuah riwayat yang diriwayatkan oleh Imam As-Suyuthi dalam kitab <em>Al-Yawaqit wal Jawahir</em> dan oleh Imam Abdul Wahhab Asy-Sya'rani dalam <em>Latha'if al-Minan</em>, diceritakan bahwa pada suatu hari Syeikh Abdul Qadir sedang duduk di bawah sebuah pohon di pinggiran Baghdad untuk beristirahat setelah memberikan pengajian. Beliau merasa kepanasan karena sinar matahari yang terik, dan beliau berkata kepada pohon itu dengan nada bercanda namun penuh makna: <em>"Wahai pohon, tunduklah kepadaku atas izin Allah, agar aku dapat berteduh di bawah daun-daunmu."</em>
+</p>
+<p>
+Maka atas izin Allah Yang Maha Kuasa, pohon itu mencabut akarnya dari tanah dan berjalan mendekati Syeikh Abdul Qadir, lalu menundukkan ranting-rantingnya agar beliau dapat berteduh di bawahnya. Orang-orang yang melihat kejadian itu takjub dan berkata: <em>"Ini adalah karomah yang mirip dengan mukjizat Nabi Isa AS yang berbicara dengan pohon kurma, dan mukjizat Nabi Musa AS yang tongkatnya berubah menjadi ular."</em>
+</p>
+<p>
+Setelah beberapa saat, Syeikh Abdul Qadir berkata kepada pohon itu: <em>"Kembalilah ke tempatmu semula atas izin Allah."</em> Maka pohon itu pun kembali ke tempatnya, dan akarnya menancap kembali ke tanah seolah-olah tidak pernah bergerak. Para ulama berkata bahwa karomah ini adalah <em>taskhir asy-syajar</em> (penundukan pohon) — sebagaimana Allah tundukkan pohon kepada Nabi Sulaiman AS, demikian pula Allah tundukkan pohon kepada para wali-Nya yang istimewa sebagai tanda pemuliaan.
+</p>
+<p>
+Syeikh Abdul Qadir sendiri berkata kepada orang-orang yang takjub: <em>"Janganlah kalian takjub kepadaku. Yang menundukkan pohon ini bukanlah aku, melainkan Allah Yang Maha Kuasa. Aku hanyalah hamba yang fakir yang berdoa kepada-Nya, dan Dia mengabulkan doa hamba-Nya yang ikhlas."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG TASKHIR — QS. SABA': 12-13</div>
+<div class="arabic-text">
+وَلِسُلَيْمَانَ الرِّيحَ غُدُوُّهَا شَهْرٌ وَرَوَاحُهَا شَهْرٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan (Kami tundukkan) angin bagi Sulaiman, yang perjalanannya di pagi hari sama dengan perjalanan sebulan, dan perjalanannya di sore hari sama dengan perjalanan sebulan."
+<br>— QS. Saba': 12 (Allah menundukkan alam kepada hamba-Nya yang dipilih)
+</div>
+</div>
+<h2>Melihat Peristiwa di Tempat Jauh (Kasyf)</h2>
+<p>
+Salah satu karomah yang paling sering diriwayatkan dari Syeikh Abdul Qadir adalah kemampuan beliau melihat peristiwa yang terjadi di tempat-tempat yang jauh dari beliau — meskipun beliau tidak pernah bepergian ke tempat tersebut. Kemampuan ini disebut oleh para ulama sebagai <em>kasyf</em> (pembukaan) — yaitu Allah membuka hijab penghalang antara seorang wali dengan apa yang terjadi di berbagai penjuru dunia.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">44</span>
+<span class="karomah-title">Karomah Melihat Peristiwa di Tempat Jauh (Kasyf)</span>
+<div class="karomah-arabic">رُؤْيَتُهُ لِلْأَحْدَاثِ فِي الْأَمَاكِنِ الْبَعِيدَةِ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu hari Syeikh Abdul Qadir sedang memberikan pengajian di Baghdad ketika tiba-tiba beliau berhenti dan berkata kepada para muridnya: <em>"Tunggulah sebentar, wahai saudara-saudaraku. Sesungguhnya di negeri yang jauh, seorang hamba Allah sedang dalam kesulitan yang sangat besar. Ia sedang berada di tengah laut dalam sebuah kapal yang hampir tenggelam. Ia berdoa kepada Allah dengan penuh kekhusyukan, dan Allah telah mengutusku untuk mendoakannya."</em>
+</p>
+<p>
+Syeikh Abdul Qadir kemudian mengangkat kedua tangannya dan berdoa dengan penuh kekhusyukan. Beliau berkata: <em>"Ya Allah, selamatkanlah hamba-Mu yang sedang dalam kesulitan di tengah laut itu, dan selamatkanlah semua orang yang bersamanya."</em> Setelah itu, beliau kembali melanjutkan pengajiannya seolah-olah tidak terjadi apa-apa.
+</p>
+<p>
+Beberapa bulan kemudian, datanglah seorang pedagang dari negeri yang jauh — dari India atau Tiongkok — ke Baghdad. Ia datang kepada Syeikh Abdul Qadir dan berkata: <em>"Wahai Syeikh, aku adalah salah seorang yang berada di kapal yang hampir tenggelam beberapa bulan yang lalu. Ketika kami sudah hampir putus asa, tiba-tiba aku melihat seorang lelaki tua yang bercahaya berdiri di atas air, mengangkat kedua tangannya dan berdoa untuk kami. Tidak lama kemudian, badai reda, dan kapal kami selamat. Aku datang kepadamu untuk bertanya: apakah engkau adalah orang yang aku lihat itu?"</em>
+</p>
+<p>
+Syeikh Abdul Qadir tersenyum dan berkata: <em>"Aku tidak melihat apa-apa. Aku hanyalah hamba yang fakir yang berdoa kepada Allah untuk hamba-Nya yang sedang dalam kesulitan. Jika Allah mengabulkan doaku, maka itu adalah karunia-Nya, bukan kehebatanku."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>kasyf al-ba'id</em> (melihat yang jauh) — karomah yang Allah berikan kepada para wali-Nya sehingga mereka dapat melihat apa yang terjadi di tempat-tempat yang jauh, dan mendoakan orang-orang yang sedang dalam kesulitan meskipun mereka tidak berada di tempat tersebut.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KASYF — QS. QAF: 22</div>
+<div class="arabic-text">
+لَقَدْ كُنتَ فِي غَفْلَةٍ مِّنْ هَٰذَا فَكَشَفْنَا عَنكَ غِطَاءَكَ فَبَصَرُكَ الْيَوْمَ حَدِيدٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya kamu berada dalam keadaan lalai dari (hal) ini, lalu Kami buka daripadamu tutup (yang menutupi) matamu, maka penglihatanmu pada hari ini sangat tajam."
+<br>— QS. Qaf: 22
+</div>
+</div>
+<h2>Lipatan Bumi (Thayy al-Ardh)</h2>
+<p>
+Salah satu karomah yang paling menakjubkan dari Syeikh Abdul Qadir Al-Jilani adalah kemampuan beliau berpindah dari satu tempat ke tempat lain dalam waktu yang sangat singkat — sebuah karomah yang disebut oleh para ulama sebagai <em>thayy al-ardh</em> (lipatan bumi). Karomah ini bukanlah sihir, melainkan anugerah ilahiyah yang Allah berikan kepada wali-Nya yang istimewa.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">45</span>
+<span class="karomah-title">Karomah Lipatan Bumi (Thayy al-Ardh)</span>
+<div class="karomah-arabic">طَيُّ الْأَرْضِ لَهُ</div>
+<p>
+Dalam sebuah riwayat yang diriwayatkan oleh para ulama, diceritakan bahwa pada suatu hari seorang murid Syeikh Abdul Qadir datang kepadanya dengan wajah cemas. Ia berkata: <em>"Wahai Syeikh, ibuku di negeri yang jauh sedang sakit keras. Aku ingin pergi menjenguknya, tetapi perjalanan ke sana memakan waktu berbulan-bulan. Aku khawatir ia akan wafat sebelum aku sampai."</em>
+</p>
+<p>
+Syeikh Abdul Qadir menatap murid itu dengan penuh kasih sayang dan berkata: <em>"Wahai saudaraku, tutuplah matamu dan peganglah tanganku."</em> Murid itu pun melakukan apa yang diperintahkan. Ketika ia membuka matanya, ia sudah berada di depan rumah ibunya di negeri yang jauh itu. Ia menjenguk ibunya, mendoakannya, dan ibunya pun sembuh atas izin Allah.
+</p>
+<p>
+Ketika ia kembali ke Baghdad — kembali dengan memegang tangan Syeikh Abdul Qadir — ia menyadari bahwa perjalanan yang seharusnya memakan waktu berbulan-bulan itu telah ditempuh hanya dalam beberapa saat. Ia menangis penuh haru dan berkata: <em>"Wahai Syeikh, apakah engkau yang membawaku ke sana?"</em> Syeikh Abdul Qadir menjawab: <em>"Aku tidak membawa engkau ke mana-mana. Allah-lah Yang Maha Kuasa yang melipat bumi untuk hamba-Nya yang membutuhkan. Aku hanyalah perantara doa."</em>
+</p>
+<p>
+Para ulama berkata bahwa karomah ini mirip dengan karomah yang Allah berikan kepada Nabi Sulaiman AS, yang mampu berpindah dari satu tempat ke tempat lain dalam waktu yang sangat singkat. Ini bukanlah mukjizat nabi, melainkan karomah wali yang Allah berikan sebagai tanda pemuliaan atas keikhlasan dan kecintaan beliau kepada-Nya.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KUASA ALLAH — QS. AN-NAML: 40</div>
+<div class="arabic-text">
+قَالَ عِفرِيتٌ مِّنَ الْجِنِّ أَنَا آتِيكَ بِهِ قَبْلَ أَن تَقُومَ مِن مَّقَامِكَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Berkatalah 'Ifrit (yang cerdik) dari golongan jin: 'Aku akan datang kepadamu dengan membawa singgasana itu kepadamu sebelum kamu berdiri dari tempat dudukmu.'"
+<br>— QS. An-Naml: 40 (Allah mampu memindahkan sesuatu dalam sekejap)
+</div>
+</div>
+<h2>Mengetahui Waktu Kematian Seseorang</h2>
+<p>
+Salah satu karomah yang paling menyentuh dari Syeikh Abdul Qadir Al-Jilani adalah kemampuan beliau mengetahui kapan seseorang akan wafat. Kemampuan ini bukanlah ilmu nujum atau ramalan, melainkan <em>ilham</em> (ilham) dari Allah yang Dia berikan kepada hamba-Nya yang dicintai.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">46</span>
+<span class="karomah-title">Karomah Mengetahui Waktu Kematian Seseorang</span>
+<div class="karomah-arabic">مَعْرِفَتُهُ بِوَقْتِ وَفَاةِ الْآخَرِينَ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu hari seorang murid Syeikh Abdul Qadir datang kepadanya untuk meminta nasihat. Setelah bercakap-cakap beberapa saat, Syeikh Abdul Qadir tiba-tiba berkata kepada murid itu dengan suara yang lembut: <em>"Wahai saudaraku, bersiaplah. Engkau akan kembali kepada Allah dalam waktu tujuh hari. Maka perbanyaklah taubat dan istigfar, dan tunaikanlah hak-hak orang lain yang masih ada padamu."</em>
+</p>
+<p>
+Murid itu terkejut dan menangis. Ia berkata: <em>"Wahai Syeikh, apakah engkau tahu bahwa aku akan wafat?"</em> Syeikh Abdul Qadir menjawab: <em>"Aku tidak tahu apa-apa. Aku hanyalah hamba yang fakir. Namun Allah telah memberitahuku melalui ilham-Nya bahwa waktumu telah dekat. Maka bersiaplah dengan baik, dan janganlah engkau takut, karena kematian seorang mukmin adalah pintu menuju pertemuan dengan Allah Yang Maha Pengasih."</em>
+</p>
+<p>
+Murid itu pun pulang ke rumahnya dengan penuh ketenangan. Ia bertaubat, meminta maaf kepada semua orang yang pernah ia zalimi, dan menghabiskan tujuh hari terakhirnya dalam ibadah dan dzikir. Ketika hari ketujuh tiba, ia wafat dalam keadaan sujud, dengan wajah yang bercahaya dan senyum tipis di bibirnya.
+</p>
+<p>
+Para ulama berkata bahwa karomah ini adalah <em>ilham bil-ajal</em> (ilham tentang ajal) — karomah yang Allah berikan kepada para wali-Nya sehingga mereka dapat mengetahui kapan seseorang akan wafat, bukan untuk menakut-nakuti, melainkan untuk mengingatkan agar orang tersebut bersiap-siap bertemu dengan Tuhannya dalam keadaan yang terbaik.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AJAL — QS. AL-MUNAFIQUN: 11</div>
+<div class="arabic-text">
+وَلَن يُؤَخِّرَ اللَّهُ نَفْسًا إِذَا جَاءَ أَجَلُهَا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Allah tidak akan menunda (kematian) seseorang apabila telah datang ajalnya."
+<br>— QS. Al-Munafiqun: 11
+</div>
+</div>
+<h2>Menghilang dari Pandangan</h2>
+<p>
+Salah satu karomah yang paling menakjubkan dari Syeikh Abdul Qadir Al-Jilani adalah kemampuan beliau menghilang dari pandangan orang-orang yang ingin mencelakainya. Karomah ini menjadi bukti nyata bahwa Allah senantiasa menjaga hamba-Nya yang dicintai dari segala macam bahaya.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">47</span>
+<span class="karomah-title">Karomah Menghilang dari Pandangan</span>
+<div class="karomah-arabic">اخْتِفَاؤُهُ عَنْ أَبْصَارِ النَّاسِ</div>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu masa terdapat sekelompok orang yang dengki kepada Syeikh Abdul Qadir karena banyaknya orang yang bertaubat di tangan beliau. Mereka merencanakan untuk mencelakainya, dan pada suatu malam mereka mengepung rumah beliau dengan senjata di tangan.
+</p>
+<p>
+Ketika mereka mendobrak pintu dan masuk ke dalam rumah, mereka mendapati Syeikh Abdul Qadir sedang shalat di mihrabnya. Mereka mengangkat senjata untuk menyerangnya, namun tiba-tiba — atas izin Allah — Syeikh Abdul Qadir menghilang dari pandangan mereka. Mereka mencari ke seluruh sudut rumah, tetapi beliau tidak ada di mana-mana. Mereka keluar dan mencari di halaman, di kebun, di jalan-jalan sekitar, tetapi beliau tidak ditemukan.
+</p>
+<p>
+Keesokan harinya, Syeikh Abdul Qadir muncul kembali di majelis beliau seperti biasa, seolah-olah tidak terjadi apa-apa. Ketika para murid bertanya tentang kejadian malam itu, beliau berkata: <em>"Wahai anak-anakku, Allah-lah Yang menjaga hamba-Nya. Dia mampu menyembunyikan aku dari pandangan mereka, sebagaimana Dia mampu menyembunyikan Nabi Musa AS dari Fir'aun, dan Nabi Muhammad SAW dari orang-orang Quraisy di gua Tsur. Maka janganlah kalian takut kepada siapa pun selain Allah."</em>
+</p>
+<p>
+Orang-orang yang merencanakan kejahatan itu pun akhirnya bertaubat setelah menyaksikan karomah ini. Mereka berkata: <em>"Sungguh, orang ini dilindungi oleh Allah sendiri. Kami tidak akan mampu mencelakainya, karena Allah adalah penjaganya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ghaybah an-nazhar</em> (menghilang dari pandangan) — karomah yang Allah berikan kepada para wali-Nya sebagai bentuk penjagaan dari orang-orang yang jahat. Para ulama berkata bahwa karomah ini adalah bayangan dari mukjizat Nabi Muhammad SAW yang menghilang dari pandangan orang-orang Quraisy ketika bersembunyi di gua Tsr bersama Abu Bakar ash-Shiddiq.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENJAGAAN ALLAH — QS. AL-AHZAB: 39</div>
+<div class="arabic-text">
+الَّذِينَ يُبَلِّغُونَ رِسَالَاتِ اللَّهِ وَيَخْشَوْنَهُ وَلَا يَخْشَوْنَ أَحَدًا إِلَّا اللَّهَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Yaitu) orang-orang yang menyampaikan risalah-risalah Allah, mereka takut kepada-Nya dan mereka tidak takut kepada seorang (pun) selain kepada Allah."
+<br>— QS. Al-Ahzab: 39
+</div>
+</div>
+<h2>Doa yang Langsung Dikabulkan</h2>
+<p>
+Salah satu karomah yang paling sering disaksikan oleh para murid Syeikh Abdul Qadir adalah bahwa doa-doa beliau langsung dikabulkan oleh Allah — baik untuk kesembuhan, rezeki, petunjuk, maupun berbagai keperluan lainnya. Para murid senantiasa meminta doa beliau untuk berbagai masalah mereka, dan mereka semua merasakan keberkahan dari doa beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">48</span>
+<span class="karomah-title">Karomah Doa yang Langsung Dikabulkan</span>
+<div class="karomah-arabic">إِسْتِجَابَةُ دُعَائِهِ مُبَاشَرَةً</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa seorang wanita datang kepada Syeikh Abdul Qadir dengan membawa bayinya yang sakit keras. Para dokter sudah menyerah dan mengatakan bahwa bayi itu tidak akan selamat. Wanita itu menangis tersedu-sedu dan berkata: <em>"Wahai Syeikh, doakanlah anakku agar Allah menyembuhkannya. Ia adalah satu-satunya anakku, dan aku tidak mampu hidup tanpanya."</em>
+</p>
+<p>
+Syeikh Abdul Qadir menatap bayi itu dengan penuh kasih sayang. Beliau meletakkan tangannya di dada bayi itu dan berdoa: <em>"Ya Allah, Yang Maha Menyembuhkan, sembuhkanlah bayi ini dengan kesembuhan yang tidak meninggalkan penyakit sedikit pun. Ya Allah, kembalikanlah ia kepada ibunya dalam keadaan sehat dan selamat."</em>
+</p>
+<p>
+Maka atas izin Allah, bayi itu langsung membuka matanya dan menangis dengan suara yang kuat — tanda bahwa ia telah sembuh total. Wanita itu menangis penuh kegembiraan dan memeluk bayinya. Ia berkata: <em>"Wahai Syeikh, engkau telah mengembalikan hidupku. Semoga Allah membalasmu dengan kebaikan yang berlipat ganda."</em>
+</p>
+<p>
+Syeikh Abdul Qadir menjawab: <em>"Jangan berterima kasih kepadaku. Berterima kasihlah kepada Allah Yang Maha Menyembuhkan. Aku hanyalah hamba yang fakir yang berdoa kepada-Nya, dan Dia mengabulkan doa hamba-Nya yang ikhlas."</em>
+</p>
+<p>
+Dalam riwayat lain, diceritakan bahwa seorang petani datang kepada beliau dengan keluhan bahwa ladangnya kering karena kemarau panjang. Syeikh Abdul Qadir mendoakannya, dan tidak lama kemudian hujan turun dengan lebat di ladang petani itu — sementara di tempat-tempat lain tidak turun hujan. Petani itu pun panen dengan hasil yang melimpah, dan ia berkata: <em>"Ini adalah berkah doa Syeikh Abdul Qadir."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>istijabah ad-du'a</em> (dikabulkannya doa) — tanda bahwa Allah telah menerima keikhlasan dan kecintaan beliau kepada-Nya. Para ulama berkata bahwa doa para wali selalu dikabulkan, karena hati mereka senantiasa hidup bersama Allah.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DOA — QS. GHAFIR: 60</div>
+<div class="arabic-text">
+وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Tuhanmu berfirman: Berdoalah kepada-Ku, niscaya akan Kuperkenankan bagimu."
+<br>— QS. Ghafir: 60
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Masyhur Syeikh Abdul Qadir Al-Jilani:</strong>
+<ul>
+<li><strong>Pohon yang berjalan mendekatinya</strong> — <em>Taskhir asy-syajar</em>, bayangan mukjizat Nabi Isa AS</li>
+<li><strong>Melihat peristiwa di tempat jauh</strong> — <em>Kasyf al-ba'id</em>, membuka hijab penghalang</li>
+<li><strong>Lipatan bumi (thayy al-ardh)</strong> — Berpindah tempat dalam sekejap atas izin Allah</li>
+<li><strong>Mengetahui waktu kematian seseorang</strong> — <em>Ilham bil-ajal</em>, peringatan untuk bersiap</li>
+<li><strong>Menghilang dari pandangan orang jahat</strong> — <em>Ghaybah an-nazhar</em>, penjagaan ilahiyah</li>
+<li><strong>Doa yang langsung dikabulkan</strong> — <em>Istijabah ad-du'a</em>, kesembuhan & hujan</li>
+</ul>
+</div>
+<h2>Pelajaran dari Karomah-Karomah Masyhur</h2>
+<p>
+Dari karomah-karomah masyhur yang disebutkan di atas, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>semua karomah adalah atas izin Allah</strong>. Syeikh Abdul Qadir tidak pernah mengklaim bahwa karomah itu berasal dari dirinya sendiri. Setiap kali beliau menunjukkan karomah, beliau segera mengingatkan bahwa yang melakukannya adalah Allah, bukan beliau. Ini adalah adab seorang wali yang sejati.
+<br><br>
+<em>Kedua</em>, <strong>karomah bukanlah tujuan, melainkan buah</strong>. Para wali tidak mencari karomah, melainkan mencari ridha Allah. Karomah datang dengan sendirinya ketika seorang hamba telah mencapai maqam keikhlasan yang tinggi. Barangsiapa yang mengejar karomah, ia akan tersesat; barangsiapa yang mengejar Allah, karomah akan mengikutinya.
+<br><br>
+<em>Ketiga</em>, <strong>karomah adalah ujian, bukan pujian</strong>. Setiap kali Syeikh Abdul Qadir menunjukkan karomah, beliau menghadapi ujian baru — ada orang yang beriman, ada yang dengki, ada yang mencoba mencelakainya. Maka karomah bukanlah tanda bahwa seorang hamba akan selamat dari ujian, melainkan tanda bahwa ia akan diuji dengan cara yang lebih berat.
+<br><br>
+<em>Keempat</em>, <strong>karomah terbesar adalah istiqamah</strong>. Meskipun Syeikh Abdul Qadir memiliki banyak karomah yang menakjubkan, beliau sendiri berkata bahwa karomah yang paling agung bukanlah pohon yang berjalan atau bumi yang terlipat, melainkan istiqamah di atas syariat dan hakikat. Karena istiqamah adalah karomah yang hanya diberikan kepada orang-orang yang benar-benar dicintai Allah.
+</blockquote>
+<h2>Doa Memohon Karomah dan Istiqamah</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON KAROMAH DAN ISTIQAMAH</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْنَا مِنْ أَوْلِيَائِكَ الْمُخْلَصِينَ، وَارْزُقْنَا الِاسْتِقَامَةَ عَلَى الشَّرِيعَةِ وَالْحَقِيقَةِ، وَاجْعَلْ سَيِّدَنَا عَبْدَ الْقَادِرِ الْجِيلَانِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ، وَلَا تَحْرِمْنَا بَرَكَتَهُ وَفَيْضَهُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah kami termasuk wali-wali-Mu yang ikhlas, anugerahkanlah kepada kami istiqamah di atas syariat dan hakikat, jadikanlah Sayyidina Abdul Qadir Al-Jilani sebagai pemberi syafaat bagi kami pada hari kiamat, dan janganlah Engkau halangi kami dari berkah dan limpahan cahaya beliau."
+</div>
+</div>
+<h2>Penutup Halaman 8</h2>
+<p>
+Demikianlah sebagian karomah masyhur Syeikh Abdul Qadir Al-Jilani yang diriwayatkan oleh para ulama — mulai dari pohon yang berjalan, melihat peristiwa di tempat jauh, lipatan bumi, mengetahui waktu kematian, menghilang dari pandangan orang jahat, hingga doa yang langsung dikabulkan. Semua ini menjadi bukti nyata bahwa Allah telah memilih beliau sebagai salah satu wali-Nya yang paling istimewa, dan bahwa cahaya kewalian beliau terus bersinar hingga hari ini.
+</p>
+<p>
+Pada halaman berikutnya — halaman terakhir — kita akan membahas akhir perjalanan hidup beliau, wafat beliau yang penuh berkah, makam beliau di Baghdad yang diziarahi hingga hari ini, warisan abadi yang beliau tinggalkan, serta doa penutup untuk mengambil berkah dari beliau.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+قُلْ بِفَضْلِ اللَّهِ وَبِرَحْمَتِهِ فَبِذَٰلِكَ فَلْيَفْرَحُوا هُوَ خَيْرٌ مِّمَّا يَجْمَعُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Katakanlah: 'Dengan kurnia Allah dan rahmat-Nya, hendaklah dengan itu mereka bergembira. Kurnia Allah dan rahmat-Nya itu adalah lebih baik dari apa yang mereka kumpulkan.'"
+<br>— QS. Yunus: 58
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="jilani1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="jilani2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="jilani3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="jilani4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="jilani5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="jilani6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="jilani7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="jilani8.html" class="article-nav-btn active" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="jilani9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
