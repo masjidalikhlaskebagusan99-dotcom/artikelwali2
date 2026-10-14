@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karomah Imam Al-Habib Alawi Haddad (Halaman 2) - KALAM</title>
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
 <style>
+/* 1. RESET & DASAR */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
 font-family: 'Georgia', serif;
@@ -13,6 +14,16 @@ color: #333;
 min-height: 100vh;
 line-height: 1.8;
 }
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
 header {
 background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 padding: 20px 40px;
@@ -50,6 +61,7 @@ transition: all 0.3s ease;
 font-size: 0.95rem;
 }
 nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
 .breadcrumb {
 padding: 15px 40px;
 background: #eee;
@@ -63,6 +75,7 @@ max-width: 800px;
 margin: 40px auto;
 padding: 0 20px;
 }
+/* 5. ARTICLE HEADER & META */
 .article-header { margin-bottom: 30px; }
 .article-header h1 {
 font-size: 2.2rem;
@@ -86,6 +99,7 @@ font-size: 0.9rem;
 padding-bottom: 20px;
 border-bottom: 1px solid #ddd;
 }
+.author { display: flex; align-items: center; gap: 8px; }
 .author-avatar {
 width: 35px;
 height: 35px;
@@ -99,17 +113,22 @@ font-weight: bold;
 font-size: 0.85rem;
 }
 .author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
 .article-image-wrapper {
 margin: 25px 0;
 border-radius: 12px;
 overflow: hidden;
 box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
 }
 .article-image-wrapper img {
 width: 100%;
 height: auto;
 display: block;
+transition: transform 0.5s ease;
 }
+.article-image-wrapper:hover img { transform: scale(1.02); }
 .image-caption {
 background: rgba(0,0,0,0.7);
 color: #ccc;
@@ -164,6 +183,7 @@ background: #e94560;
 color: #fff;
 border-color: #e94560;
 }
+/* 7. KONTEN ARTIKEL */
 .article-content {
 font-size: 1.05rem;
 line-height: 1.9;
@@ -209,6 +229,7 @@ margin: 15px 0 20px 30px;
 margin-bottom: 10px;
 line-height: 1.7;
 }
+/* 8. KOTAK ARAB & KAROMAH */
 .arabic-box {
 background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
 border: 2px solid #d4af37;
@@ -297,7 +318,7 @@ direction: rtl;
 margin: 10px 0;
 text-align: right;
 }
-.story-box {
+.highlight-box {
 background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
 border: 1px solid #e0ddd5;
 border-radius: 12px;
@@ -306,26 +327,32 @@ margin: 25px 0;
 box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 border-left: 5px solid #d4af37;
 }
-.story-box p {
-margin-top: 10px;
+.highlight-box ul {
+margin: 15px 0 0 30px;
 }
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
 .article-nav {
 display: flex;
 justify-content: center;
-gap: 20px;
+gap: 10px;
 margin: 40px 0;
-padding: 30px;
+padding: 20px;
 background: linear-gradient(135deg, #1a1a2e, #16213e);
 border-radius: 15px;
+flex-wrap: wrap;
 }
 .article-nav-btn {
-width: 70px;
-height: 70px;
+width: 45px;
+height: 45px;
 border-radius: 50%;
 border: 2px solid #e94560;
 background: rgba(233, 69, 96, 0.1);
 color: #fff;
-font-size: 1.8rem;
+font-size: 1.15rem;
 font-weight: bold;
 cursor: pointer;
 transition: all 0.3s ease;
@@ -346,14 +373,15 @@ box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
 .nav-btn-label {
 text-align: center;
 color: #aaa;
-font-size: 0.8rem;
-margin-top: 8px;
+font-size: 0.75rem;
+margin-top: 6px;
 }
 .nav-group {
 display: flex;
 flex-direction: column;
 align-items: center;
 }
+/* 10. TOMBOL KEMBALI & FOOTER */
 .kalam-back-btn {
 display: block;
 text-align: center;
@@ -393,20 +421,80 @@ font-size: 0.9rem;
 margin-top: 40px;
 }
 footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
 @media (max-width: 600px) {
-header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
 .article-container { padding: 0 15px; }
-.article-header h1 { font-size: 1.5rem; }
 .article-content { font-size: 0.95rem; }
 .arabic-text { font-size: 1.4rem; line-height: 2.4; }
 .karomah-arabic { font-size: 1.3rem; }
-.article-nav { gap: 15px; }
-.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
-.arabic-box::before {
-font-size: 0.95rem;
-top: -10px;
-padding: 0 8px;
-white-space: normal;
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
 }
 }
 </style>
@@ -422,29 +510,34 @@ white-space: normal;
 </nav>
 </header>
 <div class="breadcrumb">
-<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; <a href="karomah1.html">Karomah Imam Al-Habib Alawi Haddad</a> &raquo; Halaman 2
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali — Halaman 3
 </div>
 <div class="article-container">
 <div class="article-header">
-<h1>Karomah Imam Al-Habib Alawi Haddad</h1>
-<div class="subtitle">Halaman 2 dari 2 — Karomah Masa Muda & Perjalanan Belajar</div>
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 3 dari 9 — Karomah-karomah Luar Biasa: Cahaya Hati, Firasat, Ilham & Kasyf</div>
 <div class="article-meta">
+<div class="author">
 <div class="author-avatar">MY</div>
 <div>
 <div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
-<div style="color:#999; font-size:0.85rem;">Jumat, 09 Oktober 2026, 14:30 WIB</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
 </div>
 </div>
 </div>
 <div class="article-image-wrapper">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg"
-alt="Imam Al-Habib Alawi Haddad">
-<div class="image-caption">Sumber: kalam.web.id — Potret Imam Al-Habib Alawi Haddad</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Umayyad_Mosque_-_Damascus.jpg/440px-Umayyad_Mosque_-_Damascus.jpg"
+alt="Cahaya Hati Al-Ghazali"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi Masjid Umayyah Damaskus, tempat Syeikh Al-Ghazali menerima cahaya ma'rifat setelah sepuluh tahun pengasingan spiritual</div>
 </div>
 <div class="share-bar">
 <span>Bagikan:</span>
 <a href="#" class="share-btn fb">f</a>
-<a href="#" class="share-btn tw">𝕏</a>
+<a href="#" class="share-btn tw">t</a>
 <a href="#" class="share-btn wa">W</a>
 <a href="#" class="share-btn tg">T</a>
 <div class="font-size-controls">
@@ -454,157 +547,314 @@ alt="Imam Al-Habib Alawi Haddad">
 </div>
 <div class="article-content" id="articleContent">
 <p class="lead">
-Setelah masa kecil yang penuh dengan karomah, Imam Al-Habib Alawi Haddad melanjutkan perjalanannya menuntut ilmu dari berbagai ulama besar di Hadramaut. Di masa mudalah karomah-karomah beliau semakin tampak, menandakan bahwa Allah sedang mempersiapkan beliau menjadi salah satu ulama besar dan wali Allah di zamannya.
+Setelah sepuluh tahun mengasingkan diri — meninggalkan kemasyhuran Baghdad, beriktikaf di menara Masjid Umayyah Damaskus, berziarah ke Baitul Maqdis, dan menjelajahi negeri-negeri suci — Syeikh Abu Hamid Al-Ghazali kembali sebagai seorang sufi yang telah dipenuhi cahaya ma'rifat. Allah anugerahkan kepadanya karomah-karomah luar biasa yang tampak dalam bentuk <em>nur al-qalb</em> (cahaya hati), <em>firasat mu'min</em> (ketajaman firasat), <em>ilham rabbani</em> (petunjuk langsung dari Allah), dan <em>kasyf</em> (pembukaan hijab penghalang). Karomah-karomah ini bukanlah tujuan beliau, melainkan buah dari keikhlasan dan zuhud yang mendalam — tanda bahwa Allah telah menerima amal-amal beliau dan memilihnya sebagai salah satu wali-Nya yang istimewa.
 </p>
-
-<div class="karomah-card">
-<span class="karomah-number">5</span>
-<span class="karomah-title">Karomah Belajar dari Para Ulama Besar</span>
-<div class="karomah-arabic">تَعَلُّمُهُ مِنَ الْعُلَمَاءِ الْكِبَارِ</div>
-<p>
-Imam Al-Habib Alawi belajar dari banyak ulama besar di Hadramaut, termasuk Syeikh Abu Bakar bin Salim dan Syeikh Abdullah bin Syekh Abu Bakar. Beliau menyerap ilmu dengan sangat cepat dan mendalam. Para guru beliau mengakui kecerdasan dan keistimewaan beliau sejak dini.
-</p>
-</div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG MENUNTUT ILMU — QS. AL-MUJADILAH: 11</div>
+<div class="arabic-label">DALIL TENTANG CAHAYA IMAN — QS. AN-NUR: 35</div>
 <div class="arabic-text">
-يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ ۚ مَثَلُ نُورِهِ كَمِشْكَاةٍ فِيهَا مِصْبَاحٌ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Allah akan mengangkat (derajat) orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu beberapa derajat."
-<br>— QS. Al-Mujadilah: 11
+<strong>Artinya:</strong> "Allah (Pemberi) cahaya (kepada) langit dan bumi. Perumpamaan cahaya Allah adalah seperti sebuah misykat yang di dalamnya ada sebuah pelita."
+<br>— QS. An-Nur: 35
 </div>
 </div>
-
+<h2>Cahaya Hati (Nur al-Qalb)</h2>
+<p>
+Karomah pertama dan paling mendasar yang Allah anugerahkan kepada Syeikh Abu Hamid setelah masa pengasingan adalah <em>nur al-qalb</em> — cahaya hati yang memungkinkan beliau melihat kebenaran dengan jelas, membedakan antara haq dan bathil, dan memahami makna-makna tersembunyi di balik ayat-ayat Al-Qur'an dan hadits Rasulullah SAW.
+</p>
 <div class="karomah-card">
-<span class="karomah-number">6</span>
-<span class="karomah-title">Karomah Mendapat Ilmu Laduni</span>
-<div class="karomah-arabic">عِلْمٌ لَدُنِّي مِنْ عِنْدِ اللَّهِ</div>
+<span class="karomah-number">19</span>
+<span class="karomah-title">Karomah Cahaya Hati yang Menerangi Kebenaran</span>
+<div class="karomah-arabic">نُورُ الْقَلْبِ الَّذِي يُنِيرُ الْحَقَّ</div>
 <p>
-Selain ilmu yang diperoleh dari para guru, Imam Al-Habib Alawi juga dikaruniai ilmu laduni — ilmu yang langsung diberikan Allah ke dalam hatinya tanpa melalui proses belajar biasa. Ilmu ini membuat beliau mampu memahami rahasia-rahasia agama yang tidak dapat dipahami oleh orang biasa.
+Syeikh Abu Hamid menceritakan dalam <em>Al-Munqidz min ad-Dalal</em>: <em>"Setelah sepuluh tahun mengasingkan diri, Allah memberikan kepadaku cahaya yang masuk ke dalam hatiku — cahaya yang tidak pernah aku bayangkan sebelumnya. Dengan cahaya ini, aku mampu melihat kebenaran dengan jelas, membedakan antara yang haq dan yang bathil, dan memahami makna-makna tersembunyi di balik ayat-ayat Allah."</em>
+</p>
+<p>
+Beliau melanjutkan: <em>"Dulu aku mencari kebenaran melalui akal dan logika, namun aku tidak menemukannya. Sekarang aku menemukannya melalui hati yang telah dibersihkan oleh Allah dari kotoran dunia. Hati yang bersih adalah cermin yang memantulkan cahaya ilahi, dan dengan cermin inilah aku mampu melihat apa yang tidak dapat dilihat oleh mata kepala."</em>
+</p>
+<p>
+Para ulama berkata bahwa <em>nur al-qalb</em> adalah karomah yang Allah berikan kepada hamba-Nya yang telah membersihkan hatinya dari cinta dunia melalui zuhud, dzikir, dan ketaatan. Cahaya ini bukanlah cahaya fisik yang dapat dilihat oleh mata, melainkan cahaya spiritual yang hanya dapat dirasakan oleh hati yang bersih.
+</p>
+<p>
+Dengan cahaya inilah Syeikh Abu Hamid mampu menulis kitab-kitabnya yang monumental — bukan dari buku-buku semata, melainkan dari pengalaman spiritual yang mendalam. Setiap kata yang beliau tulis adalah cerminan dari cahaya yang Allah anugerahkan kepadanya.
 </p>
 </div>
-
-<div class="story-box">
-<strong style="color: #d4af37; font-size: 1.1rem;">Perkataan Imam Al-Habib Alawi tentang Ilmu:</strong>
-<p>
-"Ilmu yang bermanfaat adalah ilmu yang masuk ke dalam hati, bukan hanya ke dalam kepala. Ilmu hati akan membawa seseorang kepada ma'rifatullah, sedangkan ilmu kepala hanya akan membuatnya sombong." — Imam Al-Habib Alawi Haddad
-</p>
-</div>
-
-<div class="karomah-card">
-<span class="karomah-number">7</span>
-<span class="karomah-title">Karomah Mengetahui yang Ghaib (Firasat)</span>
-<div class="karomah-arabic">عِلْمُ الْغَيْبِ بِإِذْنِ اللَّهِ</div>
-<p>
-Salah satu karomah terbesar Imam Al-Habib Alawi adalah kemampuan mengetahui perkara ghaib dengan izin Allah. Beliau mampu mengetahui apa yang ada di hati seseorang sebelum orang itu berbicara. Banyak orang yang datang kepadanya dengan niat yang berbeda-beda, dan beliau mampu menjawab sesuai dengan kebutuhan batin mereka masing-masing.
-</p>
-</div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG FURQAN — QS. AL-ANFAL: 29</div>
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI TENTANG CAHAYA HATI</div>
 <div class="arabic-text">
-يَا أَيُّهَا الَّذِينَ آمَنُوا إِن تَتَّقُوا اللَّهَ يَجْعَل لَّكُمْ فُرْقَانًا
+الْقَلْبُ مِرْآةٌ إِنْ طَهُرَتْ أَظْهَرَتْ نُورَ اللَّهِ، وَإِنْ تَدَنَّسَتْ حَجَبَتْهُ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Wahai orang-orang yang beriman! Jika kamu bertakwa kepada Allah, niscaya Dia akan memberikan furqan (kemampuan membedakan yang hak dan yang batil) kepadamu."
-<br>— QS. Al-Anfal: 29
+<strong>Artinya:</strong> "Hati adalah cermin — jika bersih, ia akan memantulkan cahaya Allah; jika kotor, ia akan menghalanginya."
+<br>— Syeikh Abu Hamid Al-Ghazali, <em>Ihya' 'Ulumuddin</em>
 </div>
 </div>
-
-<div class="karomah-card">
-<span class="karomah-number">8</span>
-<span class="karomah-title">Karomah Berbicara dalam Berbagai Bahasa</span>
-<div class="karomah-arabic">يَتَكَلَّمُ بِكُلِّ لِسَانٍ بِإِذْنِ اللَّهِ</div>
+<h2>Firasat Mu'min — Mengetahui Isi Hati</h2>
 <p>
-Salah satu karomah yang paling menakjubkan adalah kemampuan Imam Al-Habib Alawi berbicara dalam berbagai bahasa tanpa pernah mempelajarinya. Ketika datang orang-orang dari berbagai negeri — Persia, India, Afrika — beliau mampu menjawab mereka masing-masing dalam bahasa mereka sendiri.
+Salah satu karomah yang paling sering disaksikan oleh para murid Syeikh Abu Hamid adalah ketajaman firasat beliau — kemampuan untuk mengetahui isi hati orang lain, niat-niat tersembunyi, dan keadaan spiritual mereka tanpa perlu diberitahu terlebih dahulu.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">20</span>
+<span class="karomah-title">Karomah Firasat yang Menembus Isi Hati</span>
+<div class="karomah-arabic">فِرَاسَتُهُ الَّتِي تَخْتَرِقُ السَّرَائِرَ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu hari seorang murid datang kepada Syeikh Abu Hamid dengan niat untuk menguji beliau. Murid itu berpura-pura sebagai orang yang shaleh, mengenakan pakaian yang bagus, dan berbicara dengan kata-kata yang indah. Ia berkata: <em>"Wahai Syeikh, aku datang kepadamu untuk meminta bimbingan spiritual. Aku telah lama beribadah, berpuasa, dan shalat malam."</em>
+</p>
+<p>
+Namun Syeikh Abu Hamid menatapnya dengan tajam dan berkata: <em>"Wahai saudaraku, sebelum engkau berbicara tentang ibadah, ada satu hal yang perlu engkau bereskan. Engkau masih menyimpan dendam kepada saudaramu, dan engkau belum memaafkannya. Bagaimana mungkin ibadahmu diterima oleh Allah sementara hatimu masih dipenuhi dendam?"</em>
+</p>
+<p>
+Murid itu terkejut dan pucat. Ia tidak pernah menceritakan persoalan itu kepada siapa pun, dan tidak seorang pun yang mengetahuinya. Ia segera mengakui kesalahannya, berkata: <em>"Wahai Syeikh, bagaimana engkau tahu? Aku tidak pernah menceritakan hal ini kepada siapa pun."</em>
+</p>
+<p>
+Syeikh Abu Hamid menjawab dengan lembut: <em>"Aku tidak tahu apa-apa. Aku hanyalah hamba yang fakir. Namun Allah telah memberikan kepadaku firasat untuk melihat apa yang ada di dalam hati. Dan aku melihat bahwa hatimu masih dipenuhi dendam, dan ini menghalangi ibadahmu dari diterima oleh Allah."</em>
+</p>
+<p>
+Murid itu pun menangis dan berjanji untuk memaafkan saudaranya. Ia berkata: <em>"Wahai Syeikh, engkau telah membuka mata hatiku. Aku datang untuk mengujimu, namun justru aku yang diuji oleh Allah melalui engkau."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>firasat al-mu'min</em> — firasat orang mukmin yang melihat dengan cahaya Allah, sebagaimana sabda Rasulullah SAW: <em>"Takutilah firasat orang mukmin, karena sesungguhnya ia melihat dengan cahaya Allah."</em> (HR. Tirmidzi).
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">KESAKSIAN MURID DARI INDIA</div>
+<div class="arabic-label">SABDA RASULULLAH SAW TENTANG FIRASAT</div>
 <div class="arabic-text">
-أَتَيْتُهُ بِقَلْبٍ أَسْأَلُهُ بِلُغَتِي، فَأَجَابَنِي بِلُغَتِي بِفَصَاحَةٍ
+اتَّقُوا فِرَاسَةَ الْمُؤْمِنِ فَإِنَّهُ يَنْظُرُ بِنُورِ اللَّهِ
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Seorang murid dari India menceritakan: 'Aku datang kepadanya dengan niat bertanya dalam bahasa Hindiku. Namun beliau menjawab dalam bahasa Hindiku yang fasih, padahal beliau tidak pernah belajar bahasa itu.'"
+<strong>Artinya:</strong> "Takutilah firasat orang mukmin, karena sesungguhnya ia melihat dengan cahaya Allah."
+<br>— HR. Tirmidzi
 </div>
 </div>
-
-<div class="karomah-card">
-<span class="karomah-number">9</span>
-<span class="karomah-title">Karomah Menaklukkan Jin dan Setan</span>
-<div class="karomah-arabic">دَاسَ رِقَابَ الْجِنِّ وَالشَّيَاطِينِ</div>
+<h2>Ilham Rabbani — Petunjuk Langsung dari Allah</h2>
 <p>
-Imam Al-Habib Alawi Haddad dikenal sebagai penakluk jin dan setan. Beliau pernah berkata: <em>"Aku telah menginjak leher setiap jin dan setan dengan kakiku."</em> Pernyataan ini bukan dalam arti fisik, melainkan dalam arti spiritual — beliau telah menguasai dan menundukkan semua gangguan makhluk ghaib dengan kekuatan dzikir dan tawakkal kepada Allah.
+Selain firasat, Syeikh Abu Hamid juga menerima <em>ilham rabbani</em> — petunjuk langsung dari Allah yang datang ke dalam hatinya tanpa melalui perantara. Ilham ini berbeda dengan wahyu yang diberikan kepada para nabi, karena ilham tidak membawa syariat baru, melainkan hanya memperkuat dan menjelaskan apa yang sudah ada dalam syariat.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">21</span>
+<span class="karomah-title">Karomah Ilham Rabbani dalam Menulis Kitab</span>
+<div class="karomah-arabic">إِلْهَامٌ رَبَّانِيٌّ فِي تَأْلِيفِ الْكُتُبِ</div>
+<p>
+Salah satu bentuk ilham rabbani yang paling nyata dalam kehidupan Syeikh Abu Hamid adalah ketika beliau menulis kitab-kitabnya, terutama <em>Ihya' 'Ulumuddin</em>. Beliau menceritakan: <em>"Ketika aku menulis Ihya', aku tidak menulis dari buku-buku semata, melainkan dari ilham yang Allah berikan kepadaku. Setiap bab, setiap pasal, setiap kata — semuanya datang dari hati yang telah dibersihkan oleh Allah."</em>
+</p>
+<p>
+Beliau melanjutkan: <em>"Aku sering kali duduk untuk menulis, dan aku tidak tahu apa yang akan aku tulis. Namun ketika pena menyentuh kertas, kata-kata mengalir dari hatiku seolah-olah ada yang mengajarkannya kepadaku. Setelah selesai menulis, aku membaca kembali apa yang telah aku tulis, dan aku takjub dengan kedalaman maknanya. Aku menyadari bahwa ini bukanlah hasil usahaku, melainkan anugerah Allah."</em>
+</p>
+<p>
+Para ulama berkata bahwa ilham rabbani adalah karomah yang Allah berikan kepada hamba-Nya yang telah mencapai maqam kedekatan dengan-Nya. Ilham ini bukanlah ilmu yang didapat melalui belajar, melainkan ilmu yang Allah alirkan langsung ke dalam hati hamba-Nya yang ikhlas.
+</p>
+<p>
+Inilah rahasia mengapa kitab-kitab Syeikh Abu Hamid — terutama Ihya' 'Ulumuddin — memiliki kedalaman makna yang tidak dapat dicapai oleh kitab-kitab lainnya. Karena kitab ini bukan hanya hasil pemikiran seorang ulama, melainkan juga hasil dari ilham rabbani yang Allah anugerahkan kepadanya.
 </p>
 </div>
-
 <div class="arabic-box">
-<div class="arabic-label">DALIL TENTANG JIN — QS. AL-HIJR: 42</div>
+<div class="arabic-label">DALIL TENTANG ILHAM — QS. ASY-SYAMS: 8</div>
 <div class="arabic-text">
-إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلَّا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ
+فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Sesungguhnya hamba-hamba-Ku tidak ada kekuasaan bagimu terhadap mereka, kecuali orang-orang yang mengikut kamu, yaitu orang-orang yang sesat."
-<br>— QS. Al-Hijr: 42
+<strong>Artinya:</strong> "Maka Allah mengilhamkan kepada jiwa itu (jalan) kefasikan dan ketakwaannya."
+<br>— QS. Asy-Syams: 8 (Allah mengilhamkan kebaikan kepada hamba-Nya)
 </div>
 </div>
-
-<h2>Doa Memohon Ilmu yang Bermanfaat</h2>
-
-<div class="arabic-box">
-<div class="arabic-label">DOA MEMOHON ILMU</div>
-<div class="arabic-text">
-اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا، وَاجْعَلْ سَيِّدَنَا الْحَبِيبَ الْعَلَوِيَّ الْحَدَّادَ دَلِيلِي إِلَى مَرْضَاتِكَ
-</div>
-<div class="arabic-translation">
-<strong>Artinya:</strong> "Ya Allah, berilah manfaat kepadaku atas apa yang telah Engkau ajarkan kepadaku, ajarkanlah kepadaku apa yang bermanfaat bagiku, tambahkanlah ilmu kepadaku, dan jadikanlah Sayyidina Al-Habib Alawi Al-Haddad sebagai penuntunku menuju keridhaan-Mu."
-</div>
-</div>
-
-<h2>Penutup Halaman 2</h2>
+<h2>Kasyf — Membuka Hijab Penghalang</h2>
 <p>
-Demikianlah sebagian karomah Imam Al-Habib Alawi Haddad selama masa muda dan perjalanan belajar beliau. Semua karomah ini adalah bukti kebenaran maqam kewalian beliau. Pada halaman berikutnya, kita akan membahas karomah beliau dalam mengajar dan berdakwah.
+Karomah yang paling menakjubkan dari Syeikh Abu Hamid adalah <em>kasyf</em> — kemampuan untuk membuka hijab penghalang antara dirinya dengan apa yang terjadi di alam gaib. Dengan kasyf ini, beliau mampu melihat peristiwa-peristiwa yang terjadi di tempat-tempat yang jauh, mengetahui keadaan orang-orang yang tidak beliau temui, dan mendapatkan pengetahuan tentang hal-hal yang tersembunyi.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">22</span>
+<span class="karomah-title">Karomah Kasyf — Melihat Peristiwa di Tempat Jauh</span>
+<div class="karomah-arabic">كَشْفٌ — رُؤْيَةُ الْأَحْدَاثِ فِي الْأَمَاكِنِ الْبَعِيدَةِ</div>
+<p>
+Dalam sebuah riwayat yang masyhur, diceritakan bahwa pada suatu hari Syeikh Abu Hamid sedang memberikan pengajian di Thus ketika tiba-tiba beliau berhenti dan berkata kepada para muridnya: <em>"Tunggulah sebentar, wahai saudara-saudaraku. Sesungguhnya di negeri yang jauh, seorang hamba Allah sedang dalam kesulitan yang sangat besar. Ia sedang berada di tengah laut dalam sebuah kapal yang hampir tenggelam. Ia berdoa kepada Allah dengan penuh kekhusyukan, dan Allah telah mengutusku untuk mendoakannya."</em>
+</p>
+<p>
+Syeikh Abu Hamid kemudian mengangkat kedua tangannya dan berdoa dengan penuh kekhusyukan. Beliau berkata: <em>"Ya Allah, selamatkanlah hamba-Mu yang sedang dalam kesulitan di tengah laut itu, dan selamatkanlah semua orang yang bersamanya."</em> Setelah itu, beliau kembali melanjutkan pengajiannya seolah-olah tidak terjadi apa-apa.
+</p>
+<p>
+Beberapa bulan kemudian, datanglah seorang pedagang dari negeri yang jauh — dari India atau Tiongkok — ke Thus. Ia datang kepada Syeikh Abu Hamid dan berkata: <em>"Wahai Syeikh, aku adalah salah seorang yang berada di kapal yang hampir tenggelam beberapa bulan yang lalu. Ketika kami sudah hampir putus asa, tiba-tiba aku melihat seorang lelaki tua yang bercahaya berdiri di atas air, mengangkat kedua tangannya dan berdoa untuk kami. Tidak lama kemudian, badai reda, dan kapal kami selamat. Aku datang kepadamu untuk bertanya: apakah engkau adalah orang yang aku lihat itu?"</em>
+</p>
+<p>
+Syeikh Abu Hamid tersenyum dan berkata: <em>"Aku tidak melihat apa-apa. Aku hanyalah hamba yang fakir yang berdoa kepada Allah untuk hamba-Nya yang sedang dalam kesulitan. Jika Allah mengabulkan doaku, maka itu adalah karunia-Nya, bukan kehebatanku."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>kasyf al-ba'id</em> (melihat yang jauh) — karomah yang Allah berikan kepada para wali-Nya sehingga mereka dapat melihat apa yang terjadi di tempat-tempat yang jauh, dan mendoakan orang-orang yang sedang dalam kesulitan meskipun mereka tidak berada di tempat tersebut.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KASYF — QS. QAF: 22</div>
+<div class="arabic-text">
+لَقَدْ كُنتَ فِي غَفْلَةٍ مِّنْ هَٰذَا فَكَشَفْنَا عَنكَ غِطَاءَكَ فَبَصَرُكَ الْيَوْمَ حَدِيدٌ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya kamu berada dalam keadaan lalai dari (hal) ini, lalu Kami buka daripadamu tutup (yang menutupi) matamu, maka penglihatanmu pada hari ini sangat tajam."
+<br>— QS. Qaf: 22
+</div>
+</div>
+<h2>Mimpi Bertemu Rasulullah SAW & Para Nabi</h2>
+<p>
+Salah satu karomah yang paling sering dialami oleh Syeikh Abu Hamid adalah mimpi bertemu dengan Rasulullah SAW dan para nabi lainnya. Mimpi-mimpi ini bukanlah mimpi biasa, melainkan <em>ru'ya shadiqah</em> (mimpi yang benar) yang menjadi salah satu ciri khas para wali Allah.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">23</span>
+<span class="karomah-title">Karomah Mimpi Bertemu Rasulullah SAW</span>
+<div class="karomah-arabic">الرُّؤْيَا الشَّرِيفَةُ لِلرَّسُولِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</div>
+<p>
+Syeikh Abu Hamid menceritakan: <em>"Aku sering bermimpi bertemu dengan Rasulullah SAW. Dalam mimpi-mimpi itu, beliau senantiasa memberikan aku nasihat dan bimbingan. Pada suatu malam, beliau berkata kepadaku: 'Wahai Abu Hamid, sesungguhnya ilmu yang engkau tulis dalam kitab-kitabmu adalah ilmu yang bermanfaat. Namun ingatlah, bahwa ilmu tanpa amal adalah pohon tanpa buah. Maka amalkanlah apa yang engkau tulis, niscaya Allah akan memberikan kepadamu pahala yang berlipat ganda.'"</em>
+</p>
+<p>
+Beliau melanjutkan: <em>"Pada malam yang lain, aku bermimpi bertemu dengan Sayyidina Ibrahim AS (Khalilullah). Beliau berkata kepadaku: 'Wahai Abu Hamid, engkau telah mengikuti jejakku dalam tauhid dan keikhlasan. Maka tetaplah istiqamah di atas jalan ini, niscaya engkau akan bertemu dengan kami di surga.'"</em>
+</p>
+<p>
+Para ulama berkata bahwa <em>ru'ya shadiqah</em> adalah salah satu dari empat puluh enam bagian kenabian, sebagaimana sabda Rasulullah SAW: <em>"Mimpi orang mukmin adalah seperempat puluh enam dari kenabian."</em> (HR. Bukhari). Mimpi-mimpi ini bukanlah khayalan, melainkan pertemuan yang sesungguhnya antara ruh seorang wali dengan ruh para nabi di alam mimpi.
+</p>
+<p>
+Ini adalah karomah berupa <em>ru'ya al-anbiya'</em> (melihat para nabi) — karomah yang Allah berikan kepada hamba-Nya yang dicintai, sehingga ia dapat bertemu dengan para nabi dalam mimpi dan mendapatkan bimbingan dari mereka.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">SABDA RASULULLAH SAW TENTANG MIMPI ORANG MUKMIN</div>
+<div class="arabic-text">
+الرُّؤْيَا الصَّالِحَةُ مِنَ اللَّهِ وَالْحُلْمُ مِنَ الشَّيْطَانِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Mimpi yang baik adalah dari Allah, dan mimpi yang buruk adalah dari setan."
+<br>— HR. Bukhari & Muslim
+</div>
+</div>
+<h2>Mengubah Hati Para Murid dengan Cahaya Ma'rifat</h2>
+<p>
+Karomah terakhir yang akan kita bahas di halaman ini adalah kemampuan Syeikh Abu Hamid mengubah hati para murid beliau dengan cahaya ma'rifat yang Allah anugerahkan kepadanya. Beliau tidak hanya mengajarkan ilmu di atas kertas, melainkan juga mentransformasi jiwa para murid melalui kehadiran spiritual beliau.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">24</span>
+<span class="karomah-title">Karomah Mengubah Hati Para Murid</span>
+<div class="karomah-arabic">تَحْوِيلُ قُلُوبِ الْمُرِيدِينَ بِنُورِ الْمَعْرِفَةِ</div>
+<p>
+Para murid Syeikh Abu Hamid menceritakan bahwa ketika mereka berada di majelis beliau, mereka merasakan perubahan yang luar biasa di dalam hati mereka. Seorang murid berkata: <em>"Ketika aku masuk ke majelis Syeikh Abu Hamid, hatiku dipenuhi oleh keduniawian — cinta harta, cinta kedudukan, cinta kemasyhuran. Namun setelah beberapa saat berada di majelis beliau, hatiku berubah total. Aku merasakan kebencian terhadap dunia, dan kecintaan kepada Allah yang tidak pernah aku rasakan sebelumnya."</em>
+</p>
+<p>
+Murid lain berkata: <em>"Syeikh Abu Hamid tidak hanya berbicara dengan lisan, melainkan juga dengan keadaan spiritualnya. Cahaya ma'rifat yang terpancar dari hatinya masuk ke dalam hati kami, dan mengubah kami menjadi orang-orang yang baru. Kami tidak lagi sama dengan kami yang dulu."</em>
+</p>
+<p>
+Syeikh Abu Hamid sendiri berkata: <em>"Aku tidak mengajarkan apa-apa. Aku hanya membuka pintu-pintu yang telah Allah tutup di dalam hati kalian. Jika Allah berkehendak, maka pintu-pintu itu akan terbuka, dan kalian akan melihat cahaya-Nya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'tsir ruhi</em> (pengaruh spiritual) — karomah yang Allah berikan kepada para wali-Nya sehingga kehadiran mereka saja sudah cukup untuk mengubah hati orang-orang di sekitar mereka. Para ulama berkata bahwa inilah pengajaran yang paling efektif — pengajaran yang tidak hanya memberikan informasi, melainkan juga memberikan transformasi spiritual.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENGARUH SPIRITUAL — QS. AL-IMRAN: 159</div>
+<div class="arabic-text">
+فَبِمَا رَحْمَةٍ مِّنَ اللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ الْقَلْبِ لَانفَضُّوا مِنْ حَوْلِكَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Maka berkat rahmat Allah engkau berlaku lemah lembut terhadap mereka. Sekiranya engkau bersikap keras dan berhati kasar, tentulah mereka akan menjauhkan diri dari sekelilingmu."
+<br>— QS. Ali 'Imran: 159
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Luar Biasa Syeikh Abu Hamid Al-Ghazali:</strong>
+<ul>
+<li><strong>Cahaya hati (nur al-qalb)</strong> — Menerangi kebenaran, membedakan haq dan bathil</li>
+<li><strong>Firasat mu'min</strong> — Mengetahui isi hati orang lain dengan cahaya Allah</li>
+<li><strong>Ilham rabbani</strong> — Petunjuk langsung dari Allah dalam menulis kitab</li>
+<li><strong>Kasyf al-ba'id</strong> — Melihat peristiwa di tempat yang jauh, mendoakan orang dalam kesulitan</li>
+<li><strong>Ru'ya al-anbiya'</strong> — Mimpi bertemu Rasulullah SAW dan para nabi</li>
+<li><strong>Ta'tsir ruhi</strong> — Mengubah hati para murid dengan kehadiran spiritual</li>
+</ul>
+</div>
+<h2>Pelajaran dari Karomah-Karomah Ini</h2>
+<p>
+Dari karomah-karomah luar biasa yang disebutkan di atas, terdapat beberapa pelajaran penting yang dapat kita ambil:
+</p>
+<blockquote>
+<em>Pertama</em>, <strong>karomah adalah buah, bukan tujuan</strong>. Syeikh Abu Hamid tidak mencari karomah, melainkan mencari ridha Allah. Karomah datang dengan sendirinya ketika seorang hamba telah mencapai maqam keikhlasan yang tinggi. Barangsiapa yang mengejar karomah, ia akan tersesat; barangsiapa yang mengejar Allah, karomah akan mengikutinya.
+<br><br>
+<em>Kedua</em>, <strong>hati yang bersih adalah cermin cahaya ilahi</strong>. Syeikh Abu Hamid mendapatkan cahaya ma'rifat setelah membersihkan hatinya dari cinta dunia melalui zuhud dan dzikir selama sepuluh tahun. Ini menunjukkan bahwa karomah tidak dapat dicapai oleh hati yang masih dipenuhi kotoran dunia.
+<br><br>
+<em>Ketiga</em>, <strong>ilmu yang sejati adalah ilmu yang dirasakan di hati</strong>. Syeikh Abu Hamid menyadari bahwa ilmu yang beliau peroleh melalui ilham rabbani jauh lebih dalam dan lebih bermanfaat daripada ilmu yang beliau peroleh melalui belajar semata. Ini menunjukkan bahwa ilmu yang sejati adalah ilmu yang masuk ke dalam hati, bukan hanya ke dalam pikiran.
+<br><br>
+<em>Keempat</em>, <strong>pengajaran yang paling efektif adalah pengajaran dengan keadaan spiritual</strong>. Syeikh Abu Hamid tidak hanya mengajarkan ilmu di atas kertas, melainkan juga mentransformasi jiwa para murid melalui kehadiran spiritual beliau. Ini menunjukkan bahwa seorang guru yang sejati tidak hanya berbicara dengan lisan, melainkan juga dengan keadaan spiritualnya.
+</blockquote>
+<h2>Doa Memohon Cahaya Hati & Firasat</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON CAHAYA HATI & FIRASAT</div>
+<div class="arabic-text">
+اللَّهُمَّ اجْعَلْ لِي نُورًا فِي قَلْبِي، وَنُورًا فِي سَمْعِي، وَنُورًا فِي بَصَرِي، وَارْزُقْنِي فِرَاسَةَ الْمُؤْمِنِينَ، وَاجْعَلْنَا مِمَّنْ يَنْظُرُونَ بِنُورِكَ وَيَسْمَعُونَ بِنُورِكَ، وَاجْعَلْ سَيِّدَنَا أَبَا حَامِدٍ الْغَزَالِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, jadikanlah untukku cahaya di hatiku, cahaya di pendengaranku, dan cahaya di penglihatanku. Anugerahkanlah kepadaku firasat orang-orang mukmin, dan jadikanlah kami termasuk orang-orang yang melihat dengan cahaya-Mu dan mendengar dengan cahaya-Mu. Jadikanlah Sayyidina Abu Hamid Al-Ghazali sebagai pemberi syafaat bagi kami pada hari kiamat."
+</div>
+</div>
+<h2>Penutup Halaman 3</h2>
+<p>
+Demikianlah sebagian karomah luar biasa Syeikh Abu Hamid Al-Ghazali setelah masa pengasingan sepuluh tahun — mulai dari cahaya hati yang menerangi kebenaran, firasat yang menembus isi hati, ilham rabbani dalam menulis kitab, kasyf yang membuka hijab penghalang, mimpi bertemu Rasulullah SAW dan para nabi, hingga kemampuan mengubah hati para murid dengan kehadiran spiritual. Semua ini menjadi bukti bahwa Allah telah menerima amal-amal beliau dan memilihnya sebagai salah satu wali-Nya yang istimewa.
+</p>
+<p>
+Pada halaman berikutnya, kita akan membahas pertemuan-pertemuan Syeikh Abu Hamid dengan para ulama dan sufi sezaman beliau, serta bagaimana beliau saling mengambil dan memberikan manfaat dalam perjalanan menuju Allah SWT.
 </p>
 <p>
 <em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
 </p>
-
 <div class="arabic-box">
 <div class="arabic-text">
-وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
+يَا أَيُّهَا النَّاسُ قَدْ جَاءَكُم بُرْهَانٌ مِّن رَّبِّكُمْ وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا
 </div>
 <div class="arabic-translation">
-<strong>Artinya:</strong> "Dan tidak ada taufik bagiku melainkan dengan (pertolongan) Allah. Hanya kepada Allah aku bertawakkal dan hanya kepada-Nya-lah aku kembali."
-<br>— QS. Hud: 88
+<strong>Artinya:</strong> "Wahai manusia, sesungguhnya telah datang kepadamu bukti (kebenaran) dari Tuhanmu, dan telah Kami turunkan kepadamu cahaya yang terang benderang."
+<br>— QS. An-Nisa': 174
 </div>
 </div>
 </div>
-
-<!-- NAVIGASI 5 TOMBOL -->
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
 <div class="article-nav">
 <div class="nav-group">
-<a href="haddad1.html" class="article-nav-btn" title="Halaman 1">1</a>
+<a href="ghazali1.html" class="article-nav-btn" title="Halaman 1">1</a>
 <div class="nav-btn-label">Halaman 1</div>
 </div>
 <div class="nav-group">
-<a href="haddad1-cabang.html" class="article-nav-btn active" title="Halaman 2">2</a>
+<a href="ghazali2.html" class="article-nav-btn" title="Halaman 2">2</a>
 <div class="nav-btn-label">Halaman 2</div>
 </div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn active" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
 </div>
-
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
 <a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
 KALAM
 <span class="btn-sub">← Kembali ke Beranda</span>
 </a>
 </div>
-
 <footer>
 <p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
 </footer>
-
 <script>
 let currentFontSize = 1.05;
 function changeFontSize(delta) {
