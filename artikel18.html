@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biografi Syeikh Abdul Qadir Al-Jilani - KALAM</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+}
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.biografi-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.biografi-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.biografi-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.biografi-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 40px 0;
+padding: 30px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+}
+.article-nav-btn {
+width: 70px;
+height: 70px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.8rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.8rem;
+margin-top: 8px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+@media (max-width: 600px) {
+header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+.article-container { padding: 0 15px; }
+.article-header h1 { font-size: 1.5rem; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.biografi-arabic { font-size: 1.3rem; }
+.article-nav { gap: 15px; }
+.article-nav-btn { width: 55px; height: 55px; font-size: 1.4rem; }
+.arabic-box::before {
+font-size: 0.95rem;
+top: -10px;
+padding: 0 8px;
+white-space: normal;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="biografi.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="biografi">Artikel</a> &raquo; <a href="biografi1.html">Biografi Syeikh Abdul Qadir Al-Jilani</a> &raquo; Halaman 1
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Biografi Syeikh Abdul Qadir Al-Jilani</h1>
+<div class="subtitle">Halaman 1 dari 5 — Nasab Lengkap & Kelahiran</div>
+<div class="article-meta">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div style="color:#999; font-size:0.85rem;">Jumat, 09 Oktober 2026, 14:30 WIB</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg"
+alt="Syeikh Abdul Qadir Al-Jilani">
+<div class="image-caption">Sumber: kalam.web.id — Potret Syeikh Abdul Qadir Al-Jilani</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">𝕏</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Syeikh Abdul Qadir Al-Jilani (470-561 H / 1077-1166 M) adalah seorang ulama besar, wali Allah, dan pendiri Tarekat Qadiriyah. Beliau dijuluki <em>Sultanul Awliya</em> (Rajanya Para Wali) dan <em>Muhyiddin</em> (Penghidup Agama). Biografi beliau penuh dengan keajaiban, kesalehan, dan kedekatan dengan Allah SWT. Artikel ini akan mengulas secara lengkap nasab, kelahiran, masa kecil, dan perjalanan spiritual beliau.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ORANG-ORANG SHALIH — QS. AL-MA'IDAH: 69</div>
+<div class="arabic-text">
+إِنَّ الَّذِينَ آمَنُوا وَالَّذِينَ هَادُوا وَالصَّابِئُونَ وَالنَّصَارَىٰ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ وَعَمِلَ صَالِحًا فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya orang-orang yang beriman, orang-orang Yahudi, Shabi'in, dan orang-orang Nasrani, barangsiapa beriman kepada Allah dan hari kemudian dan beramal saleh, tidak ada kekhawatiran terhadap mereka dan tidak (pula) mereka bersedih hati."
+<br>— QS. Al-Ma'idah: 69
+</div>
+</div>
+
+<h2>Nama Lengkap dan Gelar Beliau</h2>
+<p>
+Nama lengkap beliau adalah <strong>Abu Muhammad Abdul Qadir bin Abu Shalih Musa Jangi Dausat Al-Hasani Al-Husaini</strong>. Beliau memiliki banyak gelar yang diberikan oleh para ulama dan pengikutnya, di antaranya:
+</p>
+
+<div class="biografi-card">
+<span class="biografi-number">1</span>
+<span class="biografi-title">Sultanul Awliya (سُلْطَانُ الْأَوْلِيَاءِ)</span>
+<div class="biografi-arabic">سُلْطَانُ الْأَوْلِيَاءِ</div>
+<p>
+Artinya "Rajanya Para Wali". Gelar ini diberikan karena kedudukan spiritual beliau yang sangat tinggi di antara para wali Allah.
+</p>
+</div>
+
+<div class="biografi-card">
+<span class="biografi-number">2</span>
+<span class="biografi-title">Muhyiddin (مُحْيِي الدِّينِ)</span>
+<div class="biografi-arabic">مُحْيِي الدِّينِ</div>
+<p>
+Artinya "Penghidup Agama". Gelar ini diberikan karena beliau menghidupkan kembali ajaran Islam yang mulai luntur di zamannya.
+</p>
+</div>
+
+<div class="biografi-card">
+<span class="biografi-number">3</span>
+<span class="biografi-title">Ghaus Al-A'zham (غَوْثُ الْأَعْظَمِ)</span>
+<div class="biografi-arabic">غَوْثُ الْأَعْظَمِ</div>
+<p>
+Artinya "Penolong Agung". Gelar ini diberikan karena beliau dikenal sebagai penolong bagi orang-orang yang berada dalam kesulitan.
+</p>
+</div>
+
+<div class="biografi-card">
+<span class="biografi-number">4</span>
+<span class="biografi-title">Al-Jilani (الْجِيلَانِيُّ)</span>
+<div class="biografi-arabic">الْجِيلَانِيُّ</div>
+<p>
+Artinya "orang dari Jilan" — sebuah daerah di Persia (sekarang Iran) yang merupakan tanah kelahiran beliau.
+</p>
+</div>
+
+<div class="arabic-box">
+<div class="arabic-label">NAMA LENGKAP DALAM BAHASA ARAB</div>
+<div class="arabic-text">
+أَبُو مُحَمَّدٍ عَبْدُ الْقَادِرِ بْنُ أَبِي صَالِحٍ مُوسَى جَنْكِي دَوْسَتَ الْحَسَنِيُّ الْحُسَيْنِيُّ الْجِيلَانِيُّ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Abu Muhammad Abdul Qadir bin Abu Shalih Musa Jangi Dausat Al-Hasani Al-Husaini Al-Jilani."
+</div>
+</div>
+
+<h2>Nasab Lengkap Syeikh Abdul Qadir Al-Jilani</h2>
+<p>
+Syeikh Abdul Qadir Al-Jilani adalah keturunan langsung dari Rasulullah SAW melalui jalur cucu beliau, Imam Hasan bin Ali bin Abi Thalib dan Fatimah az-Zahra. Nasab beliau sangat mulia dan tercatat dengan jelas dalam berbagai kitab sejarah Islam.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">SILSILAH NASAB LENGKAP</div>
+<div class="arabic-text">
+عَبْدُ الْقَادِرِ بْنُ أَبِي صَالِحٍ مُوسَى جَنْكِي دَوْسَتَ بْنِ عَبْدِ اللهِ بْنِ يَحْيَى الزَّاهِدِ بْنِ مُحَمَّدٍ بْنِ دَاوُدَ بْنِ مُوسَى الْجَوْنِ بْنِ عَبْدِ اللهِ الْمَحْضِ بْنِ الْحَسَنِ الْمُثَنَّى بْنِ الْحَسَنِ السِّبْطِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ بْنِ عَبْدِ الْمُطَّلِبِ بْنِ هَاشِمٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Abdul Qadir bin Abu Shalih Musa Jangi Dausat bin Abdullah bin Yahya Az-Zahid bin Muhammad bin Dawud bin Musa Al-Jaun bin Abdullah Al-Mahdh bin Al-Hasan Al-Mutsanna bin Al-Hasan As-Sibthi bin Ali bin Abi Thalib bin Abdul Muthalib bin Hasyim."
+</div>
+</div>
+
+<p>
+Dengan nasab yang mulia ini, beliau digolongkan sebagai seorang <em>Sayyid</em> atau <em>Syarif</em>, yang merupakan keturunan Ahlul Bait (keluarga Nabi Muhammad SAW). Garis keturunan beliau bertemu pada Imam Hasan bin Ali, putra dari Fatimah az-Zahra, putri Rasulullah SAW.
+</p>
+
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Poin Penting Nasab Syeikh Abdul Qadir Al-Jilani:</strong>
+<ul>
+<li><strong>Keturunan langsung Rasulullah SAW</strong> — Melalui jalur Imam Hasan bin Ali</li>
+<li><strong>Dari Bani Hasyim</strong> — Suku mulia tempat Rasulullah berasal</li>
+<li><strong>Sayyid/Sharif</strong> — Gelar kehormatan bagi keturunan Nabi</li>
+<li><strong>Ahlul Bait</strong> — Keluarga suci Rasulullah SAW</li>
+<li><strong>Tercatat dalam kitab-kitab sejarah</strong> — Nasab beliau diakui oleh para ulama</li>
+</ul>
+</div>
+
+<h2>Kelahiran Beliau</h2>
+<p>
+Syeikh Abdul Qadir Al-Jilani lahir di daerah <strong>Jilan</strong> (sekarang bagian dari Iran/Persia) pada tahun <strong>470 Hijriah</strong> atau bertepatan dengan tahun <strong>1077 Masehi</strong>. Beliau lahir dari keluarga yang saleh dan terhormat.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG KELAHIRAN YANG MULIA — QS. ALI 'IMRAN: 33</div>
+<div class="arabic-text">
+إِنَّ اللَّهَ اصْطَفَىٰ آدَمَ وَنُوحًا وَآلَ إِبْرَاهِيمَ وَآلَ عِمْرَانَ عَلَى الْعَالَمِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya Allah telah memilih Adam, Nuh, keluarga Ibrahim dan keluarga 'Imran melebihi segala umat (di masa mereka masing-masing)."
+<br>— QS. Ali 'Imran: 33
+</div>
+</div>
+
+<h2>Ayahanda Beliau: Abu Shalih Musa</h2>
+<p>
+Ayahanda Syeikh Abdul Qadir Al-Jilani bernama <strong>Abu Shalih Musa</strong>, yang dikenal dengan julukan <em>Jangi Dausat</em> (جَنْكِي دَوْسَتَ). Beliau adalah seorang wali besar yang sangat saleh, zuhud, dan wara'. Abu Shalih Musa dikenal sebagai orang yang sangat taat beribadah dan memiliki karamah-karamah luar biasa.
+</p>
+<p>
+Beliau hidup sederhana di daerah Jilan, Persia, dan dikenal sebagai orang yang sangat dicintai oleh masyarakat setempat karena akhlaknya yang mulia. Abu Shalih Musa wafat ketika Syeikh Abdul Qadir masih kecil, namun beliau telah menanamkan nilai-nilai keimanan yang kuat dalam diri putranya.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA UNTUK ORANG TUA — QS. AL-ISRA': 24</div>
+<div class="arabic-text">
+وَقُل رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan ucapkanlah: 'Wahai Tuhanku, kasihilah mereka keduanya, sebagaimana mereka berdua telah mendidik aku waktu kecil.'"
+<br>— QS. Al-Isra': 24
+</div>
+</div>
+
+<h2>Ibunda Beliau: Ummul Khair Fatimah</h2>
+<p>
+Ibunda Syeikh Abdul Qadir Al-Jilani bernama <strong>Ummul Khair Fatimah</strong> (أُمُّ الْخَيْرِ فَاطِمَة). Beliau adalah seorang wanita yang sangat salehah, wara', dan memiliki keimanan yang kuat. Ummul Khair Fatimah dikenal sebagai wanita yang banyak beribadah, berpuasa, dan berdzikir.
+</p>
+<p>
+Beliau adalah orang yang sangat berperan dalam pendidikan awal Syeikh Abdul Qadir Al-Jilani. Ketika putranya hendak merantau ke Baghdad untuk menuntut ilmu, ibundalah yang menjahitkan 40 dinar emas di balik baju beliau dan berpesan agar selalu berkata jujur — sebuah peristiwa yang kemudian menjadi salah satu karamah paling masyhur dalam sejarah Islam.
+</p>
+
+<div class="biografi-card">
+<span class="biografi-number">★</span>
+<span class="biografi-title">Peran Ibunda dalam Pembentukan Karakter</span>
+<div class="biografi-arabic">دَوْرُ الْأُمِّ فِي تَشْكِيلِ الشَّخْصِيَّةِ</div>
+<p>
+Ummul Khair Fatimah mengajarkan kepada putranya tiga nilai utama: <strong>Kejujuran</strong> (ash-shidqu), <strong>Ketakwaan</strong> (at-taqwa), dan <strong>Ketulusan</strong> (al-ikhlas). Tiga nilai ini kemudian menjadi fondasi karakter Syeikh Abdul Qadir Al-Jilani sepanjang hayatnya.
+</p>
+</div>
+
+<h2>Tanah Kelahiran: Jilan, Persia</h2>
+<p>
+<strong>Jilan</strong> (جِيلَان) adalah sebuah daerah di utara Persia (sekarang Iran), yang terletak di tepi Laut Kaspia. Daerah ini dikenal sebagai wilayah yang subur, indah, dan memiliki tradisi keilmuan Islam yang kuat. Pada abad ke-5 Hijriah, Jilan merupakan salah satu pusat peradaban Islam di Persia.
+</p>
+<p>
+Meskipun lahir di Persia, Syeikh Abdul Qadir Al-Jilani kemudian hijrah ke Baghdad, Irak, yang pada masa itu merupakan pusat kekhalifahan Abbasiyah dan pusat ilmu pengetahuan Islam terbesar di dunia. Di Baghdad-lah beliau berkembang menjadi ulama besar dan wali Allah yang dikenal hingga kini.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG HIJRAH — QS. AN-NISA': 100</div>
+<div class="arabic-text">
+وَمَن يُهَاجِرْ فِي سَبِيلِ اللَّهِ يَجِدْ فِي الْأَرْضِ مُرَاغَمًا كَثِيرًا وَسَعَةً
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa berhijrah di jalan Allah, niscaya mereka mendapati di muka bumi ini tempat hijrah yang luas dan rezeki yang banyak."
+<br>— QS. An-Nisa': 100
+</div>
+</div>
+
+<h2>Keajaiban Sejak dalam Kandungan</h2>
+<p>
+Para ulama menceritakan bahwa sejak masih dalam kandungan ibunya, Syeikh Abdul Qadir Al-Jilani telah menunjukkan tanda-tanda kewalian. Dikisahkan bahwa ibundanya tidak pernah merasakan berat dalam mengandungnya, dan janin di dalam perutnya seolah-olah bertasbih dan berdzikir.
+</p>
+<p>
+Ketika lahir, bayi Abdul Qadir konon langsung mengucapkan <em>"La ilaha illallah"</em> dengan suara yang jelas. Peristiwa ini dianggap sebagai tanda bahwa Allah telah memilih beliau menjadi salah satu wali-Nya yang agung sejak sebelum lahir ke dunia.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-label">KALIMAT SYAHADAT</div>
+<div class="arabic-text">
+لَا إِلٰهَ إِلَّا اللهُ مُحَمَّدٌ رَسُولُ اللهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Tiada Tuhan selain Allah, Muhammad adalah utusan Allah."
+</div>
+</div>
+
+<h2>Doa untuk Syeikh Abdul Qadir Al-Jilani</h2>
+
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON SYAFA'AT</div>
+<div class="arabic-text">
+اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَىٰ سَيِّدِنَا مُحَمَّدٍ وَعَلَىٰ آلِهِ وَصَحْبِهِ أَجْمَعِينَ، وَاجْعَلْ سَيِّدَنَا الشَّيْخَ عَبْدَ الْقَادِرِ الْجِيلَانِيَّ شَفِيعَنَا يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, limpahkanlah shalawat dan salam kepada Sayyidina Muhammad, keluarga, dan seluruh sahabatnya. Dan jadikanlah Sayyidina Syeikh Abdul Qadir Al-Jilani sebagai pemberi syafaat bagi kami pada hari kiamat."
+</div>
+</div>
+
+<h2>Penutup Halaman 1</h2>
+<p>
+Demikianlah biografi singkat tentang nasab dan kelahiran Syeikh Abdul Qadir Al-Jilani. Nasab yang mulia ini menjadi salah satu tanda keagungan beliau, meskipun yang paling utama adalah ketakwaan dan amal shaleh beliau. Pada halaman berikutnya, kita akan membahas masa kecil dan perjalanan menuntut ilmu beliau.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa bertakwa kepada Allah niscaya Dia akan mengadakan baginya jalan keluar. Dan memberinya rezeki dari arah yang tiada disangka-sangkanya."
+<br>— QS. At-Talaq: 2-3
+</div>
+</div>
+</div>
+
+<!-- NAVIGASI 5 TOMBOL -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="biografi1.html" class="article-nav-btn active" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="biografi1-cabang.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+</div>
+
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
