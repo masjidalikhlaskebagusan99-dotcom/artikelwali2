@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karomah Syeikh Abu Hamid Al-Ghazali - KALAM</title>
+<style>
+/* 1. RESET & DASAR */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Georgia', serif;
+background-color: #f5f5f0;
+color: #333;
+min-height: 100vh;
+line-height: 1.8;
+}
+/* 2. MEDIA QUERY TABLET */
+@media (max-width: 768px) {
+.article-container {
+max-width: 100%;
+padding: 20px;
+}
+h1 { font-size: 26px; }
+.featured-img { max-width: 100%; }
+}
+/* 3. HEADER & NAVIGASI ATAS */
+header {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+padding: 20px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+position: sticky;
+top: 0;
+z-index: 100;
+}
+.logo-kalam {
+font-size: 1.8rem;
+font-weight: bold;
+color: #e94560;
+letter-spacing: 5px;
+text-decoration: none;
+text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+transition: all 0.3s ease;
+padding: 8px 16px;
+border-radius: 8px;
+}
+.logo-kalam:hover {
+background: rgba(233, 69, 96, 0.15);
+transform: scale(1.05);
+}
+.logo-kalam span { color: #fff; }
+nav { display: flex; gap: 15px; }
+nav a {
+color: #ccc;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 25px;
+transition: all 0.3s ease;
+font-size: 0.95rem;
+}
+nav a:hover { background: #e94560; color: #fff; }
+/* 4. BREADCRUMB & CONTAINER */
+.breadcrumb {
+padding: 15px 40px;
+background: #eee;
+font-size: 0.85rem;
+color: #777;
+}
+.breadcrumb a { color: #e94560; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-container {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+/* 5. ARTICLE HEADER & META */
+.article-header { margin-bottom: 30px; }
+.article-header h1 {
+font-size: 2.2rem;
+color: #1a1a2e;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+.article-header .subtitle {
+font-size: 1.1rem;
+color: #e94560;
+font-style: italic;
+margin-bottom: 15px;
+}
+.article-meta {
+display: flex;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+color: #888;
+font-size: 0.9rem;
+padding-bottom: 20px;
+border-bottom: 1px solid #ddd;
+}
+.author { display: flex; align-items: center; gap: 8px; }
+.author-avatar {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: linear-gradient(135deg, #e94560, #c23152);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: bold;
+font-size: 0.85rem;
+}
+.author-name { font-weight: bold; color: #333; }
+.meta-date { color: #999; }
+/* 6. GAMBAR & SHARE BAR */
+.article-image-wrapper {
+margin: 25px 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+position: relative;
+}
+.article-image-wrapper img {
+width: 100%;
+height: auto;
+display: block;
+transition: transform 0.5s ease;
+}
+.article-image-wrapper:hover img { transform: scale(1.02); }
+.image-caption {
+background: rgba(0,0,0,0.7);
+color: #ccc;
+padding: 10px 15px;
+font-size: 0.8rem;
+}
+.share-bar {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 15px 0;
+border-bottom: 1px solid #ddd;
+margin-bottom: 25px;
+flex-wrap: wrap;
+}
+.share-bar span { font-size: 0.85rem; color: #888; margin-right: 5px; }
+.share-btn {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: bold;
+transition: all 0.3s ease;
+}
+.share-btn.fb { background: #3b5998; }
+.share-btn.tw { background: #1da1f2; }
+.share-btn.wa { background: #25d366; }
+.share-btn.tg { background: #0088cc; }
+.share-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.font-size-controls { margin-left: auto; display: flex; gap: 5px; }
+.font-btn {
+width: 32px;
+height: 32px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #fff;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.85rem;
+transition: all 0.2s;
+}
+.font-btn:hover {
+background: #e94560;
+color: #fff;
+border-color: #e94560;
+}
+/* 7. KONTEN ARTIKEL */
+.article-content {
+font-size: 1.05rem;
+line-height: 1.9;
+color: #444;
+}
+.article-content p {
+margin-bottom: 20px;
+text-align: justify;
+}
+.article-content .lead {
+font-size: 1.15rem;
+font-weight: bold;
+color: #1a1a2e;
+border-left: 4px solid #e94560;
+padding-left: 20px;
+margin-bottom: 25px;
+}
+.article-content blockquote {
+background: #f0f0eb;
+border-left: 4px solid #e94560;
+padding: 20px 25px;
+margin: 25px 0;
+border-radius: 0 8px 8px 0;
+font-style: italic;
+color: #555;
+}
+.article-content h2 {
+font-size: 1.5rem;
+color: #1a1a2e;
+margin: 35px 0 15px;
+padding-bottom: 10px;
+border-bottom: 2px solid #e94560;
+}
+.article-content h3 {
+font-size: 1.2rem;
+color: #333;
+margin: 25px 0 10px;
+}
+.article-content ul {
+margin: 15px 0 20px 30px;
+}
+.article-content ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 8. KOTAK ARAB & KAROMAH */
+.arabic-box {
+background: linear-gradient(135deg, #f8f6f0 0%, #f0ede5 100%);
+border: 2px solid #d4af37;
+border-radius: 12px;
+padding: 30px 25px;
+margin: 25px 0;
+text-align: center;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+position: relative;
+}
+.arabic-box::before {
+content: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
+position: absolute;
+top: -14px;
+left: 50%;
+transform: translateX(-50%);
+background: #f8f6f0;
+padding: 0 12px;
+font-size: 1.2rem;
+color: #d4af37;
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+white-space: nowrap;
+line-height: 1.4;
+z-index: 2;
+}
+.arabic-text {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.8rem;
+line-height: 2.8;
+color: #1a1a2e;
+direction: rtl;
+margin: 15px 0;
+}
+.arabic-translation {
+font-size: 0.95rem;
+color: #666;
+font-style: italic;
+margin-top: 15px;
+padding-top: 15px;
+border-top: 1px dashed #d4af37;
+}
+.arabic-label {
+display: inline-block;
+background: #d4af37;
+color: #fff;
+padding: 4px 15px;
+border-radius: 15px;
+font-size: 0.8rem;
+font-weight: bold;
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+.karomah-card {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #e94560;
+}
+.karomah-number {
+display: inline-block;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+font-weight: bold;
+font-size: 1.2rem;
+margin-right: 10px;
+}
+.karomah-title {
+font-size: 1.3rem;
+color: #1a1a2e;
+font-weight: bold;
+display: inline;
+}
+.karomah-arabic {
+font-family: 'Traditional Arabic', 'Scheherazade', 'Amiri', serif;
+font-size: 1.6rem;
+color: #d4af37;
+direction: rtl;
+margin: 10px 0;
+text-align: right;
+}
+.highlight-box {
+background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+border: 1px solid #e0ddd5;
+border-radius: 12px;
+padding: 25px;
+margin: 25px 0;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+border-left: 5px solid #d4af37;
+}
+.highlight-box ul {
+margin: 15px 0 0 30px;
+}
+.highlight-box ul li {
+margin-bottom: 10px;
+line-height: 1.7;
+}
+/* 9. NAVIGASI HALAMAN (9 TOMBOL — DIATUR AGAR ELEGAN) */
+.article-nav {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 40px 0;
+padding: 20px;
+background: linear-gradient(135deg, #1a1a2e, #16213e);
+border-radius: 15px;
+flex-wrap: wrap;
+}
+.article-nav-btn {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+border: 2px solid #e94560;
+background: rgba(233, 69, 96, 0.1);
+color: #fff;
+font-size: 1.15rem;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.article-nav-btn:hover {
+background: #e94560;
+transform: scale(1.15);
+box-shadow: 0 5px 20px rgba(233, 69, 96, 0.5);
+}
+.article-nav-btn.active {
+background: #e94560;
+box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+.nav-btn-label {
+text-align: center;
+color: #aaa;
+font-size: 0.75rem;
+margin-top: 6px;
+}
+.nav-group {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* 10. TOMBOL KEMBALI & FOOTER */
+.kalam-back-btn {
+display: block;
+text-align: center;
+margin: 40px auto;
+padding: 18px 50px;
+background: linear-gradient(135deg, #e94560, #c23152);
+color: #fff;
+text-decoration: none;
+border-radius: 35px;
+font-size: 1.2rem;
+font-weight: bold;
+letter-spacing: 4px;
+transition: all 0.4s ease;
+box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+max-width: 350px;
+}
+.kalam-back-btn:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
+background: linear-gradient(135deg, #ff6b81, #e94560);
+letter-spacing: 6px;
+}
+.kalam-back-btn .btn-sub {
+display: block;
+font-size: 0.75rem;
+letter-spacing: 2px;
+margin-top: 5px;
+opacity: 0.8;
+font-weight: normal;
+}
+footer {
+background: #1a1a2e;
+color: #888;
+text-align: center;
+padding: 25px;
+font-size: 0.9rem;
+margin-top: 40px;
+}
+footer span { color: #e94560; }
+/* 11. MEDIA QUERY MOBILE */
+@media (max-width: 600px) {
+body { font-size: 14px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+header {
+flex-direction: column;
+gap: 10px;
+padding: 15px 20px;
+}
+nav {
+flex-direction: column;
+gap: 10px;
+width: 100%;
+justify-content: center;
+}
+.article-container { padding: 0 15px; }
+.article-content { font-size: 0.95rem; }
+.arabic-text { font-size: 1.4rem; line-height: 2.4; }
+.karomah-arabic { font-size: 1.3rem; }
+.article-nav {
+gap: 6px;
+padding: 15px;
+}
+.article-nav-btn {
+width: 36px;
+height: 36px;
+font-size: 1rem;
+}
+.nav-btn-label { font-size: 0.65rem; }
+}
+/* PATCH UNIVERSAL v2.0 */
+@media (max-width: 600px) {
+header {
+flex-direction: column !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 10px !important;
+padding: 15px 16px !important;
+text-align: center;
+}
+header .logo-kalam {
+font-size: 1.5rem !important;
+letter-spacing: 4px !important;
+padding: 6px 14px !important;
+margin: 0 auto !important;
+display: inline-block;
+}
+header nav {
+flex-direction: row !important;
+gap: 8px !important;
+width: auto !important;
+justify-content: center !important;
+margin: 0 auto !important;
+}
+header nav a {
+padding: 8px 14px !important;
+font-size: 0.85rem !important;
+white-space: nowrap;
+}
+}
+@media (max-width: 360px) {
+header .logo-kalam {
+font-size: 1.3rem !important;
+letter-spacing: 3px !important;
+}
+header nav a {
+padding: 6px 10px !important;
+font-size: 0.8rem !important;
+}
+.article-nav-btn {
+width: 32px;
+height: 32px;
+font-size: 0.9rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="logo-kalam" title="Kembali ke Beranda">
+<span>K</span>ALAM
+</a>
+<nav>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a>
+<a href="artikelwali2.html">Artikel</a>
+</nav>
+</header>
+<div class="breadcrumb">
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/">Beranda</a> &raquo; <a href="artikelwali2.html">Artikel</a> &raquo; Karomah Syeikh Abu Hamid Al-Ghazali
+</div>
+<div class="article-container">
+<div class="article-header">
+<h1>Karomah Syeikh Abu Hamid Al-Ghazali</h1>
+<div class="subtitle">Halaman 1 dari 9 — Pendahuluan & Karomah Masa Awal Kehidupan</div>
+<div class="article-meta">
+<div class="author">
+<div class="author-avatar">MY</div>
+<div>
+<div class="author-name">DKM Masjid Jami' Al-Ikhlas Kebagusan</div>
+<div class="meta-date">Selasa, 13 Oktober 2026, 08:00 WIB</div>
+</div>
+</div>
+</div>
+</div>
+<div class="article-image-wrapper">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Tus_Iran.JPG/440px-Tus_Iran.JPG"
+alt="Kota Thus — Tanah Kelahiran Al-Ghazali"
+loading="eager"
+decoding="async"
+onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abdul_Qadir_Jilani.jpg/440px-Abdul_Qadir_Jilani.jpg';">
+<div class="image-caption">Sumber: kalam.web.id — Ilustrasi kota Thus di Khurasan (kini Iran), tanah kelahiran Hujjatul Islam Syeikh Abu Hamid Al-Ghazali</div>
+</div>
+<div class="share-bar">
+<span>Bagikan:</span>
+<a href="#" class="share-btn fb">f</a>
+<a href="#" class="share-btn tw">t</a>
+<a href="#" class="share-btn wa">W</a>
+<a href="#" class="share-btn tg">T</a>
+<div class="font-size-controls">
+<button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+<button class="font-btn" onclick="changeFontSize(1)">A+</button>
+</div>
+</div>
+<div class="article-content" id="articleContent">
+<p class="lead">
+Syeikh Abu Hamid Muhammad bin Muhammad Al-Ghazali Ath-Thusi (450-505 H / 1058-1111 M) adalah seorang ulama besar Islam yang dijuluki <em>Hujjatul Islam</em> (Pembela Islam) dan <em>Zainuddin</em> (Perhiasan Agama). Beliau lahir di desa Ghazalah, dekat kota Thus, wilayah Khurasan (kini Iran). Beliau adalah seorang faqih mazhab Syafi'i, ahli ushul fiqih, filsuf, teolog, sufi terkemuka, dan penulis kitab monumental <em>Ihya' 'Ulumuddin</em> yang menjadi salah satu karya terbesar dalam sejarah Islam. Karomah-karomah beliau — baik yang tampak dalam bentuk kecerdasan luar biasa, petunjuk ilahiyah, maupun cahaya ma'rifat — menjadi tanda pemuliaan Allah atas hamba-Nya yang ikhlas, yang oleh para ulama disebut sebagai <em>mujaddid</em> (pembaharu) pada abad kelima Hijriyah.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG WALI — QS. YUNUS: 62-63</div>
+<div class="arabic-text">
+أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ ۝ الَّذِينَ آمَنُوا وَكَانُوا يَتَّقُونَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ingatlah, sesungguhnya wali-wali Allah itu tidak ada ketakutan bagi mereka dan tidak pula mereka bersedih hati. (Yaitu) orang-orang yang beriman dan mereka senantiasa bertakwa."
+<br>— QS. Yunus: 62-63
+</div>
+</div>
+<h2>Hujjatul Islam — Pembela Agama</h2>
+<p>
+Syeikh Abu Hamid Al-Ghazali mendapatkan gelar <em>Hujjatul Islam</em> bukan karena beliau memintanya, melainkan karena Allah anugerahkan kepadanya kemampuan luar biasa dalam membela agama Islam dari berbagai serangan pemikiran — baik dari kaum batiniyah (syi'ah ekstrem), filsuf-filsuf Yunani yang menyimpang, maupun dari kalangan mu'tazilah yang menggunakan akal di atas wahyu. Beliau menulis kitab <em>Tahafut al-Falasifah</em> (Kerancuan Para Filsuf) yang meruntuhkan argumen-argumen filsuf seperti Ibnu Sina dan Al-Farabi, sekaligus menulis <em>Al-Munqidz min ad-Dalal</em> (Penyelamat dari Kesesatan) yang menjadi panduan bagi siapa saja yang ingin mencari kebenaran.
+</p>
+<p>
+Karomah (كَرَامَةٌ) secara bahasa berarti "kemuliaan" atau "anugerah istimewa". Dalam istilah tasawuf, karomah adalah peristiwa luar biasa yang Allah tampakkan melalui tangan seorang wali sebagai bentuk pemuliaan, berbeda dengan mukjizat yang diberikan kepada para nabi. Para ulama Ahlussunnah wal Jama'ah sepakat bahwa karomah adalah hak dan anugerah Allah yang diberikan kepada orang-orang yang beriman serta bertakwa. Syeikh Al-Ghazali sendiri pernah berkata bahwa karomah yang paling agung bukanlah berjalan di atas air atau terbang di udara, melainkan istiqamah di atas syariat dan mengenal Allah dengan ma'rifat yang sejati.
+</p>
+<div class="arabic-box">
+<div class="arabic-label">PERKATAAN SYEIKH AL-GHAZALI</div>
+<div class="arabic-text">
+أَعْظَمُ الْكَرَامَةِ مَعْرِفَةُ اللَّهِ وَاسْتِقَامَةُ الْقَلْبِ عَلَى طَاعَتِهِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Karomah yang paling agung adalah mengenal Allah dan istiqamahnya hati di atas ketaatan kepada-Nya. Barangsiapa yang mengenal Allah, maka ia akan mencintai-Nya, dan barangsiapa yang mencintai-Nya, maka ia akan meninggalkan segala sesuatu selain-Nya."
+<br>— Syeikh Abu Hamid Al-Ghazali, dalam kitab <em>Ihya' 'Ulumuddin</em>
+</div>
+</div>
+<h2>Karomah-Karomah Syeikh Abu Hamid Al-Ghazali</h2>
+<p>
+Berikut adalah beberapa karomah luar biasa yang Allah anugerahkan kepada Syeikh Abu Hamid Al-Ghazali, mulai dari masa awal kehidupan beliau di Thus hingga perjalanan keilmuan di Naisabur dan Baghdad.
+</p>
+<div class="karomah-card">
+<span class="karomah-number">1</span>
+<span class="karomah-title">Karomah Lahir di Thus — Tanah yang Penuh Berkah</span>
+<div class="karomah-arabic">وِلَادَتُهُ بِبِلَادِ طُوسَ الْمُبَارَكَةِ</div>
+<p>
+Syeikh Abu Hamid Al-Ghazali lahir pada tahun 450 H (1058 M) di desa Ghazalah, salah satu desa di pinggiran kota Thus, wilayah Khurasan (kini di Iran). Thus pada masa itu merupakan salah satu pusat keilmuan penting di dunia Islam, tempat berkumpulnya para ulama, ahli fiqih, dan sufi besar. Kelahiran beliau di negeri ini menjadi tanda bahwa Allah telah memilih beliau untuk menjadi salah satu pembela agama-Nya yang paling besar di zamannya.
+</p>
+<p>
+Nama <em>Al-Ghazali</em> dinisbatkan kepada desa Ghazalah — tempat kelahiran beliau — atau menurut sebagian riwayat, kepada profesi ayahnya sebagai pemintal benang (<em>ghazzal</em>). Nama ini kemudian menjadi terkenal di seluruh dunia Islam, dan nama beliau selalu disebut dengan penuh penghormatan: <em>Hujjatul Islam Imam Abu Hamid Al-Ghazali</em>.
+</p>
+<p>
+Para ulama menceritakan bahwa ketika beliau lahir, cahaya yang sangat terang menyinari rumah keluarganya, seolah-olah matahari terbit di tengah malam. Ibunya merasakan ketenangan yang luar biasa ketika mengandungnya, dan beliau lahir dalam keadaan yang sehat dan sempurna. Orang-orang yang melihat cahaya itu takjub dan berkata: <em>"Sesungguhnya anak ini akan menjadi orang yang besar di zamannya."</em>
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA IMAN — QS. AN-NUR: 35</div>
+<div class="arabic-text">
+اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah (Pemberi) cahaya (kepada) langit dan bumi."
+<br>— QS. An-Nur: 35
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">2</span>
+<span class="karomah-title">Karomah Yatim Sejak Kecil & Didikan Ayah yang Shaleh</span>
+<div class="karomah-arabic">يُتْمُهُ وَوَصِيَّةُ أَبِيهِ الصَّالِحِ</div>
+<p>
+Salah satu karomah yang tampak dalam kehidupan Syeikh Abu Hamid Al-Ghazali adalah bahwa beliau telah menjadi yatim sejak usia muda. Ayahnya — yang dalam riwayat disebutkan sebagai seorang pemintal benang yang shaleh dan wara' — wafat ketika beliau dan saudaranya, Ahmad, masih kecil. Sebelum wafat, ayahnya berpesan kepada seorang sahabatnya yang shaleh — seorang sufi — untuk mendidik kedua anak itu dan menjaga harta peninggalan mereka.
+</p>
+<p>
+Sang sufi menerima amanah itu dengan penuh tanggung jawab. Beliau mendidik kedua anak itu dengan pendidikan agama yang kuat, mengajarkan mereka Al-Qur'an, akhlak, dan adab. Dari didikan inilah Syeikh Abu Hamid mendapatkan pondasi spiritual yang kuat yang kemudian membentuk kepribadian beliau sebagai salah satu ulama terbesar di zamannya.
+</p>
+<p>
+Ketika harta peninggalan mereka habis, sang sufi berkata kepada kedua anak itu: <em>"Wahai anak-anak, aku tidak memiliki harta untuk kalian. Namun aku memiliki ilmu. Maka pergilah kalian ke madrasah, dan belajarlah dengan sungguh-sungguh. Semoga Allah memberikan kalian keberkahan."</em> Nasihat inilah yang menjadi titik balik kehidupan Syeikh Abu Hamid — beliau meninggalkan kampung halamannya untuk menuntut ilmu, dan dari sinilah perjalanan keilmuan beliau dimulai.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG DIDIKAN — QS. LUQMAN: 14</div>
+<div class="arabic-text">
+وَوَصَّيْنَا الْإِنسَانَ بِوَالِدَيْهِ حَمَلَتْهُ أُمُّهُ وَهْنًا عَلَىٰ وَهْنٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Kami perintahkan kepada manusia (berbuat baik) kepada dua orang ibu-bapaknya; ibunya telah mengandungnya dalam keadaan lemah yang bertambah-tambah."
+<br>— QS. Luqman: 14
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">3</span>
+<span class="karomah-title">Karomah Menghafal Al-Qur'an Sejak Kecil</span>
+<div class="karomah-arabic">حِفْظُهُ لِلْقُرْآنِ مُنْذُ صِغَرِهِ</div>
+<p>
+Sejak usia yang sangat muda, Syeikh Abu Hamid telah menunjukkan kecerdasan spiritual yang luar biasa. Beliau menghafal Al-Qur'an sebelum usia baligh, dan beliau senantiasa membacanya dengan tartil dan penuh kekhusyukan. Ketika beliau membaca Al-Qur'an, orang-orang yang mendengarnya merasakan ketenangan yang luar biasa, seolah-olah ayat-ayat Al-Qur'an itu turun dari langit langsung ke dalam hati mereka.
+</p>
+<p>
+Para guru beliau di Thus takjub dengan kemampuan beliau memahami makna-makna Al-Qur'an yang dalam, meskipun usia beliau masih sangat muda. Beliau tidak hanya menghafal lafazh-lafazh Al-Qur'an, melainkan juga mengamalkannya dalam kehidupan sehari-hari. Beliau pernah berkata dalam kitab <em>Ihya' 'Ulumuddin</em>: <em>"Al-Qur'an bukanlah kitab yang hanya dibaca di lisan, melainkan kitab yang harus dihidupkan di dalam hati dan diamalkan dalam setiap perbuatan. Barangsiapa yang membaca Al-Qur'an namun tidak mengamalkannya, maka ia seperti pohon yang tidak berbuah."</em>
+</p>
+<p>
+Setelah menghafal Al-Qur'an, beliau kemudian menuntut ilmu fiqih mazhab Syafi'i dari para ulama di Thus. Kecerdasan beliau begitu luar biasa sehingga dalam waktu yang relatif singkat, beliau telah menguasai berbagai ilmu agama dan menjadi rujukan bagi para ulama sezamannya di Thus.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG AL-QUR'AN — QS. AL-ISRA': 82</div>
+<div class="arabic-text">
+وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Dan Kami turunkan dari Al-Qur'an suatu yang menjadi penawar dan rahmat bagi orang-orang yang beriman."
+<br>— QS. Al-Isra': 82
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">4</span>
+<span class="karomah-title">Karomah Perjalanan ke Naisabur Menuntut Ilmu</span>
+<div class="karomah-arabic">رِحْلَتُهُ إِلَى نَيْسَابُورَ لِطَلَبِ الْعِلْمِ</div>
+<p>
+Ketika Syeikh Abu Hamid berusia sekitar belasan tahun, beliau memutuskan untuk meninggalkan kampung halamannya di Thus dan pergi ke Naisabur — salah satu pusat keilmuan terbesar di dunia Islam pada masa itu — untuk menuntut ilmu kepada para ulama besar. Perjalanan dari Thus ke Naisabur memakan waktu berhari-hari, melintasi padang pasir dan pegunungan. Namun hati beliau dipenuhi kecintaan kepada ilmu, sehingga segala kesulitan perjalanan terasa ringan.
+</p>
+<p>
+Di Naisabur, beliau berguru kepada Imam Al-Haramain Abu al-Ma'ali Al-Juwaini — salah seorang ulama besar mazhab Syafi'i dan imam di bidang ushul fiqih. Di bawah bimbingan Imam Al-Juwaini inilah Syeikh Abu Hamid menempuh pendidikan keilmuan yang sangat ketat. Beliau mempelajari fiqih Syafi'i, ushul fiqih, teologi Asy'ariyah, logika, filsafat, dan berbagai ilmu lainnya.
+</p>
+<p>
+Imam Al-Juwaini sendiri takjub dengan kecerdasan Syeikh Abu Hamid. Beliau berkata kepada para muridnya: <em>"Perhatikanlah pemuda ini. Ia memiliki kecerdasan yang luar biasa. Aku melihat cahaya ilmu di wajahnya, dan aku yakin ia akan menjadi salah satu ulama besar di zamannya. Ia akan membela agama Islam dengan pena dan lisannya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>hidayah al-mu'allim</em> (petunjuk dari seorang guru) — karomah yang Allah berikan kepada hamba-Nya dengan mengirimkan guru yang tepat pada waktu yang tepat. Para ulama berkata bahwa barangsiapa yang mendapatkan guru yang sejati, maka ia telah mendapatkan kunci menuju ilmu yang bermanfaat.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG MENUNTUT ILMU — QS. AL-MUJADALAH: 11</div>
+<div class="arabic-text">
+يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Allah akan meninggikan orang-orang yang beriman di antaramu dan orang-orang yang diberi ilmu pengetahuan beberapa derajat."
+<br>— QS. Al-Mujadalah: 11
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">5</span>
+<span class="karomah-title">Karomah Kecerdasan yang Luar Biasa</span>
+<div class="karomah-arabic">ذَكَاؤُهُ الْخَارِقُ الْعَادَةِ</div>
+<p>
+Salah satu karomah paling menonjol dari Syeikh Abu Hamid Al-Ghazali adalah kecerdasan beliau yang luar biasa — kecerdasan yang oleh para ulama disebut sebagai <em>dzaka' khariq lil-'adah</em> (kecerdasan yang melampaui kebiasaan). Beliau mampu memahami masalah-masalah yang paling rumit dalam waktu yang sangat singkat, dan mampu menguasainya dengan kedalaman yang jarang dicapai oleh ulama lainnya.
+</p>
+<p>
+Para ulama menceritakan bahwa ketika beliau masih menjadi murid Imam Al-Juwaini, beliau sering kali mengajukan pertanyaan-pertanyaan yang membuat sang guru dan para murid lainnya terdiam. Pertanyaan-pertanyaan itu bukanlah pertanyaan orang yang tidak mengerti, melainkan pertanyaan orang yang telah memahami masalah sampai ke akar-akarnya dan ingin mengetahui hal-hal yang lebih dalam lagi.
+</p>
+<p>
+Dalam sebuah riwayat, diceritakan bahwa pada suatu hari Imam Al-Juwaini memberikan pengajian tentang masalah ushul fiqih yang sangat rumit. Setelah pengajian selesai, Syeikh Abu Hamid datang kepada sang guru dan mengajukan pertanyaan yang sangat mendalam tentang masalah tersebut. Imam Al-Juwaini terdiam sejenak, kemudian berkata: <em>"Wahai Abu Hamid, pertanyaanmu menunjukkan bahwa engkau telah memahami masalah ini lebih dalam daripada aku sendiri. Maka ketahuilah, bahwa ilmu yang engkau miliki bukanlah hasil usahamu semata, melainkan anugerah Allah yang Dia berikan kepadamu."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>fath al-ilmi</em> (pembukaan ilmu) — karomah yang Allah berikan kepada hamba-Nya dengan membuka pintu-pintu hikmah di dalam hatinya, sehingga ia mampu memahami ilmu dengan cara yang tidak mampu dicapai oleh orang lain.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG CAHAYA ILMU — QS. AN-NISA': 174</div>
+<div class="arabic-text">
+يَا أَيُّهَا النَّاسُ قَدْ جَاءَكُم بُرْهَانٌ مِّن رَّبِّكُمْ وَأَنزَلْنَا إِلَيْكُمْ نُورًا مُّبِينًا
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Wahai manusia, sesungguhnya telah datang kepadamu bukti (kebenaran) dari Tuhanmu, dan telah Kami turunkan kepadamu cahaya yang terang benderang."
+<br>— QS. An-Nisa': 174
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">6</span>
+<span class="karomah-title">Karomah Menggantikan Guru di Majelis Pengajian</span>
+<div class="karomah-arabic">خِلَافَتُهُ لِشَيْخِهِ فِي الْمَجْلِسِ</div>
+<p>
+Salah satu karomah yang paling jelas tampak dalam kehidupan Syeikh Abu Hamid adalah bahwa Allah anugerahkan kepadanya kemampuan untuk menggantikan gurunya, Imam Al-Juwaini, di majelis pengajian ketika sang guru berhalangan hadir. Ini adalah tanda bahwa Allah telah mempersiapkan beliau untuk menjadi salah satu ulama terbesar di zamannya.
+</p>
+<p>
+Ketika Imam Al-Juwaini wafat pada tahun 478 H, Syeikh Abu Hamid yang saat itu berusia sekitar 28 tahun telah menjadi salah satu ulama paling disegani di Naisabur. Para murid Imam Al-Juwaini datang kepada Syeikh Abu Hamid dan berkata: <em>"Wahai Abu Hamid, engkau adalah yang paling berhak menggantikan guru kita di majelis ini. Maka duduklah di tempat beliau, dan ajarkanlah ilmu yang telah engkau pelajari dari beliau."</em>
+</p>
+<p>
+Syeikh Abu Hamid pun menerima amanah itu dengan penuh kerendahan hati. Beliau duduk di majelis yang sebelumnya diduduki oleh gurunya, dan memberikan pengajian dengan penuh hikmah. Para murid merasakan bahwa ilmu yang beliau ajarkan bukanlah ilmu yang beliau pelajari dari buku-buku semata, melainkan ilmu yang telah menyatu dengan hati dan ruh beliau.
+</p>
+<p>
+Ini adalah karomah berupa <em>khilafah fil-'ilmi</em> (penggantian dalam ilmu) — karomah yang Allah berikan kepada hamba-Nya dengan menjadikannya penerus ilmu para ulama besar. Para ulama berkata bahwa barangsiapa yang menjadi penerus ilmu para ulama, maka ia telah mendapatkan warisan para nabi, karena para ulama adalah pewaris para nabi.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">SABDA RASULULLAH SAW TENTANG ULAMA</div>
+<div class="arabic-text">
+الْعُلَمَاءُ وَرَثَةُ الْأَنْبِيَاءِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Para ulama adalah pewaris para nabi."
+<br>— HR. Abu Dawud & Tirmidzi
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">7</span>
+<span class="karomah-title">Karomah Dipanggil ke Baghdad oleh Nizam Al-Mulk</span>
+<div class="karomah-arabic">دَعْوَتُهُ إِلَى بَغْدَادَ مِنْ نِظَامِ الْمُلْكِ</div>
+<p>
+Ketika nama Syeikh Abu Hamid Al-Ghazali mulai terkenal di Naisabur, Nizam Al-Mulk — wazir (perdana menteri) Kesultanan Seljuk yang sangat berkuasa pada masa itu — mendengar tentang kehebatan beliau. Nizam Al-Mulk adalah seorang pemimpin yang sangat peduli terhadap keilmuan, dan beliau telah mendirikan madrasah-madrasah Nizamiyah di berbagai kota untuk menyebarkan ilmu agama.
+</p>
+<p>
+Nizam Al-Mulk kemudian mengirim utusan kepada Syeikh Abu Hamid untuk mengundang beliau ke Baghdad — pusat peradaban Islam pada masa itu — dan menawarkan kepadanya jabatan sebagai profesor di Madrasah Nizamiyah Baghdad. Jabatan ini adalah salah satu jabatan keilmuan paling prestisius di dunia Islam pada masa itu.
+</p>
+<p>
+Syeikh Abu Hamid menerima undangan itu dengan penuh kerendahan hati, dan beliau berangkat ke Baghdad pada tahun 484 H dalam usia sekitar 34 tahun. Di Baghdad, beliau memberikan pengajian di Madrasah Nizamiyah yang dihadiri oleh ratusan murid — termasuk para ulama besar, hakim, pejabat, dan orang-orang terkemuka. Pengajian beliau menjadi salah satu pengajian paling populer di Baghdad, dan nama beliau semakin terkenal di seluruh dunia Islam.
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'yin ilahi</em> (penunjukan ilahiyah) — karomah yang Allah berikan kepada hamba-Nya dengan menempatkan beliau di tempat yang tepat untuk menyebarkan ilmu dan membela agama. Para ulama berkata bahwa barangsiapa yang ditempatkan oleh Allah di tempat yang tepat, maka ia telah mendapatkan taufiq dari Allah untuk menjadi pewaris para nabi.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG POSISI YANG TEPAT — QS. AL-HADID: 19</div>
+<div class="arabic-text">
+لِّكَيْلَا تَأْسَوْا عَلَىٰ مَا فَاتَكُمْ وَلَا تَفْرَحُوا بِمَا آتَاكُمْ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "(Kami tetapkan yang demikian) agar kamu tidak bersedih hati terhadap apa yang luput dari kamu, dan tidak pula terlalu gembira terhadap apa yang diberikan-Nya kepadamu."
+<br>— QS. Al-Hadid: 19
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">8</span>
+<span class="karomah-title">Karomah Menjadi Profesor di Nizamiyah Baghdad</span>
+<div class="karomah-arabic">تَدْرِيسُهُ فِي الْمَدْرَسَةِ النِّظَامِيَّةِ</div>
+<p>
+Di Madrasah Nizamiyah Baghdad, Syeikh Abu Hamid Al-Ghazali menjadi salah satu profesor paling disegani di zamannya. Beliau mengajar berbagai ilmu — fiqih Syafi'i, ushul fiqih, teologi Asy'ariyah, logika, filsafat, dan berbagai ilmu lainnya. Para murid beliau datang dari berbagai penjuru dunia Islam — dari Khurasan, Iraq, Syam, Mesir, hingga Andalusia — untuk belajar di bawah bimbingan beliau.
+</p>
+<p>
+Pengajian beliau dihadiri oleh lebih dari tiga ratus murid tetap, dan ribuan orang datang untuk mendengarkan ceramah-ceramah umum beliau. Di antara murid-murid beliau terdapat banyak ulama besar yang kemudian menjadi tokoh-tokoh penting dalam sejarah Islam, seperti Imam Abu Bakr ibn al-'Arabi, Imam Abu al-Fath al-Busti, dan banyak lagi.
+</p>
+<p>
+Syeikh Abu Hamid mengajar dengan metode yang sangat unik. Beliau tidak hanya menjelaskan lafazh-lafazh kitab, melainkan juga membuka makna-makna yang tersembunyi di baliknya. Para murid merasakan seolah-olah ilmu itu masuk langsung ke dalam hati mereka, bukan hanya ke dalam pikiran mereka. Salah seorang murid beliau berkata: <em>"Ketika Syeikh Abu Hamid mengajar, aku merasakan cahaya yang masuk ke dalam hatiku. Aku memahami masalah-masalah yang sebelumnya tidak aku pahami, dan aku merasakan ketenangan yang tidak pernah aku rasakan sebelumnya."</em>
+</p>
+<p>
+Ini adalah karomah berupa <em>ta'lim bin-nur</em> (pengajaran dengan cahaya) — karomah yang Allah berikan kepada para wali-Nya, sehingga ilmu yang mereka ajarkan masuk langsung ke dalam hati para murid.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG PENGAJARAN — QS. AR-RAHMAN: 1-4</div>
+<div class="arabic-text">
+الرَّحْمَٰنُ ۝ عَلَّمَ الْقُرْآنَ ۝ خَلَقَ الْإِنسَانَ ۝ عَلَّمَهُ الْبَيَانَ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Yang Maha Pemurah, yang telah mengajarkan Al-Qur'an, yang telah menciptakan manusia, yang mengajarnya pandai berbicara."
+<br>— QS. Ar-Rahman: 1-4
+</div>
+</div>
+<div class="karomah-card">
+<span class="karomah-number">9</span>
+<span class="karomah-title">Karomah Menulis Kitab-Kitab Monumental</span>
+<div class="karomah-arabic">تَأْلِيفُهُ لِلْكُتُبِ الْخَالِدَةِ</div>
+<p>
+Salah satu karomah terbesar Syeikh Abu Hamid Al-Ghazali adalah bahwa Allah anugerahkan kepadanya kemampuan untuk menulis kitab-kitab monumental yang menjadi rujukan para ulama hingga hari ini. Dalam masa hidupnya, beliau menulis lebih dari tujuh puluh kitab dalam berbagai bidang ilmu — fiqih, ushul fiqih, teologi, filsafat, tasawuf, akhlak, pendidikan, dan berbagai ilmu lainnya.
+</p>
+<p>
+Di antara kitab-kitab beliau yang paling masyhur adalah:
+</p>
+<ul>
+<li><strong>Ihya' 'Ulumuddin</strong> (Menghidupkan Kembali Ilmu-Ilmu Agama) — ensiklopedia tasawuf dan akhlak yang menjadi salah satu karya terbesar dalam sejarah Islam</li>
+<li><strong>Tahafut al-Falasifah</strong> (Kerancuan Para Filsuf) — kitab yang meruntuhkan argumen-argumen filsuf yang menyimpang</li>
+<li><strong>Al-Munqidz min ad-Dalal</strong> (Penyelamat dari Kesesatan) — otobiografi spiritual yang menjadi panduan mencari kebenaran</li>
+<li><strong>Al-Mustashfa min 'Ilm al-Ushul</strong> — kitab ushul fiqih yang menjadi rujukan utama dalam mazhab Syafi'i</li>
+<li><strong>Mizan al-'Amal</strong> (Timbangan Amal) — kitab akhlak dan tazkiyatun nafs</li>
+<li><strong>Kimya' as-Sa'adah</strong> (Kimia Kebahagiaan) — kitab tentang jalan menuju kebahagiaan sejati</li>
+</ul>
+<p>
+Para ulama berkata bahwa kemampuan menulis kitab-kitab sebanyak dan sedalam itu dalam satu masa hidup adalah karomah yang sangat langka. Ini bukanlah hasil dari kecerdasan intelektual semata, melainkan juga hasil dari <em>barakah</em> (keberkahan) yang Allah anugerahkan kepada beliau. Karena banyak ulama yang menulis puluhan kitab, namun hanya sedikit yang kitab-kitabnya terus dibaca dan dikaji selama berabad-abad — dan Syeikh Al-Ghazali adalah salah satu dari sedikit ulama yang kitab-kitabnya tetap hidup hingga hari ini.
+</p>
+</div>
+<div class="arabic-box">
+<div class="arabic-label">DALIL TENTANG ILMU YANG BERMANFAAT — QS. FATIR: 28</div>
+<div class="arabic-text">
+إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Sesungguhnya yang takut kepada Allah di antara hamba-hamba-Nya, hanyalah ulama."
+<br>— QS. Fathir: 28
+</div>
+</div>
+<div class="highlight-box">
+<strong style="color: #d4af37; font-size: 1.1rem;">Ciri-ciri Karomah Masa Awal Syeikh Abu Hamid Al-Ghazali:</strong>
+<ul>
+<li><strong>Lahir di Thus yang penuh berkah</strong> — Disinari cahaya kewalian saat kelahiran</li>
+<li><strong>Yatim sejak kecil</strong> — Didikan ayah shaleh dan sufi yang wara'</li>
+<li><strong>Menghafal Al-Qur'an sejak kecil</strong> — Kecerdasan spiritual yang luar biasa</li>
+<li><strong>Perjalanan ke Naisabur</strong> — Berguru kepada Imam Al-Haramain Al-Juwaini</li>
+<li><strong>Kecerdasan melampaui kebiasaan</strong> — <em>Dzaka' khariq lil-'adah</em></li>
+<li><strong>Menggantikan guru di majelis</strong> — <em>Khilafah fil-'ilmi</em> sebagai pewaris ulama</li>
+<li><strong>Dipanggil ke Baghdad</strong> — Oleh Nizam Al-Mulk, wazir Seljuk</li>
+<li><strong>Profesor di Nizamiyah</strong> — <em>Ta'lim bin-nur</em>, ilmu masuk ke hati murid</li>
+<li><strong>Menulis kitab-kitab monumental</strong> — Ihya', Tahafut, Munqidz, dan lainnya</li>
+</ul>
+</div>
+<h2>Doa Memohon Ilmu yang Bermanfaat</h2>
+<div class="arabic-box">
+<div class="arabic-label">DOA MEMOHON ILMU YANG BERMANFAAT</div>
+<div class="arabic-text">
+اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا، وَاجْعَلْ سَيِّدَنَا أَبَا حَامِدٍ الْغَزَالِيَّ شَفِيعِي يَوْمَ الْقِيَامَةِ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Ya Allah, manfaatkanlah aku dengan apa yang telah Engkau ajarkan kepadaku, ajarkanlah kepadaku apa yang bermanfaat bagiku, tambahkanlah ilmu kepadaku, dan jadikanlah Sayyidina Abu Hamid Al-Ghazali sebagai pemberi syafaat bagiku pada hari kiamat."
+<br>— Doa yang diajarkan Rasulullah SAW (HR. Ibnu Majah) + tambahan
+</div>
+</div>
+<h2>Penutup Halaman 1</h2>
+<p>
+Demikianlah sebagian karomah Syeikh Abu Hamid Al-Ghazali sejak masa awal kehidupan beliau — mulai dari kelahiran di Thus, masa yatim dan didikan ayah shaleh, menghafal Al-Qur'an, perjalanan ke Naisabur, kecerdasan yang luar biasa, menggantikan guru di majelis, dipanggil ke Baghdad, menjadi profesor di Nizamiyah, hingga menulis kitab-kitab monumental. Karomah-karomah ini bukanlah tujuan utama beliau, melainkan buah dari keikhlasan, zuhud, dan ketaatan beliau kepada Allah SWT.
+</p>
+<p>
+Namun di balik semua kehebatan intelektual dan keilmuan ini, terdapat sebuah krisis spiritual yang akan mengubah hidup beliau selamanya — sebuah krisis yang akan membawa beliau meninggalkan jabatan, harta, dan kemasyhuran untuk mengembara selama sepuluh tahun mencari kebenaran sejati. Kisah ini akan kita bahas pada halaman-halaman berikutnya.
+</p>
+<p>
+<em>Wallahu a'lam bish-shawab.</em> Dan segala puji bagi Allah, Tuhan semesta alam.
+</p>
+<div class="arabic-box">
+<div class="arabic-text">
+وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+</div>
+<div class="arabic-translation">
+<strong>Artinya:</strong> "Barangsiapa bertakwa kepada Allah niscaya Dia akan mengadakan baginya jalan keluar. Dan memberinya rezeki dari arah yang tiada disangka-sangkanya."
+<br>— QS. At-Talaq: 2-3
+</div>
+</div>
+</div>
+<!-- NAVIGASI 9 TOMBOL — DIATUR AGAR ELEGAN -->
+<div class="article-nav">
+<div class="nav-group">
+<a href="ghazali1.html" class="article-nav-btn active" title="Halaman 1">1</a>
+<div class="nav-btn-label">Halaman 1</div>
+</div>
+<div class="nav-group">
+<a href="ghazali2.html" class="article-nav-btn" title="Halaman 2">2</a>
+<div class="nav-btn-label">Halaman 2</div>
+</div>
+<div class="nav-group">
+<a href="ghazali3.html" class="article-nav-btn" title="Halaman 3">3</a>
+<div class="nav-btn-label">Halaman 3</div>
+</div>
+<div class="nav-group">
+<a href="ghazali4.html" class="article-nav-btn" title="Halaman 4">4</a>
+<div class="nav-btn-label">Halaman 4</div>
+</div>
+<div class="nav-group">
+<a href="ghazali5.html" class="article-nav-btn" title="Halaman 5">5</a>
+<div class="nav-btn-label">Halaman 5</div>
+</div>
+<div class="nav-group">
+<a href="ghazali6.html" class="article-nav-btn" title="Halaman 6">6</a>
+<div class="nav-btn-label">Halaman 6</div>
+</div>
+<div class="nav-group">
+<a href="ghazali7.html" class="article-nav-btn" title="Halaman 7">7</a>
+<div class="nav-btn-label">Halaman 7</div>
+</div>
+<div class="nav-group">
+<a href="ghazali8.html" class="article-nav-btn" title="Halaman 8">8</a>
+<div class="nav-btn-label">Halaman 8</div>
+</div>
+<div class="nav-group">
+<a href="ghazali9.html" class="article-nav-btn" title="Halaman 9">9</a>
+<div class="nav-btn-label">Halaman 9</div>
+</div>
+</div>
+<a href="https://masjidalikhlaskebagusan99-dotcom.github.io/Masjid-Al-Ikhlas/" class="kalam-back-btn">
+KALAM
+<span class="btn-sub">← Kembali ke Beranda</span>
+</a>
+</div>
+<footer>
+<p>&copy; 2026 <span>KALAM</span>. Semua hak dilindungi.</p>
+</footer>
+<script>
+let currentFontSize = 1.05;
+function changeFontSize(delta) {
+currentFontSize += delta * 0.1;
+if (currentFontSize < 0.8) currentFontSize = 0.8;
+if (currentFontSize > 1.5) currentFontSize = 1.5;
+document.getElementById('articleContent').style.fontSize = currentFontSize + 'rem';
+}
+</script>
+</body>
+</html>
